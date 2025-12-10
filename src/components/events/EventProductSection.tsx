@@ -11,6 +11,7 @@ import { toast } from 'sonner';
 interface ColorOption {
   name: string;
   hex: string;
+  image?: string;
 }
 
 interface SizeOption {
@@ -75,34 +76,54 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
       <div className="grid md:grid-cols-2 gap-8">
         {/* Left Column - Selections */}
         <div className="space-y-6">
-          {/* Color Swatches */}
+          {/* Color Swatches - Large Squares */}
           <div>
             <label className="block text-sm font-medium text-foreground/70 mb-3">
               Select Colour
             </label>
-            <div className="flex flex-wrap gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {colors.map((color) => (
                 <button
                   key={color.name}
                   onClick={() => setSelectedColor(color.name)}
                   className={cn(
-                    "w-12 h-12 rounded-full transition-all duration-200 border-2 flex items-center justify-center",
+                    "relative aspect-square rounded-lg transition-all duration-200 border-2 overflow-hidden group",
                     selectedColor === color.name 
-                      ? "border-accent ring-2 ring-accent/30 scale-110" 
-                      : "border-border hover:border-foreground/40 hover:scale-105"
+                      ? "border-accent ring-2 ring-accent/30 scale-[1.02]" 
+                      : "border-border hover:border-foreground/40 hover:scale-[1.01]"
                   )}
-                  style={{ backgroundColor: color.hex }}
-                  title={color.name}
                 >
-                  {color.hex === '#FFFFFF' && (
-                    <div className="w-full h-full rounded-full border border-gray-300" />
+                  {color.image ? (
+                    <img 
+                      src={color.image} 
+                      alt={color.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div 
+                      className="w-full h-full"
+                      style={{ backgroundColor: color.hex }}
+                    >
+                      {color.hex === '#FFFFFF' && (
+                        <div className="w-full h-full border border-gray-200" />
+                      )}
+                    </div>
+                  )}
+                  {/* Color name overlay */}
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+                    <span className="text-white text-sm font-medium">{color.name}</span>
+                  </div>
+                  {/* Selected indicator */}
+                  {selectedColor === color.name && (
+                    <div className="absolute top-2 right-2 w-6 h-6 bg-accent rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
                   )}
                 </button>
               ))}
             </div>
-            {selectedColor && (
-              <p className="mt-2 text-sm text-foreground/60">{selectedColor}</p>
-            )}
           </div>
 
           {/* Product Type Dropdown */}
