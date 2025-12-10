@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar } from '@/components/ui/calendar';
-import { Plus, Minus, ShoppingBag } from 'lucide-react';
+import { Plus, Minus, ShoppingBag, CalendarDays } from 'lucide-react';
 import { addDays, format } from 'date-fns';
-import { cn } from '@/lib/utils';
-import SizeGuideDialog from '@/components/SizeGuideDialog';
 import { toast } from 'sonner';
+import SizeGuideDialog from '@/components/SizeGuideDialog';
+import { cn } from '@/lib/utils';
 
 interface ColorOption {
   name: string;
@@ -20,7 +20,7 @@ interface SizeOption {
   price: number;
 }
 
-interface ProductTypeOption {
+interface ProductType {
   value: string;
   label: string;
   sizes: SizeOption[];
@@ -29,7 +29,7 @@ interface ProductTypeOption {
 interface EventProductSectionProps {
   title: string;
   colors: ColorOption[];
-  productTypes: ProductTypeOption[];
+  productTypes: ProductType[];
   sizeGuideType: 'rectangular' | 'round' | 'both';
 }
 
@@ -39,8 +39,9 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
-
-  const selectedProductTypeData = productTypes.find(pt => pt.value === selectedProductType);
+  const [showCalendar, setShowCalendar] = useState(false);
+  
+  const selectedProductTypeData = productTypes.find(p => p.value === selectedProductType);
   const selectedSizeData = selectedProductTypeData?.sizes.find(s => s.value === selectedSize);
   
   const hireEndDate = selectedDate ? addDays(selectedDate, 2) : undefined;
@@ -51,8 +52,8 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
 
   const handleAddToBasket = () => {
     if (!selectedColor || !selectedProductType || !selectedSize || !selectedDate) {
-      toast.error('Please complete all selections', {
-        description: 'Select color, product type, size, and hire date.'
+      toast.error('Please complete your selection', {
+        description: 'Choose colour, product type, size, and hire dates'
       });
       return;
     }
@@ -61,18 +62,33 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
       description: `${quantity}x ${selectedColor} ${selectedProductTypeData?.label} (${selectedSizeData?.label}) - ${format(selectedDate, 'dd MMM')} to ${format(hireEndDate!, 'dd MMM yyyy')}`
     });
     
-    // Reset quantity after adding
+    // Reset after adding
     setQuantity(1);
+    setShowCalendar(false);
   };
 
-  const totalPrice = selectedSizeData ? selectedSizeData.price * quantity : 0;
+  const handleShowCalendar = () => {
+    if (!selectedColor || !selectedProductType || !selectedSize) {
+      toast.error('Please complete your selection first', {
+        description: 'Choose colour, product type, and size before selecting dates'
+      });
+      return;
+    }
+    setShowCalendar(true);
+  };
+
+  // Reset size when product type changes
+  const handleProductTypeChange = (value: string) => {
+    setSelectedProductType(value);
+    setSelectedSize('');
+    setShowCalendar(false);
+    setSelectedDate(undefined);
+  };
 
   return (
-    <section className="py-12 border-b border-border">
-      <h2 className="font-display text-2xl md:text-3xl font-light text-foreground mb-8">
-        {title}
-      </h2>
-
+    <div className="bg-card border border-border rounded-lg p-6 md:p-8 mb-8">
+      <h2 className="font-display text-2xl font-light text-foreground mb-6">{title}</h2>
+      
       <div className="grid md:grid-cols-2 gap-8">
         {/* Left Column - Selections */}
         <div className="space-y-6">
@@ -131,17 +147,14 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
             <label className="block text-sm font-medium text-foreground/70 mb-2">
               Product Type
             </label>
-            <Select value={selectedProductType} onValueChange={(value) => {
-              setSelectedProductType(value);
-              setSelectedSize('');
-            }}>
-              <SelectTrigger className="w-full bg-background">
+            <Select value={selectedProductType} onValueChange={handleProductTypeChange}>
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select product type" />
               </SelectTrigger>
-              <SelectContent className="bg-background">
-                {productTypes.map((pt) => (
-                  <SelectItem key={pt.value} value={pt.value}>
-                    {pt.label}
+              <SelectContent>
+                {productTypes.map((type) => (
+                  <SelectItem key={type.value} value={type.value}>
+                    {type.label}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -149,16 +162,16 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
           </div>
 
           {/* Size Dropdown */}
-          {selectedProductType && selectedProductTypeData && (
+          {selectedProductTypeData && (
             <div>
               <label className="block text-sm font-medium text-foreground/70 mb-2">
                 Size
               </label>
               <Select value={selectedSize} onValueChange={setSelectedSize}>
-                <SelectTrigger className="w-full bg-background">
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select size" />
                 </SelectTrigger>
-                <SelectContent className="bg-background">
+                <SelectContent>
                   {selectedProductTypeData.sizes.map((size) => (
                     <SelectItem key={size.value} value={size.value}>
                       {size.label} - £{size.price.toFixed(2)}
@@ -173,15 +186,9 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
           {selectedSizeData && (
             <div className="p-4 bg-muted/50 rounded-lg">
               <div className="flex justify-between items-center">
-                <span className="text-foreground/70">Price per item (3-day hire):</span>
-                <span className="font-display text-lg font-medium">£{selectedSizeData.price.toFixed(2)}</span>
+                <span className="text-foreground/70">Price per item:</span>
+                <span className="text-xl font-display text-foreground">£{selectedSizeData.price.toFixed(2)}</span>
               </div>
-              {quantity > 1 && (
-                <div className="flex justify-between items-center mt-2 pt-2 border-t border-border">
-                  <span className="text-foreground/70">Total ({quantity} items):</span>
-                  <span className="font-display text-xl font-semibold text-accent">£{totalPrice.toFixed(2)}</span>
-                </div>
-              )}
             </div>
           )}
 
@@ -213,46 +220,74 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
 
         {/* Right Column - Calendar & Add to Basket */}
         <div className="space-y-6">
-          {/* Inline Calendar */}
-          <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">
-              Select Hire Start Date (3-day hire period)
-            </label>
-            <div className="border border-border rounded-lg p-4 bg-background">
-              <Calendar
-                mode="single"
-                selected={selectedDate}
-                onSelect={setSelectedDate}
-                disabled={(date) => date < new Date()}
-                className="pointer-events-auto mx-auto"
-              />
-              {selectedDate && hireEndDate && (
-                <div className="mt-4 p-3 bg-accent/10 rounded-lg text-center">
-                  <p className="text-sm text-foreground/70">Hire Period:</p>
-                  <p className="font-medium text-foreground">
-                    {format(selectedDate, 'EEE, dd MMM yyyy')} - {format(hireEndDate, 'EEE, dd MMM yyyy')}
-                  </p>
-                </div>
-              )}
+          {/* Calendar Section - Only shows after clicking "Select Dates" */}
+          {showCalendar ? (
+            <div>
+              <label className="block text-sm font-medium text-foreground/70 mb-2">
+                Select Start Date (3-day hire)
+              </label>
+              <div className="border border-border rounded-lg p-4 bg-background">
+                <Calendar
+                  mode="single"
+                  selected={selectedDate}
+                  onSelect={setSelectedDate}
+                  disabled={(date) => date < new Date()}
+                  className="pointer-events-auto mx-auto"
+                />
+                {selectedDate && hireEndDate && (
+                  <div className="mt-4 p-3 bg-accent/10 rounded-lg text-center">
+                    <p className="text-sm text-foreground/70">Hire Period:</p>
+                    <p className="font-medium text-foreground">
+                      {format(selectedDate, 'EEE, dd MMM yyyy')} - {format(hireEndDate, 'EEE, dd MMM yyyy')}
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="flex items-center justify-center h-full min-h-[200px]">
+              <div className="text-center">
+                <CalendarDays className="w-12 h-12 mx-auto mb-4 text-foreground/30" />
+                <p className="text-foreground/60 text-sm mb-4">
+                  Complete your selection above, then select your hire dates
+                </p>
+                <Button
+                  variant="outline"
+                  onClick={handleShowCalendar}
+                  className="gap-2"
+                >
+                  <CalendarDays className="w-4 h-4" />
+                  Select Hire Dates
+                </Button>
+              </div>
+            </div>
+          )}
 
           {/* Size Guide & Add to Basket */}
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex items-center gap-4">
             <SizeGuideDialog type={sizeGuideType} />
-            <Button
-              className="flex-1 w-full sm:w-auto gap-2"
-              size="lg"
+            <Button 
               onClick={handleAddToBasket}
               disabled={!selectedColor || !selectedProductType || !selectedSize || !selectedDate}
+              className="flex-1 gap-2"
             >
-              <ShoppingBag className="h-5 w-5" />
+              <ShoppingBag className="h-4 w-4" />
               Add to Basket
             </Button>
           </div>
+
+          {/* Total if quantity > 1 */}
+          {selectedSizeData && quantity > 1 && (
+            <div className="p-4 bg-accent/10 rounded-lg text-center">
+              <span className="text-foreground/70">Subtotal: </span>
+              <span className="text-xl font-display text-accent">
+                £{(selectedSizeData.price * quantity).toFixed(2)}
+              </span>
+            </div>
+          )}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
