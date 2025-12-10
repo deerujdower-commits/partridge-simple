@@ -53,19 +53,8 @@ const App = () => (
             <Route path="/collection/round-tablecloths/:color" element={<Collection />} />
             <Route path="/collection/round-tablecloths/:color/:size" element={<Collection />} />
             
-            {/* Events routes - all render Events with modal */}
+            {/* Events route - simplified single page */}
             <Route path="/events" element={<Events />} />
-            <Route path="/events/damask" element={<Events />} />
-            <Route path="/events/damask/:color" element={<Events />} />
-            <Route path="/events/damask/:color/:size" element={<Events />} />
-            <Route path="/events/round-tablecloths" element={<Events />} />
-            <Route path="/events/round-tablecloths/:color" element={<Events />} />
-            <Route path="/events/round-tablecloths/:color/:size" element={<Events />} />
-            <Route path="/events/tablecloths" element={<Events />} />
-            <Route path="/events/tablecloths/:color" element={<Events />} />
-            <Route path="/events/tablecloths/:color/:size" element={<Events />} />
-            <Route path="/events/napkins" element={<Events />} />
-            <Route path="/events/napkins/:color" element={<Events />} />
             
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
