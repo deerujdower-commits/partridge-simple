@@ -118,6 +118,17 @@ const Navigation = () => {
               )}
             </div>
 
+            {/* Event Hire - standalone gold link */}
+            <Link
+              to="/events"
+              className="font-body text-sm tracking-wide font-semibold text-[#DAA520] hover:text-[#B8860B] transition-colors duration-300 relative group"
+            >
+              <span className="relative">
+                Event Hire
+                <span className="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-[#DAA520]" />
+              </span>
+            </Link>
+
             {/* Contact with dropdown */}
             <div 
               className="relative"
@@ -247,6 +258,14 @@ const Navigation = () => {
                 ))}
               </div>
             </div>
+            
+            <Link
+              to="/events"
+              className="block font-body text-[#DAA520] hover:text-[#B8860B] transition-colors duration-300 font-semibold tracking-wide"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Event Hire
+            </Link>
             
             <div>
               <Link
