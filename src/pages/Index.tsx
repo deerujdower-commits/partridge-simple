@@ -16,8 +16,10 @@ const Index = () => {
       <div id="services">
         <ServicesSection />
       </div>
+      <div id="about">
+        <CompactAboutSection />
+      </div>
       <CollectionCarousel />
-      <CompactAboutSection />
       <StatsSection />
       <SoftCTA />
       <div id="contact">
