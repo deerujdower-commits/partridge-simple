@@ -108,7 +108,7 @@ const Events = () => {
               </span>
             </div>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-              Elegant Linens for <span className="text-accent">Your Special Events</span>
+              Elegant Linens for <span className="text-white">Your Special Events</span>
             </h1>
           </div>
         </div>
