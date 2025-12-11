@@ -991,20 +991,25 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                 </div>
               )}
 
-              {/* Bed Linen Type Selection */}
+              {/* Bed Linen Information */}
               {category.slug === 'bed-linen' && (
-                <div>
-                  <h3 className="text-base md:text-lg font-display text-foreground mb-3">Product Type</h3>
-                  <div className="grid grid-cols-1 gap-3">
-                    <Button variant="outline" className="h-auto py-4 px-4 opacity-60 cursor-not-allowed" disabled>
-                      <div className="text-center"><div className="font-semibold">Duvet Cover</div></div>
-                    </Button>
-                    <Button variant="outline" className="h-auto py-4 px-4 opacity-60 cursor-not-allowed" disabled>
-                      <div className="text-center"><div className="font-semibold">Bedsheet</div></div>
-                    </Button>
-                    <Button variant="outline" className="h-auto py-4 px-4 opacity-60 cursor-not-allowed" disabled>
-                      <div className="text-center"><div className="font-semibold">Pillow Cases</div></div>
-                    </Button>
+                <div className="space-y-4">
+                  <div className="p-4 bg-muted/30 rounded-lg">
+                    <h3 className="text-sm font-medium text-foreground mb-3">Product Types</h3>
+                    <ul className="text-sm text-foreground/70 space-y-1.5">
+                      <li>• Duvet Cover</li>
+                      <li>• Bedsheet</li>
+                      <li>• Pillow Cases</li>
+                    </ul>
+                  </div>
+                  <div className="p-4 bg-muted/30 rounded-lg">
+                    <h3 className="text-sm font-medium text-foreground mb-3">Available Sizes</h3>
+                    <ul className="text-sm text-foreground/70 space-y-1.5">
+                      <li>• Single</li>
+                      <li>• Double</li>
+                      <li>• Queen Size</li>
+                      <li>• King Size</li>
+                    </ul>
                   </div>
                 </div>
               )}
