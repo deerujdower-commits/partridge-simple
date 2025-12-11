@@ -5,8 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Mail, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
-import chefSuitWhiteFull from '@/assets/chef-suit-white-full.jpg';
-import chefSuitBlackFull from '@/assets/chef-suit-black-full.png';
 import chefJacketWhite from '@/assets/chef-jacket-white.png';
 import chefJacketBlack from '@/assets/chef-jacket-black.jpg';
 import chefJacketShortWhite from '@/assets/chef-jacket-short-white.png';
@@ -20,19 +18,14 @@ const kitchenClothGreen = '/lovable-uploads/027eb211-99a4-4e7d-8d3f-91a396f0b82a
 const kitchenClothBlue = '/lovable-uploads/21a97c9a-3bd0-417c-b445-5ae091c4192f.png';
 const kitchenClothRed = '/lovable-uploads/2733f275-4abc-4211-8663-e86feb172f9d.png';
 
-const chefJackets = [
-  { name: 'Chef Suit - White', image: chefSuitWhiteFull },
-  { name: 'Chef Suit - Black', image: chefSuitBlackFull },
+const chefWear = [
   { name: 'Chef Jacket Long Sleeve - White', image: chefJacketWhite },
   { name: 'Chef Jacket Long Sleeve - Black', image: chefJacketBlack },
   { name: 'Chef Jacket Short Sleeve - White', image: chefJacketShortWhite },
   { name: 'Chef Jacket Short Sleeve - Black', image: chefJacketShortBlack },
-  { name: 'Apron', image: apron },
-];
-
-const chefTrousers = [
   { name: 'Chef Trousers - Check', image: chefTrouserCheck },
   { name: 'Chef Trousers - Black', image: chefTrouserBlack },
+  { name: 'Apron', image: apron },
 ];
 
 const kitchenLinens = [
@@ -81,34 +74,13 @@ const Kitchen = () => {
             </p>
           </div>
 
-          {/* Chef Jackets Section */}
+          {/* Chef Wear Section */}
           <div className="mb-16">
             <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-8">
-              Chef Jackets & Aprons
+              Chef Wear
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-              {chefJackets.map((item, index) => (
-                <div key={index} className="group">
-                  <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <p className="text-foreground font-body text-sm text-center">{item.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Chef Trousers Section */}
-          <div className="mb-16">
-            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-8">
-              Chef Trousers
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-              {chefTrousers.map((item, index) => (
+              {chefWear.map((item, index) => (
                 <div key={index} className="group">
                   <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3">
                     <img
