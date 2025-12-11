@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { ArrowLeft, Phone, Mail } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Phone, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import {
   Accordion,
@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import EventProductSection from '@/components/events/EventProductSection';
+import eventsHero from '@/assets/events-hero.jpg';
 
 // Table Linen configuration
 const tableLinenColors = [
@@ -90,32 +91,33 @@ const Events = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <main className="pt-32 pb-12">
-        <div className="max-w-5xl mx-auto px-6 md:px-12">
-          {/* Back link */}
-          <Link
-            to="/"
-            className="inline-flex items-center text-foreground/60 hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Link>
-
-          {/* Header */}
-          <div className="mb-12">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-px bg-gradient-to-r from-accent to-accent-blue" />
-              <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-foreground/60">
+      {/* Hero Section */}
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        <img 
+          src={eventsHero} 
+          alt="Elegant damask tablecloth with fine dining place setting"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-16 h-px bg-white" />
+              <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 Event Hire
               </span>
             </div>
-
-            <h1 className="font-display text-3xl md:text-4xl font-light text-foreground leading-tight mb-6">
-              Elegant Linens for
-              <br />
-              <span className="text-accent">Your Special Events</span>
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+              Elegant Linens for <span className="text-accent">Your Special Events</span>
             </h1>
+          </div>
+        </div>
+      </section>
 
+      <main className="py-12">
+        <div className="max-w-5xl mx-auto px-6 md:px-12">
+          {/* Intro text */}
+          <div className="mb-12">
             <p className="text-foreground/70 font-body leading-relaxed text-lg max-w-3xl">
               From weddings to corporate events, we provide premium tablecloths and damask linens to make your occasion memorable. Select your items below.
             </p>
