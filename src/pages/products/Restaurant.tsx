@@ -40,6 +40,7 @@ import chefTrouserBlackModel from '@/assets/chef-trouser-black-model.png';
 import apron from '@/assets/apron.png';
 import apronModel from '@/assets/apron-model.jpg';
 import restaurantHero from '@/assets/restaurant-hero.jpg';
+import restaurantClient1 from '@/assets/restaurant-client-1.webp';
 
 const Restaurant = () => {
   const navigate = useNavigate();
@@ -211,6 +212,7 @@ const Restaurant = () => {
           <WhyUsSection
             heading="Trusted for 30 Years and Counting"
             subheading="Commercial linen solutions for an endless list of establishments. Our portfolio of clientele speaks for itself."
+            imagePlaceholder={restaurantClient1}
             features={[
               {
                 title: "Quality Service",
