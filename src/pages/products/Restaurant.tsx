@@ -135,15 +135,17 @@ const Restaurant = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-px bg-white" />
-              <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                Restaurant Linens
-              </span>
+            <div className="inline-block bg-black/60 backdrop-blur-sm px-6 py-4 rounded-lg">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-px bg-white" />
+                <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-white">
+                  Restaurant Linens
+                </span>
+              </div>
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight">
+                Commercial Restaurant Linen Hire
+              </h1>
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-              Commercial Restaurant Linen Hire
-            </h1>
           </div>
         </div>
       </section>
