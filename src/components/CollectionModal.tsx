@@ -993,30 +993,20 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
 
               {/* Bed Linen Information */}
               {category.slug === 'bed-linen' && (
-                <div className="p-5 bg-secondary/50 rounded-lg border border-border">
-                  <h3 className="text-base font-display text-foreground mb-4">What We Offer</h3>
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                    <div>
-                      <p className="text-xs font-medium text-foreground/60 uppercase tracking-wide mb-2">Products</p>
-                      <ul className="text-sm text-foreground space-y-1.5">
-                        <li>• Duvet Covers</li>
-                        <li>• Bedsheets</li>
-                        <li>• Pillow Cases</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium text-foreground/60 uppercase tracking-wide mb-2">Sizes</p>
-                      <ul className="text-sm text-foreground space-y-1.5">
-                        <li>• Single</li>
-                        <li>• Double</li>
-                        <li>• Queen</li>
-                        <li>• King</li>
-                      </ul>
-                    </div>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Products</p>
+                    <p className="text-sm text-foreground leading-relaxed">
+                      Duvet Covers • Bedsheets • Pillow Cases
+                    </p>
                   </div>
-                  <p className="text-xs text-foreground/60 mt-4 italic">
-                    Contact us to discuss your specific requirements
-                  </p>
+                  <div className="h-px bg-border" />
+                  <div>
+                    <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Sizes</p>
+                    <p className="text-sm text-foreground leading-relaxed">
+                      Single • Double • Queen • King
+                    </p>
+                  </div>
                 </div>
               )}
 
