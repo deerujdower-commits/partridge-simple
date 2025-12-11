@@ -41,7 +41,7 @@ const Navigation = () => {
     { name: 'Restaurant', href: '/restaurant', icon: Utensils },
     { name: 'Hotel Linens', href: '/hotel-linens', icon: Building2 },
     { name: 'Kitchen', href: '/kitchen', icon: ChefHat },
-    { name: 'Corporate Events', href: '/corporate-events', icon: PartyPopper },
+    { name: 'Event Hire', href: '/events', icon: PartyPopper },
   ];
 
   const handleContactScroll = (sectionId: string) => {
@@ -70,79 +70,54 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-2 lg:space-x-8 flex-grow justify-center">
-            {/* Home with dropdown */}
+            {/* Home */}
+            <Link
+              to="/"
+              className="font-body text-sm tracking-wide font-light text-white/80 hover:text-white transition-colors duration-300 relative group"
+            >
+              <span className="relative">
+                Home
+                <span className="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-white" />
+              </span>
+            </Link>
+
+            {/* Services with dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => handleMouseEnter('home')}
+              onMouseEnter={() => handleMouseEnter('services')}
               onMouseLeave={handleMouseLeave}
             >
-              <Link
-                to="/"
+              <button
                 className="font-body text-sm tracking-wide font-light text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-1 relative group"
               >
                 <span className="relative">
-                  Home
+                  Services
                   <span className="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-white" />
                 </span>
-                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openDropdown === 'home' ? 'rotate-180' : ''}`} />
-              </Link>
-              {openDropdown === 'home' && (
-                <div className="absolute top-full left-0 pt-2">
-                  <div className="w-56 bg-black/95 backdrop-blur-xl border border-white/10 shadow-xl rounded-md p-1 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
-                    <div className="px-2 py-1.5 text-xs font-medium text-white/50 uppercase tracking-wider">Services</div>
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openDropdown === 'services' ? 'rotate-180' : ''}`} />
+              </button>
+              {openDropdown === 'services' && (
+                <div className="absolute top-full left-0 pt-2 z-50">
+                  <div className="w-56 bg-black border border-white/10 shadow-xl rounded-md p-1 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
                     {services.map((service) => (
                       <Link 
                         key={service.name} 
                         to={service.href} 
-                        className="flex items-center gap-3 px-2 py-1.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-sm cursor-pointer transition-colors"
+                        className={`flex items-center gap-3 px-2 py-1.5 text-sm rounded-sm cursor-pointer transition-colors ${
+                          service.name === 'Event Hire' 
+                            ? 'text-[#DAA520] hover:text-[#B8860B] hover:bg-white/10 font-semibold' 
+                            : 'text-white/80 hover:text-white hover:bg-white/10'
+                        }`}
                       >
-                        <service.icon className="w-4 h-4 text-white/60" />
+                        <service.icon className={`w-4 h-4 ${service.name === 'Event Hire' ? 'text-[#DAA520]' : 'text-white/60'}`} />
                         <span>{service.name}</span>
                       </Link>
                     ))}
-                    <div className="h-px bg-white/10 my-1 -mx-1" />
-                    <Link 
-                      to="/#about" 
-                      className="block px-2 py-1.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-sm cursor-pointer transition-colors"
-                    >
-                      About Us
-                    </Link>
                   </div>
                 </div>
               )}
             </div>
-            
-            {/* Event Hire with dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => handleMouseEnter('events')}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Link
-                to="/events"
-                className="font-body text-sm tracking-wide font-semibold text-[#DAA520] hover:text-[#B8860B] transition-colors duration-300 flex items-center gap-1 relative group"
-              >
-                <span className="relative">
-                  Event Hire
-                  <span className="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-[#DAA520]" />
-                </span>
-                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openDropdown === 'events' ? 'rotate-180' : ''}`} />
-              </Link>
-              {openDropdown === 'events' && (
-                <div className="absolute top-full left-0 pt-2">
-                  <div className="w-48 bg-black/95 backdrop-blur-xl border border-white/10 shadow-xl rounded-md p-1 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
-                    <Link 
-                      to="/events" 
-                      className="flex items-center gap-3 px-2 py-1.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-sm cursor-pointer transition-colors"
-                    >
-                      <ClipboardList className="w-4 h-4 text-white/60" />
-                      <span className="font-medium">Order Now</span>
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-            
+
             {/* Contact with dropdown */}
             <div 
               className="relative"
@@ -244,54 +219,32 @@ const Navigation = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-border/20">
           <div className="px-6 py-6 space-y-4">
+            <Link
+              to="/"
+              className="block font-body text-foreground/80 hover:text-foreground transition-colors duration-300 font-light tracking-wide"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            
             <div>
-              <Link
-                to="/"
-                className="block font-body text-foreground/80 hover:text-foreground transition-colors duration-300 font-light tracking-wide mb-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
+              <p className="font-body text-foreground/80 font-light tracking-wide mb-2">Services</p>
               <div className="pl-4 space-y-2 border-l border-border/30">
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Services</p>
                 {services.map((service) => (
                   <Link
                     key={service.name}
                     to={service.href}
-                    className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
+                    className={`flex items-center gap-2 text-sm transition-colors ${
+                      service.name === 'Event Hire'
+                        ? 'text-[#DAA520] hover:text-[#B8860B] font-semibold'
+                        : 'text-foreground/70 hover:text-foreground'
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <service.icon className="w-3 h-3" />
+                    <service.icon className={`w-3 h-3 ${service.name === 'Event Hire' ? 'text-[#DAA520]' : ''}`} />
                     {service.name}
                   </Link>
                 ))}
-                <Link
-                  to="/#about"
-                  className="block text-sm text-foreground/70 hover:text-foreground transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About Us
-                </Link>
-              </div>
-            </div>
-            
-            <div>
-              <Link
-                to="/events"
-                className="block font-body bg-gradient-to-r from-[#B8860B] to-[#DAA520] bg-clip-text text-transparent hover:from-[#DAA520] hover:to-[#B8860B] transition-colors duration-300 font-semibold tracking-wide mb-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Event Hire
-              </Link>
-              <div className="pl-4 border-l border-border/30">
-                <Link
-                  to="/events"
-                  className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <ClipboardList className="w-3 h-3" />
-                  Order Now
-                </Link>
               </div>
             </div>
             
