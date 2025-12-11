@@ -102,7 +102,8 @@ const Navigation = () => {
                     {services.map((service) => (
                       <Link 
                         key={service.name} 
-                        to={service.href} 
+                        to={service.href}
+                        state={{ fromNav: true }}
                         className={`flex items-center gap-3 px-2 py-1.5 text-sm rounded-sm cursor-pointer transition-colors ${
                           service.name === 'Event Hire' 
                             ? 'text-[#DAA520] hover:text-[#B8860B] hover:bg-white/10 font-semibold' 
@@ -245,6 +246,7 @@ const Navigation = () => {
                   <Link
                     key={service.name}
                     to={service.href}
+                    state={{ fromNav: true }}
                     className={`flex items-center gap-2 text-sm transition-colors ${
                       service.name === 'Event Hire'
                         ? 'text-[#DAA520] hover:text-[#B8860B] font-semibold'

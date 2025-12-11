@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Mail, Phone } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
 import CollectionModal from '@/components/CollectionModal';
 
@@ -43,6 +43,8 @@ import restaurantHero from '@/assets/restaurant-hero.jpg';
 
 const Restaurant = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromNav = location.state?.fromNav === true;
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [selectedModal, setSelectedModal] = useState<{ id: number; title: string; description: string; images: string[]; slug: string } | null>(null);
 
@@ -150,16 +152,18 @@ const Restaurant = () => {
       
       <main className="flex-grow py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12">
-          {/* Back Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate('/')}
-            className="mb-8 group"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
-          </Button>
+          {/* Back Button - only show if not from nav dropdown */}
+          {!fromNav && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate('/')}
+              className="mb-8 group"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+              Back to Home
+            </Button>
+          )}
 
           {/* Header */}
           <div className="mb-12">
