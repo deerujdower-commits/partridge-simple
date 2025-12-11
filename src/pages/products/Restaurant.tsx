@@ -132,7 +132,7 @@ const Restaurant = () => {
           alt="Elegant restaurant table setting with white tablecloth and napkins"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-4 mb-4">
