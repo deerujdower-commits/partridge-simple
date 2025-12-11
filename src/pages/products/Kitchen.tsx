@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, ShieldCheck, Shirt, HandMetal, Users, Truck } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import WhyUsSection from '@/components/WhyUsSection';
 import EnquiryModal from '@/components/EnquiryModal';
 import chefJacketWhite from '@/assets/chef-jacket-white.png';
 import chefJacketBlack from '@/assets/chef-jacket-black.jpg';
@@ -137,87 +138,28 @@ const Kitchen = () => {
           </div>
 
           {/* Why Choose Us Section */}
-          <div className="bg-card border-2 border-border rounded-lg p-8 md:p-12 mb-12">
-            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-6">
-              Why Choose Partridge for Your Kitchen Laundry
-            </h2>
-            
-            <p className="text-foreground/70 font-body leading-relaxed mb-8">
-              From busy restaurants and takeaways to hotels and catering teams, Partridge provides a reliable kitchen laundry service designed to keep your staff and operations running smoothly. With over 30 years' experience, we ensure your uniforms, aprons, and kitchen linens are hygienic, crisp, and ready for use every day.
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <ShieldCheck className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    1. Hygiene & Sanitation You Can Trust
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    In a kitchen, cleanliness is essential. All items are professionally laundered to strict hygiene standards, removing bacteria and tough stains. Your kitchen linens and uniforms are kept sanitary and safe for daily use.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Shirt className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    2. Durable Workwear Fabrics
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    We specialise in poly-cotton workwear, offering long-lasting durability, comfort, and easy maintenance. Chef jackets, aprons, and staff uniforms are designed to withstand the rigours of a busy kitchen while keeping your team comfortable throughout their shift.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <HandMetal className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    3. Hand-Folded, Supreme Quality
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    Every uniform and linen is hand-folded with meticulous care. This attention to detail ensures your chefs and kitchen staff look sharp, professional, and well-presented, enhancing the image of your kitchen and establishment.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    4. Service for All Hospitality Teams
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    Whether you run a restaurant, takeaway, hotel kitchen, or catering operation, our service adapts to your needs. Regular collection and delivery schedules ensure you never run out of clean linen or uniforms, keeping your operations efficient.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Truck className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    5. Efficient & Large-Load Deliveries
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    We cover the M25 and beyond, handling large volumes with ease. No matter the size of your kitchen or number of sites, our reliable delivery service ensures your laundry arrives on time, every time.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <WhyUsSection
+            heading="Kitchen Laundry You Can Trust"
+            subheading="From restaurants and takeaways to hotels and catering teams, we keep your staff and operations running smoothly."
+            features={[
+              {
+                title: "Hygiene Standards",
+                description: "Professionally laundered to strict standards, removing bacteria and tough stains."
+              },
+              {
+                title: "Durable Fabrics",
+                description: "Poly-cotton workwear built to withstand the rigours of a busy kitchen."
+              },
+              {
+                title: "Hand-Folded Quality",
+                description: "Every uniform meticulously hand-folded so your team always looks sharp."
+              },
+              {
+                title: "Reliable Delivery",
+                description: "Regular collection schedules so you never run out of clean uniforms."
+              }
+            ]}
+          />
 
           {/* CTA Section */}
           <div className="bg-accent rounded-lg p-8 md:p-12 text-center relative overflow-hidden">

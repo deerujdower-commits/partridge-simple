@@ -2,11 +2,11 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Mail, Phone, RefreshCw, Sparkles, Truck, Search } from 'lucide-react';
+import { ArrowLeft, Mail, Phone } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
 import CollectionModal from '@/components/CollectionModal';
-
+import WhyUsSection from '@/components/WhyUsSection';
 // Tablecloth images
 const studioFittedWhiteTablecloth = '/lovable-uploads/cf54b1ce-fef7-4ac1-8bbc-34b126347063.png';
 const studioFittedBlackTableclothV2 = '/lovable-uploads/e059eed4-9708-4d5a-8545-42094ce503da.png';
@@ -208,76 +208,28 @@ const Restaurant = () => {
           </div>
 
           {/* Why Choose Us Section */}
-          <div className="mb-16 bg-card border-2 border-border rounded-lg p-8 md:p-12">
-            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-6">
-              Why Restaurants Choose Partridge Laundry
-            </h2>
-            
-            <p className="text-foreground/80 font-body leading-relaxed text-lg mb-8">
-              Running a busy restaurant is demanding. At Partridge Laundry, we see ourselves as a true partner to your restaurant, helping you run smoothly while building a loyal, long-term customer base. Your commercial laundry shouldn't add to the stress—it should be seamless, reliable, and tailored to your operations. With over 30 years' experience serving restaurants across London and the South East, we ensure your linen service is effortless, flexible, and consistently high-quality. Here's why establishments trust us:
-            </p>
-
-            <div className="space-y-8">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <RefreshCw className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-3">
-                    1. Flexible Linen Hire & Operational Freedom
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    We offer complete flexibility with our no-contract service. Enjoy scheduled deliveries and a set monthly quota, scaling up or down as your needs change—your linen hire adapts to your business, not the other way around.
-                  </p>
-                  <p className="text-foreground/70 font-body leading-relaxed mt-3">
-                    For restaurants seeking maximum cost control or bespoke items, we also offer structured contracts. These ensure your specialised stock is reserved and pricing is locked in, giving you long-term certainty and convenience.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-3">
-                    2. Impeccable Presentation & Quality
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    Our professional laundering and pressing deliver a crisp, high-quality finish. From tablecloths and napkins to chef uniforms, every item is treated with meticulous care. A polished presentation instantly elevates your guests' dining experience.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Truck className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-3">
-                    3. Reliable Deliveries Across London & the South East
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    We provide reliable London restaurant linen hire throughout the M25 and beyond, including Brighton, Sevenoaks, and west past Southall. Our collection and delivery schedules are tailored precisely to your kitchen and service operations, ensuring your laundry is always on time.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Search className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-3">
-                    4. Bespoke Solutions & Unlimited Sourcing
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    Need daily orders, specific colours, or unique fabrics? We can source virtually any linen, providing customised commercial laundry solutions that match your restaurant's style and operational requirements.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <WhyUsSection
+            heading="Trusted for 30 Years and Counting"
+            subheading="Commercial linen solutions for an endless list of establishments. Our portfolio of clientele speaks for itself."
+            features={[
+              {
+                title: "Quality Service",
+                description: "We pride ourselves on providing a bespoke, 24-hour round the clock service."
+              },
+              {
+                title: "Quick Turnaround",
+                description: "We offer multiple weekly rotations to guarantee fresh linen on all days."
+              },
+              {
+                title: "Nationwide Delivery",
+                description: "Fleets delivering linen nationwide all over the UK, every single day."
+              },
+              {
+                title: "Family Heritage",
+                description: "Generations of trust, quality and heritage brought forward to present day."
+              }
+            ]}
+          />
 
           {/* CTA Section */}
           <div className="bg-accent rounded-lg p-8 md:p-12 text-center relative overflow-hidden">
