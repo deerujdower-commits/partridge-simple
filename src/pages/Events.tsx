@@ -92,11 +92,11 @@ const Events = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+      <section className="relative h-[40vh] md:h-[45vh] overflow-hidden">
         <img 
           src={eventsHero} 
           alt="Elegant damask tablecloth with fine dining place setting"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
