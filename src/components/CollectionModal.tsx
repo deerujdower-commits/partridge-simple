@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { X, ChevronLeft, ChevronRight, Minus, Plus, CalendarIcon } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Minus, Plus, CalendarIcon, Bed, Ruler } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useEnquiry } from '@/contexts/EnquiryContext';
@@ -993,19 +993,24 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
 
               {/* Bed Linen Information */}
               {category.slug === 'bed-linen' && (
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Products</p>
-                    <p className="text-sm text-foreground leading-relaxed">
-                      Duvet Covers • Bedsheets • Pillow Cases
-                    </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Bed className="w-5 h-5 text-foreground/40 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-1">Products</p>
+                      <p className="text-sm text-foreground">
+                        Duvet Covers • Bedsheets • Pillow Cases
+                      </p>
+                    </div>
                   </div>
-                  <div className="h-px bg-border" />
-                  <div>
-                    <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Sizes</p>
-                    <p className="text-sm text-foreground leading-relaxed">
-                      Single • Double • Queen • King
-                    </p>
+                  <div className="flex items-start gap-3">
+                    <Ruler className="w-5 h-5 text-foreground/40 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-1">Sizes</p>
+                      <p className="text-sm text-foreground">
+                        Single • Double • Queen • King
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
