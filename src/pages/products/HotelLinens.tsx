@@ -16,7 +16,7 @@ import bedsheetsLuxury from '@/assets/bedsheets-luxury.jpg';
 import hotelBedFreshLinens from '@/assets/hotel-bed-fresh-linens.jpg';
 import towelClean from '@/assets/towel-clean.jpg';
 import towelPremium from '@/assets/towel-premium.jpg';
-import hotelHero from '@/assets/hotel-hero.jpg';
+import hotelHero from '@/assets/hotel-hero-bedroom.png';
 
 const HotelLinens = () => {
   const navigate = useNavigate();
