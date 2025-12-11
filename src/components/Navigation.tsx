@@ -112,15 +112,6 @@ const Navigation = () => {
               )}
             </div>
             
-            {/* Collection - no dropdown */}
-            <Link
-              to="/collection"
-              className="font-body text-sm transition-all duration-300 tracking-wide font-light relative group text-white/80 hover:text-white"
-            >
-              Collection
-              <div className="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-white" />
-            </Link>
-
             {/* Event Hire with dropdown */}
             <div 
               className="relative"
@@ -283,14 +274,6 @@ const Navigation = () => {
                 </Link>
               </div>
             </div>
-            
-            <Link
-              to="/collection"
-              className="block font-body text-foreground/80 hover:text-foreground transition-colors duration-300 font-light tracking-wide"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Collection
-            </Link>
             
             <div>
               <Link
