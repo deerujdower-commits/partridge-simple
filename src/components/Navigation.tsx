@@ -130,50 +130,16 @@ const Navigation = () => {
               </span>
             </Link>
 
-            {/* Contact with dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => handleMouseEnter('contact')}
-              onMouseLeave={handleMouseLeave}
+            {/* Contact - simple link */}
+            <Link
+              to="/contact"
+              className="font-body text-sm tracking-wide font-light text-white/80 hover:text-white transition-colors duration-300 relative group"
             >
-              <Link
-                to="/contact"
-                className="font-body text-sm tracking-wide font-light text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-1 relative group"
-              >
-                <span className="relative">
-                  Contact
-                  <span className="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-white" />
-                </span>
-                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openDropdown === 'contact' ? 'rotate-180' : ''}`} />
-              </Link>
-              {openDropdown === 'contact' && (
-                <div className="absolute top-full left-0 pt-2">
-                  <div className="w-48 bg-black/95 backdrop-blur-xl border border-white/10 shadow-xl rounded-md p-1 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200">
-                    <button 
-                      onClick={() => { setOpenDropdown(null); handleContactScroll('contact-email'); }}
-                      className="flex items-center gap-3 px-2 py-1.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-sm cursor-pointer transition-colors w-full text-left"
-                    >
-                      <Mail className="w-4 h-4 text-white/60" />
-                      <span>Email</span>
-                    </button>
-                    <button 
-                      onClick={() => { setOpenDropdown(null); handleContactScroll('contact-phone'); }}
-                      className="flex items-center gap-3 px-2 py-1.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-sm cursor-pointer transition-colors w-full text-left"
-                    >
-                      <Phone className="w-4 h-4 text-white/60" />
-                      <span>Call</span>
-                    </button>
-                    <button 
-                      onClick={() => { setOpenDropdown(null); handleContactScroll('contact-address'); }}
-                      className="flex items-center gap-3 px-2 py-1.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-sm cursor-pointer transition-colors w-full text-left"
-                    >
-                      <MapPin className="w-4 h-4 text-white/60" />
-                      <span>Address</span>
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
+              <span className="relative">
+                Contact
+                <span className="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-white" />
+              </span>
+            </Link>
           </div>
 
           {/* Desktop CTA */}
@@ -269,47 +235,13 @@ const Navigation = () => {
               Event Hire
             </Link>
             
-            <div>
-              <Link
-                to="/contact"
-                className="block font-body text-foreground/80 hover:text-foreground transition-colors duration-300 font-light tracking-wide mb-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <div className="pl-4 space-y-2 border-l border-border/30">
-                <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    handleContactScroll('contact-email');
-                  }}
-                  className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
-                >
-                  <Mail className="w-3 h-3" />
-                  Email
-                </button>
-                <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    handleContactScroll('contact-phone');
-                  }}
-                  className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
-                >
-                  <Phone className="w-3 h-3" />
-                  Call
-                </button>
-                <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    handleContactScroll('contact-address');
-                  }}
-                  className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
-                >
-                  <MapPin className="w-3 h-3" />
-                  Address
-                </button>
-              </div>
-            </div>
+            <Link
+              to="/contact"
+              className="block font-body text-foreground/80 hover:text-foreground transition-colors duration-300 font-light tracking-wide"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
             
             {/* Mobile enquiry link */}
             <Link
