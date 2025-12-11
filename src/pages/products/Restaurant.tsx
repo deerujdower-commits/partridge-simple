@@ -39,6 +39,7 @@ import chefTrouserBlack from '@/assets/chef-trouser-black.png';
 import chefTrouserBlackModel from '@/assets/chef-trouser-black-model.png';
 import apron from '@/assets/apron.png';
 import apronModel from '@/assets/apron-model.jpg';
+import restaurantHero from '@/assets/restaurant-hero.jpg';
 
 const Restaurant = () => {
   const navigate = useNavigate();
@@ -124,7 +125,30 @@ const Restaurant = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <Navigation />
       
-      <main className="flex-grow pt-24 pb-16">
+      {/* Hero Section */}
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        <img 
+          src={restaurantHero} 
+          alt="Elegant restaurant table setting with white tablecloth and napkins"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-16 h-px bg-white/60" />
+              <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-white/80">
+                Restaurant Linens
+              </span>
+            </div>
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight">
+              Commercial Restaurant Linen Hire
+            </h1>
+          </div>
+        </div>
+      </section>
+      
+      <main className="flex-grow py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12">
           {/* Back Button */}
           <Button
@@ -138,18 +162,10 @@ const Restaurant = () => {
           </Button>
 
           {/* Header */}
-          <div className="mb-12 relative">
-
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-px bg-accent" />
-              <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-foreground/60">
-                Restaurant Linens
-              </span>
-            </div>
-            
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight mb-6">
-              Commercial Restaurant Linen Hire | London & South East
-            </h1>
+          <div className="mb-12">
+            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-6">
+              London & South East
+            </h2>
             
             <p className="text-foreground/70 font-body leading-relaxed text-lg max-w-3xl">
               From elegant tablecloths and napkins to professional kitchen linens and crisp chef uniforms, we provide everything required to run a successful restaurant with style and efficiency. Our comprehensive commercial linen hire service ensures you have the quality products you need, delivered reliably.
