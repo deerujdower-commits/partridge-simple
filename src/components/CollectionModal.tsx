@@ -993,23 +993,28 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
 
               {/* Bed Linen Information */}
               {category.slug === 'bed-linen' && (
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="flex gap-3">
                     <Bed className="w-5 h-5 text-foreground/40 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-1">Products</p>
-                      <p className="text-sm text-foreground">
-                        Duvet Covers • Bedsheets • Pillow Cases
-                      </p>
+                      <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Products</p>
+                      <ul className="text-sm text-foreground space-y-1">
+                        <li>• Duvet Covers</li>
+                        <li>• Bedsheets</li>
+                        <li>• Pillow Cases</li>
+                      </ul>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex gap-3">
                     <Ruler className="w-5 h-5 text-foreground/40 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-1">Sizes</p>
-                      <p className="text-sm text-foreground">
-                        Single • Double • Queen • King
-                      </p>
+                      <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Sizes</p>
+                      <ul className="text-sm text-foreground space-y-1">
+                        <li>• Single</li>
+                        <li>• Double</li>
+                        <li>• Queen</li>
+                        <li>• King</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
