@@ -11,7 +11,6 @@ import NotFound from "./pages/NotFound";
 import Events from "./pages/Events";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
-import CorporateEvents from "./pages/products/CorporateEvents";
 import HotelLinens from "./pages/products/HotelLinens";
 import Kitchen from "./pages/products/Kitchen";
 import Restaurant from "./pages/products/Restaurant";
@@ -35,7 +34,6 @@ const App = () => (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             
-            <Route path="/corporate-events" element={<CorporateEvents />} />
             <Route path="/hotel-linens" element={<HotelLinens />} />
             <Route path="/kitchen" element={<Kitchen />} />
             <Route path="/restaurant" element={<Restaurant />} />
