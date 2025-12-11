@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, ShieldCheck, Shirt, HandMetal, Users, Truck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
 import chefJacketWhite from '@/assets/chef-jacket-white.png';
@@ -147,49 +147,74 @@ const Kitchen = () => {
             </p>
 
             <div className="space-y-6">
-              <div>
-                <h3 className="font-display text-xl font-light text-foreground mb-2">
-                  1. Hygiene & Sanitation You Can Trust
-                </h3>
-                <p className="text-foreground/70 font-body leading-relaxed">
-                  In a kitchen, cleanliness is essential. All items are professionally laundered to strict hygiene standards, removing bacteria and tough stains. Your kitchen linens and uniforms are kept sanitary and safe for daily use.
-                </p>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-light text-foreground mb-2">
+                    1. Hygiene & Sanitation You Can Trust
+                  </h3>
+                  <p className="text-foreground/70 font-body leading-relaxed">
+                    In a kitchen, cleanliness is essential. All items are professionally laundered to strict hygiene standards, removing bacteria and tough stains. Your kitchen linens and uniforms are kept sanitary and safe for daily use.
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <h3 className="font-display text-xl font-light text-foreground mb-2">
-                  2. Durable Workwear Fabrics
-                </h3>
-                <p className="text-foreground/70 font-body leading-relaxed">
-                  We specialise in poly-cotton workwear, offering long-lasting durability, comfort, and easy maintenance. Chef jackets, aprons, and staff uniforms are designed to withstand the rigours of a busy kitchen while keeping your team comfortable throughout their shift.
-                </p>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Shirt className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-light text-foreground mb-2">
+                    2. Durable Workwear Fabrics
+                  </h3>
+                  <p className="text-foreground/70 font-body leading-relaxed">
+                    We specialise in poly-cotton workwear, offering long-lasting durability, comfort, and easy maintenance. Chef jackets, aprons, and staff uniforms are designed to withstand the rigours of a busy kitchen while keeping your team comfortable throughout their shift.
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <h3 className="font-display text-xl font-light text-foreground mb-2">
-                  3. Hand-Folded, Supreme Quality
-                </h3>
-                <p className="text-foreground/70 font-body leading-relaxed">
-                  Every uniform and linen is hand-folded with meticulous care. This attention to detail ensures your chefs and kitchen staff look sharp, professional, and well-presented, enhancing the image of your kitchen and establishment.
-                </p>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <HandMetal className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-light text-foreground mb-2">
+                    3. Hand-Folded, Supreme Quality
+                  </h3>
+                  <p className="text-foreground/70 font-body leading-relaxed">
+                    Every uniform and linen is hand-folded with meticulous care. This attention to detail ensures your chefs and kitchen staff look sharp, professional, and well-presented, enhancing the image of your kitchen and establishment.
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <h3 className="font-display text-xl font-light text-foreground mb-2">
-                  4. Service for All Hospitality Teams
-                </h3>
-                <p className="text-foreground/70 font-body leading-relaxed">
-                  Whether you run a restaurant, takeaway, hotel kitchen, or catering operation, our service adapts to your needs. Regular collection and delivery schedules ensure you never run out of clean linen or uniforms, keeping your operations efficient.
-                </p>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-light text-foreground mb-2">
+                    4. Service for All Hospitality Teams
+                  </h3>
+                  <p className="text-foreground/70 font-body leading-relaxed">
+                    Whether you run a restaurant, takeaway, hotel kitchen, or catering operation, our service adapts to your needs. Regular collection and delivery schedules ensure you never run out of clean linen or uniforms, keeping your operations efficient.
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <h3 className="font-display text-xl font-light text-foreground mb-2">
-                  5. Efficient & Large-Load Deliveries
-                </h3>
-                <p className="text-foreground/70 font-body leading-relaxed">
-                  We cover the M25 and beyond, handling large volumes with ease. No matter the size of your kitchen or number of sites, our reliable delivery service ensures your laundry arrives on time, every time.
-                </p>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Truck className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-light text-foreground mb-2">
+                    5. Efficient & Large-Load Deliveries
+                  </h3>
+                  <p className="text-foreground/70 font-body leading-relaxed">
+                    We cover the M25 and beyond, handling large volumes with ease. No matter the size of your kitchen or number of sites, our reliable delivery service ensures your laundry arrives on time, every time.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
