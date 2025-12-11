@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { ArrowLeft, Briefcase, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, Phone, Mail } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import {
@@ -101,20 +101,8 @@ const Events = () => {
             Back to Home
           </Link>
 
-          {/* Header with Business Services Button */}
-          <div className="mb-12 relative">
-            {/* Business Services Button - Top Right */}
-            <div className="mb-6 md:mb-0 md:absolute md:top-0 md:right-0">
-              <Link to="/collection">
-                <Button 
-                  className="bg-gradient-to-r from-accent to-accent-blue hover:from-accent-blue hover:to-accent text-white shadow-lg hover:shadow-xl transition-all duration-300 group font-body w-full md:w-auto"
-                >
-                  <Briefcase className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                  Looking for your business?
-                </Button>
-              </Link>
-            </div>
-            
+          {/* Header */}
+          <div className="mb-12">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-px bg-gradient-to-r from-accent to-accent-blue" />
               <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-foreground/60">
