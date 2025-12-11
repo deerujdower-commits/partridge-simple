@@ -1,3 +1,5 @@
+import { Clock } from 'lucide-react';
+
 const Footer = () => {
   const footerSections = [{
     title: 'Services',
@@ -17,7 +19,7 @@ const Footer = () => {
 
   return <footer className="bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-5 gap-8">
+        <div className="grid lg:grid-cols-6 gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="font-display text-3xl font-bold text-foreground mb-4">
@@ -42,6 +44,31 @@ const Footer = () => {
                 ))}
               </ul>
             </div>)}
+
+          {/* Opening Times & Map */}
+          <div className="lg:col-span-2">
+            <h3 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              Opening Times
+            </h3>
+            <ul className="space-y-1 mb-4">
+              <li className="font-body text-sm text-muted-foreground">Mon - Fri: 8:00am - 5:00pm</li>
+              <li className="font-body text-sm text-muted-foreground">Saturday: 9:00am - 1:00pm</li>
+              <li className="font-body text-sm text-muted-foreground">Sunday: Closed</li>
+            </ul>
+            <div className="rounded-lg overflow-hidden border border-border">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.123456789!2d-0.123456!3d51.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zPartridge%20Laundry!5e0!3m2!1sen!2suk!4v1234567890"
+                width="100%"
+                height="150"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Partridge Laundry Location"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Bottom Bar */}
