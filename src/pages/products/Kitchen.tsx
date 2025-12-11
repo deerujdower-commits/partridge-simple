@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
 import CollectionModal from '@/components/CollectionModal';
@@ -22,6 +22,7 @@ import chefTrouserBlack from '@/assets/chef-trouser-black.png';
 import chefTrouserBlackModel from '@/assets/chef-trouser-black-model.png';
 import apron from '@/assets/apron.png';
 import apronModel from '@/assets/apron-model.jpg';
+import kitchenHero from '@/assets/kitchen-hero.jpg';
 
 const kitchenCloth = '/lovable-uploads/027eb211-99a4-4e7d-8d3f-91a396f0b82a.png';
 const kitchenClothAlt1 = '/lovable-uploads/21a97c9a-3bd0-417c-b445-5ae091c4192f.png';
@@ -99,33 +100,33 @@ const Kitchen = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <Navigation />
       
-      <main className="flex-grow pt-24 pb-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12">
-          {/* Back Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate('/')}
-            className="mb-8 group"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
-          </Button>
-
-          {/* Header */}
-          <div className="mb-12 relative">
-
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-px bg-accent" />
-              <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-foreground/60">
+      {/* Hero Section */}
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        <img 
+          src={kitchenHero} 
+          alt="Professional chefs working in a commercial kitchen"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-16 h-px bg-white" />
+              <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 Kitchen Workwear & Linens
               </span>
             </div>
-            
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight mb-6">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
               Professional Kitchen Essentials
             </h1>
-            
+          </div>
+        </div>
+      </section>
+      
+      <main className="flex-grow py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12">
+          {/* Header */}
+          <div className="mb-12">
             <p className="text-foreground/70 font-body leading-relaxed text-lg max-w-3xl">
               Outfit your kitchen team with our premium chef uniforms and kitchen linens. From crisp white jackets to durable kitchen cloths, we provide everything you need to maintain professional standards in your commercial kitchen.
             </p>
