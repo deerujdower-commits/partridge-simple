@@ -149,18 +149,6 @@ const Events = () => {
             sizeGuideType="both"
           />
 
-          {/* Browse Collection Link */}
-          <div className="my-12 text-center">
-            <Button
-              variant="ghost"
-              size="lg"
-              onClick={() => navigate('/collection')}
-              className="font-body group"
-            >
-              Browse Full Collection
-              <ArrowLeft className="w-4 h-4 ml-2 rotate-180 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
 
           {/* FAQ Section */}
           <div className="bg-muted/50 border-2 border-border rounded-lg p-8 md:p-12 my-12">
