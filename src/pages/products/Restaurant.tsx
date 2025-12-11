@@ -219,8 +219,8 @@ const Restaurant = () => {
 
             <div className="space-y-8">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <RefreshCw className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <RefreshCw className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-3">
@@ -236,8 +236,8 @@ const Restaurant = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-3">
@@ -250,8 +250,8 @@ const Restaurant = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Truck className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Truck className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-3">
@@ -264,8 +264,8 @@ const Restaurant = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Search className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Search className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-3">
