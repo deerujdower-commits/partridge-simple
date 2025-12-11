@@ -148,8 +148,8 @@ const Kitchen = () => {
 
             <div className="space-y-6">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <ShieldCheck className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-2">
@@ -162,8 +162,8 @@ const Kitchen = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Shirt className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Shirt className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-2">
@@ -176,8 +176,8 @@ const Kitchen = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <HandMetal className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <HandMetal className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-2">
@@ -190,8 +190,8 @@ const Kitchen = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-2">
@@ -204,8 +204,8 @@ const Kitchen = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Truck className="w-5 h-5 text-primary" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Truck className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-light text-foreground mb-2">
