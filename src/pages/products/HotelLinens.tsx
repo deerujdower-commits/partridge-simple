@@ -2,11 +2,11 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Mail, Phone, Building2, Sparkles, Truck, Search } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
 import CollectionModal from '@/components/CollectionModal';
-
+import WhyUsSection from '@/components/WhyUsSection';
 import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
 import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
 import hotelLinens2 from '@/assets/hotel-linens-2.jpg';
@@ -123,73 +123,28 @@ const HotelLinens = () => {
           </div>
 
           {/* Why Choose Us Section */}
-          <div className="bg-card border-2 border-border rounded-lg p-8 md:p-12 mb-12">
-            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-6">
-              Hotel Linen Hire That Scales With Your Business
-            </h2>
-            
-            <p className="text-foreground/70 font-body leading-relaxed mb-8">
-              Whether you run a large hotel, a boutique property, or a luxury Airbnb, Partridge Laundry is your trusted partner for professional hotel linen hire across London and the South East. We combine over 30 years' experience with the flexibility and expertise to meet the unique demands of every type of accommodation.
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    1. Linen Solutions for Every Hotel
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    From high-volume commercial hotels to premium boutique properties, we provide tailored linen hire that fits your scale and style. Whether you need standard bed sheets, towels, or specialist luxury fabrics, we can supply exactly what your property requires.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    2. Premium Quality & Presentation
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    Our professional laundering and finishing ensure crisp sheets, soft towels, and polished bedding every time. Guests notice the difference—well-presented linen enhances comfort and reflects the quality of your establishment.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Truck className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    3. Reliable Large-Scale Deliveries
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    We can handle large loads efficiently, collecting and delivering on schedules that suit your housekeeping operations. Serving all areas within the M25 and beyond, including Brighton, Sevenoaks, and west past Southall, we ensure your linen is always where and when you need it.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Search className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-light text-foreground mb-2">
-                    4. Bespoke & Specialist Sourcing
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed">
-                    Need something unique? We can source all types of linen, towels, and bedding, no matter how specific your requirements. From luxurious fabrics for boutique hotels to practical high-turnover items for larger properties, we provide customised commercial laundry solutions that match your style and operational needs.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <WhyUsSection
+            heading="Hotel Linen That Scales With You"
+            subheading="Whether you run a large hotel, boutique property, or luxury Airbnb, we're your trusted partner for professional linen hire."
+            features={[
+              {
+                title: "Premium Quality",
+                description: "Crisp sheets, soft towels, and polished bedding that guests notice and appreciate."
+              },
+              {
+                title: "Reliable Delivery",
+                description: "Large-scale collection and delivery on schedules that suit your housekeeping."
+              },
+              {
+                title: "Scalable Solutions",
+                description: "From boutique properties to high-volume hotels, we fit your scale and style."
+              },
+              {
+                title: "Specialist Sourcing",
+                description: "Luxury fabrics to practical items - we source exactly what you need."
+              }
+            ]}
+          />
 
           {/* CTA Section */}
           <div className="bg-accent rounded-lg p-8 md:p-12 text-center relative overflow-hidden">
