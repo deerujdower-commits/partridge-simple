@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 // Import studio fitted photography product images from collection
@@ -305,12 +304,6 @@ const CollectionCarousel = () => {
             </h2>
           </div>
           
-          <Button variant="gradient" size="lg" asChild className="hidden md:inline-flex font-body">
-            <a href="/collection">
-              <Search className="w-4 h-4 mr-2" />
-              View Full Collection
-            </a>
-          </Button>
         </div>
       </div>
 
@@ -329,7 +322,14 @@ const CollectionCarousel = () => {
               key={itemKey}
               onClick={() => {
                 window.scrollTo(0, 0);
-                navigate(`/collection/${originalItem.slug}`);
+                // Map categories to service pages
+                const categoryRoutes: { [key: string]: string } = {
+                  'Restaurant': '/restaurant',
+                  'Event Hire': '/events',
+                  'Kitchen': '/kitchen',
+                  'Hotel': '/hotel-linens'
+                };
+                navigate(categoryRoutes[originalItem.category] || '/');
               }}
               className="group flex-shrink-0 block"
             >
@@ -408,7 +408,7 @@ const CollectionCarousel = () => {
                   </h3>
                   
                   <div className="flex items-center text-foreground/40 group-hover:text-foreground/60 transition-colors duration-300 mt-4">
-                    <span className="font-body text-sm uppercase tracking-wider whitespace-nowrap">View Collection</span>
+                    <span className="font-body text-sm uppercase tracking-wider whitespace-nowrap">Learn More</span>
                     <div className="w-4 h-px bg-current ml-3 group-hover:w-8 transition-all duration-300" />
                   </div>
                 </div>
