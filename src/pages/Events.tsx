@@ -92,7 +92,7 @@ const Events = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[40vh] md:h-[45vh] overflow-hidden">
+      <section className="relative h-[30vh] md:h-[35vh] overflow-hidden">
         <img 
           src={eventsHero} 
           alt="Elegant damask tablecloth with fine dining place setting"
