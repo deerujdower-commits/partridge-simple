@@ -45,13 +45,13 @@ All colors MUST be HSL.
     --grey-medium: 25 15% 92%;
     --grey-dark: 20 10% 85%;
 
-    --accent: 220 50% 15%;
+    --accent: 220 40% 8%;
     --accent-foreground: 0 0% 100%;
-    --accent-blue: 220 50% 15%;
+    --accent-blue: 220 40% 8%;
     --accent-blue-foreground: 0 0% 100%;
-    --accent-brown: 220 50% 15%;
+    --accent-brown: 220 40% 8%;
     --accent-brown-foreground: 0 0% 100%;
-    --accent-gold: 220 50% 15%;
+    --accent-gold: 220 40% 8%;
     --accent-gold-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
