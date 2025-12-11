@@ -73,16 +73,6 @@ const HotelLinens = () => {
 
           {/* Header */}
           <div className="mb-12 relative">
-            {/* Browse Collection Button - Top Right */}
-            <div className="mb-6 md:mb-0 md:absolute md:-top-8 md:right-0">
-              <Button 
-                onClick={() => navigate('/collection')}
-                className="bg-gradient-to-r from-accent to-accent-blue hover:from-accent-blue hover:to-accent text-white shadow-lg hover:shadow-xl transition-all duration-300 group font-body w-full md:w-auto"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2 rotate-180 group-hover:translate-x-1 transition-transform" />
-                Browse Full Collection
-              </Button>
-            </div>
 
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-px bg-accent" />
