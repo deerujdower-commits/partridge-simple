@@ -48,10 +48,8 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
 
-    // Phone validation (required)
-    if (!phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    } else if (!/^[\d\s+()-]+$/.test(phone)) {
+    // Phone validation (optional, but validate format if provided)
+    if (phone.trim() && !/^[\d\s+()-]+$/.test(phone)) {
       newErrors.phone = 'Please enter a valid phone number';
     }
 
@@ -183,10 +181,10 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
               />
             </div>
 
-            {/* Phone (Required) */}
+            {/* Phone (Optional) */}
             <div>
               <Label htmlFor="phone" className="text-foreground">
-                Phone Number <span className="text-red-500">*</span>
+                Phone Number <span className="text-foreground/40 text-sm">(Optional)</span>
               </Label>
               <Input
                 id="phone"
