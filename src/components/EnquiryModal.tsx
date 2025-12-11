@@ -9,17 +9,25 @@ import { useToast } from '@/hooks/use-toast';
 interface EnquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
+  productName?: string;
 }
 
-const EnquiryModal = ({ isOpen, onClose }: EnquiryModalProps) => {
+const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(productName ? `I would like to enquire about: ${productName}` : '');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isCopied, setIsCopied] = useState(false);
   const { toast } = useToast();
+
+  // Update message when productName changes
+  useEffect(() => {
+    if (productName) {
+      setMessage(`I would like to enquire about: ${productName}`);
+    }
+  }, [productName]);
 
   const emailAddress = 'enquiry@partridgelinenhire.co.uk';
 

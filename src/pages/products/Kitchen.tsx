@@ -37,6 +37,12 @@ const kitchenLinens = [
 const Kitchen = () => {
   const navigate = useNavigate();
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
+
+  const handleProductClick = (productName: string) => {
+    setSelectedProduct(productName);
+    setIsEnquiryOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -81,13 +87,20 @@ const Kitchen = () => {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {chefWear.map((item, index) => (
-                <div key={index} className="group">
-                  <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3">
+                <div 
+                  key={index} 
+                  className="group cursor-pointer"
+                  onClick={() => handleProductClick(item.name)}
+                >
+                  <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3 relative">
                     <img
                       src={item.image}
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="text-white font-body font-medium text-lg">Order Now</span>
+                    </div>
                   </div>
                   <p className="text-foreground font-body text-sm text-center">{item.name}</p>
                 </div>
@@ -102,13 +115,20 @@ const Kitchen = () => {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {kitchenLinens.map((item, index) => (
-                <div key={index} className="group">
-                  <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3">
+                <div 
+                  key={index} 
+                  className="group cursor-pointer"
+                  onClick={() => handleProductClick(item.name)}
+                >
+                  <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3 relative">
                     <img
                       src={item.image}
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="text-white font-body font-medium text-lg">Order Now</span>
+                    </div>
                   </div>
                   <p className="text-foreground font-body text-sm text-center">{item.name}</p>
                 </div>
@@ -214,7 +234,11 @@ const Kitchen = () => {
       <Footer />
       <EnquiryModal
         isOpen={isEnquiryOpen}
-        onClose={() => setIsEnquiryOpen(false)}
+        onClose={() => {
+          setIsEnquiryOpen(false);
+          setSelectedProduct(null);
+        }}
+        productName={selectedProduct || undefined}
       />
     </div>
   );
