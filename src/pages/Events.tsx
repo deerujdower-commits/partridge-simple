@@ -10,7 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import EventProductSection from '@/components/events/EventProductSection';
-import eventsHero from '@/assets/events-hero.jpg';
+import eventsHero from '@/assets/events-hero-damask.jpg';
 
 // Table Linen configuration
 const tableLinenColors = [
