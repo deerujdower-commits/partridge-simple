@@ -993,24 +993,30 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
 
               {/* Bed Linen Information */}
               {category.slug === 'bed-linen' && (
-                <div className="space-y-4">
-                  <div className="p-4 bg-muted/30 rounded-lg">
-                    <h3 className="text-sm font-medium text-foreground mb-3">Product Types</h3>
-                    <ul className="text-sm text-foreground/70 space-y-1.5">
-                      <li>• Duvet Cover</li>
-                      <li>• Bedsheet</li>
-                      <li>• Pillow Cases</li>
-                    </ul>
+                <div className="p-5 bg-secondary/50 rounded-lg border border-border">
+                  <h3 className="text-base font-display text-foreground mb-4">What We Offer</h3>
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+                    <div>
+                      <p className="text-xs font-medium text-foreground/60 uppercase tracking-wide mb-2">Products</p>
+                      <ul className="text-sm text-foreground space-y-1.5">
+                        <li>• Duvet Covers</li>
+                        <li>• Bedsheets</li>
+                        <li>• Pillow Cases</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium text-foreground/60 uppercase tracking-wide mb-2">Sizes</p>
+                      <ul className="text-sm text-foreground space-y-1.5">
+                        <li>• Single</li>
+                        <li>• Double</li>
+                        <li>• Queen</li>
+                        <li>• King</li>
+                      </ul>
+                    </div>
                   </div>
-                  <div className="p-4 bg-muted/30 rounded-lg">
-                    <h3 className="text-sm font-medium text-foreground mb-3">Available Sizes</h3>
-                    <ul className="text-sm text-foreground/70 space-y-1.5">
-                      <li>• Single</li>
-                      <li>• Double</li>
-                      <li>• Queen Size</li>
-                      <li>• King Size</li>
-                    </ul>
-                  </div>
+                  <p className="text-xs text-foreground/60 mt-4 italic">
+                    Contact us to discuss your specific requirements
+                  </p>
                 </div>
               )}
 
@@ -1055,7 +1061,7 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
               )}
 
               {/* Size Selection */}
-              {sizes.length > 0 && !['work-wear', 'chef-jacket', 'chef-trousers'].includes(category.slug) && (
+              {sizes.length > 0 && !['work-wear', 'chef-jacket', 'chef-trousers', 'bed-linen'].includes(category.slug) && (
                 <div className="relative">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-lg font-display text-foreground">Size</h3>
