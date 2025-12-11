@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight, Minus, Plus, CalendarIcon, Bed, Ruler, Bath } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useEnquiry } from '@/contexts/EnquiryContext';
@@ -1023,89 +1022,37 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
 
               {/* Towel Types Information */}
               {category.slug === 'towel' && (
-                <TooltipProvider>
-                  <div className="flex gap-3">
-                    <Bath className="w-5 h-5 text-foreground/40 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Towel Types</p>
-                      <ul className="text-sm text-foreground space-y-1.5">
-                        <li>
-                          <Tooltip>
-                            <TooltipTrigger className="cursor-help hover:text-primary transition-colors">• Face Towel</TooltipTrigger>
-                            <TooltipContent side="right" className="max-w-[200px]">
-                              <p className="font-medium">30×30 cm (12×12")</p>
-                              <p className="text-xs text-muted-foreground">Smallest size, for drying the face</p>
-                            </TooltipContent>
-                          </Tooltip>
+                <div className="flex gap-3">
+                  <Bath className="w-5 h-5 text-foreground/40 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Towel Types</p>
+                    <ul className="text-sm text-foreground space-y-1.5">
+                      {[
+                        { name: 'Face Towel', size: '30×30 cm (12×12")', desc: 'Smallest size, for drying the face' },
+                        { name: 'Guest Towel', size: '30×50 cm (12×20")', desc: 'Slightly larger, ideal for guests' },
+                        { name: 'Hand Towel', size: '40×70 cm (16×28")', desc: 'For drying hands in bathroom or kitchen' },
+                        { name: 'Bath Mat', size: '50×80 cm (20×32")', desc: 'Placed on floor to prevent slipping' },
+                        { name: 'Gym Towel', size: '50×100 cm (20×40")', desc: 'Medium-sized for gym use' },
+                        { name: 'Bath Towel', size: '70×130 cm (28×51")', desc: 'For drying entire body after bath' },
+                        { name: 'Bath Sheet', size: '90×150 cm (35×59")', desc: 'Largest type for complete body coverage' },
+                        { name: 'Bath Robe', size: '120×140 cm (47×55")', desc: 'Towel robe, various sizes available' },
+                      ].map((towel) => (
+                        <li key={towel.name}>
+                          <Popover>
+                            <PopoverTrigger className="cursor-pointer hover:text-primary transition-colors text-left">
+                              • {towel.name}
+                            </PopoverTrigger>
+                            <PopoverContent side="right" className="w-auto max-w-[200px] p-3 bg-popover z-50">
+                              <p className="font-medium">{towel.size}</p>
+                              <p className="text-xs text-muted-foreground">{towel.desc}</p>
+                            </PopoverContent>
+                          </Popover>
                         </li>
-                        <li>
-                          <Tooltip>
-                            <TooltipTrigger className="cursor-help hover:text-primary transition-colors">• Guest Towel</TooltipTrigger>
-                            <TooltipContent side="right" className="max-w-[200px]">
-                              <p className="font-medium">30×50 cm (12×20")</p>
-                              <p className="text-xs text-muted-foreground">Slightly larger, ideal for guests</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </li>
-                        <li>
-                          <Tooltip>
-                            <TooltipTrigger className="cursor-help hover:text-primary transition-colors">• Hand Towel</TooltipTrigger>
-                            <TooltipContent side="right" className="max-w-[200px]">
-                              <p className="font-medium">40×70 cm (16×28")</p>
-                              <p className="text-xs text-muted-foreground">For drying hands in bathroom or kitchen</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </li>
-                        <li>
-                          <Tooltip>
-                            <TooltipTrigger className="cursor-help hover:text-primary transition-colors">• Bath Mat</TooltipTrigger>
-                            <TooltipContent side="right" className="max-w-[200px]">
-                              <p className="font-medium">50×80 cm (20×32")</p>
-                              <p className="text-xs text-muted-foreground">Placed on floor to prevent slipping</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </li>
-                        <li>
-                          <Tooltip>
-                            <TooltipTrigger className="cursor-help hover:text-primary transition-colors">• Gym Towel</TooltipTrigger>
-                            <TooltipContent side="right" className="max-w-[200px]">
-                              <p className="font-medium">50×100 cm (20×40")</p>
-                              <p className="text-xs text-muted-foreground">Medium-sized for gym use</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </li>
-                        <li>
-                          <Tooltip>
-                            <TooltipTrigger className="cursor-help hover:text-primary transition-colors">• Bath Towel</TooltipTrigger>
-                            <TooltipContent side="right" className="max-w-[200px]">
-                              <p className="font-medium">70×130 cm (28×51")</p>
-                              <p className="text-xs text-muted-foreground">For drying entire body after bath</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </li>
-                        <li>
-                          <Tooltip>
-                            <TooltipTrigger className="cursor-help hover:text-primary transition-colors">• Bath Sheet</TooltipTrigger>
-                            <TooltipContent side="right" className="max-w-[200px]">
-                              <p className="font-medium">90×150 cm (35×59")</p>
-                              <p className="text-xs text-muted-foreground">Largest type for complete body coverage</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </li>
-                        <li>
-                          <Tooltip>
-                            <TooltipTrigger className="cursor-help hover:text-primary transition-colors">• Bath Robe</TooltipTrigger>
-                            <TooltipContent side="right" className="max-w-[200px]">
-                              <p className="font-medium">120×140 cm (47×55")</p>
-                              <p className="text-xs text-muted-foreground">Towel robe, various sizes available</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </li>
-                      </ul>
-                      <p className="text-xs text-muted-foreground mt-3 italic">Hover over each type to see dimensions</p>
-                    </div>
+                      ))}
+                    </ul>
+                    <p className="text-xs text-muted-foreground mt-3 italic">Tap each type to see dimensions</p>
                   </div>
-                </TooltipProvider>
+                </div>
               )}
 
               {/* Color Selection */}
