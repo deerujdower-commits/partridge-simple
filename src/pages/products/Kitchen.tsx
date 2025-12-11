@@ -5,96 +5,45 @@ import { Button } from '@/components/ui/button';
 import { Mail, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
-import CollectionModal from '@/components/CollectionModal';
 import chefSuitWhiteFull from '@/assets/chef-suit-white-full.jpg';
 import chefSuitBlackFull from '@/assets/chef-suit-black-full.png';
 import chefJacketWhite from '@/assets/chef-jacket-white.png';
-import chefJacketWhiteModel from '@/assets/chef-jacket-white-model.jpg';
 import chefJacketBlack from '@/assets/chef-jacket-black.jpg';
-import chefJacketBlackModel from '@/assets/chef-jacket-black-model.jpg';
 import chefJacketShortWhite from '@/assets/chef-jacket-short-white.png';
-import chefJacketShortWhiteModel from '@/assets/chef-jacket-short-white-model.png';
 import chefJacketShortBlack from '@/assets/chef-jacket-short-black.png';
-import chefJacketShortBlackModel from '@/assets/chef-jacket-short-black-model.png';
 import chefTrouserCheck from '@/assets/chef-trouser-check.png';
-import chefTrouserCheckModel from '@/assets/chef-trouser-check-model.png';
 import chefTrouserBlack from '@/assets/chef-trouser-black.png';
-import chefTrouserBlackModel from '@/assets/chef-trouser-black-model.png';
 import apron from '@/assets/apron.png';
-import apronModel from '@/assets/apron-model.jpg';
 import kitchenHero from '@/assets/kitchen-hero.jpg';
 
-const kitchenCloth = '/lovable-uploads/027eb211-99a4-4e7d-8d3f-91a396f0b82a.png';
-const kitchenClothAlt1 = '/lovable-uploads/21a97c9a-3bd0-417c-b445-5ae091c4192f.png';
-const kitchenClothAlt2 = '/lovable-uploads/2733f275-4abc-4211-8663-e86feb172f9d.png';
+const kitchenClothGreen = '/lovable-uploads/027eb211-99a4-4e7d-8d3f-91a396f0b82a.png';
+const kitchenClothBlue = '/lovable-uploads/21a97c9a-3bd0-417c-b445-5ae091c4192f.png';
+const kitchenClothRed = '/lovable-uploads/2733f275-4abc-4211-8663-e86feb172f9d.png';
+
+const chefJackets = [
+  { name: 'Chef Suit - White', image: chefSuitWhiteFull },
+  { name: 'Chef Suit - Black', image: chefSuitBlackFull },
+  { name: 'Chef Jacket Long Sleeve - White', image: chefJacketWhite },
+  { name: 'Chef Jacket Long Sleeve - Black', image: chefJacketBlack },
+  { name: 'Chef Jacket Short Sleeve - White', image: chefJacketShortWhite },
+  { name: 'Chef Jacket Short Sleeve - Black', image: chefJacketShortBlack },
+  { name: 'Apron', image: apron },
+];
+
+const chefTrousers = [
+  { name: 'Chef Trousers - Check', image: chefTrouserCheck },
+  { name: 'Chef Trousers - Black', image: chefTrouserBlack },
+];
+
+const kitchenLinens = [
+  { name: 'Kitchen Cloth - Green', image: kitchenClothGreen },
+  { name: 'Kitchen Cloth - Blue', image: kitchenClothBlue },
+  { name: 'Kitchen Cloth - Red', image: kitchenClothRed },
+];
 
 const Kitchen = () => {
   const navigate = useNavigate();
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
-  const [selectedModal, setSelectedModal] = useState<{ id: number; title: string; description: string; images: string[]; slug: string } | null>(null);
-
-  const modalData = {
-    'chef-jacket': {
-      id: 101,
-      title: 'Chef Jackets',
-      description: 'Professional chef jackets and aprons designed for comfort and durability in commercial kitchens.',
-      images: [
-        chefSuitWhiteFull,
-        chefSuitBlackFull,
-        chefJacketWhite,
-        chefJacketWhiteModel,
-        chefJacketBlack,
-        chefJacketBlackModel,
-        chefJacketShortWhite,
-        chefJacketShortWhiteModel,
-        chefJacketShortBlack,
-        chefJacketShortBlackModel,
-        apron,
-        apronModel
-      ],
-      slug: 'chef-jacket'
-    },
-    'chef-trousers': {
-      id: 102,
-      title: 'Chef Trousers',
-      description: 'Professional chef trousers in classic patterns designed for comfort and durability in commercial kitchens.',
-      images: [
-        chefTrouserCheck,
-        chefTrouserCheckModel,
-        chefTrouserBlack,
-        chefTrouserBlackModel
-      ],
-      slug: 'chef-trousers'
-    },
-    'kitchen-linen': {
-      id: 6,
-      title: 'Kitchen Linens',
-      description: 'Professional kitchen towels and cloths in various patterns and colors for commercial and domestic use.',
-      images: [kitchenCloth, kitchenClothAlt1, kitchenClothAlt2],
-      slug: 'kitchen-linen'
-    }
-  };
-
-  const kitchenProducts = [
-    {
-      title: 'Chef Jackets',
-      description: 'Professional chef jackets and aprons designed for comfort and durability in busy commercial kitchens.',
-      images: [chefSuitWhiteFull],
-      modalSlug: 'chef-jacket'
-    },
-    {
-      title: 'Chef Trousers',
-      description: 'Durable and comfortable chef trousers in classic patterns for professional kitchens.',
-      images: [chefTrouserCheckModel],
-      modalSlug: 'chef-trousers'
-    },
-    {
-      title: 'Kitchen Linens',
-      description: 'High-quality kitchen towels and cloths for all your professional kitchen needs.',
-      images: [kitchenCloth],
-      modalSlug: 'kitchen-linen'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -132,35 +81,67 @@ const Kitchen = () => {
             </p>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {kitchenProducts.map((product, index) => (
-              <div 
-                key={index} 
-                className="bg-card rounded-lg overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-all duration-500 cursor-pointer"
-                onClick={() => setSelectedModal(modalData[product.modalSlug as keyof typeof modalData])}
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={product.images[0]}
-                    alt={product.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display text-xl font-light text-foreground mb-3">
-                    {product.title}
-                  </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed mb-4">
-                    {product.description}
-                  </p>
-                  <div className="flex items-center text-foreground/60 hover:text-foreground transition-colors duration-300">
-                    <span className="text-sm font-light uppercase tracking-wide">View Collection</span>
-                    <div className="w-4 h-px bg-current ml-3 transition-all duration-300" />
+          {/* Chef Jackets Section */}
+          <div className="mb-16">
+            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-8">
+              Chef Jackets & Aprons
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {chefJackets.map((item, index) => (
+                <div key={index} className="group">
+                  <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
+                  <p className="text-foreground font-body text-sm text-center">{item.name}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Chef Trousers Section */}
+          <div className="mb-16">
+            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-8">
+              Chef Trousers
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {chefTrousers.map((item, index) => (
+                <div key={index} className="group">
+                  <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <p className="text-foreground font-body text-sm text-center">{item.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Kitchen Linens Section */}
+          <div className="mb-16">
+            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-8">
+              Kitchen Linens
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {kitchenLinens.map((item, index) => (
+                <div key={index} className="group">
+                  <div className="aspect-square bg-muted rounded-lg overflow-hidden mb-3">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <p className="text-foreground font-body text-sm text-center">{item.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Why Choose Us Section */}
@@ -263,20 +244,6 @@ const Kitchen = () => {
         isOpen={isEnquiryOpen}
         onClose={() => setIsEnquiryOpen(false)}
       />
-      {selectedModal && (
-        <CollectionModal
-          isOpen={selectedModal !== null}
-          onClose={() => setSelectedModal(null)}
-          category={{
-            id: selectedModal.id,
-            title: selectedModal.title,
-            subtitle: '',
-            description: selectedModal.description,
-            images: selectedModal.images,
-            slug: selectedModal.slug
-          }}
-        />
-      )}
     </div>
   );
 };
