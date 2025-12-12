@@ -48,8 +48,8 @@ import apronModel from '@/assets/apron-model.jpg';
 const kitchenLinenImage1 = '/lovable-uploads/027eb211-99a4-4e7d-8d3f-91a396f0b82a.png';
 const kitchenLinenImage2 = '/lovable-uploads/2733f275-4abc-4211-8663-e86feb172f9d.png';
 import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
-import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
-import hotelLinens2 from '@/assets/hotel-linens-2.jpg';
+import hotelBedLinen1 from '@/assets/hotel-bed-linen-1.jpeg';
+import hotelBedLinen2 from '@/assets/hotel-bed-linen-2.jpeg';
 import towelClean from '@/assets/towel-clean.jpg';
 import towelPremium from '@/assets/towel-premium.jpg';
 import towelsStackWhite from '@/assets/towels-stack-white.jpg';
@@ -147,7 +147,7 @@ const collectionItems = [
   },
   { 
     id: 7,
-    images: [hotelBedClean, hotelLinens1, hotelBedFreshLinens], 
+    images: [hotelBedClean, hotelBedLinen1, hotelBedLinen2], 
     title: 'Bed Linen', 
     category: 'Hotel',
     slug: 'bed-linen',
