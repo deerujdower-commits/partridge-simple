@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, ShieldCheck, Layers, HandMetal, Truck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import WhyUsSection from '@/components/WhyUsSection';
 import EnquiryModal from '@/components/EnquiryModal';
@@ -145,19 +145,23 @@ const Kitchen = () => {
             features={[
               {
                 title: "Hygiene Standards",
-                description: "Professionally laundered to strict standards, removing bacteria and tough stains."
+                description: "Professionally laundered to strict standards, removing bacteria and tough stains.",
+                icon: ShieldCheck
               },
               {
                 title: "Durable Fabrics",
-                description: "Poly-cotton workwear built to withstand the rigours of a busy kitchen."
+                description: "Poly-cotton workwear built to withstand the rigours of a busy kitchen.",
+                icon: Layers
               },
               {
                 title: "Hand-Folded Quality",
-                description: "Every uniform meticulously hand-folded so your team always looks sharp."
+                description: "Every uniform meticulously hand-folded so your team always looks sharp.",
+                icon: HandMetal
               },
               {
                 title: "Reliable Delivery",
-                description: "Regular collection schedules so you never run out of clean uniforms."
+                description: "Regular collection schedules so you never run out of clean uniforms.",
+                icon: Truck
               }
             ]}
             imagePlaceholder={kitchenClientChef}

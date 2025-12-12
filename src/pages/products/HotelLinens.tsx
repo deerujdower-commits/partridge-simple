@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, Sparkles, Truck, Building2, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
 import CollectionModal from '@/components/CollectionModal';
@@ -133,19 +133,23 @@ const HotelLinens = () => {
             features={[
               {
                 title: "Premium Quality",
-                description: "Crisp sheets, soft towels, and polished bedding that guests notice and appreciate."
+                description: "Crisp sheets, soft towels, and polished bedding that guests notice and appreciate.",
+                icon: Sparkles
               },
               {
                 title: "Reliable Delivery",
-                description: "Large-scale collection and delivery on schedules that suit your housekeeping."
+                description: "Large-scale collection and delivery on schedules that suit your housekeeping.",
+                icon: Truck
               },
               {
                 title: "Scalable Solutions",
-                description: "From boutique properties to high-volume hotels, we fit your scale and style."
+                description: "From boutique properties to high-volume hotels, we fit your scale and style.",
+                icon: Building2
               },
               {
                 title: "Specialist Sourcing",
-                description: "Luxury fabrics to practical items - we source exactly what you need."
+                description: "Luxury fabrics to practical items - we source exactly what you need.",
+                icon: Search
               }
             ]}
           />
