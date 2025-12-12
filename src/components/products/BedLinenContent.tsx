@@ -4,13 +4,13 @@ import { Button } from '@/components/ui/button';
 import { ShoppingBag } from 'lucide-react';
 
 import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
-import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
-import hotelBedFreshLinens from '@/assets/hotel-bed-fresh-linens.jpg';
+import hotelBedLinen1 from '@/assets/hotel-bed-linen-1.jpeg';
+import hotelBedLinen2 from '@/assets/hotel-bed-linen-2.jpeg';
 
 const products = [
   { id: 1, name: 'Duvet Covers', slug: 'duvet-covers', description: 'Premium duvet covers for hotels and hospitality.', image: hotelBedClean },
-  { id: 2, name: 'Bed Sheets', slug: 'bed-sheets', description: 'Luxury bed sheets with high thread count.', image: hotelLinens1 },
-  { id: 3, name: 'Pillow Cases', slug: 'pillow-cases', description: 'Quality pillow cases to complement your bedding.', image: hotelBedFreshLinens }
+  { id: 2, name: 'Bed Sheets', slug: 'bed-sheets', description: 'Luxury bed sheets with high thread count.', image: hotelBedLinen1 },
+  { id: 3, name: 'Pillow Cases', slug: 'pillow-cases', description: 'Quality pillow cases to complement your bedding.', image: hotelBedLinen2 }
 ];
 
 interface BedLinenContentProps {
