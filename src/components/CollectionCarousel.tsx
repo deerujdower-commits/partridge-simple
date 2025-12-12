@@ -147,7 +147,7 @@ const collectionItems = [
   },
   { 
     id: 7,
-    images: [hotelBedLinenMain, hotelBedLinen1, hotelBedLinen2], 
+    images: [hotelBedLinen1, hotelBedLinenMain, hotelBedLinen2], 
     title: 'Bed Linen', 
     category: 'Hotel',
     slug: 'bed-linen',
