@@ -17,7 +17,7 @@ import hotelBedFreshLinens from '@/assets/hotel-bed-fresh-linens.jpg';
 import hotelTowelStack from '@/assets/hotel-towel-stack.png';
 import hotelTowelBath from '@/assets/hotel-towel-bath.png';
 import hotelTowelRolled from '@/assets/hotel-towel-rolled.png';
-import hotelHero from '@/assets/hotel-hero-bedroom.jpg';
+import hotelHero from '@/assets/hotel-hero-new.jpg';
 import hotelWhyusPillows from '@/assets/hotel-whyus-pillows.png';
 import hotelClientTowels from '@/assets/hotel-client-towels.jpeg';
 import hotelClientBedding from '@/assets/hotel-client-bedding.jpeg';
