@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ShoppingBag } from 'lucide-react';
 
-import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
+import hotelBedLinenMain from '@/assets/hotel-bed-linen-main.jpg';
 import hotelBedLinen1 from '@/assets/hotel-bed-linen-1.jpeg';
 import hotelBedLinen2 from '@/assets/hotel-bed-linen-2.jpeg';
 
 const products = [
-  { id: 1, name: 'Duvet Covers', slug: 'duvet-covers', description: 'Premium duvet covers for hotels and hospitality.', image: hotelBedClean },
+  { id: 1, name: 'Duvet Covers', slug: 'duvet-covers', description: 'Premium duvet covers for hotels and hospitality.', image: hotelBedLinenMain },
   { id: 2, name: 'Bed Sheets', slug: 'bed-sheets', description: 'Luxury bed sheets with high thread count.', image: hotelBedLinen1 },
   { id: 3, name: 'Pillow Cases', slug: 'pillow-cases', description: 'Quality pillow cases to complement your bedding.', image: hotelBedLinen2 }
 ];
