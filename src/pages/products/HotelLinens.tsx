@@ -17,7 +17,7 @@ import hotelBedFreshLinens from '@/assets/hotel-bed-fresh-linens.jpg';
 import towelClean from '@/assets/towel-clean.jpg';
 import towelPremium from '@/assets/towel-premium.jpg';
 import hotelHero from '@/assets/hotel-hero-bedroom.png';
-import hotelClientPillows from '@/assets/hotel-client-pillows.jpeg';
+import hotelWhyusPillows from '@/assets/hotel-whyus-pillows.png';
 import hotelClientTowels from '@/assets/hotel-client-towels.jpeg';
 import hotelClientBedding from '@/assets/hotel-client-bedding.jpeg';
 import hotelBedLinenMain from '@/assets/hotel-bed-linen-main.jpg';
@@ -132,7 +132,7 @@ const HotelLinens = () => {
           <WhyUsSection
             heading="Hotel Linen That Scales With You"
             subheading="Whether you run a large hotel, boutique property, or luxury Airbnb, we're your trusted partner for professional linen hire."
-            images={[hotelClientPillows, hotelClientTowels, hotelClientBedding]}
+            images={[hotelWhyusPillows, hotelClientTowels, hotelClientBedding]}
             features={[
               {
                 title: "Premium Quality",
