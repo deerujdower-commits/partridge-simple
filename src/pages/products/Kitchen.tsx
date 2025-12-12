@@ -168,14 +168,14 @@ const Kitchen = () => {
           />
 
           {/* CTA Section */}
-          <div className="bg-accent rounded-lg p-8 md:p-12 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-px bg-white/20" />
-            <div className="absolute bottom-0 left-0 w-full h-px bg-white/20" />
+          <div className="bg-black rounded-lg p-8 md:p-12 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-white/10" />
             
             <h2 className="font-display text-2xl md:text-3xl font-light text-white mb-4">
               Need to kit out your team?
             </h2>
-            <p className="text-white/80 font-body leading-relaxed text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white/70 font-body leading-relaxed text-lg mb-8 max-w-2xl mx-auto">
               Drop us a message with what you're looking for and we'll sort you out with pricing. Simple as that.
             </p>
             
@@ -184,7 +184,7 @@ const Kitchen = () => {
                 size="lg"
                 onClick={() => setIsEnquiryOpen(true)}
                 variant="outline"
-                className="font-body border-white/30 bg-white text-black hover:bg-white/90"
+                className="font-body border-white/20 bg-white text-black hover:bg-white/90"
               >
                 <Mail className="w-4 h-4 mr-2" />
                 Request a Quote
@@ -194,7 +194,7 @@ const Kitchen = () => {
                 variant="outline"
                 size="lg"
                 onClick={() => navigate('/contact')}
-                className="font-body border-white/30 bg-white text-black hover:bg-white/90"
+                className="font-body border-white/20 bg-white text-black hover:bg-white/90"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Contact Us

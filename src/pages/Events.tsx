@@ -234,24 +234,27 @@ const Events = () => {
           </div>
 
           {/* Bottom CTA */}
-          <div className="bg-gradient-to-r from-accent/10 to-accent-blue/10 border border-border rounded-lg p-8 my-12 text-center">
-            <h2 className="font-display text-2xl font-light text-foreground mb-4">
+          <div className="bg-black rounded-lg p-8 md:p-12 my-12 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-white/10" />
+            
+            <h2 className="font-display text-2xl md:text-3xl font-light text-white mb-4">
               Ready to Make Your Event Special?
             </h2>
-            <p className="text-foreground/70 font-body mb-6 max-w-xl mx-auto">
+            <p className="text-white/70 font-body leading-relaxed text-lg mb-8 max-w-xl mx-auto">
               Get in touch with us to discuss your requirements. We're here to help make your event memorable.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="tel:02086aborndne"
-                className="inline-flex items-center justify-center px-6 py-3 bg-foreground text-background rounded hover:bg-foreground/90 transition-colors font-body"
+                href="tel:02086536066"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded hover:bg-white/90 transition-colors font-body border border-white/20"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us
               </a>
               <a 
-                href="mailto:info@partridgelinen.co.uk"
-                className="inline-flex items-center justify-center px-6 py-3 border border-foreground text-foreground rounded hover:bg-foreground hover:text-background transition-colors font-body"
+                href="mailto:enquiry@partridgelinenhire.co.uk"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded hover:bg-white/90 transition-colors font-body border border-white/20"
               >
                 <Mail className="w-4 h-4 mr-2" />
                 Email Us

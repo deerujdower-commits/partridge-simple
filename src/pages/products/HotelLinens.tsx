@@ -159,14 +159,14 @@ const HotelLinens = () => {
           />
 
           {/* CTA Section */}
-          <div className="bg-accent rounded-lg p-8 md:p-12 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-px bg-white/20" />
-            <div className="absolute bottom-0 left-0 w-full h-px bg-white/20" />
+          <div className="bg-black rounded-lg p-8 md:p-12 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-white/10" />
             
             <h2 className="font-display text-2xl md:text-3xl font-light text-white mb-4">
               Want to refresh your hotel linens?
             </h2>
-            <p className="text-white/80 font-body leading-relaxed text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white/70 font-body leading-relaxed text-lg mb-8 max-w-2xl mx-auto">
               Let us know what you need and we'll get you a quote. We handle everything from beds to towels.
             </p>
             
@@ -175,7 +175,7 @@ const HotelLinens = () => {
                 size="lg"
                 onClick={() => setIsEnquiryOpen(true)}
                 variant="outline"
-                className="font-body border-white/30 bg-white text-black hover:bg-white/90"
+                className="font-body border-white/20 bg-white text-black hover:bg-white/90"
               >
                 <Mail className="w-4 h-4 mr-2" />
                 Request a Quote
@@ -185,7 +185,7 @@ const HotelLinens = () => {
                 variant="outline"
                 size="lg"
                 onClick={() => navigate('/contact')}
-                className="font-body border-white/30 bg-white text-black hover:bg-white/90"
+                className="font-body border-white/20 bg-white text-black hover:bg-white/90"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Contact Us
