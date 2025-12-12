@@ -9,10 +9,9 @@ interface WhyUsSectionProps {
   features: Feature[];
   imagePlaceholder?: string;
   images?: string[];
-  reversed?: boolean;
 }
 
-const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images, reversed = false }: WhyUsSectionProps) => {
+const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images }: WhyUsSectionProps) => {
   // Take first 4 features for the 2x2 grid
   const displayFeatures = features.slice(0, 4);
 
@@ -21,9 +20,9 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images,
 
   return (
     <section className="bg-accent rounded-lg overflow-hidden mb-12">
-      <div className={`grid lg:grid-cols-2 gap-0 ${reversed ? 'lg:grid-flow-dense' : ''}`}>
+      <div className="grid lg:grid-cols-2 gap-0">
         {/* Image Section */}
-        <div className={`lg:min-h-[500px] bg-accent/80 relative ${reversed ? 'lg:col-start-2' : ''}`}>
+        <div className="lg:min-h-[500px] bg-accent/80 relative">
           {displayImages.length > 0 ? (
             <div className="grid grid-cols-1 h-full">
               {displayImages.length === 1 ? (
@@ -46,18 +45,18 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images,
               ) : (
                 <div className="grid grid-cols-2 grid-rows-2 h-full">
                   <img 
-                    src={displayImages[2]} 
-                    alt="Why choose us 3" 
-                    className="w-full h-full object-cover row-span-2 col-start-2 row-start-1"
-                  />
-                  <img 
                     src={displayImages[0]} 
                     alt="Why choose us 1" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover row-span-2"
                   />
                   <img 
                     src={displayImages[1]} 
                     alt="Why choose us 2" 
+                    className="w-full h-full object-cover"
+                  />
+                  <img 
+                    src={displayImages[2]} 
+                    alt="Why choose us 3" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -71,7 +70,7 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images,
         </div>
 
         {/* Content */}
-        <div className={`p-8 md:p-12 lg:p-16 flex flex-col justify-center ${reversed ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+        <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-white mb-4 uppercase tracking-wide">
             {heading}
           </h2>
