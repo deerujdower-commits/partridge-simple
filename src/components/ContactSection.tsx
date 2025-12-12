@@ -18,10 +18,10 @@ const ContactSection = () => {
     }
     return () => observer.disconnect();
   }, []);
-  return <section ref={sectionRef} className="py-12 md:py-20 bg-accent relative overflow-hidden">
+  return <section ref={sectionRef} className="py-12 md:py-20 bg-black relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-px bg-white/20" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-white/20" />
+      <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-white/10" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="text-center mb-12">
