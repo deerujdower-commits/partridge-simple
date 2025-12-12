@@ -34,7 +34,7 @@ const HotelLinens = () => {
       id: 7,
       title: 'Bed Linen',
       description: 'Luxury bed linens including duvet covers, bedsheets, and pillow cases for hospitality and residential use.',
-      images: [hotelBedLinenMain, hotelBedLinen1, hotelBedLinen2],
+      images: [hotelBedLinen1, hotelBedLinenMain, hotelBedLinen2],
       slug: 'bed-linen'
     },
     'towel': {
@@ -50,7 +50,7 @@ const HotelLinens = () => {
     {
       title: 'Bed Linens',
       description: 'Premium quality bed sheets, duvet covers, and pillowcases for ultimate guest comfort.',
-      images: [hotelBedLinenMain, hotelBedLinen1, hotelBedLinen2],
+      images: [hotelBedLinen1, hotelBedLinenMain, hotelBedLinen2],
       modalSlug: 'bed-linen'
     },
     {

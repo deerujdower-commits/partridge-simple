@@ -8,8 +8,8 @@ import hotelBedLinen1 from '@/assets/hotel-bed-linen-1.jpeg';
 import hotelBedLinen2 from '@/assets/hotel-bed-linen-2.jpeg';
 
 const products = [
-  { id: 1, name: 'Duvet Covers', slug: 'duvet-covers', description: 'Premium duvet covers for hotels and hospitality.', image: hotelBedLinenMain },
-  { id: 2, name: 'Bed Sheets', slug: 'bed-sheets', description: 'Luxury bed sheets with high thread count.', image: hotelBedLinen1 },
+  { id: 1, name: 'Duvet Covers', slug: 'duvet-covers', description: 'Premium duvet covers for hotels and hospitality.', image: hotelBedLinen1 },
+  { id: 2, name: 'Bed Sheets', slug: 'bed-sheets', description: 'Luxury bed sheets with high thread count.', image: hotelBedLinenMain },
   { id: 3, name: 'Pillow Cases', slug: 'pillow-cases', description: 'Quality pillow cases to complement your bedding.', image: hotelBedLinen2 }
 ];
 
