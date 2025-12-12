@@ -20,6 +20,7 @@ import hotelHero from '@/assets/hotel-hero-bedroom.png';
 import hotelClientPillows from '@/assets/hotel-client-pillows.jpeg';
 import hotelClientTowels from '@/assets/hotel-client-towels.jpeg';
 import hotelClientBedding from '@/assets/hotel-client-bedding.jpeg';
+import hotelBedLinenMain from '@/assets/hotel-bed-linen-main.jpg';
 import hotelBedLinen1 from '@/assets/hotel-bed-linen-1.jpeg';
 import hotelBedLinen2 from '@/assets/hotel-bed-linen-2.jpeg';
 
@@ -33,7 +34,7 @@ const HotelLinens = () => {
       id: 7,
       title: 'Bed Linen',
       description: 'Luxury bed linens including duvet covers, bedsheets, and pillow cases for hospitality and residential use.',
-      images: [hotelBedClean, hotelBedLinen1, hotelBedLinen2],
+      images: [hotelBedLinenMain, hotelBedLinen1, hotelBedLinen2],
       slug: 'bed-linen'
     },
     'towel': {
@@ -49,7 +50,7 @@ const HotelLinens = () => {
     {
       title: 'Bed Linens',
       description: 'Premium quality bed sheets, duvet covers, and pillowcases for ultimate guest comfort.',
-      images: [hotelBedClean, bedSheetsClean, bedsheetsLuxury],
+      images: [hotelBedLinenMain, hotelBedLinen1, hotelBedLinen2],
       modalSlug: 'bed-linen'
     },
     {
