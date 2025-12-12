@@ -14,7 +14,7 @@ import towelsStackWhite from '@/assets/towels-stack-white.jpg';
 import bedSheetsClean from '@/assets/bed-sheets-clean.jpg';
 import bedsheetsLuxury from '@/assets/bedsheets-luxury.jpg';
 import hotelBedFreshLinens from '@/assets/hotel-bed-fresh-linens.jpg';
-import hotelTowelStack from '@/assets/hotel-towel-stack.png';
+import hotelTowelStack from '@/assets/hotel-towel-stack-new.png';
 import hotelTowelBath from '@/assets/hotel-towel-bath.png';
 import hotelTowelRolled from '@/assets/hotel-towel-rolled.png';
 import hotelHero from '@/assets/hotel-hero-new.jpg';
