@@ -1,6 +1,9 @@
+import { LucideIcon } from 'lucide-react';
+
 interface Feature {
   title: string;
   description: string;
+  icon?: LucideIcon;
 }
 
 interface WhyUsSectionProps {
@@ -83,9 +86,14 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images 
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-8">
             {displayFeatures.map((feature, index) => (
               <div key={index}>
-                <h3 className="font-display text-lg md:text-xl font-light text-white mb-2">
-                  {feature.title}
-                </h3>
+                <div className="flex items-center gap-3 mb-2">
+                  {feature.icon && (
+                    <feature.icon className="w-5 h-5 text-white/80" />
+                  )}
+                  <h3 className="font-display text-lg md:text-xl font-light text-white">
+                    {feature.title}
+                  </h3>
+                </div>
                 <div className="w-full h-px bg-white/30 mb-4" />
                 <p className="text-white/70 font-body text-sm leading-relaxed">
                   {feature.description}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Mail, Phone } from 'lucide-react';
+import { ArrowLeft, Mail, Phone, Award, Clock, Truck, Users } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import EnquiryModal from '@/components/EnquiryModal';
 import CollectionModal from '@/components/CollectionModal';
@@ -216,19 +216,23 @@ const Restaurant = () => {
             features={[
               {
                 title: "Quality Service",
-                description: "We pride ourselves on providing a bespoke, 24-hour round the clock service."
+                description: "We pride ourselves on providing a bespoke, 24-hour round the clock service.",
+                icon: Award
               },
               {
                 title: "Quick Turnaround",
-                description: "We offer multiple weekly rotations to guarantee fresh linen on all days."
+                description: "We offer multiple weekly rotations to guarantee fresh linen on all days.",
+                icon: Clock
               },
               {
                 title: "Nationwide Delivery",
-                description: "Fleets delivering linen nationwide all over the UK, every single day."
+                description: "Fleets delivering linen nationwide all over the UK, every single day.",
+                icon: Truck
               },
               {
                 title: "Family Heritage",
-                description: "Generations of trust, quality and heritage brought forward to present day."
+                description: "Generations of trust, quality and heritage brought forward to present day.",
+                icon: Users
               }
             ]}
           />
