@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sparkles, Users, ArrowRight, Home, FileCheck } from 'lucide-react';
-import heroImage from '@/assets/hero-home-linens.jpg';
+import heroImage from '@/assets/hero-wedding-darker-final.jpg';
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [visibleElements, setVisibleElements] = useState<number[]>([]);
