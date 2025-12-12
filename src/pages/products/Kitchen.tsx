@@ -14,6 +14,7 @@ import chefTrouserCheck from '@/assets/chef-trouser-check.png';
 import chefTrouserBlack from '@/assets/chef-trouser-black.png';
 import apron from '@/assets/apron.png';
 import kitchenHero from '@/assets/kitchen-hero.jpg';
+import kitchenClientChef from '@/assets/kitchen-client-chef.png';
 
 const kitchenClothGreen = '/lovable-uploads/027eb211-99a4-4e7d-8d3f-91a396f0b82a.png';
 const kitchenClothBlue = '/lovable-uploads/21a97c9a-3bd0-417c-b445-5ae091c4192f.png';
@@ -159,6 +160,7 @@ const Kitchen = () => {
                 description: "Regular collection schedules so you never run out of clean uniforms."
               }
             ]}
+            imagePlaceholder={kitchenClientChef}
           />
 
           {/* CTA Section */}
