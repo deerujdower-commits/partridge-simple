@@ -346,7 +346,9 @@ const Contact = () => {
                         </p>
                         
                         <div className="text-sm font-semibold text-primary mb-4">
-                          {method.contact}
+                          <span className="block">1-5 The Drive</span>
+                          <span className="block">Thornton Heath</span>
+                          <span className="block">CR7 8LB</span>
                         </div>
                       </div>
                       
@@ -356,7 +358,7 @@ const Contact = () => {
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2488.0789876543!2d-0.1089!3d51.3989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608c8a4f5b5b5%3A0x1234567890abcdef!2s1-5%20The%20Drive%2C%20Thornton%20Heath%20CR7%208LB!5e0!3m2!1sen!2suk!4v1234567890"
                           width="100%"
                           height="100%"
-                          style={{ border: 0, borderRadius: '12px', filter: 'grayscale(100%) contrast(0.9) brightness(1.1)', minHeight: '250px' }}
+                          style={{ border: 0, borderRadius: '12px', minHeight: '250px' }}
                           allowFullScreen
                           loading="lazy"
                           referrerPolicy="no-referrer-when-downgrade"
