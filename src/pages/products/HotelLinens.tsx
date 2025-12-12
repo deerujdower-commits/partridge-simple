@@ -129,7 +129,7 @@ const HotelLinens = () => {
           <WhyUsSection
             heading="Hotel Linen That Scales With You"
             subheading="Whether you run a large hotel, boutique property, or luxury Airbnb, we're your trusted partner for professional linen hire."
-            images={[hotelClientPillows, hotelClientTowels, hotelClientBedding]}
+            images={[hotelClientTowels, hotelClientBedding, hotelClientPillows]}
             reversed
             features={[
               {
