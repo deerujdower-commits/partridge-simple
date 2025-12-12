@@ -57,7 +57,7 @@ const HotelLinens = () => {
     {
       title: 'Bath Towels',
       description: 'Soft, absorbent towels in various sizes - bath sheets, hand towels, and face cloths.',
-      images: [towelsStackWhite, hotelLinens1, hotelLinens2],
+      images: [hotelTowelStack, hotelTowelBath, hotelTowelRolled],
       modalSlug: 'towel'
     }
   ];
