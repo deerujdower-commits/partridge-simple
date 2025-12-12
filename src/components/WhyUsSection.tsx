@@ -46,6 +46,11 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images,
               ) : (
                 <div className="grid grid-cols-2 grid-rows-2 h-full">
                   <img 
+                    src={displayImages[2]} 
+                    alt="Why choose us 3" 
+                    className="w-full h-full object-cover row-span-2 col-start-2 row-start-1"
+                  />
+                  <img 
                     src={displayImages[0]} 
                     alt="Why choose us 1" 
                     className="w-full h-full object-cover"
@@ -54,11 +59,6 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images,
                     src={displayImages[1]} 
                     alt="Why choose us 2" 
                     className="w-full h-full object-cover"
-                  />
-                  <img 
-                    src={displayImages[2]} 
-                    alt="Why choose us 3" 
-                    className="w-full h-full object-cover row-span-2"
                   />
                 </div>
               )}
