@@ -8,25 +8,62 @@ interface WhyUsSectionProps {
   subheading: string;
   features: Feature[];
   imagePlaceholder?: string;
+  images?: string[];
 }
 
-const WhyUsSection = ({ heading, subheading, features, imagePlaceholder }: WhyUsSectionProps) => {
+const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images }: WhyUsSectionProps) => {
   // Take first 4 features for the 2x2 grid
   const displayFeatures = features.slice(0, 4);
+
+  // Use images array if provided, otherwise fall back to single imagePlaceholder
+  const displayImages = images && images.length > 0 ? images : imagePlaceholder ? [imagePlaceholder] : [];
 
   return (
     <section className="bg-accent rounded-lg overflow-hidden mb-12">
       <div className="grid lg:grid-cols-2 gap-0">
-        {/* Image Placeholder */}
-        <div className="aspect-[4/3] lg:aspect-auto lg:min-h-[500px] bg-accent/80 relative">
-          {imagePlaceholder ? (
-            <img 
-              src={imagePlaceholder} 
-              alt="Why choose us" 
-              className="w-full h-full object-cover"
-            />
+        {/* Image Section */}
+        <div className="lg:min-h-[500px] bg-accent/80 relative">
+          {displayImages.length > 0 ? (
+            <div className="grid grid-cols-1 h-full">
+              {displayImages.length === 1 ? (
+                <img 
+                  src={displayImages[0]} 
+                  alt="Why choose us" 
+                  className="w-full h-full object-cover aspect-[4/3] lg:aspect-auto"
+                />
+              ) : displayImages.length === 2 ? (
+                <div className="grid grid-cols-2 h-full">
+                  {displayImages.map((img, idx) => (
+                    <img 
+                      key={idx}
+                      src={img} 
+                      alt={`Why choose us ${idx + 1}`} 
+                      className="w-full h-full object-cover"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 grid-rows-2 h-full">
+                  <img 
+                    src={displayImages[0]} 
+                    alt="Why choose us 1" 
+                    className="w-full h-full object-cover row-span-2"
+                  />
+                  <img 
+                    src={displayImages[1]} 
+                    alt="Why choose us 2" 
+                    className="w-full h-full object-cover"
+                  />
+                  <img 
+                    src={displayImages[2]} 
+                    alt="Why choose us 3" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+            </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-muted/20">
+            <div className="w-full h-full flex items-center justify-center bg-muted/20 aspect-[4/3] lg:aspect-auto">
               <span className="text-white/40 font-body text-sm uppercase tracking-wide">Add Image Here</span>
             </div>
           )}
