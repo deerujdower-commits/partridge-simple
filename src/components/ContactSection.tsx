@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { openMailto } from '@/lib/openMailto';
+
 const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -73,6 +75,11 @@ const ContactSection = () => {
                 <div className="font-body text-sm font-light uppercase tracking-wider text-white/70 mb-1">Email Us</div>
                 <a 
                   href="mailto:enquiry@partridgelinenhire.co.uk"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log('[contact] footer/section email click');
+                    openMailto({ to: 'enquiry@partridgelinenhire.co.uk', subject: 'Enquiry', body: 'Hi,\n\nI would like to make an enquiry.' });
+                  }}
                   className="text-white font-body leading-relaxed hover:text-white/80 transition-colors cursor-pointer text-left"
                 >
                   enquiry@partridgelinenhire.co.uk
