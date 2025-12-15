@@ -1142,43 +1142,74 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                     {category.slug === 'tablecloths' && fromEventsPage && (
                       <SizeGuideDialog type="rectangular" availableSizes={['70x70', '70x108', '90x90', '70x144']} />
                     )}
+                    {category.slug === 'tablecloths' && !fromEventsPage && (
+                      <SizeGuideDialog type="both" availableSizes={['70x144', '70x70', '54x70', '52x52', '45x45', '36x36', '88"', '108"', '118"', '130"']} />
+                    )}
                     {category.slug === 'damask' && (
                       <SizeGuideDialog type="both" availableSizes={['70x144', '88"', '108"', '118"', '130"']} />
                     )}
                   </div>
-                  <div className={`grid gap-2 ${(category.slug === 'tablecloths' || category.slug === 'damask') ? 'grid-cols-2' : 'grid-cols-3'}`}>
-                    {sizes.map((size) => (
-                      <Button
-                        key={size}
-                        variant={selectedSize === size ? 'default' : 'outline'}
-                        className={`text-xs md:text-sm ${category.slug === 'bed-linen' ? 'opacity-60 cursor-not-allowed' : ''}`}
-                        onClick={() => {
-                          if (category.slug !== 'bed-linen') {
-                            const wasRound = selectedSize?.toLowerCase().includes('round');
-                            const isRound = size.toLowerCase().includes('round');
-                            
-                            setSelectedSize(size);
-                            
-                            // If switching between round and non-round, update the image
-                            if ((category.slug === 'tablecloths' || category.slug === 'damask') && (wasRound !== isRound || !selectedSize)) {
-                              // Find the correct image index for the selected color
-                              if (selectedColor) {
-                                const colorIndex = colorSwatches.findIndex(c => c.name === selectedColor);
-                                if (colorIndex !== -1) {
-                                  jumpToImage(colorIndex);
+                  
+                  {/* Restaurant tablecloths - show as bullet lists */}
+                  {category.slug === 'tablecloths' && !fromEventsPage ? (
+                    <div className="grid grid-cols-2 gap-6">
+                      <div>
+                        <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Rectangular</p>
+                        <ul className="text-sm text-foreground space-y-1">
+                          <li>• 70" x 144"</li>
+                          <li>• 70" x 70"</li>
+                          <li>• 54" x 70"</li>
+                          <li>• 52" x 52"</li>
+                          <li>• 45" x 45"</li>
+                          <li>• 36" x 36"</li>
+                          <li>• Napkin</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Round</p>
+                        <ul className="text-sm text-foreground space-y-1">
+                          <li>• 130"</li>
+                          <li>• 118"</li>
+                          <li>• 108"</li>
+                          <li>• 88"</li>
+                        </ul>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className={`grid gap-2 ${(category.slug === 'tablecloths' || category.slug === 'damask') ? 'grid-cols-2' : 'grid-cols-3'}`}>
+                      {sizes.map((size) => (
+                        <Button
+                          key={size}
+                          variant={selectedSize === size ? 'default' : 'outline'}
+                          className={`text-xs md:text-sm ${category.slug === 'bed-linen' ? 'opacity-60 cursor-not-allowed' : ''}`}
+                          onClick={() => {
+                            if (category.slug !== 'bed-linen') {
+                              const wasRound = selectedSize?.toLowerCase().includes('round');
+                              const isRound = size.toLowerCase().includes('round');
+                              
+                              setSelectedSize(size);
+                              
+                              // If switching between round and non-round, update the image
+                              if ((category.slug === 'tablecloths' || category.slug === 'damask') && (wasRound !== isRound || !selectedSize)) {
+                                // Find the correct image index for the selected color
+                                if (selectedColor) {
+                                  const colorIndex = colorSwatches.findIndex(c => c.name === selectedColor);
+                                  if (colorIndex !== -1) {
+                                    jumpToImage(colorIndex);
+                                  }
+                                } else {
+                                  jumpToImage(0);
                                 }
-                              } else {
-                                jumpToImage(0);
                               }
                             }
-                          }
-                        }}
-                        disabled={category.slug === 'bed-linen'}
-                      >
-                        {size}
-                      </Button>
-                    ))}
-                  </div>
+                          }}
+                          disabled={category.slug === 'bed-linen'}
+                        >
+                          {size}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
                   
                   {/* Note for Tablecloths in Event Hire */}
                   {category.slug === 'tablecloths' && fromEventsPage && (
@@ -1264,17 +1295,17 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
               {/* Enquiry message for work-wear, kitchen-linen, bed-linen, towel, chef-jacket, chef-trousers */}
               {['work-wear', 'kitchen-linen', 'bed-linen', 'towel', 'chef-jacket', 'chef-trousers'].includes(category.slug) && (
                 <div className="bg-accent/5 border border-accent/20 rounded-lg p-6 text-center">
-                  <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
-                  <p className="text-foreground/80 font-body mb-4">
-                    Please contact us to enquire about availability, pricing, and custom requirements.
-                  </p>
                   <Button 
                     variant="default" 
-                    className="w-full"
+                    className="w-full mb-4"
                     onClick={() => window.location.href = '/enquiry'}
                   >
                     Contact Us
                   </Button>
+                  <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
+                  <p className="text-foreground/80 font-body">
+                    Please contact us to enquire about availability, pricing, and custom requirements.
+                  </p>
                 </div>
               )}
 
@@ -1292,54 +1323,75 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                     </div>
                   )}
 
-                  {/* Quantity Selection */}
-                  <div>
-                    <h3 className="text-lg font-display text-foreground mb-3">Quantity</h3>
-                    <div className="flex items-center gap-3">
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        disabled={quantity <= 1}
-                      >
-                        <Minus className="h-4 w-4" />
-                      </Button>
-                      <Input
-                        type="number"
-                        value={quantity}
-                        onChange={(e) => handleQuantityChange(e.target.value)}
-                        className="w-20 text-center"
-                        min="1"
-                      />
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => setQuantity(quantity + 1)}
-                      >
-                        <Plus className="h-4 w-4" />
-                      </Button>
+                  {/* Quantity Selection - Only for Events */}
+                  {fromEventsPage && (
+                    <div>
+                      <h3 className="text-lg font-display text-foreground mb-3">Quantity</h3>
+                      <div className="flex items-center gap-3">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                          disabled={quantity <= 1}
+                        >
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                        <Input
+                          type="number"
+                          value={quantity}
+                          onChange={(e) => handleQuantityChange(e.target.value)}
+                          className="w-20 text-center"
+                          min="1"
+                        />
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => setQuantity(quantity + 1)}
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  {/* Add to Enquiry Button */}
-                  <div className="pt-4">
-                    <Button
-                      className="w-full"
-                      onClick={handleAddToEnquiry}
-                      disabled={
-                        (['tablecloths', 'round-tablecloths', 'napkins', 'damask'].includes(category.slug) && !selectedColor) ||
-                        (fromEventsPage && !selectedHireDate)
-                      }
-                    >
-                      Add to Enquiry
-                    </Button>
-                    {['tablecloths', 'round-tablecloths', 'napkins', 'damask'].includes(category.slug) && !selectedColor && (
-                      <p className="text-xs text-foreground/60 text-center mt-2">Please select a color first</p>
-                    )}
-                    {fromEventsPage && !selectedHireDate && (
-                      <p className="text-xs text-foreground/60 text-center mt-2">Please select a hire date first</p>
-                    )}
-                  </div>
+                  {/* Contact Us button at top for restaurant popups */}
+                  {!fromEventsPage && (
+                    <div className="bg-accent/5 border border-accent/20 rounded-lg p-6 text-center">
+                      <Button 
+                        variant="default" 
+                        className="w-full mb-4"
+                        onClick={() => window.location.href = '/enquiry'}
+                      >
+                        Contact Us
+                      </Button>
+                      <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
+                      <p className="text-foreground/80 font-body">
+                        Please contact us to enquire about availability, pricing, and custom requirements.
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Add to Enquiry Button - Only for Events */}
+                  {fromEventsPage && (
+                    <div className="pt-4">
+                      <Button
+                        className="w-full"
+                        onClick={handleAddToEnquiry}
+                        disabled={
+                          (['tablecloths', 'round-tablecloths', 'napkins', 'damask'].includes(category.slug) && !selectedColor) ||
+                          (fromEventsPage && !selectedHireDate)
+                        }
+                      >
+                        Add to Enquiry
+                      </Button>
+                      {['tablecloths', 'round-tablecloths', 'napkins', 'damask'].includes(category.slug) && !selectedColor && (
+                        <p className="text-xs text-foreground/60 text-center mt-2">Please select a color first</p>
+                      )}
+                      {!selectedHireDate && (
+                        <p className="text-xs text-foreground/60 text-center mt-2">Please select a hire date first</p>
+                      )}
+                    </div>
+                  )}
                 </>
               )}
 
