@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight, Minus, Plus, CalendarIcon, Bed, Ruler, Bath } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -12,7 +13,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import SizeGuideDialog from '@/components/SizeGuideDialog';
-import { openMailto } from '@/lib/openMailto';
 
 // Import 70x144 damask images
 import damaskBlack70x144 from '@/assets/damask-black-70x144.png';
@@ -56,6 +56,7 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
   const [showSuggestions, setShowSuggestions] = useState(false);
   const { addItem, getSuggestedItems } = useEnquiry();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const isMobile = useIsMobile();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -1217,11 +1218,11 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                       <p className="text-sm text-foreground/80">
                         <span className="font-medium">Need different sizes or colours?</span> We can source many other sizes and colours not advertised. 
                         Please <button 
-                          onClick={() => openMailto({
-                            to: 'enquiry@partridgelinenhire.co.uk',
-                            subject: 'Enquiry about Custom Tablecloth Sizes/Colours',
-                            body: 'Hi,\n\nI would like to enquire about custom tablecloth sizes or colours.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066',
-                          })}
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            navigate('/contact');
+                          }}
                           className="text-accent hover:underline font-medium"
                         >get in touch</button> or call us on <a href="tel:02086536066" className="text-accent hover:underline font-medium">020 8653 6066</a> to discuss your requirements.
                       </p>
@@ -1303,15 +1304,14 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
               {['work-wear', 'kitchen-linen', 'bed-linen', 'towel', 'chef-jacket', 'chef-trousers'].includes(category.slug) && (
                 <div className="bg-accent/5 border border-accent/20 rounded-lg p-6 text-center">
                   <Button
+                    type="button"
                     variant="default"
                     className="w-full mb-4"
                     onClick={() => {
-                      console.log('[contact] mailto click', category.title);
-                      openMailto({
-                        to: 'enquiry@partridgelinenhire.co.uk',
-                        subject: `Enquiry about ${category.title}`,
-                        body: `Hi,\n\nI would like to enquire about ${category.title}.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066`,
-                      });
+                      console.log('[contact] go to /contact', category.title);
+                      onClose();
+                      // Let the modal unmount before routing
+                      setTimeout(() => navigate('/contact'), 0);
                     }}
                   >
                     Contact Us
@@ -1375,15 +1375,14 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                   {!fromEventsPage && (
                     <div className="bg-accent/5 border border-accent/20 rounded-lg p-6 text-center">
                       <Button
+                        type="button"
                         variant="default"
                         className="w-full mb-4"
                         onClick={() => {
-                          console.log('[contact] mailto click', category.title);
-                          openMailto({
-                            to: 'enquiry@partridgelinenhire.co.uk',
-                            subject: `Enquiry about ${category.title}`,
-                            body: `Hi,\n\nI would like to enquire about ${category.title}.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066`,
-                          });
+                          console.log('[contact] go to /contact', category.title);
+                          onClose();
+                          // Let the modal unmount before routing
+                          setTimeout(() => navigate('/contact'), 0);
                         }}
                       >
                         Contact Us
