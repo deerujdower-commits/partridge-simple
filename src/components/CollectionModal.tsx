@@ -13,6 +13,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import SizeGuideDialog from '@/components/SizeGuideDialog';
+import EnquiryModal from '@/components/EnquiryModal';
 
 // Import 70x144 damask images
 import damaskBlack70x144 from '@/assets/damask-black-70x144.png';
@@ -54,6 +55,8 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
   const [isHovered, setIsHovered] = useState(false);
   const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const [enquiryProductName, setEnquiryProductName] = useState<string | undefined>(undefined);
   const { addItem, getSuggestedItems } = useEnquiry();
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -378,6 +381,11 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
       }
     }
   }, [currentImageIndex, category.slug, selectedWorkwearType]);
+
+  const openEnquiry = (productName?: string) => {
+    setEnquiryProductName(productName);
+    setIsEnquiryOpen(true);
+  };
 
   const handleAddToEnquiry = () => {
     let productName = category.slug === 'damask' && selectedProductType === 'napkin' 
@@ -1219,10 +1227,7 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                         <span className="font-medium">Need different sizes or colours?</span> We can source many other sizes and colours not advertised. 
                         Please <button 
                           type="button"
-                          onClick={() => {
-                            onClose();
-                            navigate('/contact');
-                          }}
+                          onClick={() => openEnquiry('Custom sizes / colours')}
                           className="text-accent hover:underline font-medium"
                         >get in touch</button> or call us on <a href="tel:02086536066" className="text-accent hover:underline font-medium">020 8653 6066</a> to discuss your requirements.
                       </p>
@@ -1306,22 +1311,20 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                   <Button
                     type="button"
                     variant="default"
-                    className="w-full mb-4"
-                    onClick={() => {
-                      console.log('[contact] go to /contact', category.title);
-                      onClose();
-                      // Let the modal unmount before routing
-                      setTimeout(() => navigate('/contact'), 0);
-                    }}
+                    className="w-full"
+                    onClick={() => openEnquiry(category.title)}
                   >
                     Contact Us
                   </Button>
-                  <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
+                  <a
+                    href="tel:02086536066"
+                    className="mt-2 inline-flex justify-center text-sm font-body text-accent hover:underline font-medium"
+                  >
+                    020 8653 6066
+                  </a>
+                  <h3 className="text-lg font-display text-foreground mt-4 mb-3">Interested in this product?</h3>
                   <p className="text-foreground/80 font-body mb-2">
                     Please contact us to enquire about availability, pricing, and custom requirements.
-                  </p>
-                  <p className="text-foreground/60 font-body text-sm">
-                    Or call us: <a href="tel:02086536066" className="text-accent hover:underline font-medium">020 8653 6066</a>
                   </p>
                 </div>
               )}
@@ -1377,22 +1380,20 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                       <Button
                         type="button"
                         variant="default"
-                        className="w-full mb-4"
-                        onClick={() => {
-                          console.log('[contact] go to /contact', category.title);
-                          onClose();
-                          // Let the modal unmount before routing
-                          setTimeout(() => navigate('/contact'), 0);
-                        }}
+                        className="w-full"
+                        onClick={() => openEnquiry(category.title)}
                       >
                         Contact Us
                       </Button>
-                      <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
+                      <a
+                        href="tel:02086536066"
+                        className="mt-2 inline-flex justify-center text-sm font-body text-accent hover:underline font-medium"
+                      >
+                        020 8653 6066
+                      </a>
+                      <h3 className="text-lg font-display text-foreground mt-4 mb-3">Interested in this product?</h3>
                       <p className="text-foreground/80 font-body mb-2">
                         Please contact us to enquire about availability, pricing, and custom requirements.
-                      </p>
-                      <p className="text-foreground/60 font-body text-sm">
-                        Or call us: <a href="tel:02086536066" className="text-accent hover:underline font-medium">020 8653 6066</a>
                       </p>
                     </div>
                   )}
@@ -1434,6 +1435,12 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
         </div>
       </div>
       
+      <EnquiryModal
+        isOpen={isEnquiryOpen}
+        onClose={() => setIsEnquiryOpen(false)}
+        productName={enquiryProductName}
+      />
+
       {/* Suggestion Modal */}
       <SuggestionModal
         isOpen={showSuggestions}

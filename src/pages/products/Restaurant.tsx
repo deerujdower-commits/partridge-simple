@@ -271,7 +271,7 @@ const Restaurant = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => navigate('/contact')}
+                onClick={() => setIsEnquiryOpen(true)}
                 className="font-body border-white/20 bg-white text-black hover:bg-white/90"
               >
                 <Phone className="w-4 h-4 mr-2" />

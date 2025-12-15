@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Copy, Check } from 'lucide-react';
+import { X, Copy, Check, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -31,6 +31,8 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
   }, [productName]);
 
   const emailAddress = 'enquiry@partridgelinenhire.co.uk';
+  const phoneNumberDisplay = '020 8653 6066';
+  const phoneNumberTel = '02086536066';
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -127,7 +129,7 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 overflow-y-auto">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4 overflow-y-auto">
       <div className="bg-background border border-border rounded-lg max-w-2xl w-full my-8 flex flex-col max-h-[calc(100vh-4rem)]">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border flex-shrink-0">
@@ -253,13 +255,20 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
           </div>
 
           {/* Footer */}
-          <div className="flex justify-end gap-3 mt-6 pt-6 border-t border-border">
-            <Button type="button" variant="outline" onClick={onClose}>
-              Cancel
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-6 pt-6 border-t border-border">
+            <Button type="button" variant="outline" asChild>
+              <a href={`tel:${phoneNumberTel}`} aria-label={`Call ${phoneNumberDisplay}`}>
+                <Phone className="w-4 h-4 mr-2" />
+                Call {phoneNumberDisplay}
+              </a>
             </Button>
-            <Button type="submit">
-              Send Enquiry
-            </Button>
+
+            <div className="flex justify-end gap-3">
+              <Button type="button" variant="outline" onClick={onClose}>
+                Cancel
+              </Button>
+              <Button type="submit">Send Enquiry</Button>
+            </div>
           </div>
         </form>
       </div>

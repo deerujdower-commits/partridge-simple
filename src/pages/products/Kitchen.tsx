@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, ShieldCheck, Layers, HandMetal, Truck } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+
 import WhyUsSection from '@/components/WhyUsSection';
 import EnquiryModal from '@/components/EnquiryModal';
 import chefJacketWhite from '@/assets/chef-jacket-white.png';
@@ -48,7 +48,6 @@ const kitchenLinens = [
 ];
 
 const Kitchen = () => {
-  const navigate = useNavigate();
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
 
@@ -204,7 +203,10 @@ const Kitchen = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => navigate('/contact')}
+                onClick={() => {
+                  setSelectedProduct(null);
+                  setIsEnquiryOpen(true);
+                }}
                 className="font-body border-white/20 bg-white text-black hover:bg-white/90"
               >
                 <Phone className="w-4 h-4 mr-2" />
