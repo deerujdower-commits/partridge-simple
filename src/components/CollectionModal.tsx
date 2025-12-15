@@ -564,39 +564,26 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                 </p>
               </div>
 
-              {/* Kitchen Cloth Type Selection */}
+              {/* Kitchen Linen - Dynamic Product Name */}
               {category.slug === 'kitchen-linen' && (
                 <div>
-                  <h3 className="text-base md:text-lg font-display text-foreground mb-3">Product Type</h3>
-                  <div className="grid grid-cols-1 gap-3">
-                    <Button
-                      variant="outline"
-                      className="h-auto py-4 px-4 opacity-60 cursor-not-allowed"
-                      disabled
-                    >
-                      <div className="text-center">
-                        <div className="font-semibold">Kitchen Cloth</div>
-                      </div>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="h-auto py-4 px-4 opacity-60 cursor-not-allowed"
-                      disabled
-                    >
-                      <div className="text-center">
-                        <div className="font-semibold">Glass Cloth</div>
-                      </div>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="h-auto py-4 px-4 opacity-60 cursor-not-allowed"
-                      disabled
-                    >
-                      <div className="text-center">
-                        <div className="font-semibold">Cleaning Cloth/Napkin</div>
-                      </div>
-                    </Button>
-                  </div>
+                  <h3 className="text-base md:text-lg font-display text-foreground mb-2">
+                    {(() => {
+                      const kitchenLinenNames = [
+                        'Wonderdry Kitchen Cloth',
+                        'Herringbone Cloth - Green',
+                        'Herringbone Cloth - Blue',
+                        'Microfibre Cloth',
+                        'Oven Cloth',
+                        'Glass Cloth',
+                        'Polishing Cloth'
+                      ];
+                      return kitchenLinenNames[currentImageIndex] || 'Kitchen Linen';
+                    })()}
+                  </h3>
+                  <p className="text-sm text-foreground/60">
+                    Use arrows to browse products
+                  </p>
                 </div>
               )}
 
