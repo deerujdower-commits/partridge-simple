@@ -120,7 +120,7 @@ const Kitchen = () => {
           {/* Kitchen Linens Section */}
           <div className="mb-16">
             <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-8">
-              Kitchen Linens
+              Kitchen Linen
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {kitchenLinens.map((item, index) => (
