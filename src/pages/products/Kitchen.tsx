@@ -15,10 +15,13 @@ import chefTrouserBlack from '@/assets/chef-trouser-black.png';
 import apron from '@/assets/apron.png';
 import kitchenHero from '@/assets/kitchen-hero.jpg';
 import kitchenClientChef from '@/assets/kitchen-client-chef.png';
-
-const kitchenClothGreen = '/lovable-uploads/027eb211-99a4-4e7d-8d3f-91a396f0b82a.png';
-const kitchenClothBlue = '/lovable-uploads/21a97c9a-3bd0-417c-b445-5ae091c4192f.png';
-const kitchenClothRed = '/lovable-uploads/2733f275-4abc-4211-8663-e86feb172f9d.png';
+import kitchenClothWonderdryGreen from '@/assets/kitchen-cloth-wonderdry-green.jpeg';
+import kitchenClothHerringboneGreen from '@/assets/kitchen-cloth-herringbone-green.jpeg';
+import kitchenClothHerringboneBlue from '@/assets/kitchen-cloth-herringbone-blue.png';
+import kitchenClothMicrofibre from '@/assets/kitchen-cloth-microfibre.png';
+import kitchenClothOven from '@/assets/kitchen-cloth-oven.png';
+import kitchenClothGlass from '@/assets/kitchen-cloth-glass.jpeg';
+import kitchenClothPolishing from '@/assets/kitchen-cloth-polishing.jpeg';
 
 const chefWear = [
   { name: 'Chef Jacket Long Sleeve - White', image: chefJacketWhite },
@@ -31,9 +34,13 @@ const chefWear = [
 ];
 
 const kitchenLinens = [
-  { name: 'Kitchen Cloth - Green', image: kitchenClothGreen },
-  { name: 'Kitchen Cloth - Blue', image: kitchenClothBlue },
-  { name: 'Kitchen Cloth - Red', image: kitchenClothRed },
+  { name: 'Wonderdry Kitchen Cloth', image: kitchenClothWonderdryGreen },
+  { name: 'Herringbone Cloth - Green', image: kitchenClothHerringboneGreen },
+  { name: 'Herringbone Cloth - Blue', image: kitchenClothHerringboneBlue },
+  { name: 'Microfibre Cloth', image: kitchenClothMicrofibre },
+  { name: 'Oven Cloth', image: kitchenClothOven },
+  { name: 'Glass Cloth', image: kitchenClothGlass },
+  { name: 'Polishing Cloth', image: kitchenClothPolishing },
 ];
 
 const Kitchen = () => {
