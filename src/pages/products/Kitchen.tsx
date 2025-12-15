@@ -22,7 +22,7 @@ import kitchenClothHerringboneGreen from '@/assets/kitchen-cloth-herringbone-gre
 import kitchenClothHerringboneBlue from '@/assets/kitchen-cloth-herringbone-blue.png';
 import kitchenClothMicrofibre from '@/assets/kitchen-cloth-microfibre.png';
 import kitchenClothOven from '@/assets/kitchen-cloth-oven.png';
-import kitchenClothGlass from '@/assets/kitchen-cloth-glass.jpeg';
+import kitchenClothGlass from '@/assets/kitchen-cloth-glass-new.jpeg';
 import kitchenClothPolishing from '@/assets/kitchen-cloth-polishing.jpeg';
 
 const chefWear = [
