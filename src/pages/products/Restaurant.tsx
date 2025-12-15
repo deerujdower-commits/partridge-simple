@@ -43,6 +43,8 @@ import chefTrouserBlack from '@/assets/chef-trouser-black.png';
 import chefTrouserBlackModel from '@/assets/chef-trouser-black-model.png';
 import apron from '@/assets/apron.png';
 import apronModel from '@/assets/apron-model.jpg';
+import apronBlack from '@/assets/apron-black.png';
+import apronWhite from '@/assets/apron-white.png';
 import restaurantHero from '@/assets/restaurant-hero.jpg';
 import restaurantClient1 from '@/assets/restaurant-client-1.webp';
 
@@ -95,7 +97,9 @@ const Restaurant = () => {
         chefTrouserBlack,
         chefTrouserBlackModel,
         apron,
-        apronModel
+        apronModel,
+        apronBlack,
+        apronWhite
       ],
       slug: 'work-wear'
     }

@@ -256,7 +256,7 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
       } else if (selectedWorkwearType === 'trouser') {
         return { min: 10, max: 13 }; // Blue check (10-11) + Black (12-13)
       } else if (selectedWorkwearType === 'apron') {
-        return { min: 14, max: 15 }; // Apron (14-15)
+        return { min: 14, max: 17 }; // Apron (14-17: butcher, model, black, white)
       }
     }
     
