@@ -12,26 +12,33 @@ export function buildMailtoUrl(params: {
 }
 
 /**
- * Attempts to open the user's email client reliably across browsers/iframes.
- * Returns true if a new window was opened, false otherwise.
+ * Opens the user's email client.
+ * Note: opening mailto: in a new tab often results in a blank tab in embedded previews,
+ * so we intentionally open in the same browsing context.
  */
 export function openMailto(params: { to: string; subject?: string; body?: string }) {
   const url = buildMailtoUrl({
     to: params.to,
-    subject: params.subject ? encodeURIComponent(params.subject) : undefined,
-    body: params.body ? encodeURIComponent(params.body) : undefined,
+    subject: params.subject,
+    body: params.body,
   });
 
   try {
-    // Best-effort: try a popup first (often required in embedded previews)
-    const w = window.open(url, '_blank', 'noopener,noreferrer');
-    if (w) return true;
+    // Use a real click to satisfy browser "user gesture" requirements
+    const a = document.createElement('a');
+    a.href = url;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    return true;
   } catch {
     // ignore
   }
 
   try {
-    window.location.href = url;
+    window.location.assign(url);
+    return true;
   } catch {
     // ignore
   }
