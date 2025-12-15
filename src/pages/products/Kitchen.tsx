@@ -12,6 +12,7 @@ import chefJacketShortWhite from '@/assets/chef-jacket-short-white.png';
 import chefJacketShortBlack from '@/assets/chef-jacket-short-black.png';
 import chefTrouserCheck from '@/assets/chef-trouser-check.png';
 import chefTrouserBlack from '@/assets/chef-trouser-black.png';
+import apronButchers from '@/assets/apron-butchers.png';
 import apronBlack from '@/assets/apron-black.png';
 import apronWhite from '@/assets/apron-white.png';
 import kitchenHero from '@/assets/kitchen-hero.jpg';
@@ -31,6 +32,7 @@ const chefWear = [
   { name: 'Chef Jacket Short Sleeve - Black', image: chefJacketShortBlack },
   { name: 'Chef Trousers - Check', image: chefTrouserCheck },
   { name: 'Chef Trousers - Black', image: chefTrouserBlack },
+  { name: 'Butchers Apron', image: apronButchers },
   { name: 'Black Apron', image: apronBlack },
   { name: 'White Apron', image: apronWhite },
 ];
