@@ -12,6 +12,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import SizeGuideDialog from '@/components/SizeGuideDialog';
+import { openMailto } from '@/lib/openMailto';
 
 // Import 70x144 damask images
 import damaskBlack70x144 from '@/assets/damask-black-70x144.png';
@@ -1294,14 +1295,19 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
               {/* Enquiry message for work-wear, kitchen-linen, bed-linen, towel, chef-jacket, chef-trousers */}
               {['work-wear', 'kitchen-linen', 'bed-linen', 'towel', 'chef-jacket', 'chef-trousers'].includes(category.slug) && (
                 <div className="bg-accent/5 border border-accent/20 rounded-lg p-6 text-center">
-                  <Button 
-                    variant="default" 
+                  <Button
+                    variant="default"
                     className="w-full mb-4"
-                    asChild
+                    onClick={() => {
+                      console.log('[contact] mailto click', category.title);
+                      openMailto({
+                        to: 'enquiry@partridgelinenhire.co.uk',
+                        subject: `Enquiry about ${category.title}`,
+                        body: `Hi,\n\nI would like to enquire about ${category.title}.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066`,
+                      });
+                    }}
                   >
-                    <a href={`mailto:enquiry@partridgelinenhire.co.uk?subject=${encodeURIComponent(`Enquiry about ${category.title}`)}&body=${encodeURIComponent(`Hi,\n\nI would like to enquire about ${category.title}.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066`)}`}>
-                      Contact Us
-                    </a>
+                    Contact Us
                   </Button>
                   <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
                   <p className="text-foreground/80 font-body mb-2">
@@ -1361,14 +1367,19 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                   {/* Contact Us button at top for restaurant popups */}
                   {!fromEventsPage && (
                     <div className="bg-accent/5 border border-accent/20 rounded-lg p-6 text-center">
-                      <Button 
-                        variant="default" 
+                      <Button
+                        variant="default"
                         className="w-full mb-4"
-                        asChild
+                        onClick={() => {
+                          console.log('[contact] mailto click', category.title);
+                          openMailto({
+                            to: 'enquiry@partridgelinenhire.co.uk',
+                            subject: `Enquiry about ${category.title}`,
+                            body: `Hi,\n\nI would like to enquire about ${category.title}.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066`,
+                          });
+                        }}
                       >
-                        <a href={`mailto:enquiry@partridgelinenhire.co.uk?subject=${encodeURIComponent(`Enquiry about ${category.title}`)}&body=${encodeURIComponent(`Hi,\n\nI would like to enquire about ${category.title}.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066`)}`}>
-                          Contact Us
-                        </a>
+                        Contact Us
                       </Button>
                       <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
                       <p className="text-foreground/80 font-body mb-2">

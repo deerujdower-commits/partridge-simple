@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import { openMailto } from '@/lib/openMailto';
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -78,17 +79,17 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
       return;
     }
 
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Enquiry from ${name || 'Website'}`);
-    const body = encodeURIComponent(
+    // Open email client
+    const subject = `Enquiry from ${name || 'Website'}`;
+    const body =
       `Name: ${name || 'Not provided'}\n` +
       `Company: ${company || 'Not provided'}\n` +
       `Phone: ${phone}\n` +
       `Email: ${email}\n\n` +
-      `Message:\n${message}`
-    );
+      `Message:\n${message}`;
 
-    window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+    console.log('[contact] enquiry modal submit');
+    openMailto({ to: emailAddress, subject, body });
 
     toast({
       title: "Opening email client",

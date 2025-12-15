@@ -3,6 +3,8 @@ import Footer from '@/components/Footer';
 import { Phone, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { openMailto } from '@/lib/openMailto';
+
 import {
   Accordion,
   AccordionContent,
@@ -252,13 +254,17 @@ const Events = () => {
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us
               </a>
-              <a 
-                href="mailto:enquiry@partridgelinenhire.co.uk"
+              <button
+                type="button"
+                onClick={() => {
+                  console.log('[contact] events email click');
+                  openMailto({ to: 'enquiry@partridgelinenhire.co.uk', subject: 'Event hire enquiry', body: 'Hi,\n\nI would like to enquire about event hire.' });
+                }}
                 className="inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded hover:bg-white/90 transition-colors font-body border border-white/20"
               >
                 <Mail className="w-4 h-4 mr-2" />
                 Email Us
-              </a>
+              </button>
             </div>
           </div>
         </div>

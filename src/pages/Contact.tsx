@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import heroImage from '@/assets/event-white-round-tables-clean.jpg';
+import { openMailto } from '@/lib/openMailto';
 
 const contactMethods = [
   {
@@ -95,10 +96,11 @@ const Contact = () => {
   });
 
   const handleMethodClick = (action: string, contact: string) => {
+    console.log('[contact] method click', action, contact);
     if (action === 'call') {
       window.location.href = `tel:${contact.replace(/\s/g, '')}`;
     } else if (action === 'email') {
-      window.location.href = `mailto:${contact}`;
+      openMailto({ to: contact, subject: 'Enquiry', body: 'Hi,\n\nI would like to make an enquiry.' });
     }
   };
   
