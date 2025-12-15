@@ -18,9 +18,13 @@ import studioFittedBlackNapkins from '@/assets/studio-fitted-black-napkins.jpg';
 import studioFittedIvoryNapkins from '@/assets/studio-fitted-ivory-napkins.jpg';
 
 // Kitchen images
-const kitchenCloth = '/lovable-uploads/027eb211-99a4-4e7d-8d3f-91a396f0b82a.png';
-const kitchenClothAlt1 = '/lovable-uploads/21a97c9a-3bd0-417c-b445-5ae091c4192f.png';
-const kitchenClothAlt2 = '/lovable-uploads/2733f275-4abc-4211-8663-e86feb172f9d.png';
+import kitchenClothWonderdryGreen from '@/assets/kitchen-cloth-wonderdry-green.jpeg';
+import kitchenClothHerringboneGreen from '@/assets/kitchen-cloth-herringbone-green.jpeg';
+import kitchenClothHerringboneBlue from '@/assets/kitchen-cloth-herringbone-blue.png';
+import kitchenClothMicrofibre from '@/assets/kitchen-cloth-microfibre.png';
+import kitchenClothOven from '@/assets/kitchen-cloth-oven.png';
+import kitchenClothGlass from '@/assets/kitchen-cloth-glass.jpeg';
+import kitchenClothPolishing from '@/assets/kitchen-cloth-polishing.jpeg';
 
 // Workwear images
 import chefSuitWhiteFull from '@/assets/chef-suit-white-full.jpg';
@@ -66,9 +70,9 @@ const Restaurant = () => {
     },
     'kitchen-linen': {
       id: 6,
-      title: 'Kitchen',
+      title: 'Kitchen Linen',
       description: 'Professional kitchen towels and cloths in various patterns and colors for commercial and domestic use.',
-      images: [kitchenCloth, kitchenClothAlt1, kitchenClothAlt2],
+      images: [kitchenClothWonderdryGreen, kitchenClothHerringboneGreen, kitchenClothHerringboneBlue, kitchenClothMicrofibre, kitchenClothOven, kitchenClothGlass, kitchenClothPolishing],
       slug: 'kitchen-linen'
     },
     'work-wear': {
@@ -111,9 +115,9 @@ const Restaurant = () => {
       modalSlug: 'napkins'
     },
     {
-      title: 'Kitchen Linens',
+      title: 'Kitchen Linen',
       description: 'Professional kitchen towels and cloths for commercial use.',
-      images: [kitchenCloth],
+      images: [kitchenClothWonderdryGreen],
       modalSlug: 'kitchen-linen'
     },
     {
