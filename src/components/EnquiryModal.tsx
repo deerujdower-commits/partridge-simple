@@ -151,8 +151,26 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
           </Button>
         </div>
 
+        {/* Call Us - Top of form */}
+        <div className="px-6 pt-6">
+          <Button variant="outline" className="w-full" asChild>
+            <a href={`tel:${phoneNumberTel}`} aria-label={`Call ${phoneNumberDisplay}`}>
+              <Phone className="w-4 h-4 mr-2" />
+              Call Us: {phoneNumberDisplay}
+            </a>
+          </Button>
+          <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-border" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">or send an email</span>
+            </div>
+          </div>
+        </div>
+
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 overflow-y-auto flex-1">
+        <form onSubmit={handleSubmit} className="px-6 pb-6 overflow-y-auto flex-1">
           <div className="space-y-4">
             {/* Name (Optional) */}
             <div>
@@ -255,20 +273,11 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
           </div>
 
           {/* Footer */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-6 pt-6 border-t border-border">
-            <Button type="button" variant="outline" asChild>
-              <a href={`tel:${phoneNumberTel}`} aria-label={`Call ${phoneNumberDisplay}`}>
-                <Phone className="w-4 h-4 mr-2" />
-                Call {phoneNumberDisplay}
-              </a>
+          <div className="flex justify-end gap-3 mt-6 pt-6 border-t border-border">
+            <Button type="button" variant="outline" onClick={onClose}>
+              Cancel
             </Button>
-
-            <div className="flex justify-end gap-3">
-              <Button type="button" variant="outline" onClick={onClose}>
-                Cancel
-              </Button>
-              <Button type="submit">Send Enquiry</Button>
-            </div>
+            <Button type="submit">Send Enquiry</Button>
           </div>
         </form>
       </div>
