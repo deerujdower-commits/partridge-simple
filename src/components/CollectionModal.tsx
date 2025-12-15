@@ -1156,21 +1156,21 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                       <div>
                         <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Rectangular</p>
                         <ul className="text-sm text-foreground space-y-1.5">
-                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 70" x 144"</li>
-                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 70" x 70"</li>
-                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 54" x 70"</li>
-                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 52" x 52"</li>
-                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 45" x 45"</li>
                           <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 36" x 36"</li>
+                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 45" x 45"</li>
+                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 52" x 52"</li>
+                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 54" x 70"</li>
+                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 70" x 70"</li>
+                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 70" x 144"</li>
                         </ul>
                       </div>
                       <div>
                         <p className="text-xs font-medium text-foreground/50 uppercase tracking-wider mb-2">Round</p>
                         <ul className="text-sm text-foreground space-y-1.5">
-                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 130"</li>
-                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 118"</li>
-                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 108"</li>
                           <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 88"</li>
+                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 108"</li>
+                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 118"</li>
+                          <li className="flex items-center gap-2"><Ruler className="w-3.5 h-3.5 text-foreground/40" /> 130"</li>
                         </ul>
                       </div>
                     </div>
