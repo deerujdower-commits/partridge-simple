@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { openMailto } from '@/lib/openMailto';
 
 interface AboutModalProps {
   isOpen: boolean;
@@ -105,7 +106,11 @@ The next generation of the Partridge family brings fresh ideas and energy to the
                 </p>
                 <Button 
                   className="w-full"
-                  onClick={() => window.location.href = '/contact'}
+                  onClick={() => openMailto({
+                    to: 'enquiry@partridgelinenhire.co.uk',
+                    subject: 'Enquiry about Partridge Linen Services',
+                    body: 'Hi,\n\nI would like to learn more about your services.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066',
+                  })}
                 >
                   Get in Touch
                 </Button>

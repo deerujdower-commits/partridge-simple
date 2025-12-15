@@ -1216,7 +1216,14 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                     <div className="mt-3 p-3 bg-accent/10 border border-accent/20 rounded-lg">
                       <p className="text-sm text-foreground/80">
                         <span className="font-medium">Need different sizes or colours?</span> We can source many other sizes and colours not advertised. 
-                        Please <a href="/contact" className="text-accent hover:underline font-medium">get in touch</a> or call us to discuss your requirements.
+                        Please <button 
+                          onClick={() => openMailto({
+                            to: 'enquiry@partridgelinenhire.co.uk',
+                            subject: 'Enquiry about Custom Tablecloth Sizes/Colours',
+                            body: 'Hi,\n\nI would like to enquire about custom tablecloth sizes or colours.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066',
+                          })}
+                          className="text-accent hover:underline font-medium"
+                        >get in touch</button> or call us on <a href="tel:02086536066" className="text-accent hover:underline font-medium">020 8653 6066</a> to discuss your requirements.
                       </p>
                     </div>
                   )}
