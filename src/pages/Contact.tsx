@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import heroImage from '@/assets/event-white-round-tables-clean.jpg';
+import buildingExterior from '@/assets/building-exterior.webp';
 import { openMailto } from '@/lib/openMailto';
 
 const contactMethods = [
@@ -351,6 +352,18 @@ const Contact = () => {
                           <span className="block">1-5 The Drive</span>
                           <span className="block">Thornton Heath</span>
                           <span className="block">CR7 8LB</span>
+                        </div>
+
+                        {/* Building Image */}
+                        <div className="mt-4">
+                          <img 
+                            src={buildingExterior} 
+                            alt="Partridge Linen building exterior" 
+                            className="w-full max-w-md rounded-lg object-cover"
+                          />
+                          <p className="text-xs text-muted-foreground mt-2">
+                            This is what our building looks like when you visit
+                          </p>
                         </div>
                       </div>
                       
