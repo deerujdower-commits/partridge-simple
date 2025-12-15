@@ -1297,7 +1297,7 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                   <Button 
                     variant="default" 
                     className="w-full mb-4"
-                    onClick={() => window.location.href = '/enquiry'}
+                    onClick={() => window.location.href = `mailto:enquiry@partridgelinenhire.co.uk?subject=Enquiry about ${category.title}`}
                   >
                     Contact Us
                   </Button>
@@ -1359,7 +1359,7 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                       <Button 
                         variant="default" 
                         className="w-full mb-4"
-                        onClick={() => window.location.href = '/enquiry'}
+                        onClick={() => window.location.href = `mailto:enquiry@partridgelinenhire.co.uk?subject=Enquiry about ${category.title}`}
                       >
                         Contact Us
                       </Button>
