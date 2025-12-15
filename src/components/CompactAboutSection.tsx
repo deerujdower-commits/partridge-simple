@@ -57,8 +57,7 @@ const CompactAboutSection = () => {
           {/* Image */}
           <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-              <img src={laundryFacility} alt="Partridge Linen industrial laundry facility" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/10" />
+              <img src={laundryFacility} alt="Partridge Linen industrial laundry facility" className="w-full h-full object-cover brightness-110 contrast-105" />
               
               {/* Floating accent */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-xl" />
