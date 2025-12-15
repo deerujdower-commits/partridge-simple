@@ -535,6 +535,10 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                 const range = getWorkwearImageRange();
                 const isWorkwearSelected = ['work-wear', 'chef-jacket', 'chef-trousers'].includes(category.slug) && selectedWorkwearType !== '';
                 
+                // Hide indicators for tablecloths/napkins/round-tablecloths as we show color swatches instead
+                const hideForColorSwatches = ['tablecloths', 'round-tablecloths', 'napkins'].includes(category.slug);
+                if (hideForColorSwatches) return null;
+                
                 const showIndicators = isWorkwearSelected ? (range.max - range.min > 0) : currentImages.length > 1;
                 
                 if (!showIndicators) return null;
@@ -560,6 +564,34 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                   </div>
                 );
               })()}
+
+              {/* Color Swatches below image for tablecloths/napkins */}
+              {(['tablecloths', 'round-tablecloths', 'napkins'].includes(category.slug)) && (
+                <div className="flex justify-center mt-4 gap-3">
+                  {colorSwatches.map((color) => (
+                    <button
+                      key={color.value}
+                      className={`w-8 h-8 rounded-full border-2 transition-all duration-200 ${
+                        selectedColor === color.name ? 'border-primary scale-110 ring-2 ring-primary/20' : 'border-border hover:scale-105'
+                      }`}
+                      style={{ backgroundColor: color.hex }}
+                      onClick={() => {
+                        setSelectedColor(color.name);
+                        const colorIndex = colorSwatches.findIndex(c => c.name === color.name);
+                        if (colorIndex !== -1 && colorIndex < currentImages.length) {
+                          jumpToImage(colorIndex);
+                        }
+                      }}
+                      title={color.name}
+                      aria-label={`Color: ${color.name}`}
+                    >
+                      {color.value === 'white' && (
+                        <div className="w-full h-full rounded-full border border-gray-200" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -1101,24 +1133,23 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                 </div>
               )}
 
-              {/* Color Selection */}
-              {(['tablecloths', 'round-tablecloths', 'napkins', 'damask'].includes(category.slug)) && (
+              {/* Color Selection - Only for Damask (tablecloths/napkins/round have swatches below image) */}
+              {category.slug === 'damask' && (
                 <div>
                   <h3 className="text-lg font-display text-foreground mb-3">Color</h3>
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-3">
                     {colorSwatches.map((color) => (
                       <button
                         key={color.value}
-                        className={`w-12 h-12 rounded-full border-2 transition-all duration-200 relative overflow-hidden ${
+                        className={`w-10 h-10 rounded-full border-2 transition-all duration-200 relative overflow-hidden ${
                           selectedColor === color.name ? 'border-primary scale-110 ring-2 ring-primary/20' : 'border-border hover:scale-105'
                         }`}
                         style={{ 
-                          backgroundColor: color.isDamask ? 'transparent' : color.hex,
-                          backgroundImage: color.isDamask ? `radial-gradient(circle at 30% 30%, ${color.hex}40, ${color.hex}20), repeating-linear-gradient(45deg, ${color.hex}30 0px, ${color.hex}30 2px, transparent 2px, transparent 6px)` : undefined
+                          backgroundColor: 'transparent',
+                          backgroundImage: `radial-gradient(circle at 30% 30%, ${color.hex}40, ${color.hex}20), repeating-linear-gradient(45deg, ${color.hex}30 0px, ${color.hex}30 2px, transparent 2px, transparent 6px)`
                         }}
                         onClick={() => {
                           setSelectedColor(color.name);
-                          // Update image index based on color selection
                           const colorIndex = colorSwatches.findIndex(c => c.name === color.name);
                           if (colorIndex !== -1 && colorIndex < currentImages.length) {
                             jumpToImage(colorIndex);
@@ -1126,18 +1157,9 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                         }}
                         title={color.name}
                         aria-label={`Color: ${color.name}`}
-                      >
-                        {color.value === 'white' && !color.isDamask && (
-                          <div className="w-full h-full rounded-full border border-gray-200" />
-                        )}
-                      </button>
+                      />
                     ))}
                   </div>
-                  {!fromEventsPage && (
-                    <p className="text-xs text-foreground/60 mt-2">
-                      We can supply a range of colours - please contact us for more options.
-                    </p>
-                  )}
                 </div>
               )}
 
