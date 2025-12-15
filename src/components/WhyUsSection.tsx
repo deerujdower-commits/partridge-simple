@@ -45,7 +45,7 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images 
                     />
                   ))}
                 </div>
-              ) : (
+              ) : displayImages.length === 3 ? (
                 <div className="grid grid-cols-2 grid-rows-2 h-full">
                   <img 
                     src={displayImages[0]} 
@@ -62,6 +62,17 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images 
                     alt="Why choose us 3" 
                     className="w-full h-full object-cover"
                   />
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 grid-rows-2 h-full">
+                  {displayImages.slice(0, 4).map((img, idx) => (
+                    <img 
+                      key={idx}
+                      src={img} 
+                      alt={`Why choose us ${idx + 1}`} 
+                      className="w-full h-full object-cover"
+                    />
+                  ))}
                 </div>
               )}
             </div>

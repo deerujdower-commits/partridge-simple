@@ -46,6 +46,7 @@ import apronModel from '@/assets/apron-model.jpg';
 import apronBlack from '@/assets/apron-black.png';
 import apronWhite from '@/assets/apron-white.png';
 import restaurantHero from '@/assets/restaurant-hero.jpg';
+import restaurantClient1 from '@/assets/restaurant-client-1.webp';
 import restaurantWhyus1 from '@/assets/restaurant-whyus-1.jpeg';
 import restaurantWhyus2 from '@/assets/restaurant-whyus-2.png';
 import restaurantWhyus3 from '@/assets/restaurant-whyus-3.jpeg';
@@ -222,7 +223,7 @@ const Restaurant = () => {
           <WhyUsSection
             heading="Trusted for 30 Years and Counting"
             subheading="Commercial linen solutions for an endless list of establishments. Our portfolio of clientele speaks for itself."
-            images={[restaurantWhyus1, restaurantWhyus2, restaurantWhyus3]}
+            images={[restaurantClient1, restaurantWhyus1, restaurantWhyus2, restaurantWhyus3]}
             features={[
               {
                 title: "Quality Service",
