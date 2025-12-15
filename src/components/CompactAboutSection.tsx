@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { BookOpen } from 'lucide-react';
-import familyBusinessPortrait from '@/assets/family-business-portrait.jpg';
+import laundryFacility from '@/assets/laundry-facility.png';
 const CompactAboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -57,7 +57,7 @@ const CompactAboutSection = () => {
           {/* Image */}
           <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-              <img src={familyBusinessPortrait} alt="Partridge Linen family business heritage" className="w-full h-full object-cover" />
+              <img src={laundryFacility} alt="Partridge Linen industrial laundry facility" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-black/10" />
               
               {/* Floating accent */}
