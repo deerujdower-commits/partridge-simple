@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, Sparkles, Truck, Building2, Search } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+
 import EnquiryModal from '@/components/EnquiryModal';
 import CollectionModal from '@/components/CollectionModal';
 import WhyUsSection from '@/components/WhyUsSection';
@@ -26,7 +26,6 @@ import hotelBedLinen1 from '@/assets/hotel-bed-linen-1.jpeg';
 import hotelBedLinen2 from '@/assets/hotel-bed-linen-2.jpeg';
 
 const HotelLinens = () => {
-  const navigate = useNavigate();
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [selectedModal, setSelectedModal] = useState<{ id: number; title: string; description: string; images: string[]; slug: string } | null>(null);
 
@@ -184,7 +183,7 @@ const HotelLinens = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => navigate('/contact')}
+                onClick={() => setIsEnquiryOpen(true)}
                 className="font-body border-white/20 bg-white text-black hover:bg-white/90"
               >
                 <Phone className="w-4 h-4 mr-2" />
