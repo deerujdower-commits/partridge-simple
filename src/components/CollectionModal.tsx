@@ -1297,13 +1297,18 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                   <Button 
                     variant="default" 
                     className="w-full mb-4"
-                    onClick={() => window.location.href = `mailto:enquiry@partridgelinenhire.co.uk?subject=Enquiry about ${category.title}`}
+                    asChild
                   >
-                    Contact Us
+                    <a href={`mailto:enquiry@partridgelinenhire.co.uk?subject=${encodeURIComponent(`Enquiry about ${category.title}`)}&body=${encodeURIComponent(`Hi,\n\nI would like to enquire about ${category.title}.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066`)}`}>
+                      Contact Us
+                    </a>
                   </Button>
                   <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
-                  <p className="text-foreground/80 font-body">
+                  <p className="text-foreground/80 font-body mb-2">
                     Please contact us to enquire about availability, pricing, and custom requirements.
+                  </p>
+                  <p className="text-foreground/60 font-body text-sm">
+                    Or call us: <a href="tel:02086536066" className="text-accent hover:underline font-medium">020 8653 6066</a>
                   </p>
                 </div>
               )}
@@ -1359,13 +1364,18 @@ const CollectionModal = ({ isOpen, onClose, category, fromEventsPage = false }: 
                       <Button 
                         variant="default" 
                         className="w-full mb-4"
-                        onClick={() => window.location.href = `mailto:enquiry@partridgelinenhire.co.uk?subject=Enquiry about ${category.title}`}
+                        asChild
                       >
-                        Contact Us
+                        <a href={`mailto:enquiry@partridgelinenhire.co.uk?subject=${encodeURIComponent(`Enquiry about ${category.title}`)}&body=${encodeURIComponent(`Hi,\n\nI would like to enquire about ${category.title}.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066`)}`}>
+                          Contact Us
+                        </a>
                       </Button>
                       <h3 className="text-lg font-display text-foreground mb-3">Interested in this product?</h3>
-                      <p className="text-foreground/80 font-body">
+                      <p className="text-foreground/80 font-body mb-2">
                         Please contact us to enquire about availability, pricing, and custom requirements.
+                      </p>
+                      <p className="text-foreground/60 font-body text-sm">
+                        Or call us: <a href="tel:02086536066" className="text-accent hover:underline font-medium">020 8653 6066</a>
                       </p>
                     </div>
                   )}
