@@ -146,9 +146,17 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
               </button>
             </p>
           </div>
-          <Button variant="ghost" size="icon" onClick={onClose}>
-            <X className="h-5 w-5" />
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" asChild>
+              <a href={`tel:${phoneNumberTel}`}>
+                <Phone className="w-4 h-4 mr-1" />
+                Call
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" onClick={onClose}>
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
 
         {/* Form */}
@@ -258,12 +266,6 @@ const EnquiryModal = ({ isOpen, onClose, productName }: EnquiryModalProps) => {
           <div className="flex justify-end gap-3 mt-6 pt-6 border-t border-border">
             <Button type="button" variant="outline" onClick={onClose}>
               Cancel
-            </Button>
-            <Button type="button" variant="outline" asChild>
-              <a href={`tel:${phoneNumberTel}`}>
-                <Phone className="w-4 h-4 mr-2" />
-                Call
-              </a>
             </Button>
             <Button type="submit">Send Enquiry</Button>
           </div>
