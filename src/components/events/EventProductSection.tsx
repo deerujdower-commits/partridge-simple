@@ -92,22 +92,43 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
       <div className="grid md:grid-cols-2 gap-8">
         {/* Left Column - Selections */}
         <div className="space-y-6">
-          {/* Color Swatches - Large Squares */}
+          {/* Color Swatches */}
           <div>
             <label className="block text-sm font-medium text-foreground/70 mb-3">
               Select Colour
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            
+            {/* Large Preview Image */}
+            {selectedColor && (
+              <div className="mb-4 rounded-lg overflow-hidden border border-border aspect-[4/3]">
+                {colors.find(c => c.name === selectedColor)?.image ? (
+                  <img 
+                    src={colors.find(c => c.name === selectedColor)?.image} 
+                    alt={selectedColor}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div 
+                    className="w-full h-full"
+                    style={{ backgroundColor: colors.find(c => c.name === selectedColor)?.hex }}
+                  />
+                )}
+              </div>
+            )}
+            
+            {/* Color Swatches Grid */}
+            <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
               {colors.map((color) => (
                 <button
                   key={color.name}
                   onClick={() => setSelectedColor(color.name)}
                   className={cn(
-                    "relative aspect-square rounded-lg transition-all duration-300 border-2 overflow-hidden group",
+                    "relative aspect-square rounded-md transition-all duration-200 border-2 overflow-hidden",
                     selectedColor === color.name 
-                      ? "border-accent ring-2 ring-accent/30 scale-110 z-10 shadow-lg" 
-                      : "border-border hover:border-foreground/40 hover:scale-105 hover:z-10 hover:shadow-md"
+                      ? "border-accent ring-2 ring-accent/30" 
+                      : "border-border hover:border-foreground/40"
                   )}
+                  title={color.name}
                 >
                   {color.image ? (
                     <img 
@@ -125,21 +146,21 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
                       )}
                     </div>
                   )}
-                  {/* Color name overlay */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                    <span className="text-white text-sm font-medium">{color.name}</span>
-                  </div>
                   {/* Selected indicator */}
                   {selectedColor === color.name && (
-                    <div className="absolute top-2 right-2 w-6 h-6 bg-accent rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="absolute top-1 right-1 w-4 h-4 bg-accent rounded-full flex items-center justify-center">
+                      <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                   )}
                 </button>
               ))}
             </div>
+            {/* Selected color name */}
+            {selectedColor && (
+              <p className="mt-2 text-sm text-foreground font-medium">{selectedColor}</p>
+            )}
           </div>
 
           {/* Product Type Dropdown */}
