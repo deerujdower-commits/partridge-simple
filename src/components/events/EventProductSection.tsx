@@ -40,6 +40,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
   const [quantity, setQuantity] = useState(1);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [showCalendar, setShowCalendar] = useState(false);
+  const [hoveredColor, setHoveredColor] = useState<string | null>(null);
   
   const selectedProductTypeData = productTypes.find(p => p.value === selectedProductType);
   const selectedSizeData = selectedProductTypeData?.sizes.find(s => s.value === selectedSize);
@@ -85,6 +86,8 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
     setSelectedDate(undefined);
   };
 
+  const hoveredColorData = colors.find(c => c.name === hoveredColor);
+
   return (
     <div className="bg-card border border-border rounded-lg p-6 md:p-8 mb-8">
       <h2 className="font-display text-2xl font-light text-foreground mb-6">{title}</h2>
@@ -93,68 +96,80 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
         {/* Left Column - Selections */}
         <div className="space-y-6">
           {/* Color Swatches */}
-          <div>
+          <div className="relative">
             <label className="block text-sm font-medium text-foreground/70 mb-3">
               Select Colour
             </label>
             
-            {/* Large Preview Image */}
-            {selectedColor && (
-              <div className="mb-4 rounded-lg overflow-hidden border border-border aspect-[4/3]">
-                {colors.find(c => c.name === selectedColor)?.image ? (
-                  <img 
-                    src={colors.find(c => c.name === selectedColor)?.image} 
-                    alt={selectedColor}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div 
-                    className="w-full h-full"
-                    style={{ backgroundColor: colors.find(c => c.name === selectedColor)?.hex }}
-                  />
-                )}
-              </div>
-            )}
-            
             {/* Color Swatches Grid */}
             <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
               {colors.map((color) => (
-                <button
-                  key={color.name}
-                  onClick={() => setSelectedColor(color.name)}
-                  className={cn(
-                    "relative aspect-square rounded-md transition-all duration-200 border-2 overflow-hidden",
-                    selectedColor === color.name 
-                      ? "border-accent ring-2 ring-accent/30" 
-                      : "border-border hover:border-foreground/40"
-                  )}
-                  title={color.name}
-                >
-                  {color.image ? (
-                    <img 
-                      src={color.image} 
-                      alt={color.name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div 
-                      className="w-full h-full"
-                      style={{ backgroundColor: color.hex }}
-                    >
-                      {color.hex === '#FFFFFF' && (
-                        <div className="w-full h-full border border-gray-200" />
+                <div key={color.name} className="relative group">
+                  <button
+                    onClick={() => setSelectedColor(color.name)}
+                    onMouseEnter={() => setHoveredColor(color.name)}
+                    onMouseLeave={() => setHoveredColor(null)}
+                    className={cn(
+                      "relative aspect-square rounded-md transition-all duration-200 border-2 overflow-hidden w-full",
+                      selectedColor === color.name 
+                        ? "border-accent ring-2 ring-accent/30" 
+                        : "border-border hover:border-foreground/40"
+                    )}
+                    title={color.name}
+                  >
+                    {color.image ? (
+                      <img 
+                        src={color.image} 
+                        alt={color.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div 
+                        className="w-full h-full"
+                        style={{ backgroundColor: color.hex }}
+                      >
+                        {color.hex === '#FFFFFF' && (
+                          <div className="w-full h-full border border-gray-200" />
+                        )}
+                      </div>
+                    )}
+                    {/* Selected indicator */}
+                    {selectedColor === color.name && (
+                      <div className="absolute top-1 right-1 w-4 h-4 bg-accent rounded-full flex items-center justify-center">
+                        <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                    )}
+                  </button>
+                  
+                  {/* Hover Preview Popup */}
+                  <div className={cn(
+                    "absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-50 pointer-events-none transition-all duration-200",
+                    hoveredColor === color.name 
+                      ? "opacity-100 scale-100" 
+                      : "opacity-0 scale-95"
+                  )}>
+                    <div className="w-48 h-48 rounded-lg overflow-hidden border-2 border-accent shadow-2xl bg-card">
+                      {color.image ? (
+                        <img 
+                          src={color.image} 
+                          alt={color.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div 
+                          className="w-full h-full"
+                          style={{ backgroundColor: color.hex }}
+                        />
                       )}
                     </div>
-                  )}
-                  {/* Selected indicator */}
-                  {selectedColor === color.name && (
-                    <div className="absolute top-1 right-1 w-4 h-4 bg-accent rounded-full flex items-center justify-center">
-                      <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                  )}
-                </button>
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rotate-45" />
+                    <p className="text-center mt-2 text-sm font-medium text-foreground bg-card/90 rounded px-2 py-1">
+                      {color.name}
+                    </p>
+                  </div>
+                </div>
               ))}
             </div>
             {/* Selected color name */}
