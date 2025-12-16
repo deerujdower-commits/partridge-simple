@@ -68,13 +68,21 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
     setShowCalendar(false);
   };
 
-  // Reset size when product type changes
+  // Reset size when product type changes, auto-select if only one size
   const handleProductTypeChange = (value: string) => {
     setSelectedProductType(value);
-    setSelectedSize('');
+    const productType = productTypes.find(p => p.value === value);
+    // Auto-select size if only one option
+    if (productType?.sizes.length === 1) {
+      setSelectedSize(productType.sizes[0].value);
+    } else {
+      setSelectedSize('');
+    }
     setShowCalendar(false);
     setSelectedDate(undefined);
   };
+  
+  const hasSingleSize = selectedProductTypeData?.sizes.length === 1;
 
   const hoveredColorData = colors.find(c => c.name === hoveredColor);
 
@@ -186,29 +194,44 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
             </Select>
           </div>
 
-          {/* Size Dropdown */}
+          {/* Size - Dropdown or Static Text */}
           <div>
             <label className="block text-xs font-medium text-foreground/70 mb-1.5">
               Size
             </label>
-            <Select 
-              value={selectedSize} 
-              onValueChange={setSelectedSize}
-              disabled={!selectedProductTypeData}
-            >
-              <SelectTrigger className="w-full h-9 text-sm">
-                <SelectValue placeholder="Select size" />
-              </SelectTrigger>
-              <SelectContent>
-                {selectedProductTypeData?.sizes.map((size) => (
-                  <SelectItem key={size.value} value={size.value}>
-                    {size.label} - £{size.price.toFixed(2)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {hasSingleSize ? (
+              // Single size - show as static text
+              <div className="h-9 px-3 flex items-center text-sm bg-muted/50 rounded-md border border-border">
+                {selectedProductTypeData?.sizes[0].label} - £{selectedProductTypeData?.sizes[0].price.toFixed(2)}
+              </div>
+            ) : (
+              // Multiple sizes - show dropdown
+              <Select 
+                value={selectedSize} 
+                onValueChange={setSelectedSize}
+                disabled={!selectedProductTypeData}
+              >
+                <SelectTrigger className="w-full h-9 text-sm">
+                  <SelectValue placeholder="Select size" />
+                </SelectTrigger>
+                <SelectContent>
+                  {selectedProductTypeData?.sizes.map((size) => (
+                    <SelectItem key={size.value} value={size.value}>
+                      {size.label} - £{size.price.toFixed(2)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
           </div>
         </div>
+
+        {/* Size Guide - Always visible when product type is selected */}
+        {selectedProductType && (
+          <div className="pt-1">
+            <SizeGuideDialog type={sizeGuideType} />
+          </div>
+        )}
 
         {/* Quantity & Calendar Section - Only show when size is selected */}
         {selectedSizeData && (
@@ -285,7 +308,6 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
 
             {/* Actions Row */}
             <div className="flex items-center gap-3">
-              <SizeGuideDialog type={sizeGuideType} />
               <Button 
                 onClick={handleAddToBasket}
                 disabled={!selectedColor || !selectedProductType || !selectedSize || !selectedDate}
