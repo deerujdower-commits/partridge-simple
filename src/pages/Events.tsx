@@ -147,7 +147,7 @@ const Events = () => {
 
           {/* Damask Tablecloths Section */}
           <EventProductSection
-            title="Damask Tablecloths"
+            title="Damask Patterns"
             colors={damaskColors}
             productTypes={damaskProductTypes}
             sizeGuideType="both"
