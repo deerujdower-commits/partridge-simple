@@ -40,7 +40,7 @@ const tableLinenProductTypes = [
     value: 'napkins',
     label: 'Napkins',
     sizes: [
-      { value: 'standard', label: 'Standard', price: 0.50 },
+      { value: 'standard', label: '20" x 20"', price: 0.50 },
     ]
   },
   {
@@ -86,7 +86,7 @@ const damaskProductTypes = [
     value: 'napkins',
     label: 'Napkins',
     sizes: [
-      { value: 'standard', label: 'Standard', price: 0.75 },
+      { value: 'standard', label: '20" x 20"', price: 0.75 },
     ]
   },
   {
