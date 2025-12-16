@@ -103,10 +103,10 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
                   key={color.name}
                   onClick={() => setSelectedColor(color.name)}
                   className={cn(
-                    "relative aspect-square rounded-lg transition-all duration-200 border-2 overflow-hidden group",
+                    "relative aspect-square rounded-lg transition-all duration-300 border-2 overflow-hidden group",
                     selectedColor === color.name 
-                      ? "border-accent ring-2 ring-accent/30 scale-[1.02]" 
-                      : "border-border hover:border-foreground/40 hover:scale-[1.01]"
+                      ? "border-accent ring-2 ring-accent/30 scale-110 z-10 shadow-lg" 
+                      : "border-border hover:border-foreground/40 hover:scale-105 hover:z-10 hover:shadow-md"
                   )}
                 >
                   {color.image ? (
