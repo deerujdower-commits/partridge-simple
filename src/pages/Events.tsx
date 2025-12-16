@@ -27,6 +27,14 @@ import damaskSwatchWhite from '@/assets/damask-swatch-white.jpg';
 import damaskSwatchIvory from '@/assets/damask-swatch-ivory.jpg';
 import damaskSwatchBabyBlue from '@/assets/damask-swatch-baby-blue.jpg';
 
+// Gallery images
+import galleryChampagneNapkin from '@/assets/events-champagne-damask-napkin.jpg';
+import galleryDamaskGlasses from '@/assets/events-damask-glasses.jpg';
+import galleryDamaskTableSet from '@/assets/events-damask-table-set.jpg';
+import galleryDamaskRose from '@/assets/events-damask-rose-napkin.jpg';
+import galleryDamaskPlate from '@/assets/events-damask-plate-setting.jpg';
+import galleryDamaskPurple from '@/assets/events-damask-purple-napkin.jpg';
+
 // Table Linen configuration
 const tableLinenColors = [
   { name: 'Black', hex: '#1a1a1a' },
@@ -168,16 +176,14 @@ const Events = () => {
 
             {/* Right Column - Gallery Space */}
             <div className="lg:sticky lg:top-8 lg:self-start">
-              <div className="bg-muted/30 border-2 border-dashed border-border rounded-lg p-8 min-h-[600px] flex flex-col items-center justify-center">
-                <div className="text-center text-foreground/40">
-                  <div className="w-16 h-16 mx-auto mb-4 border-2 border-dashed border-foreground/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="font-display text-lg mb-2">Gallery Space</p>
-                  <p className="text-sm">Add images here to showcase your event setups</p>
-                </div>
+              <h3 className="font-display text-lg font-light text-foreground mb-4">Damask Collection</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <img src={galleryDamaskTableSet} alt="Damask table setting with gold napkins" className="w-full h-40 object-cover rounded-lg" />
+                <img src={galleryDamaskPlate} alt="Elegant damask place setting with plate" className="w-full h-40 object-cover rounded-lg" />
+                <img src={galleryChampagneNapkin} alt="Champagne damask napkin" className="w-full h-40 object-cover rounded-lg" />
+                <img src={galleryDamaskGlasses} alt="Damask napkin with wine glasses" className="w-full h-40 object-cover rounded-lg" />
+                <img src={galleryDamaskRose} alt="Rose damask napkin" className="w-full h-40 object-cover rounded-lg" />
+                <img src={galleryDamaskPurple} alt="Purple damask napkin" className="w-full h-40 object-cover rounded-lg" />
               </div>
             </div>
           </div>
