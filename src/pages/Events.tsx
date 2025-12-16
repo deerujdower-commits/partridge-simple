@@ -122,7 +122,7 @@ const Events = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-px bg-white" />
               <span className="font-body text-sm font-light uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
@@ -136,140 +136,160 @@ const Events = () => {
         </div>
       </section>
 
-      <main className="py-12">
-        <div className="max-w-5xl mx-auto px-6 md:px-12">
+      <main className="py-8 md:py-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           {/* Intro text */}
-          <div className="mb-12">
-            <p className="text-foreground/70 font-body leading-relaxed text-lg max-w-3xl">
-              From weddings to corporate events, we provide premium tablecloths and damask linens to make your occasion memorable. Select your items below.
+          <div className="mb-8">
+            <p className="text-foreground/70 font-body leading-relaxed text-base max-w-2xl">
+              From weddings to corporate events, we provide premium tablecloths and damask linens to make your occasion memorable.
             </p>
           </div>
 
-          {/* Table Linen Section */}
-          <EventProductSection
-            title="Table Linen"
-            colors={tableLinenColors}
-            productTypes={tableLinenProductTypes}
-            sizeGuideType="both"
-          />
+          {/* Split Layout - Products Left, Gallery Right */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* Left Column - Product Selection */}
+            <div>
+              {/* Table Linen Section */}
+              <EventProductSection
+                title="Table Linen"
+                colors={tableLinenColors}
+                productTypes={tableLinenProductTypes}
+                sizeGuideType="both"
+              />
 
-          {/* Damask Tablecloths Section */}
-          <EventProductSection
-            title="Damask Patterns"
-            colors={damaskColors}
-            productTypes={damaskProductTypes}
-            sizeGuideType="both"
-          />
+              {/* Damask Tablecloths Section */}
+              <EventProductSection
+                title="Damask Patterns"
+                colors={damaskColors}
+                productTypes={damaskProductTypes}
+                sizeGuideType="both"
+              />
+            </div>
 
+            {/* Right Column - Gallery Space */}
+            <div className="lg:sticky lg:top-8 lg:self-start">
+              <div className="bg-muted/30 border-2 border-dashed border-border rounded-lg p-8 min-h-[600px] flex flex-col items-center justify-center">
+                <div className="text-center text-foreground/40">
+                  <div className="w-16 h-16 mx-auto mb-4 border-2 border-dashed border-foreground/20 rounded-lg flex items-center justify-center">
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="font-display text-lg mb-2">Gallery Space</p>
+                  <p className="text-sm">Add images here to showcase your event setups</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* FAQ Section */}
-          <div className="bg-muted/50 border-2 border-border rounded-lg p-8 md:p-12 my-12">
-            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-6">
-              Event Linen Hire: Frequently Asked Questions (FAQ)
+          <div className="bg-muted/50 border-2 border-border rounded-lg p-6 md:p-10 my-10">
+            <h2 className="font-display text-2xl font-light text-foreground mb-6">
+              Event Linen Hire: FAQ
             </h2>
             
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger className="font-display text-left">
+                <AccordionTrigger className="font-display text-left text-sm">
                   What is the lead time for placing an order?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 font-body leading-relaxed">
-                  We recommend submitting your order at least 5 working days prior to your event date. While same-week orders can often be accommodated, we must check stock availability before confirming and sending the payment link.
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
+                  We recommend submitting your order at least 5 working days prior to your event date. While same-week orders can often be accommodated, we must check stock availability before confirming.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2">
-                <AccordionTrigger className="font-display text-left">
+                <AccordionTrigger className="font-display text-left text-sm">
                   What are the collection and delivery options?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 font-body leading-relaxed">
-                  Collection and return are free from our premises in Thornton Heath, Croydon. If you require delivery, you can request this option at checkout. The delivery charge will be calculated and included in your final invoice, allowing you to pay for either the free collection or optional delivery.
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
+                  Collection and return are free from our premises in Thornton Heath, Croydon. If you require delivery, you can request this option at checkout.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3">
-                <AccordionTrigger className="font-display text-left">
+                <AccordionTrigger className="font-display text-left text-sm">
                   How does the refundable damage deposit work?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 font-body leading-relaxed">
-                  A deposit is required for all items (e.g., Round tablecloth: £10 each; Normal napkin: £1 each). The deposit is fully refundable after the items are returned and checked at our premises. Indelible stains—marks that cannot be removed even with professional washing or bleaching—will be considered permanent damage, and the relevant deposit amount will be retained.
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
+                  A deposit is required for all items. The deposit is fully refundable after the items are returned and checked at our premises.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4">
-                <AccordionTrigger className="font-display text-left">
+                <AccordionTrigger className="font-display text-left text-sm">
                   What is the standard hire period?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 font-body leading-relaxed">
-                  Our standard hire period is 3 days. If you need the items for longer, please let us know and we can arrange an extended hire at an additional cost.
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
+                  Our standard hire period is 3 days. If you need the items for longer, please let us know and we can arrange an extended hire.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-5">
-                <AccordionTrigger className="font-display text-left">
+                <AccordionTrigger className="font-display text-left text-sm">
                   Do I need to wash the items before returning?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 font-body leading-relaxed">
-                  No, you don't need to wash the items. Simply return them in a bag or box. We handle all the cleaning professionally. However, please shake off any food debris before packing.
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
+                  No, you don't need to wash the items. Simply return them in a bag or box. We handle all the cleaning professionally.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
           </div>
 
           {/* Why Choose Us Section */}
-          <div className="my-12">
-            <h2 className="font-display text-2xl sm:text-3xl font-light text-foreground mb-8 text-center">
-              Why Choose Partridge Linen for Your Event?
+          <div className="my-10">
+            <h2 className="font-display text-2xl font-light text-foreground mb-6 text-center">
+              Why Choose Partridge Linen?
             </h2>
             
-            <div className="grid sm:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">✨</span>
+                <div className="w-12 h-12 mx-auto mb-3 bg-accent/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl">✨</span>
                 </div>
-                <h3 className="font-display text-lg font-medium text-foreground mb-2">Premium Quality</h3>
+                <h3 className="font-display text-base font-medium text-foreground mb-1">Premium Quality</h3>
                 <p className="text-foreground/60 text-sm">
-                  All our linens are professionally cleaned and maintained to the highest standards.
+                  Professionally cleaned and maintained to the highest standards.
                 </p>
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🚚</span>
+                <div className="w-12 h-12 mx-auto mb-3 bg-accent/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl">🚚</span>
                 </div>
-                <h3 className="font-display text-lg font-medium text-foreground mb-2">Flexible Delivery</h3>
+                <h3 className="font-display text-base font-medium text-foreground mb-1">Flexible Delivery</h3>
                 <p className="text-foreground/60 text-sm">
                   Free collection from Croydon or convenient delivery to your venue.
                 </p>
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">💬</span>
+                <div className="w-12 h-12 mx-auto mb-3 bg-accent/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl">💬</span>
                 </div>
-                <h3 className="font-display text-lg font-medium text-foreground mb-2">Personal Service</h3>
+                <h3 className="font-display text-base font-medium text-foreground mb-1">Personal Service</h3>
                 <p className="text-foreground/60 text-sm">
-                  Family-run business with over 40 years of experience serving London events.
+                  Family-run business with over 40 years of experience.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Bottom CTA */}
-          <div className="bg-black rounded-lg p-8 md:p-12 my-12 text-center relative overflow-hidden">
+          <div className="bg-black rounded-lg p-6 md:p-10 my-10 text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
             <div className="absolute bottom-0 left-0 w-full h-px bg-white/10" />
             
-            <h2 className="font-display text-2xl md:text-3xl font-light text-white mb-4">
+            <h2 className="font-display text-xl md:text-2xl font-light text-white mb-3">
               Ready to Make Your Event Special?
             </h2>
-            <p className="text-white/70 font-body leading-relaxed text-lg mb-8 max-w-xl mx-auto">
-              Get in touch with us to discuss your requirements. We're here to help make your event memorable.
+            <p className="text-white/70 font-body leading-relaxed mb-6 max-w-xl mx-auto">
+              Get in touch with us to discuss your requirements.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a 
                 href="tel:02086536066"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded hover:bg-white/90 transition-colors font-body border border-white/20"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-white text-black rounded hover:bg-white/90 transition-colors font-body text-sm"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us
@@ -280,7 +300,7 @@ const Events = () => {
                   console.log('[contact] events email click');
                   openMailto({ to: 'enquiry@partridgelinenhire.co.uk', subject: 'Event hire enquiry', body: 'Hi,\n\nI would like to enquire about event hire.' });
                 }}
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded hover:bg-white/90 transition-colors font-body border border-white/20"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-white text-black rounded hover:bg-white/90 transition-colors font-body text-sm"
               >
                 <Mail className="w-4 h-4 mr-2" />
                 Email Us
