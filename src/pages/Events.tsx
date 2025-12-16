@@ -14,6 +14,15 @@ import {
 import EventProductSection from '@/components/events/EventProductSection';
 import eventsHero from '@/assets/events-hero-damask.jpg';
 
+// Damask swatch images
+import damaskSwatchBlue from '@/assets/damask-swatch-blue.jpg';
+import damaskSwatchBurgundy from '@/assets/damask-swatch-burgundy.jpg';
+import damaskSwatchChampagne from '@/assets/damask-swatch-champagne.jpg';
+import damaskSwatchBabyPink from '@/assets/damask-swatch-baby-pink.jpg';
+import damaskSwatchLimeGreen from '@/assets/damask-swatch-lime-green.jpg';
+import damaskSwatchPurple from '@/assets/damask-swatch-purple.jpg';
+import damaskSwatchSilver from '@/assets/damask-swatch-silver.jpg';
+
 // Table Linen configuration
 const tableLinenColors = [
   { name: 'Black', hex: '#1a1a1a' },
@@ -53,12 +62,15 @@ const tableLinenProductTypes = [
   },
 ];
 
-// Damask configuration
+// Damask configuration with image swatches
 const damaskColors = [
-  { name: 'Black', hex: '#1a1a1a' },
-  { name: 'White', hex: '#FFFFFF' },
-  { name: 'Ivory', hex: '#F5F5DC' },
-  { name: 'Red', hex: '#B22222' },
+  { name: 'Blue', hex: '#1E90FF', image: damaskSwatchBlue },
+  { name: 'Burgundy', hex: '#800020', image: damaskSwatchBurgundy },
+  { name: 'Champagne', hex: '#F7E7CE', image: damaskSwatchChampagne },
+  { name: 'Baby Pink', hex: '#F4C2C2', image: damaskSwatchBabyPink },
+  { name: 'Lime Green', hex: '#9ACD32', image: damaskSwatchLimeGreen },
+  { name: 'Purple', hex: '#9966CC', image: damaskSwatchPurple },
+  { name: 'Silver', hex: '#C0C0C0', image: damaskSwatchSilver },
 ];
 
 const damaskProductTypes = [
