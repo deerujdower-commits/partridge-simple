@@ -22,6 +22,9 @@ import damaskSwatchBabyPink from '@/assets/damask-swatch-baby-pink.jpg';
 import damaskSwatchLimeGreen from '@/assets/damask-swatch-lime-green.jpg';
 import damaskSwatchPurple from '@/assets/damask-swatch-purple.jpg';
 import damaskSwatchSilver from '@/assets/damask-swatch-silver.jpg';
+import damaskSwatchBlack from '@/assets/damask-swatch-black.jpg';
+import damaskSwatchWhite from '@/assets/damask-swatch-white.jpg';
+import damaskSwatchIvory from '@/assets/damask-swatch-ivory.jpg';
 
 // Table Linen configuration
 const tableLinenColors = [
@@ -64,6 +67,9 @@ const tableLinenProductTypes = [
 
 // Damask configuration with image swatches
 const damaskColors = [
+  { name: 'Black', hex: '#1a1a1a', image: damaskSwatchBlack },
+  { name: 'White', hex: '#FFFFFF', image: damaskSwatchWhite },
+  { name: 'Ivory', hex: '#F5F5DC', image: damaskSwatchIvory },
   { name: 'Blue', hex: '#1E90FF', image: damaskSwatchBlue },
   { name: 'Burgundy', hex: '#800020', image: damaskSwatchBurgundy },
   { name: 'Champagne', hex: '#F7E7CE', image: damaskSwatchChampagne },
