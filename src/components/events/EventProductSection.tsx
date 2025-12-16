@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar } from '@/components/ui/calendar';
-import { Plus, Minus, ShoppingBag, CalendarDays } from 'lucide-react';
+import { Plus, Minus, ShoppingBag, CalendarDays, ChevronDown, ChevronUp } from 'lucide-react';
 import { addDays, format } from 'date-fns';
 import { toast } from 'sonner';
 import SizeGuideDialog from '@/components/SizeGuideDialog';
@@ -68,16 +68,6 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
     setShowCalendar(false);
   };
 
-  const handleShowCalendar = () => {
-    if (!selectedColor || !selectedProductType || !selectedSize) {
-      toast.error('Please complete your selection first', {
-        description: 'Choose colour, product type, and size before selecting dates'
-      });
-      return;
-    }
-    setShowCalendar(true);
-  };
-
   // Reset size when product type changes
   const handleProductTypeChange = (value: string) => {
     setSelectedProductType(value);
@@ -89,34 +79,66 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
   const hoveredColorData = colors.find(c => c.name === hoveredColor);
 
   return (
-    <div className="bg-card border border-border rounded-lg p-6 md:p-8 mb-8">
-      <h2 className="font-display text-2xl font-light text-foreground mb-6">{title}</h2>
+    <div className="bg-card border border-border rounded-lg p-4 md:p-6 mb-6">
+      <h2 className="font-display text-xl font-light text-foreground mb-4">{title}</h2>
       
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Left Column - Selections */}
-        <div className="space-y-6">
-          {/* Color Swatches */}
-          <div className="relative">
-            <label className="block text-sm font-medium text-foreground/70 mb-3">
-              Select Colour
-            </label>
-            
-            {/* Color Swatches Grid */}
-            <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
-              {colors.map((color) => (
-                <div key={color.name} className="relative group">
-                  <button
-                    onClick={() => setSelectedColor(color.name)}
-                    onMouseEnter={() => setHoveredColor(color.name)}
-                    onMouseLeave={() => setHoveredColor(null)}
-                    className={cn(
-                      "relative aspect-square rounded-md transition-all duration-200 border-2 overflow-hidden w-full",
-                      selectedColor === color.name 
-                        ? "border-accent ring-2 ring-accent/30" 
-                        : "border-border hover:border-foreground/40"
-                    )}
-                    title={color.name}
-                  >
+      <div className="space-y-4">
+        {/* Color Swatches */}
+        <div className="relative">
+          <label className="block text-sm font-medium text-foreground/70 mb-2">
+            Select Colour
+          </label>
+          
+          {/* Color Swatches Grid */}
+          <div className="grid grid-cols-5 sm:grid-cols-6 gap-1.5">
+            {colors.map((color) => (
+              <div key={color.name} className="relative group">
+                <button
+                  onClick={() => setSelectedColor(color.name)}
+                  onMouseEnter={() => setHoveredColor(color.name)}
+                  onMouseLeave={() => setHoveredColor(null)}
+                  className={cn(
+                    "relative aspect-square rounded transition-all duration-200 border-2 overflow-hidden w-full",
+                    selectedColor === color.name 
+                      ? "border-accent ring-2 ring-accent/30" 
+                      : "border-border hover:border-foreground/40"
+                  )}
+                  title={color.name}
+                >
+                  {color.image ? (
+                    <img 
+                      src={color.image} 
+                      alt={color.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div 
+                      className="w-full h-full"
+                      style={{ backgroundColor: color.hex }}
+                    >
+                      {color.hex === '#FFFFFF' && (
+                        <div className="w-full h-full border border-gray-200" />
+                      )}
+                    </div>
+                  )}
+                  {/* Selected indicator */}
+                  {selectedColor === color.name && (
+                    <div className="absolute top-0.5 right-0.5 w-3 h-3 bg-accent rounded-full flex items-center justify-center">
+                      <svg className="w-2 h-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  )}
+                </button>
+                
+                {/* Hover Preview Popup */}
+                <div className={cn(
+                  "absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-50 pointer-events-none transition-all duration-200",
+                  hoveredColor === color.name 
+                    ? "opacity-100 scale-100" 
+                    : "opacity-0 scale-95"
+                )}>
+                  <div className="w-40 h-40 rounded-lg overflow-hidden border-2 border-accent shadow-2xl bg-card">
                     {color.image ? (
                       <img 
                         src={color.image} 
@@ -127,65 +149,32 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
                       <div 
                         className="w-full h-full"
                         style={{ backgroundColor: color.hex }}
-                      >
-                        {color.hex === '#FFFFFF' && (
-                          <div className="w-full h-full border border-gray-200" />
-                        )}
-                      </div>
+                      />
                     )}
-                    {/* Selected indicator */}
-                    {selectedColor === color.name && (
-                      <div className="absolute top-1 right-1 w-4 h-4 bg-accent rounded-full flex items-center justify-center">
-                        <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                    )}
-                  </button>
-                  
-                  {/* Hover Preview Popup */}
-                  <div className={cn(
-                    "absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-50 pointer-events-none transition-all duration-200",
-                    hoveredColor === color.name 
-                      ? "opacity-100 scale-100" 
-                      : "opacity-0 scale-95"
-                  )}>
-                    <div className="w-48 h-48 rounded-lg overflow-hidden border-2 border-accent shadow-2xl bg-card">
-                      {color.image ? (
-                        <img 
-                          src={color.image} 
-                          alt={color.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div 
-                          className="w-full h-full"
-                          style={{ backgroundColor: color.hex }}
-                        />
-                      )}
-                    </div>
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rotate-45" />
-                    <p className="text-center mt-2 text-sm font-medium text-foreground bg-card/90 rounded px-2 py-1">
-                      {color.name}
-                    </p>
                   </div>
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rotate-45" />
+                  <p className="text-center mt-2 text-xs font-medium text-foreground bg-card/90 rounded px-2 py-0.5">
+                    {color.name}
+                  </p>
                 </div>
-              ))}
-            </div>
-            {/* Selected color name */}
-            {selectedColor && (
-              <p className="mt-2 text-sm text-foreground font-medium">{selectedColor}</p>
-            )}
+              </div>
+            ))}
           </div>
+          {/* Selected color name */}
+          {selectedColor && (
+            <p className="mt-1.5 text-xs text-foreground font-medium">{selectedColor}</p>
+          )}
+        </div>
 
-          {/* Product Type Dropdown */}
+        {/* Product Type & Size Row */}
+        <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">
+            <label className="block text-xs font-medium text-foreground/70 mb-1.5">
               Product Type
             </label>
             <Select value={selectedProductType} onValueChange={handleProductTypeChange}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select product type" />
+              <SelectTrigger className="w-full h-9 text-sm">
+                <SelectValue placeholder="Select type" />
               </SelectTrigger>
               <SelectContent>
                 {productTypes.map((type) => (
@@ -198,130 +187,117 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType }: Eve
           </div>
 
           {/* Size Dropdown */}
-          {selectedProductTypeData && (
-            <div>
-              <label className="block text-sm font-medium text-foreground/70 mb-2">
-                Size
-              </label>
-              <Select value={selectedSize} onValueChange={setSelectedSize}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select size" />
-                </SelectTrigger>
-                <SelectContent>
-                  {selectedProductTypeData.sizes.map((size) => (
-                    <SelectItem key={size.value} value={size.value}>
-                      {size.label} - £{size.price.toFixed(2)}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          )}
-
-          {/* Price Display */}
-          {selectedSizeData && (
-            <div className="p-4 bg-muted/50 rounded-lg">
-              <div className="flex justify-between items-center">
-                <span className="text-foreground/70">Price per item:</span>
-                <span className="text-xl font-display text-foreground">£{selectedSizeData.price.toFixed(2)}</span>
-              </div>
-            </div>
-          )}
-
-          {/* Quantity Selector */}
           <div>
-            <label className="block text-sm font-medium text-foreground/70 mb-2">
-              Quantity
+            <label className="block text-xs font-medium text-foreground/70 mb-1.5">
+              Size
             </label>
-            <div className="flex items-center gap-4">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => handleQuantityChange(-1)}
-                disabled={quantity <= 1}
-              >
-                <Minus className="h-4 w-4" />
-              </Button>
-              <span className="text-xl font-medium w-12 text-center">{quantity}</span>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => handleQuantityChange(1)}
-              >
-                <Plus className="h-4 w-4" />
-              </Button>
-            </div>
+            <Select 
+              value={selectedSize} 
+              onValueChange={setSelectedSize}
+              disabled={!selectedProductTypeData}
+            >
+              <SelectTrigger className="w-full h-9 text-sm">
+                <SelectValue placeholder="Select size" />
+              </SelectTrigger>
+              <SelectContent>
+                {selectedProductTypeData?.sizes.map((size) => (
+                  <SelectItem key={size.value} value={size.value}>
+                    {size.label} - £{size.price.toFixed(2)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
 
-        {/* Right Column - Calendar & Add to Basket */}
-        <div className="space-y-6">
-          {/* Calendar Section - Only shows after clicking "Select Dates" */}
-          {showCalendar ? (
-            <div>
-              <label className="block text-sm font-medium text-foreground/70 mb-2">
-                Select Start Date (3-day hire)
-              </label>
-              <div className="border border-border rounded-lg p-4 bg-background">
+        {/* Quantity & Calendar Section - Only show when size is selected */}
+        {selectedSizeData && (
+          <div className="space-y-3 pt-2 border-t border-border">
+            {/* Quantity Row */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <label className="text-sm font-medium text-foreground/70">Qty:</label>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={() => handleQuantityChange(-1)}
+                    disabled={quantity <= 1}
+                  >
+                    <Minus className="h-3 w-3" />
+                  </Button>
+                  <span className="text-lg font-medium w-8 text-center">{quantity}</span>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={() => handleQuantityChange(1)}
+                  >
+                    <Plus className="h-3 w-3" />
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="text-right">
+                <span className="text-sm text-foreground/70">Total: </span>
+                <span className="text-lg font-display text-foreground">
+                  £{(selectedSizeData.price * quantity).toFixed(2)}
+                </span>
+              </div>
+            </div>
+
+            {/* Calendar Toggle */}
+            <button
+              onClick={() => setShowCalendar(!showCalendar)}
+              className="w-full flex items-center justify-between p-3 bg-muted/50 rounded-lg hover:bg-muted transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <CalendarDays className="w-4 h-4 text-foreground/60" />
+                <span className="text-sm font-medium">
+                  {selectedDate 
+                    ? `${format(selectedDate, 'dd MMM')} - ${format(hireEndDate!, 'dd MMM yyyy')}`
+                    : 'Select Hire Dates'
+                  }
+                </span>
+              </div>
+              {showCalendar ? (
+                <ChevronUp className="w-4 h-4 text-foreground/60" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-foreground/60" />
+              )}
+            </button>
+
+            {/* Calendar - Collapsible */}
+            {showCalendar && (
+              <div className="border border-border rounded-lg p-3 bg-background">
                 <Calendar
                   mode="single"
                   selected={selectedDate}
-                  onSelect={setSelectedDate}
+                  onSelect={(date) => {
+                    setSelectedDate(date);
+                  }}
                   disabled={(date) => date < new Date()}
                   className="pointer-events-auto mx-auto"
                 />
-                {selectedDate && hireEndDate && (
-                  <div className="mt-4 p-3 bg-accent/10 rounded-lg text-center">
-                    <p className="text-sm text-foreground/70">Hire Period:</p>
-                    <p className="font-medium text-foreground">
-                      {format(selectedDate, 'EEE, dd MMM yyyy')} - {format(hireEndDate, 'EEE, dd MMM yyyy')}
-                    </p>
-                  </div>
-                )}
               </div>
-            </div>
-          ) : (
-            <div className="flex items-center justify-center h-full min-h-[200px]">
-              <div className="text-center">
-                <CalendarDays className="w-12 h-12 mx-auto mb-4 text-foreground/30" />
-                <p className="text-foreground/60 text-sm mb-4">
-                  Complete your selection above, then select your hire dates
-                </p>
-                <Button
-                  variant="outline"
-                  onClick={handleShowCalendar}
-                  className="gap-2"
-                >
-                  <CalendarDays className="w-4 h-4" />
-                  Select Hire Dates
-                </Button>
-              </div>
-            </div>
-          )}
+            )}
 
-          {/* Size Guide & Add to Basket */}
-          <div className="flex items-center gap-4">
-            <SizeGuideDialog type={sizeGuideType} />
-            <Button 
-              onClick={handleAddToBasket}
-              disabled={!selectedColor || !selectedProductType || !selectedSize || !selectedDate}
-              className="flex-1 gap-2"
-            >
-              <ShoppingBag className="h-4 w-4" />
-              Add to Basket
-            </Button>
+            {/* Actions Row */}
+            <div className="flex items-center gap-3">
+              <SizeGuideDialog type={sizeGuideType} />
+              <Button 
+                onClick={handleAddToBasket}
+                disabled={!selectedColor || !selectedProductType || !selectedSize || !selectedDate}
+                className="flex-1 gap-2 h-9"
+                size="sm"
+              >
+                <ShoppingBag className="h-4 w-4" />
+                Add to Basket
+              </Button>
+            </div>
           </div>
-
-          {/* Total if quantity > 1 */}
-          {selectedSizeData && quantity > 1 && (
-            <div className="p-4 bg-accent/10 rounded-lg text-center">
-              <span className="text-foreground/70">Subtotal: </span>
-              <span className="text-xl font-display text-accent">
-                £{(selectedSizeData.price * quantity).toFixed(2)}
-              </span>
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );
