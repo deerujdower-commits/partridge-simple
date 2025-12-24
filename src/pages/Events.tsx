@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Phone, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import GalleryLightbox from '@/components/GalleryLightbox';
+import InstagramGallery from '@/components/InstagramGallery';
 import { Button } from '@/components/ui/button';
 import { openMailto } from '@/lib/openMailto';
 
@@ -148,13 +148,7 @@ const galleryImages = [
 
 const Events = () => {
   const navigate = useNavigate();
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-
-  const openLightbox = (index: number) => {
-    setLightboxIndex(index);
-    setLightboxOpen(true);
-  };
+  const [galleryOpen, setGalleryOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -217,53 +211,38 @@ const Events = () => {
             <div className="lg:sticky lg:top-8 lg:self-start">
               <h3 className="font-display text-lg font-light text-foreground mb-4">Event Gallery</h3>
               <div className="relative">
-                {/* Vertical scroll container */}
-                <div className="max-h-[500px] overflow-y-auto pr-2 scrollbar-thin">
-                  <div className="grid grid-cols-2 gap-3">
-                    {galleryImages.slice(0, 6).map((image, index) => (
-                      <button
-                        key={index}
-                        onClick={() => openLightbox(index)}
-                        className="relative group overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                      >
-                        <img 
-                          src={image.src} 
-                          alt={image.alt} 
-                          className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105" 
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                      </button>
-                    ))}
-                  </div>
+                {/* Preview grid */}
+                <div className="grid grid-cols-3 gap-1">
+                  {galleryImages.slice(0, 6).map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setGalleryOpen(true)}
+                      className="relative aspect-square overflow-hidden bg-muted focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                      <img 
+                        src={image.src} 
+                        alt={image.alt} 
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                      />
+                    </button>
+                  ))}
                 </div>
                 
-                {/* View more button */}
-                {galleryImages.length > 6 && (
-                  <button
-                    onClick={() => openLightbox(6)}
-                    className="mt-4 w-full py-3 px-4 bg-muted/50 hover:bg-muted border border-border rounded-lg flex items-center justify-center gap-2 text-foreground/70 hover:text-foreground transition-colors group"
-                  >
-                    <span className="font-body text-sm">View all {galleryImages.length} images</span>
-                    <svg 
-                      className="w-4 h-4 transition-transform group-hover:translate-y-0.5" 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                )}
+                {/* View all button */}
+                <button
+                  onClick={() => setGalleryOpen(true)}
+                  className="mt-3 w-full py-3 px-4 bg-muted/50 hover:bg-muted border border-border rounded-lg flex items-center justify-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
+                >
+                  <span className="font-body text-sm">View all {galleryImages.length} images</span>
+                </button>
               </div>
             </div>
 
-            {/* Lightbox */}
-            <GalleryLightbox
+            {/* Instagram-style Gallery */}
+            <InstagramGallery
               images={galleryImages}
-              isOpen={lightboxOpen}
-              onClose={() => setLightboxOpen(false)}
-              currentIndex={lightboxIndex}
-              onIndexChange={setLightboxIndex}
+              isOpen={galleryOpen}
+              onClose={() => setGalleryOpen(false)}
             />
           </div>
 
