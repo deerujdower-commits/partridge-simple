@@ -36,6 +36,16 @@ import galleryDamaskTableSet from '@/assets/events-damask-table-set.jpg';
 import galleryDamaskRose from '@/assets/events-damask-rose-napkin.jpg';
 import galleryDamaskPlate from '@/assets/events-damask-plate-setting.jpg';
 import galleryDamaskPurple from '@/assets/events-damask-purple-napkin.jpg';
+import galleryRoxyBlush from '@/assets/events-roxy-blush-setting.png';
+import galleryRoxyGoldFlowers from '@/assets/events-roxy-gold-flowers.png';
+import galleryRoxyCream from '@/assets/events-roxy-cream-table.png';
+import galleryRoxyBurgundy from '@/assets/events-roxy-burgundy-damask.png';
+import galleryRoxyBlue from '@/assets/events-roxy-blue-feathers.png';
+import galleryRoxyWhiteWedding from '@/assets/events-roxy-white-wedding.png';
+import galleryRoxyWeddingCake from '@/assets/events-roxy-wedding-cake.png';
+import galleryRoxyRedLighting from '@/assets/events-roxy-red-lighting.png';
+import galleryRoxyChampagneNapkin from '@/assets/events-roxy-champagne-napkin.png';
+import galleryRoxyPurpleCandles from '@/assets/events-roxy-purple-candles.png';
 
 // Table Linen configuration
 const tableLinenColors = [
@@ -124,6 +134,16 @@ const galleryImages = [
   { src: galleryDamaskGlasses, alt: 'Damask napkin with wine glasses' },
   { src: galleryDamaskRose, alt: 'Rose damask napkin' },
   { src: galleryDamaskPurple, alt: 'Purple damask napkin' },
+  { src: galleryRoxyBlush, alt: 'Blush damask table with gold cutlery' },
+  { src: galleryRoxyGoldFlowers, alt: 'Gold damask with floral centerpiece' },
+  { src: galleryRoxyCream, alt: 'Cream damask table setting' },
+  { src: galleryRoxyBurgundy, alt: 'Burgundy damask with crystal glasses' },
+  { src: galleryRoxyBlue, alt: 'Royal blue event with feather decor' },
+  { src: galleryRoxyWhiteWedding, alt: 'White wedding table with candelabra' },
+  { src: galleryRoxyWeddingCake, alt: 'Elegant wedding venue with cake' },
+  { src: galleryRoxyRedLighting, alt: 'Dramatic red lighting table setting' },
+  { src: galleryRoxyChampagneNapkin, alt: 'Champagne damask napkin close-up' },
+  { src: galleryRoxyPurpleCandles, alt: 'Purple gala with floating candles' },
 ];
 
 const Events = () => {
