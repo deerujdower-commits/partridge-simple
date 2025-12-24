@@ -86,7 +86,7 @@ const Enquiry = () => {
             <p className="text-foreground/70 font-body leading-relaxed text-lg mb-8">
               Browse our collection and add items you're interested in
             </p>
-            <Link to="/collection">
+            <Link to="/events">
               <Button variant="gradient" className="font-body">
                 <Grid3x3 className="w-4 h-4 mr-2" />
                 Browse Collection
