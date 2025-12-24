@@ -183,13 +183,17 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
             <ChevronLeft className="w-6 h-6 text-white" />
           </button>
 
-          {/* Image */}
-          <img
-            src={images[selectedIndex].src}
-            alt={images[selectedIndex].alt}
-            className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          />
+          {/* Image with caption */}
+          <div className="flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={images[selectedIndex].src}
+              alt={images[selectedIndex].alt}
+              className="max-w-[90vw] max-h-[75vh] object-contain rounded-lg"
+            />
+            <p className="mt-4 text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-full">
+              {images[selectedIndex].alt}
+            </p>
+          </div>
 
           {/* Next arrow */}
           <button
