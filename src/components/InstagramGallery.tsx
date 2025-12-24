@@ -14,6 +14,7 @@ interface InstagramGalleryProps {
 }
 
 const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) => {
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [pressedIndex, setPressedIndex] = useState<number | null>(null);
   const pressTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -28,6 +29,14 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
       clearTimeout(pressTimerRef.current);
     }
     setPressedIndex(null);
+  };
+
+  const handleImageClick = (image: GalleryImage) => {
+    setSelectedImage(image);
+  };
+
+  const closeImagePopup = () => {
+    setSelectedImage(null);
   };
 
   if (!isOpen) return null;
@@ -52,7 +61,8 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative aspect-square bg-muted cursor-pointer flex items-center justify-center"
+              className="relative aspect-square bg-muted cursor-pointer overflow-hidden"
+              onClick={() => handleImageClick(image)}
               onTouchStart={() => handleTouchStart(index)}
               onTouchEnd={handleTouchEnd}
               onTouchCancel={handleTouchEnd}
@@ -61,8 +71,8 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
                 src={image.src}
                 alt={image.alt}
                 className={cn(
-                  "max-w-full max-h-full object-contain transition-transform duration-200",
-                  pressedIndex === index && 'scale-110'
+                  "w-full h-full object-cover transition-transform duration-200 hover:scale-105",
+                  pressedIndex === index && 'scale-95'
                 )}
                 draggable={false}
               />
@@ -70,6 +80,28 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
           ))}
         </div>
       </div>
+
+      {/* Full Image Popup */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4"
+          onClick={closeImagePopup}
+        >
+          <button
+            onClick={closeImagePopup}
+            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+            aria-label="Close image"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+          <img
+            src={selectedImage.src}
+            alt={selectedImage.alt}
+            className="max-w-full max-h-full object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 };
