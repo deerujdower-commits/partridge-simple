@@ -52,25 +52,27 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative aspect-square overflow-hidden bg-muted"
+              className="relative aspect-square bg-muted cursor-pointer group"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               onTouchStart={() => handleTouchStart(index)}
               onTouchEnd={handleTouchEnd}
               onTouchCancel={handleTouchEnd}
             >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className={`w-full h-full object-cover transition-transform duration-300 ${
-                  hoveredIndex === index ? 'scale-110' : ''
-                } ${pressedIndex === index ? 'scale-105' : ''}`}
-                draggable={false}
-              />
+              <div className="absolute inset-0 overflow-hidden">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className={`w-full h-full object-cover transition-transform duration-300 ease-out ${
+                    hoveredIndex === index ? 'scale-125' : 'scale-100'
+                  } ${pressedIndex === index ? 'scale-110' : ''}`}
+                  draggable={false}
+                />
+              </div>
               
               {/* Hover overlay for desktop */}
               <div 
-                className={`absolute inset-0 bg-black/20 transition-opacity duration-200 pointer-events-none ${
+                className={`absolute inset-0 bg-black/30 transition-opacity duration-200 pointer-events-none ${
                   hoveredIndex === index ? 'opacity-100' : 'opacity-0'
                 }`}
               />
