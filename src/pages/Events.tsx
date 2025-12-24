@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Phone, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import GalleryLightbox from '@/components/GalleryLightbox';
 import { Button } from '@/components/ui/button';
 import { openMailto } from '@/lib/openMailto';
 
@@ -114,8 +116,25 @@ const damaskProductTypes = [
   },
 ];
 
+// Gallery images array for lightbox
+const galleryImages = [
+  { src: galleryDamaskTableSet, alt: 'Damask table setting with gold napkins' },
+  { src: galleryDamaskPlate, alt: 'Elegant damask place setting with plate' },
+  { src: galleryChampagneNapkin, alt: 'Champagne damask napkin' },
+  { src: galleryDamaskGlasses, alt: 'Damask napkin with wine glasses' },
+  { src: galleryDamaskRose, alt: 'Rose damask napkin' },
+  { src: galleryDamaskPurple, alt: 'Purple damask napkin' },
+];
+
 const Events = () => {
   const navigate = useNavigate();
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -178,14 +197,31 @@ const Events = () => {
             <div className="lg:sticky lg:top-8 lg:self-start">
               <h3 className="font-display text-lg font-light text-foreground mb-4">Damask Collection</h3>
               <div className="grid grid-cols-2 gap-3">
-                <img src={galleryDamaskTableSet} alt="Damask table setting with gold napkins" className="w-full h-40 object-cover rounded-lg" />
-                <img src={galleryDamaskPlate} alt="Elegant damask place setting with plate" className="w-full h-40 object-cover rounded-lg" />
-                <img src={galleryChampagneNapkin} alt="Champagne damask napkin" className="w-full h-40 object-cover rounded-lg" />
-                <img src={galleryDamaskGlasses} alt="Damask napkin with wine glasses" className="w-full h-40 object-cover rounded-lg" />
-                <img src={galleryDamaskRose} alt="Rose damask napkin" className="w-full h-40 object-cover rounded-lg" />
-                <img src={galleryDamaskPurple} alt="Purple damask napkin" className="w-full h-40 object-cover rounded-lg" />
+                {galleryImages.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => openLightbox(index)}
+                    className="relative group overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  >
+                    <img 
+                      src={image.src} 
+                      alt={image.alt} 
+                      className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105" 
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                  </button>
+                ))}
               </div>
             </div>
+
+            {/* Lightbox */}
+            <GalleryLightbox
+              images={galleryImages}
+              isOpen={lightboxOpen}
+              onClose={() => setLightboxOpen(false)}
+              currentIndex={lightboxIndex}
+              onIndexChange={setLightboxIndex}
+            />
           </div>
 
           {/* FAQ Section */}
