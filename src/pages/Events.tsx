@@ -29,23 +29,23 @@ import damaskSwatchWhite from '@/assets/damask-swatch-white.jpg';
 import damaskSwatchIvory from '@/assets/damask-swatch-ivory.jpg';
 import damaskSwatchBabyBlue from '@/assets/damask-swatch-baby-blue.jpg';
 
-// Gallery images
-import galleryChampagneNapkin from '@/assets/events-champagne-damask-napkin.jpg';
-import galleryDamaskGlasses from '@/assets/events-damask-glasses.jpg';
-import galleryDamaskTableSet from '@/assets/events-damask-table-set.jpg';
-import galleryDamaskRose from '@/assets/events-damask-rose-napkin.jpg';
-import galleryDamaskPlate from '@/assets/events-damask-plate-setting.jpg';
-import galleryDamaskPurple from '@/assets/events-damask-purple-napkin.jpg';
-import galleryRoxyBlush from '@/assets/events-roxy-blush-setting.png';
-import galleryRoxyGoldFlowers from '@/assets/events-roxy-gold-flowers.png';
-import galleryRoxyCream from '@/assets/events-roxy-cream-table.png';
-import galleryRoxyBurgundy from '@/assets/events-roxy-burgundy-damask.png';
-import galleryRoxyBlue from '@/assets/events-roxy-blue-feathers.png';
-import galleryRoxyWhiteWedding from '@/assets/events-roxy-white-wedding.png';
-import galleryRoxyWeddingCake from '@/assets/events-roxy-wedding-cake.png';
-import galleryRoxyRedLighting from '@/assets/events-roxy-red-lighting.png';
-import galleryRoxyChampagneNapkin from '@/assets/events-roxy-champagne-napkin.png';
-import galleryRoxyPurpleCandles from '@/assets/events-roxy-purple-candles.png';
+// Gallery images - SEO optimized with Partridge Linen branding
+import galleryChampagneNapkin from '@/assets/partridge-linen-damask-champagne-napkin.jpg';
+import galleryGoldGlasses from '@/assets/partridge-linen-damask-gold-glasses.jpg';
+import galleryGoldTableSet from '@/assets/partridge-linen-damask-gold-table-set.jpg';
+import galleryRoseNapkin from '@/assets/partridge-linen-damask-rose-napkin.jpg';
+import galleryIvoryPlateSetting from '@/assets/partridge-linen-damask-ivory-plate-setting.jpg';
+import galleryPurpleNapkin from '@/assets/partridge-linen-damask-purple-napkin.jpg';
+import galleryBlushSetting from '@/assets/partridge-linen-damask-blush-setting.png';
+import galleryGoldFlowers from '@/assets/partridge-linen-damask-gold-flowers.png';
+import galleryCreamTable from '@/assets/partridge-linen-damask-cream-table.png';
+import galleryBurgundyTable from '@/assets/partridge-linen-damask-burgundy-table.png';
+import galleryBlueFeathers from '@/assets/partridge-linen-damask-blue-feathers.png';
+import galleryWhiteWedding from '@/assets/partridge-linen-damask-white-wedding.png';
+import galleryIvoryWeddingCake from '@/assets/partridge-linen-damask-ivory-wedding-cake.png';
+import galleryRedLighting from '@/assets/partridge-linen-damask-red-lighting.png';
+import galleryChampagneNapkinCloseup from '@/assets/partridge-linen-damask-champagne-napkin-closeup.png';
+import galleryPurpleCandles from '@/assets/partridge-linen-damask-purple-candles.png';
 
 // Table Linen configuration
 const tableLinenColors = [
@@ -126,24 +126,24 @@ const damaskProductTypes = [
   },
 ];
 
-// Gallery images array for lightbox
+// Gallery images array for lightbox - SEO optimized with Partridge Linen
 const galleryImages = [
-  { src: galleryDamaskTableSet, alt: 'Damask table setting with gold napkins' },
-  { src: galleryDamaskPlate, alt: 'Elegant damask place setting with plate' },
-  { src: galleryChampagneNapkin, alt: 'Champagne damask napkin' },
-  { src: galleryDamaskGlasses, alt: 'Damask napkin with wine glasses' },
-  { src: galleryDamaskRose, alt: 'Rose damask napkin' },
-  { src: galleryDamaskPurple, alt: 'Purple damask napkin' },
-  { src: galleryRoxyBlush, alt: 'Blush damask table with gold cutlery' },
-  { src: galleryRoxyGoldFlowers, alt: 'Gold damask with floral centerpiece' },
-  { src: galleryRoxyCream, alt: 'Cream damask table setting' },
-  { src: galleryRoxyBurgundy, alt: 'Burgundy damask with crystal glasses' },
-  { src: galleryRoxyBlue, alt: 'Royal blue event with feather decor' },
-  { src: galleryRoxyWhiteWedding, alt: 'White wedding table with candelabra' },
-  { src: galleryRoxyWeddingCake, alt: 'Elegant wedding venue with cake' },
-  { src: galleryRoxyRedLighting, alt: 'Dramatic red lighting table setting' },
-  { src: galleryRoxyChampagneNapkin, alt: 'Champagne damask napkin close-up' },
-  { src: galleryRoxyPurpleCandles, alt: 'Purple gala with floating candles' },
+  { src: galleryGoldTableSet, alt: 'Partridge Linen gold damask table setting' },
+  { src: galleryIvoryPlateSetting, alt: 'Partridge Linen ivory damask place setting with plate' },
+  { src: galleryChampagneNapkin, alt: 'Partridge Linen champagne damask napkin' },
+  { src: galleryGoldGlasses, alt: 'Partridge Linen gold damask napkin with wine glasses' },
+  { src: galleryRoseNapkin, alt: 'Partridge Linen rose damask napkin' },
+  { src: galleryPurpleNapkin, alt: 'Partridge Linen purple damask napkin' },
+  { src: galleryBlushSetting, alt: 'Partridge Linen blush damask table with gold cutlery' },
+  { src: galleryGoldFlowers, alt: 'Partridge Linen gold damask with floral centerpiece' },
+  { src: galleryCreamTable, alt: 'Partridge Linen cream damask table setting' },
+  { src: galleryBurgundyTable, alt: 'Partridge Linen burgundy damask with crystal glasses' },
+  { src: galleryBlueFeathers, alt: 'Partridge Linen blue damask with feather decor' },
+  { src: galleryWhiteWedding, alt: 'Partridge Linen white damask wedding table with candelabra' },
+  { src: galleryIvoryWeddingCake, alt: 'Partridge Linen ivory damask wedding venue with cake' },
+  { src: galleryRedLighting, alt: 'Partridge Linen red damask table setting' },
+  { src: galleryChampagneNapkinCloseup, alt: 'Partridge Linen champagne damask napkin close-up' },
+  { src: galleryPurpleCandles, alt: 'Partridge Linen purple damask gala with candles' },
 ];
 
 const Events = () => {
