@@ -147,6 +147,9 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
                   "absolute -bottom-1 w-3 h-3 bg-accent rotate-45",
                   index % 3 === 0 ? "left-8" : index % 3 === 2 ? "right-8" : "left-1/2 -translate-x-1/2"
                 )} />
+                <p className="text-center mt-2 text-xs font-medium text-foreground bg-card/90 rounded px-2 py-0.5 whitespace-nowrap">
+                  {image.alt}
+                </p>
               </div>
             </div>
           ))}
