@@ -14,7 +14,6 @@ interface InstagramGalleryProps {
 }
 
 const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [pressedIndex, setPressedIndex] = useState<number | null>(null);
   const pressTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -53,9 +52,7 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative aspect-square bg-muted cursor-pointer"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              className="relative aspect-square bg-muted cursor-pointer flex items-center justify-center"
               onTouchStart={() => handleTouchStart(index)}
               onTouchEnd={handleTouchEnd}
               onTouchCancel={handleTouchEnd}
@@ -64,34 +61,11 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
                 src={image.src}
                 alt={image.alt}
                 className={cn(
-                  "w-full h-full object-cover transition-transform duration-200",
-                  pressedIndex === index && 'scale-95'
+                  "max-w-full max-h-full object-contain transition-transform duration-200",
+                  pressedIndex === index && 'scale-110'
                 )}
                 draggable={false}
               />
-
-              {/* Full-size Hover Preview Popup - Desktop only */}
-              <div className={cn(
-                "hidden md:block absolute z-50 pointer-events-none transition-all duration-200",
-                // Position popup based on grid position
-                index % 3 === 0 ? "left-0" : index % 3 === 2 ? "right-0" : "left-1/2 -translate-x-1/2",
-                "bottom-full mb-3",
-                hoveredIndex === index 
-                  ? "opacity-100 scale-100" 
-                  : "opacity-0 scale-95"
-              )}>
-                <div className="w-64 h-64 rounded-lg overflow-hidden border-2 border-accent shadow-2xl bg-card">
-                  <img 
-                    src={image.src} 
-                    alt={image.alt}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className={cn(
-                  "absolute -bottom-1 w-3 h-3 bg-accent rotate-45",
-                  index % 3 === 0 ? "left-8" : index % 3 === 2 ? "right-8" : "left-1/2 -translate-x-1/2"
-                )} />
-              </div>
             </div>
           ))}
         </div>
