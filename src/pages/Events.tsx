@@ -137,6 +137,7 @@ const damaskProductTypes = [
 
 // Gallery images array for lightbox - SEO optimized with Partridge Linen branding
 const galleryImages: { src: string; alt: string }[] = [
+  { src: eventsHero, alt: 'Partridge Linen damask tablecloth with elegant fine dining place setting and crystal glassware' },
   { src: galleryBurgundyDamaskCrystal, alt: 'Partridge Linen burgundy damask tablecloth with etched crystal glassware and gold charger plates' },
   { src: galleryWhiteDamaskCandles, alt: 'Partridge Linen white damask tablecloth with crystal candelabra and floral centerpiece at wedding reception' },
   { src: galleryBlackDamaskMarquee, alt: 'Partridge Linen black damask tablecloths with gold chiavari chairs in marquee with fairy lights' },
