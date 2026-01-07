@@ -120,6 +120,7 @@ const InstagramGallery = ({ images, isOpen, onClose }: InstagramGalleryProps) =>
               <img
                 src={image.src}
                 alt={image.alt}
+                loading="lazy"
                 className={cn(
                   "w-full h-full object-cover transition-transform duration-200",
                   pressedIndex === index && 'scale-95'
