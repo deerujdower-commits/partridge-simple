@@ -50,7 +50,7 @@ const services = [{
 }, {
   title: 'Hotel',
   description: 'Complete linen service with towels and bedding.',
-  images: [hotelBedClean, hotelLinens1, towelsStackWhite],
+  images: [hotelBedClean, towelsStackWhite, hotelLinens1],
   icon: Building2,
   slug: 'bed-linen'
 }, {
