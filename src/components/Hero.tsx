@@ -71,31 +71,31 @@ const Hero = () => {
             </div>
 
             {/* Badges */}
-            <div className="mb-0 hidden md:block" style={{
+            <div className="mb-0" style={{
             opacity: visibleElements.includes(2) ? 1 : 0,
             transform: visibleElements.includes(2) ? 'translateY(0)' : 'translateY(12px)',
             transition: 'all 0.7s ease-out',
             transitionDelay: '400ms'
           }}>
-              <div className="flex flex-col gap-3 items-start">
-                <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex flex-col gap-2 md:gap-3 items-start">
+                <div className="flex items-center gap-2 md:gap-3 flex-wrap">
                   {/* 30+ Years Badge */}
                   <button
                     onClick={() => {
                       const servicesSection = document.getElementById('services');
                       servicesSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="group relative inline-flex items-center gap-3 bg-accent rounded-lg px-5 h-12 w-[220px] overflow-hidden transition-all duration-500 hover:bg-accent/90 hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="group relative inline-flex items-center gap-2 md:gap-3 bg-accent rounded-lg px-3 md:px-5 h-10 md:h-12 w-auto md:w-[220px] overflow-hidden transition-all duration-500 hover:bg-accent/90 hover:scale-105 shadow-lg hover:shadow-xl"
                   >
-                    <div className="flex items-center gap-3 group-hover:opacity-0 group-hover:scale-90 transition-all duration-500">
-                      <div className="text-white font-display text-lg md:text-xl font-light">
+                    <div className="flex items-center gap-2 md:gap-3 md:group-hover:opacity-0 md:group-hover:scale-90 transition-all duration-500">
+                      <div className="text-white font-display text-base md:text-xl font-light">
                         30+
                       </div>
                       <div className="text-white font-display text-xs md:text-sm font-light whitespace-nowrap">
                         Years serving London
                       </div>
                     </div>
-                    <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500">
+                    <div className="absolute inset-0 hidden md:flex items-center justify-center gap-2 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500">
                       <Sparkles className="w-4 h-4 text-white" />
                       <span className="text-white font-display text-sm font-light tracking-wide">Our Services</span>
                     </div>
@@ -107,15 +107,15 @@ const Hero = () => {
                       const aboutSection = document.querySelector('.compact-about-section');
                       aboutSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="group relative inline-flex items-center gap-3 bg-accent rounded-lg px-5 h-12 w-[220px] overflow-hidden transition-all duration-500 hover:bg-accent/90 hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="group relative inline-flex items-center gap-2 md:gap-3 bg-accent rounded-lg px-3 md:px-5 h-10 md:h-12 w-auto md:w-[220px] overflow-hidden transition-all duration-500 hover:bg-accent/90 hover:scale-105 shadow-lg hover:shadow-xl"
                   >
-                    <div className="flex items-center gap-3 group-hover:opacity-0 group-hover:scale-90 transition-all duration-500">
-                      <Home className="w-5 h-5 text-white flex-shrink-0" />
+                    <div className="flex items-center gap-2 md:gap-3 md:group-hover:opacity-0 md:group-hover:scale-90 transition-all duration-500">
+                      <Home className="w-4 md:w-5 h-4 md:h-5 text-white flex-shrink-0" />
                       <div className="text-white font-display text-xs md:text-sm font-light whitespace-nowrap">
                         Local & family run
                       </div>
                     </div>
-                    <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500">
+                    <div className="absolute inset-0 hidden md:flex items-center justify-center gap-2 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500">
                       <Users className="w-4 h-4 text-white" />
                       <span className="text-white font-display text-sm font-light tracking-wide">About Us</span>
                     </div>
@@ -128,15 +128,15 @@ const Hero = () => {
                     const contactSection = document.getElementById('contact');
                     contactSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="group relative inline-flex items-center gap-3 bg-accent rounded-lg px-5 h-12 w-[220px] overflow-hidden transition-all duration-500 hover:bg-accent/90 hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="group relative inline-flex items-center gap-2 md:gap-3 bg-accent rounded-lg px-3 md:px-5 h-10 md:h-12 w-auto md:w-[220px] overflow-hidden transition-all duration-500 hover:bg-accent/90 hover:scale-105 shadow-lg hover:shadow-xl"
                 >
-                  <div className="flex items-center gap-3 group-hover:opacity-0 group-hover:scale-90 transition-all duration-500">
-                    <FileCheck className="w-5 h-5 text-white flex-shrink-0" />
+                  <div className="flex items-center gap-2 md:gap-3 md:group-hover:opacity-0 md:group-hover:scale-90 transition-all duration-500">
+                    <FileCheck className="w-4 md:w-5 h-4 md:h-5 text-white flex-shrink-0" />
                     <div className="text-white font-display text-xs md:text-sm font-light whitespace-nowrap">
                       No contract required
                     </div>
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500">
+                  <div className="absolute inset-0 hidden md:flex items-center justify-center gap-2 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500">
                     <ArrowRight className="w-4 h-4 text-white" />
                     <span className="text-white font-display text-sm font-light tracking-wide">Find out more</span>
                   </div>
