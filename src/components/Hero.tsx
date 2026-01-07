@@ -36,7 +36,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="h-full">
           <img src={heroImage} alt="Elegant wedding venue with stage and premium silver damask linens" className="object-cover w-full h-full" />
-          <div className="absolute inset-0 bg-black/[0.84]" />
+          <div className="absolute inset-0 bg-black/85" />
         </div>
       </div>
       
