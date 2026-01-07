@@ -48,8 +48,14 @@ import galleryWhiteDamaskWeddingBackdrop from '@/assets/partridge-linen-white-da
 import galleryWhiteDamaskWeddingHall from '@/assets/partridge-linen-white-damask-wedding-hall.webp';
 import galleryWhiteDamaskYellowSashes from '@/assets/partridge-linen-white-damask-yellow-sashes.webp';
 import galleryWhiteDamaskReception from '@/assets/partridge-linen-white-damask-reception.webp';
+import galleryWhiteRoundRoseCenterpiece from '@/assets/partridge-linen-white-round-rose-centerpiece.webp';
+import galleryWhiteRoundPinkMarquee from '@/assets/partridge-linen-white-round-pink-marquee.webp';
+import galleryWhiteWeddingCakeDisplay from '@/assets/partridge-linen-white-wedding-cake-display.webp';
+import galleryWhiteGoldCandelabra from '@/assets/partridge-linen-white-gold-candelabra.webp';
+import galleryIvoryDamaskMarqueeColorful from '@/assets/partridge-linen-ivory-damask-marquee-colorful.webp';
 
 // Table Linen configuration
+
 
 const tableLinenColors = [
   { name: 'Black', hex: '#1a1a1a' },
@@ -149,6 +155,11 @@ const galleryImages: { src: string; alt: string }[] = [
   { src: galleryWhiteDamaskWeddingHall, alt: 'Partridge Linen white damask tablecloths at large wedding hall with tall purple and pink floral centerpieces' },
   { src: galleryWhiteDamaskYellowSashes, alt: 'Partridge Linen white damask tablecloth with yellow chair sashes and white floral centerpiece' },
   { src: galleryWhiteDamaskReception, alt: 'Partridge Linen white damask round tablecloths at wedding reception with rose gold hoop floral displays' },
+  { src: galleryWhiteRoundRoseCenterpiece, alt: 'Partridge Linen white round tablecloth with tall glass vase and red rose arrangement at pink marquee wedding' },
+  { src: galleryWhiteRoundPinkMarquee, alt: 'Partridge Linen white round tablecloths in elegant pink draped marquee with pastel floral centerpieces' },
+  { src: galleryWhiteWeddingCakeDisplay, alt: 'Partridge Linen white tablecloths at luxury wedding with tiered cake and cascading wisteria on LED dance floor' },
+  { src: galleryWhiteGoldCandelabra, alt: 'Partridge Linen white round tablecloth with gold candelabra centerpiece and matching gold charger plates' },
+  { src: galleryIvoryDamaskMarqueeColorful, alt: 'Partridge Linen ivory damask tablecloths in white marquee with vibrant pink yellow and orange floral arrangements' },
 ];
 
 const Events = () => {
