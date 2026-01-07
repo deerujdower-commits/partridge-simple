@@ -43,7 +43,7 @@ import galleryIvoryDamaskGoldSetting from '@/assets/partridge-linen-ivory-damask
 import galleryIvoryDamaskNapkinCloseup from '@/assets/partridge-linen-ivory-damask-napkin-closeup.webp';
 import galleryIvoryDamaskGardenVenue from '@/assets/partridge-linen-ivory-damask-garden-venue.webp';
 import galleryMultiColouredDamaskVenue from '@/assets/partridge-linen-multi-coloured-damask-venue.webp';
-import gallerySkyBlueDamaskRound from '@/assets/partridge-linen-sky-blue-damask-round.webp';
+
 
 import galleryWhiteDamaskWeddingHall from '@/assets/partridge-linen-white-damask-wedding-hall.webp';
 import galleryWhiteDamaskYellowSashes from '@/assets/partridge-linen-white-damask-yellow-sashes.webp';
@@ -150,7 +150,7 @@ const galleryImages: { src: string; alt: string }[] = [
   { src: galleryWhiteDamaskYellowSashes, alt: 'Partridge Linen white damask tablecloth with yellow chair sashes and white floral centerpiece' },
   { src: galleryBlackRoundVenue, alt: 'Partridge Linen black round tablecloths with gold napkins at large event venue with stage lighting' },
   { src: galleryIvoryDamaskGardenVenue, alt: 'Partridge Linen ivory damask tablecloth with gold cutlery at garden conservatory wedding venue' },
-  { src: gallerySkyBlueDamaskRound, alt: 'Partridge Linen sky blue damask round tablecloth with floral centerpiece and gold chiavari chairs' },
+  
   { src: galleryWhiteDamaskReception, alt: 'Partridge Linen white damask round tablecloths at wedding reception with rose gold hoop floral displays' },
   { src: galleryMultiColouredDamaskVenue, alt: 'Partridge Linen multi-coloured damask tablecloths in pink blue and yellow at party venue with purple uplighting' },
   { src: galleryWhiteRoundRoseCenterpiece, alt: 'Partridge Linen white round tablecloth with tall glass vase and red rose arrangement at pink marquee wedding' },
