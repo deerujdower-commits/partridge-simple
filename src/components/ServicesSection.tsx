@@ -5,47 +5,15 @@ import { Button } from '@/components/ui/button';
 const restaurantIvory = '/lovable-uploads/15c0ea89-6db3-4d6d-8bd7-3af2b88ecf8a.png';
 const restaurantBlack = '/lovable-uploads/c2cb5139-3d0b-4989-8cbe-741597184fe2.png';
 const restaurantWhite = '/lovable-uploads/5ea99594-205d-4ac1-b8b7-f87d933b4c1a.png';
-import chefJacketWhite from '@/assets/chef-jacket-white.png';
-import chefJacketBlack from '@/assets/chef-jacket-black.jpg';
-import chefJacketShortWhite from '@/assets/chef-jacket-short-white.png';
-import chefJacketShortBlack from '@/assets/chef-jacket-short-black.png';
-import chefTrouserCheck from '@/assets/chef-trouser-check.png';
-import chefTrouserBlack from '@/assets/chef-trouser-black.png';
-import apronButchers from '@/assets/apron-butchers.png';
-import apronBlack from '@/assets/apron-black.png';
-import apronWhite from '@/assets/apron-white.png';
-import kitchenClothWonderdryGreen from '@/assets/kitchen-cloth-wonderdry-green.jpeg';
 import kitchenClothHerringboneGreen from '@/assets/kitchen-cloth-herringbone-green.jpeg';
-import kitchenClothHerringboneBlue from '@/assets/kitchen-cloth-herringbone-blue.png';
-import kitchenClothMicrofibre from '@/assets/kitchen-cloth-microfibre.png';
-import kitchenClothOven from '@/assets/kitchen-cloth-oven.png';
-import kitchenClothGlass from '@/assets/kitchen-cloth-glass-new.jpeg';
-import kitchenClothPolishing from '@/assets/kitchen-cloth-polishing.jpeg';
+import apronModel from '@/assets/apron-model.jpg';
+import chefJacketWhiteModel from '@/assets/chef-jacket-white-model.jpg';
 import eventGoldDamaskTables from '@/assets/event-gold-damask-tables.jpg';
 import eventSilverDamaskTables from '@/assets/event-silver-damask-tables.jpg';
 import eventWhiteRoundTablesClean from '@/assets/event-white-round-tables-clean.jpg';
 import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
 import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
 import towelsStackWhite from '@/assets/towels-stack-white.jpg';
-
-const kitchenImages = [
-  chefJacketWhite,
-  chefJacketBlack,
-  chefJacketShortWhite,
-  chefJacketShortBlack,
-  chefTrouserCheck,
-  chefTrouserBlack,
-  apronButchers,
-  apronBlack,
-  apronWhite,
-  kitchenClothWonderdryGreen,
-  kitchenClothHerringboneGreen,
-  kitchenClothHerringboneBlue,
-  kitchenClothMicrofibre,
-  kitchenClothOven,
-  kitchenClothGlass,
-  kitchenClothPolishing,
-];
 
 const services = [{
   title: 'Restaurant',
@@ -88,7 +56,7 @@ const services = [{
 }, {
   title: 'Kitchen',
   description: 'Chef uniforms and professional kitchen cloths.',
-  images: kitchenImages,
+  images: [kitchenClothHerringboneGreen, apronModel, chefJacketWhiteModel],
   icon: ChefHat,
   slug: 'kitchen-work'
 }];
