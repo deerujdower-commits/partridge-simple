@@ -29,17 +29,7 @@ import damaskSwatchWhite from '@/assets/damask-swatch-white.jpg';
 import damaskSwatchIvory from '@/assets/damask-swatch-ivory.jpg';
 import damaskSwatchBabyBlue from '@/assets/damask-swatch-baby-blue.jpg';
 
-// Gallery images - SEO optimized with Partridge Linen branding
-import galleryRoseNapkin from '@/assets/partridge-linen-damask-rose-napkin.jpg';
-import galleryIvoryPlateSetting from '@/assets/partridge-linen-damask-ivory-plate-setting.jpg';
-import galleryPurpleNapkin from '@/assets/partridge-linen-damask-purple-napkin.jpg';
-import galleryBlushSetting from '@/assets/partridge-linen-damask-blush-setting.png';
-import galleryGoldFlowers from '@/assets/partridge-linen-damask-gold-flowers.png';
-import galleryCreamTable from '@/assets/partridge-linen-damask-cream-table.png';
-import galleryBurgundyTable from '@/assets/partridge-linen-damask-burgundy-table.png';
-import galleryBlueFeathers from '@/assets/partridge-linen-damask-blue-feathers.png';
-import galleryWhiteWedding from '@/assets/partridge-linen-damask-white-wedding.png';
-import galleryIvoryWeddingCake from '@/assets/partridge-linen-damask-ivory-wedding-cake.png';
+// Gallery images - add your images here
 
 // Table Linen configuration
 const tableLinenColors = [
@@ -120,18 +110,9 @@ const damaskProductTypes = [
   },
 ];
 
-// Gallery images array for lightbox - SEO optimized with Partridge Linen
-const galleryImages = [
-  { src: galleryIvoryPlateSetting, alt: 'Partridge Linen ivory damask place setting with plate' },
-  { src: galleryRoseNapkin, alt: 'Partridge Linen rose damask napkin' },
-  { src: galleryPurpleNapkin, alt: 'Partridge Linen purple damask napkin' },
-  { src: galleryBlushSetting, alt: 'Partridge Linen blush damask table with gold cutlery' },
-  { src: galleryGoldFlowers, alt: 'Partridge Linen gold damask with floral centerpiece' },
-  { src: galleryCreamTable, alt: 'Partridge Linen cream damask table setting' },
-  { src: galleryBurgundyTable, alt: 'Partridge Linen burgundy damask with crystal glasses' },
-  { src: galleryBlueFeathers, alt: 'Partridge Linen blue damask with feather decor' },
-  { src: galleryWhiteWedding, alt: 'Partridge Linen white damask wedding table with candelabra' },
-  { src: galleryIvoryWeddingCake, alt: 'Partridge Linen ivory damask wedding venue with cake' },
+// Gallery images array for lightbox - add your images here
+const galleryImages: { src: string; alt: string }[] = [
+  // Add images like: { src: importedImage, alt: 'Description' },
 ];
 
 const Events = () => {
