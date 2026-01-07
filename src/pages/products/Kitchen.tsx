@@ -16,7 +16,7 @@ import apronButchers from '@/assets/apron-butchers.png';
 import apronBlack from '@/assets/apron-black.png';
 import apronWhite from '@/assets/apron-white.png';
 import kitchenHero from '@/assets/kitchen-hero.jpg';
-import kitchenClientChef from '@/assets/kitchen-client-chef.png';
+import kitchenWhyUsChef from '@/assets/kitchen-why-us-chef.png';
 import kitchenClothWonderdryGreen from '@/assets/kitchen-cloth-wonderdry-green.jpeg';
 import kitchenClothHerringboneGreen from '@/assets/kitchen-cloth-herringbone-green.jpeg';
 import kitchenClothHerringboneBlue from '@/assets/kitchen-cloth-herringbone-blue.png';
@@ -174,7 +174,7 @@ const Kitchen = () => {
                 icon: Truck
               }
             ]}
-            imagePlaceholder={kitchenClientChef}
+            imagePlaceholder={kitchenWhyUsChef}
           />
 
           {/* CTA Section */}
