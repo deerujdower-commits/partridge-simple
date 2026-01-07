@@ -3,7 +3,6 @@ import Hero from '@/components/Hero';
 import CompactAboutSection from '@/components/CompactAboutSection';
 import ServicesSection from '@/components/ServicesSection';
 import StatsSection from '@/components/StatsSection';
-import CollectionCarousel from '@/components/CollectionCarousel';
 import SoftCTA from '@/components/SoftCTA';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -19,7 +18,6 @@ const Index = () => {
       <div id="about">
         <CompactAboutSection />
       </div>
-      <CollectionCarousel />
       <StatsSection />
       <SoftCTA />
       <div id="contact">
