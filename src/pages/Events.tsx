@@ -39,8 +39,18 @@ import galleryBurgundyDamaskCrystal from '@/assets/partridge-linen-burgundy-dama
 import galleryChampagneDamaskFloral from '@/assets/partridge-linen-champagne-damask-floral.webp';
 import galleryGoldDamaskLanterns from '@/assets/partridge-linen-gold-damask-lanterns.webp';
 import galleryHotPinkDamaskMarigold from '@/assets/partridge-linen-hot-pink-damask-marigold.webp';
+import galleryIvoryDamaskGoldSetting from '@/assets/partridge-linen-ivory-damask-gold-setting.webp';
+import galleryIvoryDamaskNapkinCloseup from '@/assets/partridge-linen-ivory-damask-napkin-closeup.webp';
+import galleryIvoryDamaskGardenVenue from '@/assets/partridge-linen-ivory-damask-garden-venue.webp';
+import galleryMultiColouredDamaskVenue from '@/assets/partridge-linen-multi-coloured-damask-venue.webp';
+import gallerySkyBlueDamaskRound from '@/assets/partridge-linen-sky-blue-damask-round.webp';
+import galleryWhiteDamaskWeddingBackdrop from '@/assets/partridge-linen-white-damask-wedding-backdrop.webp';
+import galleryWhiteDamaskWeddingHall from '@/assets/partridge-linen-white-damask-wedding-hall.webp';
+import galleryWhiteDamaskYellowSashes from '@/assets/partridge-linen-white-damask-yellow-sashes.webp';
+import galleryWhiteDamaskReception from '@/assets/partridge-linen-white-damask-reception.webp';
 
 // Table Linen configuration
+
 const tableLinenColors = [
   { name: 'Black', hex: '#1a1a1a' },
   { name: 'White', hex: '#FFFFFF' },
@@ -130,6 +140,15 @@ const galleryImages: { src: string; alt: string }[] = [
   { src: galleryChampagneDamaskFloral, alt: 'Partridge Linen champagne damask tablecloth with pink roses and hydrangea floral arrangement' },
   { src: galleryGoldDamaskLanterns, alt: 'Partridge Linen gold damask tablecloth with vintage brass lanterns and colorful floral centerpiece' },
   { src: galleryHotPinkDamaskMarigold, alt: 'Partridge Linen hot pink damask tablecloth with marigold garlands for Indian wedding celebration' },
+  { src: galleryIvoryDamaskGoldSetting, alt: 'Partridge Linen ivory damask tablecloth with gold cutlery and glass charger plates at elegant wedding' },
+  { src: galleryIvoryDamaskNapkinCloseup, alt: 'Partridge Linen ivory damask napkin with floral pattern on gold charger plate with bokeh lights' },
+  { src: galleryIvoryDamaskGardenVenue, alt: 'Partridge Linen ivory damask tablecloth with gold cutlery at garden conservatory wedding venue' },
+  { src: galleryMultiColouredDamaskVenue, alt: 'Partridge Linen multi-coloured damask tablecloths in pink blue and yellow at party venue with purple uplighting' },
+  { src: gallerySkyBlueDamaskRound, alt: 'Partridge Linen sky blue damask round tablecloth with floral centerpiece and gold chiavari chairs' },
+  { src: galleryWhiteDamaskWeddingBackdrop, alt: 'Partridge Linen white damask tablecloths at wedding with pink draping backdrop and floral arrangements' },
+  { src: galleryWhiteDamaskWeddingHall, alt: 'Partridge Linen white damask tablecloths at large wedding hall with tall purple and pink floral centerpieces' },
+  { src: galleryWhiteDamaskYellowSashes, alt: 'Partridge Linen white damask tablecloth with yellow chair sashes and white floral centerpiece' },
+  { src: galleryWhiteDamaskReception, alt: 'Partridge Linen white damask round tablecloths at wedding reception with rose gold hoop floral displays' },
 ];
 
 const Events = () => {
