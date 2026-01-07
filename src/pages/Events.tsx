@@ -29,7 +29,16 @@ import damaskSwatchWhite from '@/assets/damask-swatch-white.jpg';
 import damaskSwatchIvory from '@/assets/damask-swatch-ivory.jpg';
 import damaskSwatchBabyBlue from '@/assets/damask-swatch-baby-blue.jpg';
 
-// Gallery images - add your images here
+// Gallery images - SEO optimized with Partridge Linen branding
+import galleryWhiteDamaskCandles from '@/assets/partridge-linen-white-damask-candles.webp';
+import galleryBlackDamaskMarquee from '@/assets/partridge-linen-black-damask-marquee.webp';
+import galleryBlackRoundGala from '@/assets/partridge-linen-black-round-gala.webp';
+import galleryBlackRoundVenue from '@/assets/partridge-linen-black-round-venue.webp';
+import galleryBlueDamaskFeathers from '@/assets/partridge-linen-blue-damask-feathers.webp';
+import galleryBurgundyDamaskCrystal from '@/assets/partridge-linen-burgundy-damask-crystal.webp';
+import galleryChampagneDamaskFloral from '@/assets/partridge-linen-champagne-damask-floral.webp';
+import galleryGoldDamaskLanterns from '@/assets/partridge-linen-gold-damask-lanterns.webp';
+import galleryHotPinkDamaskMarigold from '@/assets/partridge-linen-hot-pink-damask-marigold.webp';
 
 // Table Linen configuration
 const tableLinenColors = [
@@ -110,9 +119,17 @@ const damaskProductTypes = [
   },
 ];
 
-// Gallery images array for lightbox - add your images here
+// Gallery images array for lightbox - SEO optimized with Partridge Linen branding
 const galleryImages: { src: string; alt: string }[] = [
-  // Add images like: { src: importedImage, alt: 'Description' },
+  { src: galleryWhiteDamaskCandles, alt: 'Partridge Linen white damask tablecloth with crystal candelabra and floral centerpiece at wedding reception' },
+  { src: galleryBlackDamaskMarquee, alt: 'Partridge Linen black damask tablecloths with gold chiavari chairs in marquee with fairy lights' },
+  { src: galleryBlackRoundGala, alt: 'Partridge Linen black round tablecloths at corporate gala with tall floral arrangements and green uplighting' },
+  { src: galleryBlackRoundVenue, alt: 'Partridge Linen black round tablecloths with gold napkins at large event venue with stage lighting' },
+  { src: galleryBlueDamaskFeathers, alt: 'Partridge Linen royal blue damask tablecloth with gold centerpiece and feather decorations' },
+  { src: galleryBurgundyDamaskCrystal, alt: 'Partridge Linen burgundy damask tablecloth with etched crystal glassware and gold charger plates' },
+  { src: galleryChampagneDamaskFloral, alt: 'Partridge Linen champagne damask tablecloth with pink roses and hydrangea floral arrangement' },
+  { src: galleryGoldDamaskLanterns, alt: 'Partridge Linen gold damask tablecloth with vintage brass lanterns and colorful floral centerpiece' },
+  { src: galleryHotPinkDamaskMarigold, alt: 'Partridge Linen hot pink damask tablecloth with marigold garlands for Indian wedding celebration' },
 ];
 
 const Events = () => {
