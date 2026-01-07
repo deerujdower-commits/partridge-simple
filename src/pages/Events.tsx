@@ -44,13 +44,13 @@ import galleryIvoryDamaskNapkinCloseup from '@/assets/partridge-linen-ivory-dama
 import galleryIvoryDamaskGardenVenue from '@/assets/partridge-linen-ivory-damask-garden-venue.webp';
 import galleryMultiColouredDamaskVenue from '@/assets/partridge-linen-multi-coloured-damask-venue.webp';
 import gallerySkyBlueDamaskRound from '@/assets/partridge-linen-sky-blue-damask-round.webp';
-import galleryWhiteDamaskWeddingBackdrop from '@/assets/partridge-linen-white-damask-wedding-backdrop.webp';
+
 import galleryWhiteDamaskWeddingHall from '@/assets/partridge-linen-white-damask-wedding-hall.webp';
 import galleryWhiteDamaskYellowSashes from '@/assets/partridge-linen-white-damask-yellow-sashes.webp';
 import galleryWhiteDamaskReception from '@/assets/partridge-linen-white-damask-reception.webp';
 import galleryWhiteRoundRoseCenterpiece from '@/assets/partridge-linen-white-round-rose-centerpiece.webp';
 import galleryWhiteRoundPinkMarquee from '@/assets/partridge-linen-white-round-pink-marquee.webp';
-import galleryWhiteWeddingCakeDisplay from '@/assets/partridge-linen-white-wedding-cake-display.webp';
+
 import galleryWhiteGoldCandelabra from '@/assets/partridge-linen-white-gold-candelabra.webp';
 import galleryIvoryDamaskMarqueeColorful from '@/assets/partridge-linen-ivory-damask-marquee-colorful.webp';
 
@@ -142,7 +142,6 @@ const galleryImages: { src: string; alt: string }[] = [
   { src: galleryBlackDamaskMarquee, alt: 'Partridge Linen black damask tablecloths with gold chiavari chairs in marquee with fairy lights' },
   { src: galleryIvoryDamaskGoldSetting, alt: 'Partridge Linen ivory damask tablecloth with gold cutlery and glass charger plates at elegant wedding' },
   { src: galleryBlueDamaskFeathers, alt: 'Partridge Linen royal blue damask tablecloth with gold centerpiece and feather decorations' },
-  { src: galleryWhiteDamaskWeddingBackdrop, alt: 'Partridge Linen white damask tablecloths at wedding with pink draping backdrop and floral arrangements' },
   { src: galleryChampagneDamaskFloral, alt: 'Partridge Linen champagne damask tablecloth with pink roses and hydrangea floral arrangement' },
   { src: galleryBlackRoundGala, alt: 'Partridge Linen black round tablecloths at corporate gala with tall floral arrangements and green uplighting' },
   { src: galleryWhiteDamaskWeddingHall, alt: 'Partridge Linen white damask tablecloths at large wedding hall with tall purple and pink floral centerpieces' },
@@ -157,7 +156,6 @@ const galleryImages: { src: string; alt: string }[] = [
   { src: galleryWhiteRoundRoseCenterpiece, alt: 'Partridge Linen white round tablecloth with tall glass vase and red rose arrangement at pink marquee wedding' },
   { src: galleryIvoryDamaskMarqueeColorful, alt: 'Partridge Linen ivory damask tablecloths in white marquee with vibrant pink yellow and orange floral arrangements' },
   { src: galleryWhiteRoundPinkMarquee, alt: 'Partridge Linen white round tablecloths in elegant pink draped marquee with pastel floral centerpieces' },
-  { src: galleryWhiteWeddingCakeDisplay, alt: 'Partridge Linen white tablecloths at luxury wedding with tiered cake and cascading wisteria on LED dance floor' },
   { src: galleryWhiteGoldCandelabra, alt: 'Partridge Linen white round tablecloth with gold candelabra centerpiece and matching gold charger plates' },
   { src: galleryHotPinkDamaskMarigold, alt: 'Partridge Linen hot pink damask tablecloth with marigold garlands for Indian wedding celebration' },
 ];
