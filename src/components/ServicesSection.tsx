@@ -56,7 +56,7 @@ const services = [{
 }, {
   title: 'Kitchen',
   description: 'Chef uniforms and professional kitchen cloths.',
-  images: [kitchenClothHerringboneGreen, apronModel, chefJacketWhiteModel],
+  images: [apronModel, kitchenClothHerringboneGreen, chefJacketWhiteModel],
   icon: ChefHat,
   slug: 'kitchen-work'
 }];
