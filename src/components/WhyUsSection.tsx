@@ -33,6 +33,13 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images 
                   src={displayImages[0]} 
                   alt="Why choose us" 
                   className="w-full h-full object-cover aspect-[4/3] lg:aspect-auto"
+                  loading="eager"
+                  style={{ 
+                    imageRendering: 'auto',
+                    WebkitBackfaceVisibility: 'hidden',
+                    backfaceVisibility: 'hidden',
+                    transform: 'translateZ(0)'
+                  }}
                 />
               ) : displayImages.length === 2 ? (
                 <div className="grid grid-cols-2 h-full">
@@ -42,6 +49,13 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images 
                       src={img} 
                       alt={`Why choose us ${idx + 1}`} 
                       className="w-full h-full object-cover"
+                      loading="eager"
+                      style={{ 
+                        imageRendering: 'auto',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)'
+                      }}
                     />
                   ))}
                 </div>
@@ -51,16 +65,37 @@ const WhyUsSection = ({ heading, subheading, features, imagePlaceholder, images 
                     src={displayImages[0]} 
                     alt="Why choose us 1" 
                     className="w-full h-full object-cover row-span-2"
+                    loading="eager"
+                    style={{ 
+                      imageRendering: 'auto',
+                      WebkitBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)'
+                    }}
                   />
                   <img 
                     src={displayImages[1]} 
                     alt="Why choose us 2" 
                     className="w-full h-full object-cover"
+                    loading="eager"
+                    style={{ 
+                      imageRendering: 'auto',
+                      WebkitBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)'
+                    }}
                   />
                   <img 
                     src={displayImages[2]} 
                     alt="Why choose us 3" 
                     className="w-full h-full object-cover"
+                    loading="eager"
+                    style={{ 
+                      imageRendering: 'auto',
+                      WebkitBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)'
+                    }}
                   />
                 </div>
               )}
