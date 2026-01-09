@@ -12,7 +12,9 @@ const Footer = () => {
   }, {
     title: 'Company',
     links: [
-      { name: 'Contact Us', href: '/contact' }
+      { name: 'Contact Us', href: '/contact' },
+      { name: '020 8653 6066', href: 'tel:02086536066' },
+      { name: 'info@partridgelinen.co.uk', href: 'mailto:info@partridgelinen.co.uk' }
     ]
   }];
 
