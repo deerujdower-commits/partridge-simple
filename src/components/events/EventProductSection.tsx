@@ -80,10 +80,10 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
   return (
     <div className="bg-muted/30 border border-border rounded-lg p-5 mb-6">
-      <div className="flex gap-5">
+      <div className="flex flex-col sm:flex-row gap-5">
         {/* Left side - Form controls */}
-        <div className="flex-1 min-w-0">
-          <h3 className="font-display text-lg font-medium text-foreground mb-4">{title}</h3>
+        <div className="flex-1 min-w-0 order-2 sm:order-1">
+          <h3 className="font-display text-lg font-medium text-foreground mb-4 hidden sm:block">{title}</h3>
 
           {/* Color Selection */}
           <div className="mb-4">
@@ -256,14 +256,15 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
           </div>
         </div>
 
-        {/* Right side - Large Preview Image */}
+        {/* Right side (top on mobile) - Large Preview Image */}
         {selectedColor.image && (
-          <div className="hidden sm:block flex-shrink-0">
+          <div className="flex-shrink-0 order-1 sm:order-2">
+            <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">{title}</h3>
             <div className="rounded-lg overflow-hidden border border-border">
               <img 
                 src={selectedColor.image} 
                 alt={`${selectedColor.name} fabric swatch`}
-                className="w-48 h-48 lg:w-56 lg:h-56 object-cover"
+                className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover"
               />
             </div>
             <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
