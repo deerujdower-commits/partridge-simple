@@ -206,7 +206,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
               <label className={`block text-sm font-body ${isNavy ? 'text-accent-foreground/80' : 'text-foreground/70'}`}>Size</label>
-              <SizeGuideDialog type={sizeGuideType} />
+              <SizeGuideDialog type={sizeGuideType} variant={isNavy ? 'navy' : 'default'} />
             </div>
             {selectedProductType.sizes.length === 1 ? (
               <p className={`text-sm font-body ${isNavy ? 'text-accent-foreground' : 'text-foreground'}`}>{selectedSize.label}</p>
@@ -233,7 +233,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               <Button
                 variant="outline"
                 size="icon"
-                className={`h-9 w-9 ${isNavy ? 'border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10' : ''}`}
+                className={`h-9 w-9 ${isNavy ? 'bg-accent-foreground text-accent border-accent-foreground hover:bg-accent-foreground/90' : ''}`}
                 onClick={() => setQuantity(Math.max(1, quantity - 10))}
               >
                 <Minus className="w-4 h-4" />
@@ -242,7 +242,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               <Button
                 variant="outline"
                 size="icon"
-                className={`h-9 w-9 ${isNavy ? 'border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10' : ''}`}
+                className={`h-9 w-9 ${isNavy ? 'bg-accent-foreground text-accent border-accent-foreground hover:bg-accent-foreground/90' : ''}`}
                 onClick={() => setQuantity(quantity + 10)}
               >
                 <Plus className="w-4 h-4" />
@@ -267,11 +267,11 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
         {selectedColor.image && (
           <div className="flex-shrink-0 order-1 sm:order-2">
             <h3 className={`font-display text-lg font-medium mb-3 sm:hidden ${isNavy ? 'text-accent-foreground' : 'text-foreground'}`}>{title}</h3>
-            <div className="rounded-lg overflow-hidden border border-border p-3 bg-accent-foreground/90">
+            <div className="rounded-lg overflow-hidden">
               <img 
                 src={selectedColor.image} 
                 alt={`${selectedColor.name} fabric swatch`}
-                className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover rounded"
+                className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover"
               />
             </div>
             <p className={`text-sm text-center mt-2 font-body ${isNavy ? 'text-accent-foreground/70' : 'text-foreground/70'}`}>{selectedColor.name}</p>
