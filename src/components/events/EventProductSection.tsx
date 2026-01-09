@@ -80,193 +80,195 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
   return (
     <div className="bg-muted/30 border border-border rounded-lg p-5 mb-6">
-      <h3 className="font-display text-lg font-medium text-foreground mb-4">{title}</h3>
+      <div className="flex gap-5">
+        {/* Left side - Form controls */}
+        <div className="flex-1 min-w-0">
+          <h3 className="font-display text-lg font-medium text-foreground mb-4">{title}</h3>
 
-      {/* Color Selection with Preview */}
-      <div className="mb-4">
-        <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
-        <div className="flex gap-4 items-start">
-          {/* Color Swatches - Left */}
-          <div className="flex flex-wrap gap-2 flex-1 max-w-[200px]">
-            {colors.map((color) => (
-              isMobile ? (
-                <Popover 
-                  key={color.name} 
-                  open={openPopover === color.name} 
-                  onOpenChange={(open) => setOpenPopover(open ? color.name : null)}
-                >
-                  <PopoverTrigger asChild>
-                    <button
-                      className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
-                        selectedColor.name === color.name 
-                          ? 'border-primary ring-2 ring-primary/30' 
-                          : 'border-border'
-                      }`}
-                      style={color.image ? undefined : { backgroundColor: color.hex }}
-                      title={color.name}
-                    >
-                      {color.image ? (
-                        <img 
-                          src={color.image} 
-                          alt={color.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : null}
-                      {selectedColor.name === color.name && (
-                        <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
-                          color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
-                            ? 'text-foreground' 
-                            : 'text-white'
-                        } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
-                      )}
-                    </button>
-                  </PopoverTrigger>
-                  <PopoverContent side="top" className="w-auto p-3 bg-popover z-50">
-                    <div className="flex flex-col items-center gap-2">
-                      {color.image && (
-                        <img 
-                          src={color.image} 
-                          alt={color.name}
-                          className="w-32 h-32 object-cover rounded"
-                        />
-                      )}
-                      <p className="text-sm font-medium text-foreground">{color.name}</p>
-                      <Button 
-                        size="sm" 
-                        onClick={() => {
-                          setSelectedColor(color);
-                          setOpenPopover(null);
-                        }}
+          {/* Color Selection */}
+          <div className="mb-4">
+            <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
+            <div className="flex flex-wrap gap-2">
+              {colors.map((color) => (
+                isMobile ? (
+                  <Popover 
+                    key={color.name} 
+                    open={openPopover === color.name} 
+                    onOpenChange={(open) => setOpenPopover(open ? color.name : null)}
+                  >
+                    <PopoverTrigger asChild>
+                      <button
+                        className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
+                          selectedColor.name === color.name 
+                            ? 'border-primary ring-2 ring-primary/30' 
+                            : 'border-border'
+                        }`}
+                        style={color.image ? undefined : { backgroundColor: color.hex }}
+                        title={color.name}
                       >
-                        Select
-                      </Button>
-                    </div>
-                  </PopoverContent>
-                </Popover>
-              ) : (
-                <button
-                  key={color.name}
-                  onClick={() => setSelectedColor(color)}
-                  onMouseEnter={() => setHoveredColor(color)}
-                  onMouseLeave={() => setHoveredColor(null)}
-                  className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
-                    selectedColor.name === color.name 
-                      ? 'border-primary ring-2 ring-primary/30' 
-                      : 'border-border hover:border-primary/50'
-                  }`}
-                  style={color.image ? undefined : { backgroundColor: color.hex }}
-                  title={color.name}
-                >
-                  {color.image ? (
-                    <img 
-                      src={color.image} 
-                      alt={color.name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : null}
-                  {selectedColor.name === color.name && (
-                    <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
-                      color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
-                        ? 'text-foreground' 
-                        : 'text-white'
-                    } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
-                  )}
-                </button>
-              )
-            ))}
-          </div>
-          
-          {/* Selected Color Preview - Right */}
-          {selectedColor.image && (
-            <div className="flex-shrink-0">
-              <div className="rounded-lg overflow-hidden border border-border">
-                <img 
-                  src={selectedColor.image} 
-                  alt={`${selectedColor.name} fabric swatch`}
-                  className="w-32 h-32 sm:w-40 sm:h-40 object-cover"
-                />
-              </div>
-              <p className="text-xs text-center mt-1 font-body text-foreground/70">{selectedColor.name}</p>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Product Type Selection */}
-      <div className="mb-4">
-        <label className="block text-sm font-body text-foreground/70 mb-2">Product</label>
-        <Select value={selectedProductType.value} onValueChange={handleProductTypeChange}>
-          <SelectTrigger className="w-full">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            {productTypes.map((type) => (
-              <SelectItem key={type.value} value={type.value}>
-                {type.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-
-      {/* Size Selection */}
-      <div className="mb-4">
-        <div className="flex items-center justify-between mb-2">
-          <label className="block text-sm font-body text-foreground/70">Size</label>
-          <SizeGuideDialog type={sizeGuideType} />
-        </div>
-        {selectedProductType.sizes.length === 1 ? (
-          <p className="text-sm font-body text-foreground">{selectedSize.label}</p>
-        ) : (
-          <Select value={selectedSize.value} onValueChange={handleSizeChange}>
-            <SelectTrigger className="w-full">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {selectedProductType.sizes.map((size) => (
-                <SelectItem key={size.value} value={size.value}>
-                  {size.label} - £{size.price.toFixed(2)} each
-                </SelectItem>
+                        {color.image ? (
+                          <img 
+                            src={color.image} 
+                            alt={color.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : null}
+                        {selectedColor.name === color.name && (
+                          <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
+                            color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
+                              ? 'text-foreground' 
+                              : 'text-white'
+                          } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
+                        )}
+                      </button>
+                    </PopoverTrigger>
+                    <PopoverContent side="top" className="w-auto p-3 bg-popover z-50">
+                      <div className="flex flex-col items-center gap-2">
+                        {color.image && (
+                          <img 
+                            src={color.image} 
+                            alt={color.name}
+                            className="w-32 h-32 object-cover rounded"
+                          />
+                        )}
+                        <p className="text-sm font-medium text-foreground">{color.name}</p>
+                        <Button 
+                          size="sm" 
+                          onClick={() => {
+                            setSelectedColor(color);
+                            setOpenPopover(null);
+                          }}
+                        >
+                          Select
+                        </Button>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+                ) : (
+                  <button
+                    key={color.name}
+                    onClick={() => setSelectedColor(color)}
+                    onMouseEnter={() => setHoveredColor(color)}
+                    onMouseLeave={() => setHoveredColor(null)}
+                    className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
+                      selectedColor.name === color.name 
+                        ? 'border-primary ring-2 ring-primary/30' 
+                        : 'border-border hover:border-primary/50'
+                    }`}
+                    style={color.image ? undefined : { backgroundColor: color.hex }}
+                    title={color.name}
+                  >
+                    {color.image ? (
+                      <img 
+                        src={color.image} 
+                        alt={color.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : null}
+                    {selectedColor.name === color.name && (
+                      <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
+                        color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
+                          ? 'text-foreground' 
+                          : 'text-white'
+                      } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
+                    )}
+                  </button>
+                )
               ))}
-            </SelectContent>
-          </Select>
+            </div>
+          </div>
+
+          {/* Product Type Selection */}
+          <div className="mb-4">
+            <label className="block text-sm font-body text-foreground/70 mb-2">Product</label>
+            <Select value={selectedProductType.value} onValueChange={handleProductTypeChange}>
+              <SelectTrigger className="w-full">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {productTypes.map((type) => (
+                  <SelectItem key={type.value} value={type.value}>
+                    {type.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Size Selection */}
+          <div className="mb-4">
+            <div className="flex items-center justify-between mb-2">
+              <label className="block text-sm font-body text-foreground/70">Size</label>
+              <SizeGuideDialog type={sizeGuideType} />
+            </div>
+            {selectedProductType.sizes.length === 1 ? (
+              <p className="text-sm font-body text-foreground">{selectedSize.label}</p>
+            ) : (
+              <Select value={selectedSize.value} onValueChange={handleSizeChange}>
+                <SelectTrigger className="w-full">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {selectedProductType.sizes.map((size) => (
+                    <SelectItem key={size.value} value={size.value}>
+                      {size.label} - £{size.price.toFixed(2)} each
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+          </div>
+
+          {/* Quantity */}
+          <div className="mb-4">
+            <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
+            <div className="flex items-center gap-3">
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-9 w-9"
+                onClick={() => setQuantity(Math.max(1, quantity - 10))}
+              >
+                <Minus className="w-4 h-4" />
+              </Button>
+              <span className="w-16 text-center font-body font-medium text-foreground">{quantity}</span>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-9 w-9"
+                onClick={() => setQuantity(quantity + 10)}
+              >
+                <Plus className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Price & Add Button */}
+          <div className="flex items-center justify-between pt-3 border-t border-border">
+            <div>
+              <p className="text-sm text-foreground/60 font-body">Total</p>
+              <p className="text-lg font-display font-medium text-foreground">£{totalPrice.toFixed(2)}</p>
+            </div>
+            <Button onClick={handleAddToEnquiry} className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <ShoppingBag className="w-4 h-4 mr-2" />
+              Add to Enquiry
+            </Button>
+          </div>
+        </div>
+
+        {/* Right side - Large Preview Image */}
+        {selectedColor.image && (
+          <div className="hidden sm:block flex-shrink-0">
+            <div className="rounded-lg overflow-hidden border border-border">
+              <img 
+                src={selectedColor.image} 
+                alt={`${selectedColor.name} fabric swatch`}
+                className="w-48 h-48 lg:w-56 lg:h-56 object-cover"
+              />
+            </div>
+            <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
+          </div>
         )}
-      </div>
-
-      {/* Quantity */}
-      <div className="mb-4">
-        <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
-        <div className="flex items-center gap-3">
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-9 w-9"
-            onClick={() => setQuantity(Math.max(1, quantity - 10))}
-          >
-            <Minus className="w-4 h-4" />
-          </Button>
-          <span className="w-16 text-center font-body font-medium text-foreground">{quantity}</span>
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-9 w-9"
-            onClick={() => setQuantity(quantity + 10)}
-          >
-            <Plus className="w-4 h-4" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Price & Add Button */}
-      <div className="flex items-center justify-between pt-3 border-t border-border">
-        <div>
-          <p className="text-sm text-foreground/60 font-body">Total</p>
-          <p className="text-lg font-display font-medium text-foreground">£{totalPrice.toFixed(2)}</p>
-        </div>
-        <Button onClick={handleAddToEnquiry} className="bg-primary text-primary-foreground hover:bg-primary/90">
-          <ShoppingBag className="w-4 h-4 mr-2" />
-          Add to Enquiry
-        </Button>
       </div>
     </div>
   );
