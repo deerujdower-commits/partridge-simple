@@ -82,126 +82,114 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
     <div className="bg-muted/30 border border-border rounded-lg p-5 mb-6">
       <h3 className="font-display text-lg font-medium text-foreground mb-4">{title}</h3>
 
-      {/* Selected Color Preview */}
-      {selectedColor.image && (
-        <div className="mb-4">
-          <div className="rounded-lg overflow-hidden border border-border">
-            <img 
-              src={selectedColor.image} 
-              alt={`${selectedColor.name} fabric swatch`}
-              className="w-full h-48 sm:h-56 object-cover"
-            />
-          </div>
-          <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
-        </div>
-      )}
-
-      {/* Color Selection */}
+      {/* Color Selection with Preview */}
       <div className="mb-4">
         <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
-        <div className="flex flex-wrap gap-2 relative">
-          {colors.map((color) => (
-            isMobile ? (
-              <Popover 
-                key={color.name} 
-                open={openPopover === color.name} 
-                onOpenChange={(open) => setOpenPopover(open ? color.name : null)}
-              >
-                <PopoverTrigger asChild>
-                  <button
-                    className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
-                      selectedColor.name === color.name 
-                        ? 'border-primary ring-2 ring-primary/30' 
-                        : 'border-border'
-                    }`}
-                    style={color.image ? undefined : { backgroundColor: color.hex }}
-                    title={color.name}
-                  >
-                    {color.image ? (
-                      <img 
-                        src={color.image} 
-                        alt={color.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : null}
-                    {selectedColor.name === color.name && (
-                      <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
-                        color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
-                          ? 'text-foreground' 
-                          : 'text-white'
-                      } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
-                    )}
-                  </button>
-                </PopoverTrigger>
-                <PopoverContent side="top" className="w-auto p-3 bg-popover z-50">
-                  <div className="flex flex-col items-center gap-2">
-                    {color.image && (
-                      <img 
-                        src={color.image} 
-                        alt={color.name}
-                        className="w-32 h-32 object-cover rounded"
-                      />
-                    )}
-                    <p className="text-sm font-medium text-foreground">{color.name}</p>
-                    <Button 
-                      size="sm" 
-                      onClick={() => {
-                        setSelectedColor(color);
-                        setOpenPopover(null);
-                      }}
+        <div className="flex gap-4 items-start">
+          {/* Color Swatches - Left */}
+          <div className="flex flex-wrap gap-2 flex-1 max-w-[200px]">
+            {colors.map((color) => (
+              isMobile ? (
+                <Popover 
+                  key={color.name} 
+                  open={openPopover === color.name} 
+                  onOpenChange={(open) => setOpenPopover(open ? color.name : null)}
+                >
+                  <PopoverTrigger asChild>
+                    <button
+                      className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
+                        selectedColor.name === color.name 
+                          ? 'border-primary ring-2 ring-primary/30' 
+                          : 'border-border'
+                      }`}
+                      style={color.image ? undefined : { backgroundColor: color.hex }}
+                      title={color.name}
                     >
-                      Select
-                    </Button>
-                  </div>
-                </PopoverContent>
-              </Popover>
-            ) : (
-            <button
-                key={color.name}
-                onClick={() => setSelectedColor(color)}
-                onMouseEnter={() => setHoveredColor(color)}
-                onMouseLeave={() => setHoveredColor(null)}
-                className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
-                  selectedColor.name === color.name 
-                    ? 'border-primary ring-2 ring-primary/30' 
-                    : 'border-border hover:border-primary/50'
-                }`}
-                style={color.image ? undefined : { backgroundColor: color.hex }}
-                title={color.name}
-              >
-                {color.image ? (
-                  <img 
-                    src={color.image} 
-                    alt={color.name}
-                    className="w-full h-full object-cover"
-                  />
-                ) : null}
-                {selectedColor.name === color.name && (
-                  <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
-                    color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
-                      ? 'text-foreground' 
-                      : 'text-white'
-                  } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
-                )}
-              </button>
-            )
-          ))}
+                      {color.image ? (
+                        <img 
+                          src={color.image} 
+                          alt={color.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : null}
+                      {selectedColor.name === color.name && (
+                        <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
+                          color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
+                            ? 'text-foreground' 
+                            : 'text-white'
+                        } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
+                      )}
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent side="top" className="w-auto p-3 bg-popover z-50">
+                    <div className="flex flex-col items-center gap-2">
+                      {color.image && (
+                        <img 
+                          src={color.image} 
+                          alt={color.name}
+                          className="w-32 h-32 object-cover rounded"
+                        />
+                      )}
+                      <p className="text-sm font-medium text-foreground">{color.name}</p>
+                      <Button 
+                        size="sm" 
+                        onClick={() => {
+                          setSelectedColor(color);
+                          setOpenPopover(null);
+                        }}
+                      >
+                        Select
+                      </Button>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              ) : (
+                <button
+                  key={color.name}
+                  onClick={() => setSelectedColor(color)}
+                  onMouseEnter={() => setHoveredColor(color)}
+                  onMouseLeave={() => setHoveredColor(null)}
+                  className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
+                    selectedColor.name === color.name 
+                      ? 'border-primary ring-2 ring-primary/30' 
+                      : 'border-border hover:border-primary/50'
+                  }`}
+                  style={color.image ? undefined : { backgroundColor: color.hex }}
+                  title={color.name}
+                >
+                  {color.image ? (
+                    <img 
+                      src={color.image} 
+                      alt={color.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : null}
+                  {selectedColor.name === color.name && (
+                    <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
+                      color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
+                        ? 'text-foreground' 
+                        : 'text-white'
+                    } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
+                  )}
+                </button>
+              )
+            ))}
+          </div>
           
-          {/* Hover Preview - Desktop only */}
-          {!isMobile && hoveredColor && hoveredColor.image && (
-            <div className="absolute left-0 top-full mt-2 z-50">
-              <div className="bg-background border border-border rounded-lg shadow-lg overflow-hidden">
+          {/* Selected Color Preview - Right */}
+          {selectedColor.image && (
+            <div className="flex-shrink-0">
+              <div className="rounded-lg overflow-hidden border border-border">
                 <img 
-                  src={hoveredColor.image} 
-                  alt={hoveredColor.name}
-                  className="w-48 h-48 object-cover"
+                  src={selectedColor.image} 
+                  alt={`${selectedColor.name} fabric swatch`}
+                  className="w-24 h-24 sm:w-28 sm:h-28 object-cover"
                 />
-                <p className="text-sm text-center py-2 text-foreground/70 font-body">{hoveredColor.name}</p>
               </div>
+              <p className="text-xs text-center mt-1 font-body text-foreground/70">{selectedColor.name}</p>
             </div>
           )}
         </div>
-        <p className="text-xs text-foreground/60 mt-1 font-body">Selected: {selectedColor.name}</p>
       </div>
 
       {/* Product Type Selection */}
