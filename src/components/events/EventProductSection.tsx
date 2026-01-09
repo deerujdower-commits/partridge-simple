@@ -183,7 +183,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
                 <img 
                   src={selectedColor.image} 
                   alt={`${selectedColor.name} fabric swatch`}
-                  className="w-24 h-24 sm:w-28 sm:h-28 object-cover"
+                  className="w-32 h-32 sm:w-40 sm:h-40 object-cover"
                 />
               </div>
               <p className="text-xs text-center mt-1 font-body text-foreground/70">{selectedColor.name}</p>
