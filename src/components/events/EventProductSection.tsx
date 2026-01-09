@@ -95,20 +95,27 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               >
                 <PopoverTrigger asChild>
                   <button
-                    className={`relative w-8 h-8 rounded-full border-2 transition-all ${
+                    className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
                       selectedColor.name === color.name 
                         ? 'border-primary ring-2 ring-primary/30' 
                         : 'border-border'
                     }`}
-                    style={{ backgroundColor: color.hex }}
+                    style={color.image ? undefined : { backgroundColor: color.hex }}
                     title={color.name}
                   >
+                    {color.image ? (
+                      <img 
+                        src={color.image} 
+                        alt={color.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : null}
                     {selectedColor.name === color.name && (
                       <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
                         color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
                           ? 'text-foreground' 
                           : 'text-white'
-                      }`} />
+                      } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
                     )}
                   </button>
                 </PopoverTrigger>
@@ -135,25 +142,32 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
                 </PopoverContent>
               </Popover>
             ) : (
-              <button
+            <button
                 key={color.name}
                 onClick={() => setSelectedColor(color)}
                 onMouseEnter={() => setHoveredColor(color)}
                 onMouseLeave={() => setHoveredColor(null)}
-                className={`relative w-8 h-8 rounded-full border-2 transition-all ${
+                className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
                   selectedColor.name === color.name 
                     ? 'border-primary ring-2 ring-primary/30' 
                     : 'border-border hover:border-primary/50'
                 }`}
-                style={{ backgroundColor: color.hex }}
+                style={color.image ? undefined : { backgroundColor: color.hex }}
                 title={color.name}
               >
+                {color.image ? (
+                  <img 
+                    src={color.image} 
+                    alt={color.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : null}
                 {selectedColor.name === color.name && (
                   <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
                     color.hex === '#FFFFFF' || color.hex === '#F5F5DC' || color.hex === '#F7E7CE' || color.hex === '#F4C2C2' || color.hex === '#C0C0C0'
                       ? 'text-foreground' 
                       : 'text-white'
-                  }`} />
+                  } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
                 )}
               </button>
             )
