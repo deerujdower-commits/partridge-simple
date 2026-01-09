@@ -32,7 +32,10 @@ import damaskSwatchPeach from '@/assets/damask-swatch-peach-final.png';
 import damaskSwatchGold from '@/assets/damask-swatch-gold-new.png';
 import damaskSwatchChampagne from '@/assets/damask-swatch-champagne-final.png';
 
-
+// Plain tablecloth swatch images
+import plainSwatchBlack from '@/assets/consistent-black-tablecloth.jpg';
+import plainSwatchWhite from '@/assets/consistent-white-tablecloth.jpg';
+import plainSwatchIvory from '@/assets/consistent-ivory-tablecloth.jpg';
 
 // Gallery images - SEO optimized with Partridge Linen branding
 import galleryWhiteDamaskCandles from '@/assets/partridge-linen-white-damask-candles.webp';
@@ -63,9 +66,9 @@ import galleryIvoryDamaskMarqueeColorful from '@/assets/partridge-linen-ivory-da
 
 
 const tableLinenColors = [
-  { name: 'Black', hex: '#1a1a1a' },
-  { name: 'White', hex: '#FFFFFF' },
-  { name: 'Ivory', hex: '#F5F5DC' },
+  { name: 'Black', hex: '#1a1a1a', image: plainSwatchBlack },
+  { name: 'White', hex: '#FFFFFF', image: plainSwatchWhite },
+  { name: 'Ivory', hex: '#F5F5DC', image: plainSwatchIvory },
   { name: 'Red', hex: '#B22222' },
 ];
 
