@@ -14,11 +14,9 @@ import { DropLengthVisual } from "./DropLengthVisual";
 interface SizeGuideDialogProps {
   type: 'rectangular' | 'round' | 'both';
   availableSizes?: string[];
-  variant?: 'default' | 'navy';
 }
 
-const SizeGuideDialog = ({ type, availableSizes, variant = 'default' }: SizeGuideDialogProps) => {
-  const isNavy = variant === 'navy';
+const SizeGuideDialog = ({ type, availableSizes }: SizeGuideDialogProps) => {
   const rectangularData = [
     {
       tableSize: '6ft x 2ft',
@@ -173,7 +171,7 @@ const SizeGuideDialog = ({ type, availableSizes, variant = 'default' }: SizeGuid
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button size="sm" className={`gap-2 ${isNavy ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-accent text-accent-foreground hover:bg-accent/90'}`}>
+        <Button size="sm" className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90">
           <Info className="h-4 w-4" />
           Size Guide
         </Button>
