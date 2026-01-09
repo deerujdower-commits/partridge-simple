@@ -98,10 +98,10 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
                   >
                     <PopoverTrigger asChild>
                       <button
-                        className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
+                        className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden shadow-sm ${
                           selectedColor.name === color.name 
                             ? 'border-primary ring-2 ring-primary/30' 
-                            : 'border-border'
+                            : 'border-foreground/30'
                         }`}
                         style={color.image ? undefined : { backgroundColor: color.hex }}
                         title={color.name}
@@ -150,10 +150,10 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
                     onClick={() => setSelectedColor(color)}
                     onMouseEnter={() => setHoveredColor(color)}
                     onMouseLeave={() => setHoveredColor(null)}
-                    className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden ${
+                    className={`relative w-8 h-8 rounded-full border-2 transition-all overflow-hidden shadow-sm ${
                       selectedColor.name === color.name 
                         ? 'border-primary ring-2 ring-primary/30' 
-                        : 'border-border hover:border-primary/50'
+                        : 'border-foreground/30 hover:border-primary/50'
                     }`}
                     style={color.image ? undefined : { backgroundColor: color.hex }}
                     title={color.name}
