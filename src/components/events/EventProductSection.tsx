@@ -180,9 +180,9 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
                 <img 
                   src={hoveredColor.image} 
                   alt={hoveredColor.name}
-                  className="w-32 h-32 object-cover"
+                  className="w-48 h-48 object-cover"
                 />
-                <p className="text-xs text-center py-1 text-foreground/70 font-body">{hoveredColor.name}</p>
+                <p className="text-sm text-center py-2 text-foreground/70 font-body">{hoveredColor.name}</p>
               </div>
             </div>
           )}
