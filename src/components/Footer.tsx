@@ -12,9 +12,7 @@ const Footer = () => {
   }, {
     title: 'Company',
     links: [
-      { name: 'Contact Us', href: '/contact' },
-      { name: '020 8653 6066', href: 'tel:02086536066' },
-      { name: 'info@partridgelinen.co.uk', href: 'mailto:info@partridgelinen.co.uk' }
+      { name: 'Contact Us', href: '/contact' }
     ]
   }];
 
@@ -46,8 +44,27 @@ const Footer = () => {
               </ul>
             </div>)}
 
+          {/* Contact Info */}
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-4">Get In Touch</h3>
+            <div className="space-y-3">
+              <a 
+                href="tel:02086536066" 
+                className="block font-display text-xl font-semibold text-foreground hover:text-primary transition-colors"
+              >
+                020 8653 6066
+              </a>
+              <a 
+                href="mailto:enquiry@partridgelinenhire.co.uk" 
+                className="block font-body text-primary hover:text-primary/80 transition-colors break-all"
+              >
+                enquiry@partridgelinenhire.co.uk
+              </a>
+            </div>
+          </div>
+
           {/* Opening Times & Map */}
-          <div className="lg:col-span-2">
+          <div>
             <h3 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
               <Clock className="w-4 h-4" />
               Opening Times
