@@ -260,11 +260,13 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
         {selectedColor.image && (
           <div className="flex-shrink-0 order-1 sm:order-2">
             <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">{title}</h3>
-            <div className="rounded-lg overflow-hidden border border-border">
+            <div className={`rounded-lg overflow-hidden border border-border p-3 ${
+              selectedColor.name === 'Black' ? 'bg-muted/50' : 'bg-foreground/90'
+            }`}>
               <img 
                 src={selectedColor.image} 
                 alt={`${selectedColor.name} fabric swatch`}
-                className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover"
+                className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover rounded"
               />
             </div>
             <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
