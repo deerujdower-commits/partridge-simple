@@ -82,6 +82,20 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
     <div className="bg-muted/30 border border-border rounded-lg p-5 mb-6">
       <h3 className="font-display text-lg font-medium text-foreground mb-4">{title}</h3>
 
+      {/* Selected Color Preview */}
+      {selectedColor.image && (
+        <div className="mb-4">
+          <div className="rounded-lg overflow-hidden border border-border">
+            <img 
+              src={selectedColor.image} 
+              alt={`${selectedColor.name} fabric swatch`}
+              className="w-full h-48 sm:h-56 object-cover"
+            />
+          </div>
+          <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
+        </div>
+      )}
+
       {/* Color Selection */}
       <div className="mb-4">
         <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
