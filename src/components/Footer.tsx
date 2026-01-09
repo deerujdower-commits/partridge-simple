@@ -12,11 +12,10 @@ const Footer = () => {
   }, {
     title: 'Company',
     links: [
-      { name: 'Contact Us', href: '/contact' }
+      { name: 'Contact Us', href: '/contact' },
+      { name: '020 8653 6066', href: 'tel:02086536066' },
+      { name: 'info@partridgelinen.co.uk', href: 'mailto:info@partridgelinen.co.uk' }
     ]
-  }, {
-    title: 'Opening Times',
-    isOpeningTimes: true
   }];
 
   return <footer className="bg-background border-t border-border">
@@ -34,64 +33,42 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          {footerSections.map((section, index) => (
-            <div key={index}>
-              <h3 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
-                {section.title === 'Opening Times' && <Clock className="w-4 h-4" />}
-                {section.title}
-              </h3>
-              {section.isOpeningTimes ? (
-                <ul className="space-y-1">
-                  <li className="font-body text-sm text-muted-foreground">Mon - Fri: 8:00am - 5:00pm</li>
-                  <li className="font-body text-sm text-muted-foreground">Saturday: 9:00am - 1:00pm</li>
-                  <li className="font-body text-sm text-muted-foreground">Sunday: Closed</li>
-                </ul>
-              ) : (
-                <ul className="space-y-2">
-                  {section.links?.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <a href={link.href} className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                  {section.title === 'Company' && (
-                    <>
-                      <li>
-                        <a 
-                          href="tel:02086536066" 
-                          className="font-display text-xl font-semibold text-foreground hover:text-primary transition-colors"
-                        >
-                          020 8653 6066
-                        </a>
-                      </li>
-                      <li>
-                        <a 
-                          href="mailto:enquiry@partridgelinenhire.co.uk" 
-                          className="font-body text-primary hover:text-primary/80 transition-colors"
-                        >
-                          enquiry@partridgelinenhire.co.uk
-                        </a>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              )}
-            </div>
-          ))}
+          {footerSections.map((section, index) => <div key={index}>
+              <h3 className="font-display font-semibold text-foreground mb-4">{section.title}</h3>
+              <ul className="space-y-2">
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <a href={link.href} className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>)}
 
-          {/* Map */}
-          <div className="lg:col-span-2 rounded-lg overflow-hidden border border-border min-h-[200px]">
-            <iframe
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=1-5+The+Drive,+CR7+8LB,+UK"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: '200px' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Partridge Laundry Location"
-            />
+          {/* Opening Times & Map */}
+          <div className="lg:col-span-2">
+            <h3 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              Opening Times
+            </h3>
+            <ul className="space-y-1 mb-4">
+              <li className="font-body text-sm text-muted-foreground">Mon - Fri: 8:00am - 5:00pm</li>
+              <li className="font-body text-sm text-muted-foreground">Saturday: 9:00am - 1:00pm</li>
+              <li className="font-body text-sm text-muted-foreground">Sunday: Closed</li>
+            </ul>
+            <div className="rounded-lg overflow-hidden border border-border">
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=1-5+The+Drive,+CR7+8LB,+UK"
+                width="100%"
+                height="150"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Partridge Laundry Location"
+              />
+            </div>
           </div>
         </div>
 
