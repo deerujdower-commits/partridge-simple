@@ -24,11 +24,8 @@ import damaskSwatchPurple from '@/assets/damask-swatch-purple.jpg';
 import damaskSwatchSilver from '@/assets/damask-swatch-silver.jpg';
 import damaskSwatchBabyBlue from '@/assets/damask-swatch-baby-blue.jpg';
 import damaskSwatchIvory from '@/assets/damask-swatch-ivory-new.jpg';
-import damaskSwatchPeach from '@/assets/damask-swatch-peach.jpg';
-import damaskSwatchBabyPink from '@/assets/damask-swatch-baby-pink-new.jpg';
 import damaskSwatchBlack from '@/assets/damask-swatch-black-new.jpg';
 import damaskSwatchRed from '@/assets/damask-swatch-red.jpg';
-import damaskSwatchWhite from '@/assets/damask-swatch-white-new.jpg';
 import damaskSwatchChampagne from '@/assets/damask-swatch-champagne-new.png';
 
 // Gallery images - SEO optimized with Partridge Linen branding
@@ -99,12 +96,9 @@ const tableLinenProductTypes = [
 
 // Damask configuration with image swatches
 const damaskColors = [
-  { name: 'White', hex: '#FFFFFF', image: damaskSwatchWhite },
   { name: 'Ivory', hex: '#F5F5DC', image: damaskSwatchIvory },
   { name: 'Black', hex: '#1a1a1a', image: damaskSwatchBlack },
   { name: 'Champagne', hex: '#F7E7CE', image: damaskSwatchChampagne },
-  { name: 'Baby Pink', hex: '#F4C2C2', image: damaskSwatchBabyPink },
-  { name: 'Peach', hex: '#FFCBA4', image: damaskSwatchPeach },
   { name: 'Red', hex: '#B22222', image: damaskSwatchRed },
   { name: 'Blue', hex: '#1E90FF', image: damaskSwatchBlue },
   { name: 'Baby Blue', hex: '#89CFF0', image: damaskSwatchBabyBlue },
