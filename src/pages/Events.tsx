@@ -99,7 +99,6 @@ const tableLinenProductTypes = [
 const damaskColors = [
   { name: 'Ivory', hex: '#F5F5DC', image: damaskSwatchIvory },
   { name: 'Black', hex: '#1a1a1a', image: damaskSwatchBlack },
-  { name: 'Champagne', hex: '#F7E7CE', image: damaskSwatchChampagne },
   { name: 'Red', hex: '#B22222', image: damaskSwatchRed },
   { name: 'Blue', hex: '#1E90FF', image: damaskSwatchBlue },
   { name: 'Baby Blue', hex: '#89CFF0', image: damaskSwatchBabyBlue },
