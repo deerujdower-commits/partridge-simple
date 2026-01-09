@@ -230,6 +230,7 @@ const Events = () => {
                 colors={damaskColors}
                 productTypes={damaskProductTypes}
                 sizeGuideType="both"
+                variant="navy"
               />
             </div>
 

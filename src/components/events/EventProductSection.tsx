@@ -30,9 +30,10 @@ interface EventProductSectionProps {
   colors: ColorOption[];
   productTypes: ProductType[];
   sizeGuideType?: 'rectangular' | 'round' | 'both';
+  variant?: 'default' | 'navy';
 }
 
-const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'both' }: EventProductSectionProps) => {
+const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'both', variant = 'default' }: EventProductSectionProps) => {
   const { toast } = useToast();
   const { addItem } = useEnquiry();
   const isMobile = useIsMobile();
@@ -78,16 +79,22 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
   const totalPrice = selectedSize.price * quantity;
 
+  const isNavy = variant === 'navy';
+
   return (
-    <div className="bg-muted/30 border border-border rounded-lg p-5 mb-6">
+    <div className={`rounded-lg p-5 mb-6 ${
+      isNavy 
+        ? 'bg-accent text-accent-foreground border border-accent' 
+        : 'bg-muted/30 border border-border'
+    }`}>
       <div className="flex flex-col sm:flex-row gap-5">
         {/* Left side - Form controls */}
         <div className="flex-1 min-w-0 order-2 sm:order-1">
-          <h3 className="font-display text-lg font-medium text-foreground mb-4 hidden sm:block">{title}</h3>
+          <h3 className={`font-display text-lg font-medium mb-4 hidden sm:block ${isNavy ? 'text-accent-foreground' : 'text-foreground'}`}>{title}</h3>
 
           {/* Color Selection */}
           <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
+            <label className={`block text-sm font-body mb-2 ${isNavy ? 'text-accent-foreground/80' : 'text-foreground/70'}`}>Colour</label>
             <div className="flex flex-wrap gap-2">
               {colors.map((color) => (
                 isMobile ? (
@@ -180,9 +187,9 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
           {/* Product Type Selection */}
           <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Product</label>
+            <label className={`block text-sm font-body mb-2 ${isNavy ? 'text-accent-foreground/80' : 'text-foreground/70'}`}>Product</label>
             <Select value={selectedProductType.value} onValueChange={handleProductTypeChange}>
-              <SelectTrigger className="w-full">
+              <SelectTrigger className={`w-full ${isNavy ? 'bg-accent-foreground/10 border-accent-foreground/30 text-accent-foreground' : ''}`}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -198,14 +205,14 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
           {/* Size Selection */}
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
-              <label className="block text-sm font-body text-foreground/70">Size</label>
+              <label className={`block text-sm font-body ${isNavy ? 'text-accent-foreground/80' : 'text-foreground/70'}`}>Size</label>
               <SizeGuideDialog type={sizeGuideType} />
             </div>
             {selectedProductType.sizes.length === 1 ? (
-              <p className="text-sm font-body text-foreground">{selectedSize.label}</p>
+              <p className={`text-sm font-body ${isNavy ? 'text-accent-foreground' : 'text-foreground'}`}>{selectedSize.label}</p>
             ) : (
               <Select value={selectedSize.value} onValueChange={handleSizeChange}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className={`w-full ${isNavy ? 'bg-accent-foreground/10 border-accent-foreground/30 text-accent-foreground' : ''}`}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -221,21 +228,21 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
           {/* Quantity */}
           <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
+            <label className={`block text-sm font-body mb-2 ${isNavy ? 'text-accent-foreground/80' : 'text-foreground/70'}`}>Quantity</label>
             <div className="flex items-center gap-3">
               <Button
                 variant="outline"
                 size="icon"
-                className="h-9 w-9"
+                className={`h-9 w-9 ${isNavy ? 'border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10' : ''}`}
                 onClick={() => setQuantity(Math.max(1, quantity - 10))}
               >
                 <Minus className="w-4 h-4" />
               </Button>
-              <span className="w-16 text-center font-body font-medium text-foreground">{quantity}</span>
+              <span className={`w-16 text-center font-body font-medium ${isNavy ? 'text-accent-foreground' : 'text-foreground'}`}>{quantity}</span>
               <Button
                 variant="outline"
                 size="icon"
-                className="h-9 w-9"
+                className={`h-9 w-9 ${isNavy ? 'border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10' : ''}`}
                 onClick={() => setQuantity(quantity + 10)}
               >
                 <Plus className="w-4 h-4" />
@@ -244,12 +251,12 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
           </div>
 
           {/* Price & Add Button */}
-          <div className="flex items-center justify-between pt-3 border-t border-border">
+          <div className={`flex items-center justify-between pt-3 border-t ${isNavy ? 'border-accent-foreground/20' : 'border-border'}`}>
             <div>
-              <p className="text-sm text-foreground/60 font-body">Total</p>
-              <p className="text-lg font-display font-medium text-foreground">£{totalPrice.toFixed(2)}</p>
+              <p className={`text-sm font-body ${isNavy ? 'text-accent-foreground/70' : 'text-foreground/60'}`}>Total</p>
+              <p className={`text-lg font-display font-medium ${isNavy ? 'text-accent-foreground' : 'text-foreground'}`}>£{totalPrice.toFixed(2)}</p>
             </div>
-            <Button onClick={handleAddToEnquiry} className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button onClick={handleAddToEnquiry} className={isNavy ? 'bg-accent-foreground text-accent hover:bg-accent-foreground/90' : 'bg-primary text-primary-foreground hover:bg-primary/90'}>
               <ShoppingBag className="w-4 h-4 mr-2" />
               Add to Enquiry
             </Button>
@@ -259,17 +266,15 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
         {/* Right side (top on mobile) - Large Preview Image */}
         {selectedColor.image && (
           <div className="flex-shrink-0 order-1 sm:order-2">
-            <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">{title}</h3>
-            <div className={`rounded-lg overflow-hidden border border-border p-3 ${
-              selectedColor.name === 'Black' ? 'bg-muted/50' : 'bg-foreground/90'
-            }`}>
+            <h3 className={`font-display text-lg font-medium mb-3 sm:hidden ${isNavy ? 'text-accent-foreground' : 'text-foreground'}`}>{title}</h3>
+            <div className="rounded-lg overflow-hidden border border-border p-3 bg-accent-foreground/90">
               <img 
                 src={selectedColor.image} 
                 alt={`${selectedColor.name} fabric swatch`}
                 className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover rounded"
               />
             </div>
-            <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
+            <p className={`text-sm text-center mt-2 font-body ${isNavy ? 'text-accent-foreground/70' : 'text-foreground/70'}`}>{selectedColor.name}</p>
           </div>
         )}
       </div>
