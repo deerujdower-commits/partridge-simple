@@ -27,6 +27,8 @@ import damaskSwatchIvory from '@/assets/damask-swatch-ivory-new.jpg';
 import damaskSwatchBlack from '@/assets/damask-swatch-black-new.jpg';
 import damaskSwatchRed from '@/assets/damask-swatch-red.jpg';
 import damaskSwatchWhite from '@/assets/damask-swatch-white-new.png';
+import damaskSwatchBabyPink from '@/assets/damask-swatch-baby-pink-v2.png';
+import damaskSwatchPeach from '@/assets/damask-swatch-peach-final.png';
 import damaskSwatchGold from '@/assets/damask-swatch-gold-new.png';
 import damaskSwatchChampagne from '@/assets/damask-swatch-champagne-new.png';
 
@@ -105,6 +107,8 @@ const damaskColors = [
   { name: 'Red', hex: '#B22222', image: damaskSwatchRed },
   { name: 'Blue', hex: '#1E90FF', image: damaskSwatchBlue },
   { name: 'Baby Blue', hex: '#89CFF0', image: damaskSwatchBabyBlue },
+  { name: 'Baby Pink', hex: '#F4C2C2', image: damaskSwatchBabyPink },
+  { name: 'Peach', hex: '#FFDAB9', image: damaskSwatchPeach },
   { name: 'Champagne', hex: '#F7E7CE', image: damaskSwatchChampagne },
   { name: 'Gold', hex: '#D4AF37', image: damaskSwatchGold },
   { name: 'Burgundy', hex: '#800020', image: damaskSwatchBurgundy },
