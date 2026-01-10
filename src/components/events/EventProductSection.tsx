@@ -93,7 +93,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
   const totalPrice = selectedSize.price * quantity;
 
   return (
-    <div className="bg-muted/30 border border-border rounded-lg p-5 mb-6">
+    <div className="bg-muted/30 border border-border rounded-lg p-5 h-full">
       <div className="flex flex-col sm:flex-row gap-5">
         {/* Left side - Form controls */}
         <div className="flex-1 min-w-0 order-2 sm:order-1">

@@ -91,8 +91,8 @@ const ChairCoversSection = () => {
   };
 
   return (
-    <div className="min-h-[400px]">
-      <div className="bg-muted/30 border border-border rounded-lg p-5">
+    <div className="h-full">
+      <div className="bg-muted/30 border border-border rounded-lg p-5 h-full">
         <div className="flex flex-col sm:flex-row gap-5">
           {/* Left side - Form controls */}
           <div className="flex-1 min-w-0 order-2 sm:order-1">
