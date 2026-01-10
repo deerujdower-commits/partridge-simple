@@ -94,13 +94,14 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
   return (
     <div className="bg-muted/30 border border-border rounded-lg p-5 h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40">
-      <div className="flex flex-col sm:flex-row gap-5">
-        {/* Left side - Form controls */}
+      {/* Top section: Title + Colours + Image */}
+      <div className="flex flex-col sm:flex-row gap-5 mb-4">
+        {/* Left side - Title and Colours */}
         <div className="flex-1 min-w-0 order-2 sm:order-1">
-          <h3 className="font-display text-lg font-medium text-foreground mb-4 hidden sm:block">{title}</h3>
+          <h3 className="font-display text-lg font-medium text-foreground mb-4">{title}</h3>
 
           {/* Color Selection */}
-          <div className="mb-4">
+          <div>
             <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
             <div className="flex flex-wrap gap-2 min-h-[72px] content-start">
               {colors.map((color) => (
@@ -191,10 +192,30 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               ))}
             </div>
           </div>
+        </div>
 
+        {/* Right side - Preview Image */}
+        {selectedColor.image && (
+          <div className="flex-shrink-0 order-1 sm:order-2 flex flex-col">
+            <div className="rounded-lg overflow-hidden border border-border">
+              <img 
+                src={selectedColor.image} 
+                alt={`${selectedColor.name} fabric swatch`}
+                className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover"
+              />
+            </div>
+            <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
+          </div>
+        )}
+      </div>
+
+      {/* Bottom section: Product/Size on left, Quantity/Add on right */}
+      <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-border">
+        {/* Left - Product, Size, Size Guide */}
+        <div className="flex-1">
           {/* Product Type Selection */}
-          <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Product</label>
+          <div className="mb-3">
+            <label className="block text-sm font-body text-foreground/70 mb-1">Product</label>
             <Select value={selectedProductType.value} onValueChange={handleProductTypeChange}>
               <SelectTrigger className="w-full">
                 <SelectValue />
@@ -210,8 +231,8 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
           </div>
 
           {/* Size Selection */}
-          <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Size</label>
+          <div className="mb-3">
+            <label className="block text-sm font-body text-foreground/70 mb-1">Size</label>
             {selectedProductType.sizes.length === 1 ? (
               <p className="text-sm font-body text-foreground">{selectedSize.label} - £{selectedSize.price.toFixed(2)} each</p>
             ) : (
@@ -230,13 +251,14 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
             )}
           </div>
 
-          {/* Size Guide - underneath Size */}
-          <div className="mb-4">
-            <SizeGuideDialog type={sizeGuideType} />
-          </div>
+          {/* Size Guide */}
+          <SizeGuideDialog type={sizeGuideType} />
+        </div>
 
+        {/* Right - Quantity and Add to Enquiry */}
+        <div className="flex-1 flex flex-col justify-between">
           {/* Quantity */}
-          <div className="mb-4">
+          <div className="mb-3">
             <label className="block text-xs font-body text-foreground/70 mb-1">Quantity</label>
             <div className="flex items-center gap-2">
               <Button
@@ -256,40 +278,22 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               >
                 <Plus className="w-3 h-3" />
               </Button>
-              {/* Total inline */}
-              <span className="text-xs text-foreground/60 font-body ml-2">
-                Total: <span className="font-medium text-foreground">£{totalPrice.toFixed(2)}</span>
-              </span>
             </div>
+            <p className="text-xs text-foreground/60 font-body mt-1">
+              Total: <span className="font-medium text-foreground">£{totalPrice.toFixed(2)}</span>
+            </p>
           </div>
 
-          {/* Add to Enquiry - at bottom */}
-          <div className="mt-auto">
-            <Button 
-              onClick={handleAddToEnquiry} 
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-              disabled={quantity === 0}
-            >
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Add to Enquiry
-            </Button>
-          </div>
+          {/* Add to Enquiry */}
+          <Button 
+            onClick={handleAddToEnquiry} 
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+            disabled={quantity === 0}
+          >
+            <ShoppingBag className="w-4 h-4 mr-2" />
+            Add to Enquiry
+          </Button>
         </div>
-
-        {/* Right side (top on mobile) - Large Preview Image */}
-        {selectedColor.image && (
-          <div className="flex-shrink-0 order-1 sm:order-2 flex flex-col">
-            <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">{title}</h3>
-            <div className="rounded-lg overflow-hidden border border-border">
-              <img 
-                src={selectedColor.image} 
-                alt={`${selectedColor.name} fabric swatch`}
-                className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover"
-              />
-            </div>
-            <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
-          </div>
-        )}
       </div>
     </div>
   );
