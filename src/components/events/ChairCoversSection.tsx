@@ -243,11 +243,6 @@ const ChairCoversSection = () => {
                 />
               </div>
 
-              {/* Stock Note */}
-              <p className="text-xs font-body text-foreground/50 mb-4">
-                Sash stock will be checked. If not available, we can recommend similar colours. Checkout is via email with a payment link sent back to you.
-              </p>
-
               {/* Total */}
               <div className="pt-4 border-t border-border">
                 <div>
@@ -280,6 +275,11 @@ const ChairCoversSection = () => {
               </div>
             </div>
           </div>
+
+          {/* Stock Note - Full width */}
+          <p className="text-xs font-body text-foreground/50 mt-4 text-center">
+            Sash stock will be checked. If not available, we can recommend similar colours. Checkout is via email with a payment link sent back to you.
+          </p>
         </div>
       </div>
     </div>
