@@ -242,15 +242,15 @@ const Events = () => {
 
             {/* Bottom Right - Gallery */}
             <div>
-              <div className="bg-muted/30 border border-border rounded-lg p-5 h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40 flex flex-col">
-                <h3 className="font-display text-lg font-medium text-foreground mb-4">Event Gallery</h3>
-                {/* Preview grid - 5 columns, fills available space */}
-                <div className="grid grid-cols-5 gap-1 flex-1">
-                  {galleryImages.slice(0, 15).map((image, index) => (
+              <div className="bg-muted/30 border border-border rounded-lg overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40 flex flex-col">
+                <h3 className="font-display text-lg font-medium text-foreground p-5 pb-0">Event Gallery</h3>
+                {/* Preview grid - 3 columns, no gaps, fills space */}
+                <div className="grid grid-cols-3 flex-1 mt-4">
+                  {galleryImages.slice(0, 9).map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setGalleryOpen(true)}
-                      className="relative aspect-square overflow-hidden bg-muted focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
+                      className="relative aspect-square overflow-hidden bg-muted focus:outline-none focus:ring-2 focus:ring-primary"
                     >
                       <img 
                         src={image.src} 
@@ -265,7 +265,7 @@ const Events = () => {
                 {/* View all button */}
                 <button
                   onClick={() => setGalleryOpen(true)}
-                  className="mt-3 w-full py-2 px-4 bg-muted/50 hover:bg-muted border border-border rounded-lg flex items-center justify-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
+                  className="m-3 py-2 px-4 bg-muted/50 hover:bg-muted border border-border rounded-lg flex items-center justify-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
                 >
                   <span className="font-body text-sm">View all {galleryImages.length} images</span>
                 </button>
