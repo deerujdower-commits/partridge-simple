@@ -161,25 +161,17 @@ const ChairCoversSection = () => {
               </div>
             </div>
 
-            {/* Total & Add Button */}
-            <div className="flex items-center justify-between pt-4 border-t border-border">
+            {/* Total */}
+            <div className="pt-4 border-t border-border">
               <div>
                 <p className="text-sm text-foreground/60 font-body">Total</p>
                 <p className="text-lg font-display font-medium text-foreground">£{chairTotal.toFixed(2)}</p>
               </div>
-              <Button 
-                onClick={handleAddChairCover} 
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
-                disabled={chairQuantity === 0}
-              >
-                <ShoppingBag className="w-4 h-4 mr-2" />
-                Add to Enquiry
-              </Button>
             </div>
           </div>
 
           {/* Right side (top on mobile) - Large Preview Image */}
-          <div className="flex-shrink-0 order-1 sm:order-2">
+          <div className="flex-shrink-0 order-1 sm:order-2 flex flex-col">
             <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">Chair Covers</h3>
             <div className="rounded-lg overflow-hidden border border-border bg-white">
               <img 
@@ -189,6 +181,16 @@ const ChairCoversSection = () => {
               />
             </div>
             <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedChairColor.name}</p>
+            <div className="mt-auto pt-4">
+              <Button 
+                onClick={handleAddChairCover} 
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                disabled={chairQuantity === 0}
+              >
+                <ShoppingBag className="w-4 h-4 mr-2" />
+                Add to Enquiry
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -246,25 +248,17 @@ const ChairCoversSection = () => {
                 Sash stock will be checked. If not available, we can recommend similar colours. Checkout is via email with a payment link sent back to you.
               </p>
 
-              {/* Total & Add Button */}
-              <div className="flex items-center justify-between pt-4 border-t border-border">
+              {/* Total */}
+              <div className="pt-4 border-t border-border">
                 <div>
                   <p className="text-sm text-foreground/60 font-body">Total</p>
                   <p className="text-lg font-display font-medium text-foreground">£{sashTotal.toFixed(2)}</p>
                 </div>
-                <Button 
-                  onClick={handleAddSash} 
-                  className="bg-primary text-primary-foreground hover:bg-primary/90"
-                  disabled={sashQuantity === 0 || !sashColour.trim()}
-                >
-                  <ShoppingBag className="w-4 h-4 mr-2" />
-                  Add to Enquiry
-                </Button>
               </div>
             </div>
 
             {/* Right side (top on mobile) - Large Preview Image */}
-            <div className="flex-shrink-0 order-1 sm:order-2">
+            <div className="flex-shrink-0 order-1 sm:order-2 flex flex-col">
               <h4 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">Chair Cover Sashes</h4>
               <div className="rounded-lg overflow-hidden border border-border bg-white">
                 <img 
@@ -274,6 +268,16 @@ const ChairCoversSection = () => {
                 />
               </div>
               <p className="text-sm text-center mt-2 font-body text-foreground/70">Example sash</p>
+              <div className="mt-auto pt-4">
+                <Button 
+                  onClick={handleAddSash} 
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  disabled={sashQuantity === 0 || !sashColour.trim()}
+                >
+                  <ShoppingBag className="w-4 h-4 mr-2" />
+                  Add to Enquiry
+                </Button>
+              </div>
             </div>
           </div>
         </div>
