@@ -228,8 +228,8 @@ const Events = () => {
 
             {/* Top Right - Gallery */}
             <div className="min-h-[400px]">
-              <h3 className="font-display text-xl font-light text-foreground mb-4">Event Gallery</h3>
-              <div className="relative bg-muted/30 border border-border rounded-lg p-5 h-[calc(100%-2rem)]">
+              <div className="bg-muted/30 border border-border rounded-lg p-5 h-full">
+                <h3 className="font-display text-lg font-medium text-foreground mb-4">Event Gallery</h3>
                 {/* Preview grid */}
                 <div className="grid grid-cols-3 gap-1">
                   {galleryImages.slice(0, 6).map((image, index) => (

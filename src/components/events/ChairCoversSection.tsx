@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { ShoppingBag, Plus, Minus, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useEnquiry } from '@/contexts/EnquiryContext';
@@ -20,7 +19,7 @@ const ChairCoversSection = () => {
   
   const [selectedChairColor, setSelectedChairColor] = useState(chairCoverColors[0]);
   const [chairQuantity, setChairQuantity] = useState(10);
-  const [sashDetails, setSashDetails] = useState('');
+  const [sashColour, setSashColour] = useState('');
   const [sashQuantity, setSashQuantity] = useState(10);
 
   const chairPrice = 0.80;
@@ -45,183 +44,199 @@ const ChairCoversSection = () => {
   };
 
   const handleAddSash = () => {
-    if (!sashDetails.trim()) {
+    if (!sashColour.trim()) {
       toast({
-        title: "Please specify details",
-        description: "Enter the colour and quantity you need for the sashes.",
+        title: "Please specify colour",
+        description: "Enter the colour you need for the sashes.",
         variant: "destructive",
       });
       return;
     }
     
     addItem({
-      name: `Chair Cover Sash`,
+      name: `Chair Cover Sash - ${sashColour.trim()}`,
       category: 'Chair Covers',
+      color: sashColour.trim(),
       quantity: sashQuantity,
       image: chairSashExample,
-      description: `Sash request: ${sashDetails}`,
+      description: `${sashQuantity}x ${sashColour.trim()} Sash`,
     });
     
     toast({
       title: "Added to enquiry",
-      description: `Chair Cover Sash request added`,
+      description: `${sashQuantity}x ${sashColour.trim()} Chair Cover Sash`,
     });
-    setSashDetails('');
+    setSashColour('');
   };
 
   return (
     <div className="min-h-[400px]">
-      <h3 className="font-display text-xl font-light text-foreground mb-4">Chair Covers</h3>
-      
       <div className="bg-muted/30 border border-border rounded-lg p-5">
-        {/* Chair Cover Section */}
-        <div className="mb-6">
-          {/* Color Selection */}
-          <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
-            <div className="flex gap-3">
-              {chairCoverColors.map((color) => (
-                <button
-                  key={color.name}
-                  onClick={() => setSelectedChairColor(color)}
-                  className="flex flex-col items-center"
-                >
-                  <div 
-                    className={`relative w-10 h-10 rounded-full border-2 transition-all ${
-                      selectedChairColor.name === color.name 
-                        ? 'border-primary ring-2 ring-primary/30' 
-                        : color.name === 'White' 
-                          ? 'border-foreground/30 shadow-sm' 
-                          : 'border-foreground/20'
-                    }`}
-                    style={{ backgroundColor: color.hex }}
+        <div className="flex flex-col sm:flex-row gap-5">
+          {/* Left side - Form controls */}
+          <div className="flex-1 min-w-0 order-2 sm:order-1">
+            <h3 className="font-display text-lg font-medium text-foreground mb-4 hidden sm:block">Chair Covers</h3>
+
+            {/* Color Selection */}
+            <div className="mb-4">
+              <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
+              <div className="flex gap-3">
+                {chairCoverColors.map((color) => (
+                  <button
+                    key={color.name}
+                    onClick={() => setSelectedChairColor(color)}
+                    className="flex flex-col items-center"
                   >
-                    {selectedChairColor.name === color.name && (
-                      <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
-                        color.hex === '#FFFFFF' ? 'text-foreground' : 'text-white'
-                      } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
-                    )}
-                  </div>
-                  <span className="text-xs font-body text-foreground/70 mt-1">{color.name}</span>
-                </button>
-              ))}
+                    <div 
+                      className={`relative w-8 h-8 rounded-full border-2 transition-all ${
+                        selectedChairColor.name === color.name 
+                          ? 'border-primary ring-2 ring-primary/30' 
+                          : color.name === 'White' 
+                            ? 'border-foreground/30 shadow-sm' 
+                            : 'border-foreground/20'
+                      }`}
+                      style={{ backgroundColor: color.hex }}
+                    >
+                      {selectedChairColor.name === color.name && (
+                        <Check className={`w-4 h-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
+                          color.hex === '#FFFFFF' ? 'text-foreground' : 'text-white'
+                        } drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]`} />
+                      )}
+                    </div>
+                    <span className="text-xs font-body text-foreground/70 mt-1">{color.name}</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Preview Image */}
-          <div className="mb-4">
-            <img 
-              src={selectedChairColor.image} 
-              alt={`${selectedChairColor.name} chair cover`}
-              className="w-32 h-32 object-contain rounded-lg bg-white shadow-sm"
-            />
-          </div>
+            {/* Price Display */}
+            <div className="mb-4">
+              <p className="text-sm font-body text-foreground/70">
+                Price: <span className="text-foreground font-medium">80p each</span>
+              </p>
+            </div>
 
-          {/* Price & Quantity */}
-          <div className="mb-4">
-            <p className="text-sm font-body text-foreground/70 mb-2">
-              Price: <span className="text-foreground font-medium">80p each</span>
-            </p>
-            <div className="flex items-center gap-3">
-              <label className="text-sm font-body text-foreground/70">Quantity:</label>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8"
-                onClick={() => setChairQuantity(Math.max(1, chairQuantity - 10))}
-              >
-                <Minus className="w-3 h-3" />
+            {/* Quantity */}
+            <div className="mb-4">
+              <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
+              <div className="flex items-center gap-3">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-9 w-9"
+                  onClick={() => setChairQuantity(Math.max(1, chairQuantity - 10))}
+                >
+                  <Minus className="w-4 h-4" />
+                </Button>
+                <span className="w-16 text-center font-body font-medium text-foreground">{chairQuantity}</span>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-9 w-9"
+                  onClick={() => setChairQuantity(chairQuantity + 10)}
+                >
+                  <Plus className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Total & Add Button */}
+            <div className="flex items-center justify-between pt-4 border-t border-border">
+              <div>
+                <p className="text-sm text-foreground/60 font-body">Total</p>
+                <p className="text-lg font-display font-medium text-foreground">£{chairTotal.toFixed(2)}</p>
+              </div>
+              <Button onClick={handleAddChairCover} className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <ShoppingBag className="w-4 h-4 mr-2" />
+                Add to Enquiry
               </Button>
-              <span className="w-12 text-center font-body font-medium text-foreground">{chairQuantity}</span>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8"
-                onClick={() => setChairQuantity(chairQuantity + 10)}
-              >
-                <Plus className="w-3 h-3" />
-              </Button>
             </div>
           </div>
 
-          {/* Total & Add Button */}
-          <div className="flex items-center justify-between pt-4 border-t border-border">
-            <div>
-              <p className="text-sm text-foreground/60 font-body">Total</p>
-              <p className="text-lg font-display font-medium text-foreground">£{chairTotal.toFixed(2)}</p>
+          {/* Right side (top on mobile) - Large Preview Image */}
+          <div className="flex-shrink-0 order-1 sm:order-2">
+            <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">Chair Covers</h3>
+            <div className="rounded-lg overflow-hidden border border-border bg-white">
+              <img 
+                src={selectedChairColor.image} 
+                alt={`${selectedChairColor.name} chair cover`}
+                className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-contain"
+              />
             </div>
-            <Button onClick={handleAddChairCover} className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Add to Enquiry
-            </Button>
+            <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedChairColor.name}</p>
           </div>
         </div>
 
         {/* Chair Sashes Section */}
-        <div className="border-t border-border pt-5">
+        <div className="border-t border-border pt-5 mt-5">
           <h4 className="font-display text-base font-medium text-foreground mb-3">Chair Cover Sashes</h4>
           
           <div className="flex items-start gap-4 mb-4">
             <img 
               src={chairSashExample} 
               alt="Example chair cover sash" 
-              className="w-24 h-24 object-contain rounded-lg bg-white shadow-sm flex-shrink-0"
+              className="w-20 h-20 object-contain rounded-lg bg-white shadow-sm flex-shrink-0"
             />
             <div className="flex-1">
-              <p className="font-body text-sm text-foreground/70 mb-2">
-                We sell a wide variety of chair cover sashes. Stock needs to be checked for colour and quantity availability.
-              </p>
               <p className="text-sm font-body text-foreground/70">
                 Price: <span className="text-foreground font-medium">60p each</span>
               </p>
             </div>
           </div>
 
-          {/* Sash Details Input */}
-          <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">
-              What colour and how many do you need?
-            </label>
-            <Textarea
-              placeholder="e.g. 50x Royal Blue, 20x Gold..."
-              value={sashDetails}
-              onChange={(e) => setSashDetails(e.target.value)}
-              className="min-h-[60px]"
-            />
-          </div>
-
-          {/* Quantity & Add Button */}
-          <div className="flex items-center justify-between pt-4 border-t border-border">
-            <div>
-              <p className="text-sm text-foreground/60 font-body">Estimated Total</p>
-              <p className="text-lg font-display font-medium text-foreground">£{sashTotal.toFixed(2)}</p>
-              <p className="text-xs text-foreground/50">(based on {sashQuantity} sashes)</p>
-            </div>
-            <div className="flex flex-col items-end gap-2">
+          {/* Quantity and Colour in row */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-4">
+            {/* Quantity */}
+            <div className="flex-shrink-0">
+              <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
               <div className="flex items-center gap-2">
                 <Button
                   variant="outline"
                   size="icon"
-                  className="h-8 w-8"
+                  className="h-9 w-9"
                   onClick={() => setSashQuantity(Math.max(1, sashQuantity - 10))}
                 >
-                  <Minus className="w-3 h-3" />
+                  <Minus className="w-4 h-4" />
                 </Button>
-                <span className="w-10 text-center font-body text-sm text-foreground">{sashQuantity}</span>
+                <span className="w-12 text-center font-body font-medium text-foreground">{sashQuantity}</span>
                 <Button
                   variant="outline"
                   size="icon"
-                  className="h-8 w-8"
+                  className="h-9 w-9"
                   onClick={() => setSashQuantity(sashQuantity + 10)}
                 >
-                  <Plus className="w-3 h-3" />
+                  <Plus className="w-4 h-4" />
                 </Button>
               </div>
-              <Button onClick={handleAddSash} className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <ShoppingBag className="w-4 h-4 mr-2" />
-                Add to Enquiry
-              </Button>
             </div>
+
+            {/* Colour Input */}
+            <div className="flex-1">
+              <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
+              <Input
+                placeholder="e.g. Royal Blue, Gold..."
+                value={sashColour}
+                onChange={(e) => setSashColour(e.target.value)}
+                className="w-full"
+              />
+            </div>
+          </div>
+
+          {/* Stock Note */}
+          <p className="text-xs font-body text-foreground/50 mb-4">
+            Sash stock will be checked. If not available, we can recommend similar colours. Checkout is via email with a payment link sent back to you.
+          </p>
+
+          {/* Total & Add Button */}
+          <div className="flex items-center justify-between pt-4 border-t border-border">
+            <div>
+              <p className="text-sm text-foreground/60 font-body">Total</p>
+              <p className="text-lg font-display font-medium text-foreground">£{sashTotal.toFixed(2)}</p>
+            </div>
+            <Button onClick={handleAddSash} className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <ShoppingBag className="w-4 h-4 mr-2" />
+              Add to Enquiry
+            </Button>
           </div>
         </div>
       </div>
