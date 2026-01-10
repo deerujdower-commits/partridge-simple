@@ -244,12 +244,9 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               />
             </div>
             <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
-            <div className="mt-3 flex justify-center">
-              <SizeGuideDialog type={sizeGuideType} />
-            </div>
             
-            {/* Quantity - moved here */}
-            <div className="mt-3">
+            {/* Quantity - right under photo */}
+            <div className="mt-2">
               <label className="block text-xs font-body text-foreground/70 mb-1 text-center">Quantity</label>
               <div className="flex items-center justify-center gap-2">
                 <Button
@@ -276,10 +273,12 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               </p>
             </div>
 
-            <div className="mt-3">
+            {/* Size Guide + Add to Enquiry side by side */}
+            <div className="mt-3 flex gap-2">
+              <SizeGuideDialog type={sizeGuideType} />
               <Button 
                 onClick={handleAddToEnquiry} 
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
                 disabled={quantity === 0}
               >
                 <ShoppingBag className="w-4 h-4 mr-2" />
