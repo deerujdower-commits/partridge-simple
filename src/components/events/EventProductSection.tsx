@@ -102,7 +102,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
           {/* Color Selection */}
           <div className="mb-4">
             <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 min-h-[72px] content-start">
               {colors.map((color) => (
                 isMobile ? (
                   <Popover 
