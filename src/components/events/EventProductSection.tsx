@@ -211,10 +211,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
           {/* Size Selection */}
           <div className="mb-4">
-            <div className="flex items-center justify-between mb-2">
-              <label className="block text-sm font-body text-foreground/70">Size</label>
-              <SizeGuideDialog type={sizeGuideType} />
-            </div>
+            <label className="block text-sm font-body text-foreground/70 mb-2">Size</label>
             {selectedProductType.sizes.length === 1 ? (
               <p className="text-sm font-body text-foreground">{selectedSize.label} - £{selectedSize.price.toFixed(2)} each</p>
             ) : (
@@ -291,6 +288,9 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               />
             </div>
             <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
+            <div className="mt-3 flex justify-center">
+              <SizeGuideDialog type={sizeGuideType} />
+            </div>
           </div>
         )}
       </div>
