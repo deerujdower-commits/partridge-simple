@@ -243,19 +243,19 @@ const Events = () => {
             {/* Bottom Right - Gallery */}
             <div>
               <div className="bg-muted/30 border border-border rounded-lg overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40 flex flex-col">
-                <h3 className="font-display text-lg font-medium text-foreground p-5 pb-0">Event Gallery</h3>
-                {/* Preview grid - 3 columns, no gaps, fills space */}
-                <div className="grid grid-cols-3 flex-1 mt-4">
+                <h3 className="font-display text-lg font-medium text-foreground p-4 pb-3">Event Gallery</h3>
+                {/* Preview grid - 3x3, no gaps, Instagram-style flush layout */}
+                <div className="grid grid-cols-3 grid-rows-3 flex-1">
                   {galleryImages.slice(0, 9).map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setGalleryOpen(true)}
-                      className="relative aspect-square overflow-hidden bg-muted focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="relative overflow-hidden bg-muted focus:outline-none"
                     >
                       <img 
                         src={image.src} 
                         alt={image.alt} 
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-110" 
                         loading="lazy"
                       />
                     </button>
