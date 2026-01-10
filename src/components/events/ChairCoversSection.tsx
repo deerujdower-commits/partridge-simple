@@ -169,74 +169,83 @@ const ChairCoversSection = () => {
 
         {/* Chair Sashes Section */}
         <div className="border-t border-border pt-5 mt-5">
-          <h4 className="font-display text-base font-medium text-foreground mb-3">Chair Cover Sashes</h4>
-          
-          <div className="flex items-start gap-4 mb-4">
-            <img 
-              src={chairSashExample} 
-              alt="Example chair cover sash" 
-              className="w-20 h-20 object-contain rounded-lg bg-white shadow-sm flex-shrink-0"
-            />
-            <div className="flex-1">
-              <p className="text-sm font-body text-foreground/70">
-                Price: <span className="text-foreground font-medium">60p each</span>
-              </p>
-            </div>
-          </div>
+          <div className="flex flex-col sm:flex-row gap-5">
+            {/* Left side - Form controls */}
+            <div className="flex-1 min-w-0 order-2 sm:order-1">
+              <h4 className="font-display text-lg font-medium text-foreground mb-4 hidden sm:block">Chair Cover Sashes</h4>
 
-          {/* Quantity and Colour in row */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-4">
-            {/* Quantity */}
-            <div className="flex-shrink-0">
-              <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-9 w-9"
-                  onClick={() => setSashQuantity(Math.max(1, sashQuantity - 10))}
-                >
-                  <Minus className="w-4 h-4" />
-                </Button>
-                <span className="w-12 text-center font-body font-medium text-foreground">{sashQuantity}</span>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-9 w-9"
-                  onClick={() => setSashQuantity(sashQuantity + 10)}
-                >
-                  <Plus className="w-4 h-4" />
+              {/* Price Display */}
+              <div className="mb-4">
+                <p className="text-sm font-body text-foreground/70">
+                  Price: <span className="text-foreground font-medium">60p each</span>
+                </p>
+              </div>
+
+              {/* Quantity */}
+              <div className="mb-4">
+                <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
+                <div className="flex items-center gap-3">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-9 w-9"
+                    onClick={() => setSashQuantity(Math.max(1, sashQuantity - 10))}
+                  >
+                    <Minus className="w-4 h-4" />
+                  </Button>
+                  <span className="w-16 text-center font-body font-medium text-foreground">{sashQuantity}</span>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-9 w-9"
+                    onClick={() => setSashQuantity(sashQuantity + 10)}
+                  >
+                    <Plus className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+
+              {/* Colour Input */}
+              <div className="mb-4">
+                <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
+                <Input
+                  placeholder="e.g. Royal Blue, Gold..."
+                  value={sashColour}
+                  onChange={(e) => setSashColour(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+
+              {/* Stock Note */}
+              <p className="text-xs font-body text-foreground/50 mb-4">
+                Sash stock will be checked. If not available, we can recommend similar colours. Checkout is via email with a payment link sent back to you.
+              </p>
+
+              {/* Total & Add Button */}
+              <div className="flex items-center justify-between pt-4 border-t border-border">
+                <div>
+                  <p className="text-sm text-foreground/60 font-body">Total</p>
+                  <p className="text-lg font-display font-medium text-foreground">£{sashTotal.toFixed(2)}</p>
+                </div>
+                <Button onClick={handleAddSash} className="bg-primary text-primary-foreground hover:bg-primary/90">
+                  <ShoppingBag className="w-4 h-4 mr-2" />
+                  Add to Enquiry
                 </Button>
               </div>
             </div>
 
-            {/* Colour Input */}
-            <div className="flex-1">
-              <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
-              <Input
-                placeholder="e.g. Royal Blue, Gold..."
-                value={sashColour}
-                onChange={(e) => setSashColour(e.target.value)}
-                className="w-full"
-              />
+            {/* Right side (top on mobile) - Large Preview Image */}
+            <div className="flex-shrink-0 order-1 sm:order-2">
+              <h4 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">Chair Cover Sashes</h4>
+              <div className="rounded-lg overflow-hidden border border-border bg-white">
+                <img 
+                  src={chairSashExample} 
+                  alt="Example chair cover sash"
+                  className="w-full h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-contain"
+                />
+              </div>
+              <p className="text-sm text-center mt-2 font-body text-foreground/70">Example sash</p>
             </div>
-          </div>
-
-          {/* Stock Note */}
-          <p className="text-xs font-body text-foreground/50 mb-4">
-            Sash stock will be checked. If not available, we can recommend similar colours. Checkout is via email with a payment link sent back to you.
-          </p>
-
-          {/* Total & Add Button */}
-          <div className="flex items-center justify-between pt-4 border-t border-border">
-            <div>
-              <p className="text-sm text-foreground/60 font-body">Total</p>
-              <p className="text-lg font-display font-medium text-foreground">£{sashTotal.toFixed(2)}</p>
-            </div>
-            <Button onClick={handleAddSash} className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Add to Enquiry
-            </Button>
           </div>
         </div>
       </div>
