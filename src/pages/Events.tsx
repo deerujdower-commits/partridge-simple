@@ -216,7 +216,7 @@ const Events = () => {
           </div>
 
           {/* 2x2 Grid Layout */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12 auto-rows-fr">
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {/* Top Left - Table Linen */}
             <div>
               <EventProductSection
@@ -227,13 +227,26 @@ const Events = () => {
               />
             </div>
 
-            {/* Top Right - Gallery */}
+            {/* Top Right - Damask Patterns */}
+            <div>
+              <EventProductSection
+                title="Damask Patterns"
+                colors={damaskColors}
+                productTypes={damaskProductTypes}
+                sizeGuideType="both"
+              />
+            </div>
+
+            {/* Bottom Left - Chair Covers */}
+            <ChairCoversSection />
+
+            {/* Bottom Right - Gallery */}
             <div>
               <div className="bg-muted/30 border border-border rounded-lg p-5 h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40">
                 <h3 className="font-display text-lg font-medium text-foreground mb-4">Event Gallery</h3>
-                {/* Preview grid */}
-                <div className="grid grid-cols-3 gap-1">
-                  {galleryImages.slice(0, 6).map((image, index) => (
+                {/* Preview grid - 4x3 to match chair covers height */}
+                <div className="grid grid-cols-4 gap-1">
+                  {galleryImages.slice(0, 12).map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setGalleryOpen(true)}
@@ -243,6 +256,7 @@ const Events = () => {
                         src={image.src} 
                         alt={image.alt} 
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        loading="lazy"
                       />
                     </button>
                   ))}
@@ -257,19 +271,6 @@ const Events = () => {
                 </button>
               </div>
             </div>
-
-            {/* Bottom Left - Damask Patterns */}
-            <div>
-              <EventProductSection
-                title="Damask Patterns"
-                colors={damaskColors}
-                productTypes={damaskProductTypes}
-                sizeGuideType="both"
-              />
-            </div>
-
-            {/* Bottom Right - Chair Covers */}
-            <ChairCoversSection />
           </div>
 
           {/* Instagram-style Gallery Lightbox */}
