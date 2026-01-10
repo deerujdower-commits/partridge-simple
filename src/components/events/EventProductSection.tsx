@@ -230,42 +230,6 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
             )}
           </div>
 
-          {/* Quantity */}
-          <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
-            <div className="flex items-center gap-3">
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-9 w-9"
-                onClick={() => setQuantity(Math.max(0, quantity - 10))}
-              >
-                <Minus className="w-4 h-4" />
-              </Button>
-              <span className="w-16 text-center font-body font-medium text-foreground">{quantity}</span>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-9 w-9"
-                onClick={() => setQuantity(quantity + 10)}
-              >
-                <Plus className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Total */}
-          <div className="pt-4 border-t border-border">
-            <div>
-              <p className="text-sm text-foreground/60 font-body">Total</p>
-              <p className="text-lg font-display font-medium text-foreground">£{totalPrice.toFixed(2)}</p>
-            </div>
-          </div>
-
-          {/* Add another prompt */}
-          <p className="text-xs text-foreground/50 mt-3 text-center">
-            Add another product by selecting a different type above
-          </p>
         </div>
 
         {/* Right side (top on mobile) - Large Preview Image */}
@@ -283,7 +247,36 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
             <div className="mt-3 flex justify-center">
               <SizeGuideDialog type={sizeGuideType} />
             </div>
-            <div className="mt-auto pt-4">
+            
+            {/* Quantity - moved here */}
+            <div className="mt-3">
+              <label className="block text-xs font-body text-foreground/70 mb-1 text-center">Quantity</label>
+              <div className="flex items-center justify-center gap-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-8 w-8"
+                  onClick={() => setQuantity(Math.max(0, quantity - 10))}
+                >
+                  <Minus className="w-3 h-3" />
+                </Button>
+                <span className="w-12 text-center font-body font-medium text-foreground text-sm">{quantity}</span>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-8 w-8"
+                  onClick={() => setQuantity(quantity + 10)}
+                >
+                  <Plus className="w-3 h-3" />
+                </Button>
+              </div>
+              {/* Total inline */}
+              <p className="text-xs text-foreground/60 font-body text-center mt-1">
+                Total: <span className="font-medium text-foreground">£{totalPrice.toFixed(2)}</span>
+              </p>
+            </div>
+
+            <div className="mt-3">
               <Button 
                 onClick={handleAddToEnquiry} 
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
