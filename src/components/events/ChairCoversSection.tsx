@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ShoppingBag, Plus, Minus, Check } from 'lucide-react';
+import { ShoppingBag, Plus, Minus, Check, Info } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useEnquiry } from '@/contexts/EnquiryContext';
 import chairCoverWhite from '@/assets/chair-cover-white.png';
@@ -277,9 +277,12 @@ const ChairCoversSection = () => {
           </div>
 
           {/* Stock Note - Full width */}
-          <p className="text-xs font-body text-foreground/50 mt-4 text-center">
-            Sash stock will be checked. If not available, we can recommend similar colours. Checkout is via email with a payment link sent back to you.
-          </p>
+          <div className="flex items-start justify-center gap-2 mt-4 bg-muted/50 rounded-lg p-3">
+            <Info className="w-4 h-4 text-foreground/50 flex-shrink-0 mt-0.5" />
+            <p className="text-xs font-body text-foreground/50">
+              Sash stock will be checked. If not available, we can recommend similar colours. Checkout is via email with a payment link sent back to you.
+            </p>
+          </div>
         </div>
       </div>
     </div>
