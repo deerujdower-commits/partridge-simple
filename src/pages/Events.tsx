@@ -216,9 +216,9 @@ const Events = () => {
           </div>
 
           {/* 2x2 Grid Layout */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid lg:grid-cols-2 gap-8 mb-12 auto-rows-fr">
             {/* Top Left - Table Linen */}
-            <div className="min-h-[400px]">
+            <div>
               <EventProductSection
                 title="Table Linen"
                 colors={tableLinenColors}
@@ -228,7 +228,7 @@ const Events = () => {
             </div>
 
             {/* Top Right - Gallery */}
-            <div className="min-h-[400px]">
+            <div>
               <div className="bg-muted/30 border border-border rounded-lg p-5 h-full">
                 <h3 className="font-display text-lg font-medium text-foreground mb-4">Event Gallery</h3>
                 {/* Preview grid */}
@@ -259,7 +259,7 @@ const Events = () => {
             </div>
 
             {/* Bottom Left - Damask Patterns */}
-            <div className="min-h-[400px]">
+            <div>
               <EventProductSection
                 title="Damask Patterns"
                 colors={damaskColors}
