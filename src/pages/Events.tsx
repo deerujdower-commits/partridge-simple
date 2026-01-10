@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import EventProductSection from '@/components/events/EventProductSection';
 import ChairCoversSection from '@/components/events/ChairCoversSection';
+import EnquirySummary from '@/components/events/EnquirySummary';
 import eventsHero from '@/assets/events-hero-damask.jpg';
 
 // Damask swatch images
@@ -406,6 +407,7 @@ const Events = () => {
         </div>
       </main>
 
+      <EnquirySummary />
       <Footer />
     </div>
   );
