@@ -7,6 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useEnquiry } from '@/contexts/EnquiryContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import SizeGuideDialog from '@/components/SizeGuideDialog';
+
 interface ColorOption {
   name: string;
   hex: string;
@@ -25,6 +26,11 @@ interface ProductType {
   sizes: SizeOption[];
 }
 
+interface ProductState {
+  selectedSize: SizeOption;
+  quantity: number;
+}
+
 interface EventProductSectionProps {
   title: string;
   colors: ColorOption[];
@@ -37,46 +43,61 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
   const { addItem } = useEnquiry();
   const isMobile = useIsMobile();
   const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const [selectedProductType, setSelectedProductType] = useState(productTypes[0]);
-  const [selectedSize, setSelectedSize] = useState(productTypes[0].sizes[0]);
-  const [quantity, setQuantity] = useState(10);
   const [hoveredColor, setHoveredColor] = useState<ColorOption | null>(null);
   const [openPopover, setOpenPopover] = useState<string | null>(null);
-  const handleProductTypeChange = (value: string) => {
-    const productType = productTypes.find(p => p.value === value);
-    if (productType) {
-      setSelectedProductType(productType);
-      setSelectedSize(productType.sizes[0]);
-    }
-  };
+  
+  // Track state for each product type
+  const [productStates, setProductStates] = useState<Record<string, ProductState>>(() => {
+    const initial: Record<string, ProductState> = {};
+    productTypes.forEach(pt => {
+      initial[pt.value] = {
+        selectedSize: pt.sizes[0],
+        quantity: 10,
+      };
+    });
+    return initial;
+  });
 
-  const handleSizeChange = (value: string) => {
-    const size = selectedProductType.sizes.find(s => s.value === value);
+  const handleSizeChange = (productValue: string, sizeValue: string) => {
+    const productType = productTypes.find(p => p.value === productValue);
+    const size = productType?.sizes.find(s => s.value === sizeValue);
     if (size) {
-      setSelectedSize(size);
+      setProductStates(prev => ({
+        ...prev,
+        [productValue]: { ...prev[productValue], selectedSize: size }
+      }));
     }
   };
 
-  const handleAddToEnquiry = () => {
+  const handleQuantityChange = (productValue: string, delta: number) => {
+    setProductStates(prev => ({
+      ...prev,
+      [productValue]: {
+        ...prev[productValue],
+        quantity: Math.max(1, prev[productValue].quantity + delta)
+      }
+    }));
+  };
+
+  const handleAddToEnquiry = (productType: ProductType) => {
+    const state = productStates[productType.value];
     const item = {
-      name: `${title} - ${selectedProductType.label}`,
+      name: `${title} - ${productType.label}`,
       category: title,
       color: selectedColor.name,
-      size: selectedSize.label,
-      quantity,
+      size: state.selectedSize.label,
+      quantity: state.quantity,
       image: selectedColor.image || '',
-      description: `${selectedColor.name} ${selectedProductType.label} - ${selectedSize.label}`,
+      description: `${selectedColor.name} ${productType.label} - ${state.selectedSize.label}`,
     };
     
     addItem(item);
     
     toast({
       title: "Added to enquiry",
-      description: `${quantity}x ${selectedColor.name} ${selectedProductType.label} (${selectedSize.label})`,
+      description: `${state.quantity}x ${selectedColor.name} ${productType.label} (${state.selectedSize.label})`,
     });
   };
-
-  const totalPrice = selectedSize.price * quantity;
 
   return (
     <div className="bg-muted/30 border border-border rounded-lg p-5 mb-6">
@@ -178,81 +199,89 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
             </div>
           </div>
 
-          {/* Product Type Selection */}
+          {/* Size Guide */}
           <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Product</label>
-            <Select value={selectedProductType.value} onValueChange={handleProductTypeChange}>
-              <SelectTrigger className="w-full">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {productTypes.map((type) => (
-                  <SelectItem key={type.value} value={type.value}>
-                    {type.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <SizeGuideDialog type={sizeGuideType} />
           </div>
 
-          {/* Size Selection */}
-          <div className="mb-4">
-            <div className="flex items-center justify-between mb-2">
-              <label className="block text-sm font-body text-foreground/70">Size</label>
-              <SizeGuideDialog type={sizeGuideType} />
-            </div>
-            {selectedProductType.sizes.length === 1 ? (
-              <p className="text-sm font-body text-foreground">{selectedSize.label}</p>
-            ) : (
-              <Select value={selectedSize.value} onValueChange={handleSizeChange}>
-                <SelectTrigger className="w-full">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {selectedProductType.sizes.map((size) => (
-                    <SelectItem key={size.value} value={size.value}>
-                      {size.label} - £{size.price.toFixed(2)} each
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
-          </div>
+          {/* Product Types - Each with own controls */}
+          <div className="space-y-4">
+            {productTypes.map((productType) => {
+              const state = productStates[productType.value];
+              const totalPrice = state.selectedSize.price * state.quantity;
+              
+              return (
+                <div key={productType.value} className="border-t border-border pt-4 first:border-t-0 first:pt-0">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="font-body text-sm font-medium text-foreground">{productType.label}</h4>
+                    <span className="text-xs text-foreground/60">
+                      £{state.selectedSize.price.toFixed(2)} each
+                    </span>
+                  </div>
+                  
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    {/* Size Selection */}
+                    {productType.sizes.length === 1 ? (
+                      <span className="text-sm font-body text-foreground/70">{state.selectedSize.label}</span>
+                    ) : (
+                      <Select 
+                        value={state.selectedSize.value} 
+                        onValueChange={(value) => handleSizeChange(productType.value, value)}
+                      >
+                        <SelectTrigger className="w-32 h-8 text-xs">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {productType.sizes.map((size) => (
+                            <SelectItem key={size.value} value={size.value} className="text-xs">
+                              {size.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
 
-          {/* Quantity */}
-          <div className="mb-4">
-            <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
-            <div className="flex items-center gap-3">
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-9 w-9"
-                onClick={() => setQuantity(Math.max(1, quantity - 10))}
-              >
-                <Minus className="w-4 h-4" />
-              </Button>
-              <span className="w-16 text-center font-body font-medium text-foreground">{quantity}</span>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-9 w-9"
-                onClick={() => setQuantity(quantity + 10)}
-              >
-                <Plus className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
+                    {/* Quantity */}
+                    <div className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="h-8 w-8"
+                        onClick={() => handleQuantityChange(productType.value, -10)}
+                      >
+                        <Minus className="w-3 h-3" />
+                      </Button>
+                      <span className="w-10 text-center font-body text-sm font-medium text-foreground">
+                        {state.quantity}
+                      </span>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="h-8 w-8"
+                        onClick={() => handleQuantityChange(productType.value, 10)}
+                      >
+                        <Plus className="w-3 h-3" />
+                      </Button>
+                    </div>
+                  </div>
 
-          {/* Price & Add Button */}
-          <div className="flex items-center justify-between pt-3 border-t border-border">
-            <div>
-              <p className="text-sm text-foreground/60 font-body">Total</p>
-              <p className="text-lg font-display font-medium text-foreground">£{totalPrice.toFixed(2)}</p>
-            </div>
-            <Button onClick={handleAddToEnquiry} className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Add to Enquiry
-            </Button>
+                  {/* Price & Add Button */}
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-display font-medium text-foreground">
+                      £{totalPrice.toFixed(2)}
+                    </p>
+                    <Button 
+                      size="sm"
+                      onClick={() => handleAddToEnquiry(productType)} 
+                      className="bg-primary text-primary-foreground hover:bg-primary/90"
+                    >
+                      <ShoppingBag className="w-3 h-3 mr-1" />
+                      Add
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
