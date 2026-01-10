@@ -18,9 +18,9 @@ const ChairCoversSection = () => {
   const { addItem } = useEnquiry();
   
   const [selectedChairColor, setSelectedChairColor] = useState(chairCoverColors[0]);
-  const [chairQuantity, setChairQuantity] = useState(10);
+  const [chairQuantity, setChairQuantity] = useState(0);
   const [sashColour, setSashColour] = useState('');
-  const [sashQuantity, setSashQuantity] = useState(10);
+  const [sashQuantity, setSashQuantity] = useState(0);
 
   const chairPrice = 0.80;
   const sashPrice = 0.60;
@@ -28,6 +28,15 @@ const ChairCoversSection = () => {
   const sashTotal = sashPrice * sashQuantity;
 
   const handleAddChairCover = () => {
+    if (chairQuantity === 0) {
+      toast({
+        title: "Please add quantity",
+        description: "Set the quantity before adding to enquiry.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     addItem({
       name: `Chair Cover - ${selectedChairColor.name}`,
       category: 'Chair Covers',
@@ -41,9 +50,20 @@ const ChairCoversSection = () => {
       title: "Added to enquiry",
       description: `${chairQuantity}x ${selectedChairColor.name} Chair Cover`,
     });
+
+    setChairQuantity(0);
   };
 
   const handleAddSash = () => {
+    if (sashQuantity === 0) {
+      toast({
+        title: "Please add quantity",
+        description: "Set the quantity before adding to enquiry.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     if (!sashColour.trim()) {
       toast({
         title: "Please specify colour",
@@ -67,6 +87,7 @@ const ChairCoversSection = () => {
       description: `${sashQuantity}x ${sashColour.trim()} Chair Cover Sash`,
     });
     setSashColour('');
+    setSashQuantity(0);
   };
 
   return (
@@ -124,7 +145,7 @@ const ChairCoversSection = () => {
                   variant="outline"
                   size="icon"
                   className="h-9 w-9"
-                  onClick={() => setChairQuantity(Math.max(1, chairQuantity - 10))}
+                  onClick={() => setChairQuantity(Math.max(0, chairQuantity - 10))}
                 >
                   <Minus className="w-4 h-4" />
                 </Button>
@@ -146,7 +167,11 @@ const ChairCoversSection = () => {
                 <p className="text-sm text-foreground/60 font-body">Total</p>
                 <p className="text-lg font-display font-medium text-foreground">£{chairTotal.toFixed(2)}</p>
               </div>
-              <Button onClick={handleAddChairCover} className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button 
+                onClick={handleAddChairCover} 
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                disabled={chairQuantity === 0}
+              >
                 <ShoppingBag className="w-4 h-4 mr-2" />
                 Add to Enquiry
               </Button>
@@ -189,7 +214,7 @@ const ChairCoversSection = () => {
                     variant="outline"
                     size="icon"
                     className="h-9 w-9"
-                    onClick={() => setSashQuantity(Math.max(1, sashQuantity - 10))}
+                    onClick={() => setSashQuantity(Math.max(0, sashQuantity - 10))}
                   >
                     <Minus className="w-4 h-4" />
                   </Button>
@@ -227,7 +252,11 @@ const ChairCoversSection = () => {
                   <p className="text-sm text-foreground/60 font-body">Total</p>
                   <p className="text-lg font-display font-medium text-foreground">£{sashTotal.toFixed(2)}</p>
                 </div>
-                <Button onClick={handleAddSash} className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button 
+                  onClick={handleAddSash} 
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
+                  disabled={sashQuantity === 0 || !sashColour.trim()}
+                >
                   <ShoppingBag className="w-4 h-4 mr-2" />
                   Add to Enquiry
                 </Button>
