@@ -26,7 +26,7 @@ import damaskSwatchBabyBlue from '@/assets/damask-swatch-baby-blue.jpg';
 import damaskSwatchIvory from '@/assets/damask-swatch-ivory-new.jpg';
 import damaskSwatchBlack from '@/assets/damask-swatch-black-new.jpeg';
 import damaskSwatchRed from '@/assets/damask-swatch-red.jpg';
-import damaskSwatchWhite from '@/assets/damask-swatch-white-new.jpeg';
+import damaskSwatchWhite from '@/assets/damask-swatch-white-new.png';
 import damaskSwatchPeach from '@/assets/damask-swatch-peach-final.png';
 import damaskSwatchGold from '@/assets/damask-swatch-gold-new.png';
 import damaskSwatchChampagne from '@/assets/damask-swatch-champagne-final.png';
