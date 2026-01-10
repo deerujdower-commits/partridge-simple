@@ -230,6 +230,50 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
             )}
           </div>
 
+          {/* Size Guide - underneath Size */}
+          <div className="mb-4">
+            <SizeGuideDialog type={sizeGuideType} />
+          </div>
+
+          {/* Quantity */}
+          <div className="mb-4">
+            <label className="block text-xs font-body text-foreground/70 mb-1">Quantity</label>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8"
+                onClick={() => setQuantity(Math.max(0, quantity - 10))}
+              >
+                <Minus className="w-3 h-3" />
+              </Button>
+              <span className="w-12 text-center font-body font-medium text-foreground text-sm">{quantity}</span>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8"
+                onClick={() => setQuantity(quantity + 10)}
+              >
+                <Plus className="w-3 h-3" />
+              </Button>
+              {/* Total inline */}
+              <span className="text-xs text-foreground/60 font-body ml-2">
+                Total: <span className="font-medium text-foreground">£{totalPrice.toFixed(2)}</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Add to Enquiry - at bottom */}
+          <div className="mt-auto">
+            <Button 
+              onClick={handleAddToEnquiry} 
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              disabled={quantity === 0}
+            >
+              <ShoppingBag className="w-4 h-4 mr-2" />
+              Add to Enquiry
+            </Button>
+          </div>
         </div>
 
         {/* Right side (top on mobile) - Large Preview Image */}
@@ -244,47 +288,6 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
               />
             </div>
             <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
-            
-            {/* Quantity - right under photo */}
-            <div className="mt-2">
-              <label className="block text-xs font-body text-foreground/70 mb-1 text-center">Quantity</label>
-              <div className="flex items-center justify-center gap-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8"
-                  onClick={() => setQuantity(Math.max(0, quantity - 10))}
-                >
-                  <Minus className="w-3 h-3" />
-                </Button>
-                <span className="w-12 text-center font-body font-medium text-foreground text-sm">{quantity}</span>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8"
-                  onClick={() => setQuantity(quantity + 10)}
-                >
-                  <Plus className="w-3 h-3" />
-                </Button>
-              </div>
-              {/* Total inline */}
-              <p className="text-xs text-foreground/60 font-body text-center mt-1">
-                Total: <span className="font-medium text-foreground">£{totalPrice.toFixed(2)}</span>
-              </p>
-            </div>
-
-            {/* Size Guide + Add to Enquiry side by side */}
-            <div className="mt-3 flex gap-2">
-              <SizeGuideDialog type={sizeGuideType} />
-              <Button 
-                onClick={handleAddToEnquiry} 
-                className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
-                disabled={quantity === 0}
-              >
-                <ShoppingBag className="w-4 h-4 mr-2" />
-                Add to Enquiry
-              </Button>
-            </div>
           </div>
         )}
       </div>
