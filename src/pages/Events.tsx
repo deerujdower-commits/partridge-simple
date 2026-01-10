@@ -35,6 +35,11 @@ import damaskSwatchBabyPink from '@/assets/damask-swatch-baby-pink-final.jpeg';
 // Plain tablecloth swatch images
 import plainSwatchBlack from '@/assets/consistent-black-tablecloth.jpg';
 import plainSwatchWhite from '@/assets/consistent-white-tablecloth.jpg';
+
+// Chair cover images
+import chairCoverWhite from '@/assets/chair-cover-white.png';
+import chairCoverBlack from '@/assets/chair-cover-black.png';
+import chairSashExample from '@/assets/chair-sash-example.png';
 import plainSwatchIvory from '@/assets/consistent-ivory-tablecloth.jpg';
 
 // Gallery images - SEO optimized with Partridge Linen branding
@@ -146,6 +151,12 @@ const damaskProductTypes = [
   },
 ];
 
+// Chair cover configuration
+const chairCoverColors = [
+  { name: 'White', hex: '#FFFFFF', image: chairCoverWhite },
+  { name: 'Black', hex: '#1a1a1a', image: chairCoverBlack },
+];
+
 // Gallery images array for lightbox - SEO optimized with Partridge Linen branding
 const galleryImages: { src: string; alt: string }[] = [
   { src: eventsHero, alt: 'Partridge Linen damask tablecloth with elegant fine dining place setting and crystal glassware' },
@@ -231,6 +242,57 @@ const Events = () => {
                 productTypes={damaskProductTypes}
                 sizeGuideType="both"
               />
+
+              {/* Chair Covers Section */}
+              <div className="mb-8 border-b border-border pb-8">
+                <h3 className="font-display text-xl font-light text-foreground mb-4">Chair Covers</h3>
+                
+                {/* Color Selection */}
+                <div className="mb-4">
+                  <p className="font-body text-sm text-foreground/70 mb-3">Select a colour:</p>
+                  <div className="flex gap-4">
+                    {chairCoverColors.map((color) => (
+                      <div key={color.name} className="text-center">
+                        <div 
+                          className={`w-16 h-16 rounded-full overflow-hidden border-2 ${color.name === 'White' ? 'border-border shadow-sm' : 'border-transparent'}`}
+                        >
+                          <img 
+                            src={color.image} 
+                            alt={`${color.name} chair cover`} 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs font-body text-foreground/70 mt-1 block">{color.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Large Preview Image */}
+                <div className="mb-6">
+                  <img 
+                    src={chairCoverWhite} 
+                    alt="White chair cover preview" 
+                    className="w-full max-w-xs rounded-lg shadow-md"
+                  />
+                </div>
+
+                {/* Chair Sashes Section */}
+                <div className="bg-muted/30 rounded-lg p-4">
+                  <h4 className="font-display text-base font-medium text-foreground mb-2">Chair Cover Sashes</h4>
+                  <p className="font-body text-sm text-foreground/70 mb-4">
+                    We sell a wide variety of chair cover sashes. Stock needs to be checked for colour and quantity availability.
+                  </p>
+                  <div className="flex items-start gap-4">
+                    <img 
+                      src={chairSashExample} 
+                      alt="Example chair cover sash in blue" 
+                      className="w-32 h-32 object-contain rounded-lg bg-white shadow-sm"
+                    />
+                    <p className="font-body text-xs text-foreground/50 italic">Example sash shown</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right Column - Gallery Space */}
