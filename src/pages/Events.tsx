@@ -223,81 +223,31 @@ const Events = () => {
             </p>
           </div>
 
-          {/* Split Layout - Products Left, Gallery Right */}
+          {/* 2x2 Grid Layout */}
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            {/* Left Column - Product Selection */}
+            {/* Top Left - Table Linen */}
             <div>
-              {/* Table Linen Section */}
               <EventProductSection
                 title="Table Linen"
                 colors={tableLinenColors}
                 productTypes={tableLinenProductTypes}
                 sizeGuideType="both"
               />
+            </div>
 
-              {/* Damask Tablecloths Section */}
+            {/* Top Right - Damask Patterns */}
+            <div>
               <EventProductSection
                 title="Damask Patterns"
                 colors={damaskColors}
                 productTypes={damaskProductTypes}
                 sizeGuideType="both"
               />
-
-              {/* Chair Covers Section */}
-              <div className="mb-8 border-b border-border pb-8">
-                <h3 className="font-display text-xl font-light text-foreground mb-4">Chair Covers</h3>
-                
-                {/* Color Selection */}
-                <div className="mb-4">
-                  <p className="font-body text-sm text-foreground/70 mb-3">Select a colour:</p>
-                  <div className="flex gap-4">
-                    {chairCoverColors.map((color) => (
-                      <div key={color.name} className="text-center">
-                        <div 
-                          className={`w-16 h-16 rounded-full overflow-hidden border-2 ${color.name === 'White' ? 'border-border shadow-sm' : 'border-transparent'}`}
-                        >
-                          <img 
-                            src={color.image} 
-                            alt={`${color.name} chair cover`} 
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <span className="text-xs font-body text-foreground/70 mt-1 block">{color.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Large Preview Image */}
-                <div className="mb-6">
-                  <img 
-                    src={chairCoverWhite} 
-                    alt="White chair cover preview" 
-                    className="w-full max-w-xs rounded-lg shadow-md"
-                  />
-                </div>
-
-                {/* Chair Sashes Section */}
-                <div className="bg-muted/30 rounded-lg p-4">
-                  <h4 className="font-display text-base font-medium text-foreground mb-2">Chair Cover Sashes</h4>
-                  <p className="font-body text-sm text-foreground/70 mb-4">
-                    We sell a wide variety of chair cover sashes. Stock needs to be checked for colour and quantity availability.
-                  </p>
-                  <div className="flex items-start gap-4">
-                    <img 
-                      src={chairSashExample} 
-                      alt="Example chair cover sash in blue" 
-                      className="w-32 h-32 object-contain rounded-lg bg-white shadow-sm"
-                    />
-                    <p className="font-body text-xs text-foreground/50 italic">Example sash shown</p>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Right Column - Gallery Space */}
-            <div className="lg:sticky lg:top-8 lg:self-start">
-              <h3 className="font-display text-lg font-light text-foreground mb-4">Event Gallery</h3>
+            {/* Bottom Left - Gallery */}
+            <div>
+              <h3 className="font-display text-xl font-light text-foreground mb-4">Event Gallery</h3>
               <div className="relative">
                 {/* Preview grid */}
                 <div className="grid grid-cols-3 gap-1">
@@ -326,13 +276,64 @@ const Events = () => {
               </div>
             </div>
 
-            {/* Instagram-style Gallery */}
-            <InstagramGallery
-              images={galleryImages}
-              isOpen={galleryOpen}
-              onClose={() => setGalleryOpen(false)}
-            />
+            {/* Bottom Right - Chair Covers */}
+            <div>
+              <h3 className="font-display text-xl font-light text-foreground mb-4">Chair Covers</h3>
+              
+              {/* Color Selection */}
+              <div className="mb-4">
+                <p className="font-body text-sm text-foreground/70 mb-3">Select a colour:</p>
+                <div className="flex gap-4">
+                  {chairCoverColors.map((color) => (
+                    <div key={color.name} className="text-center">
+                      <div 
+                        className={`w-16 h-16 rounded-full overflow-hidden border-2 ${color.name === 'White' ? 'border-border shadow-sm' : 'border-transparent'}`}
+                      >
+                        <img 
+                          src={color.image} 
+                          alt={`${color.name} chair cover`} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-xs font-body text-foreground/70 mt-1 block">{color.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Large Preview Image */}
+              <div className="mb-6">
+                <img 
+                  src={chairCoverWhite} 
+                  alt="White chair cover preview" 
+                  className="w-full max-w-xs rounded-lg shadow-md"
+                />
+              </div>
+
+              {/* Chair Sashes Section */}
+              <div className="bg-muted/30 rounded-lg p-4">
+                <h4 className="font-display text-base font-medium text-foreground mb-2">Chair Cover Sashes</h4>
+                <p className="font-body text-sm text-foreground/70 mb-4">
+                  We sell a wide variety of chair cover sashes. Stock needs to be checked for colour and quantity availability.
+                </p>
+                <div className="flex items-start gap-4">
+                  <img 
+                    src={chairSashExample} 
+                    alt="Example chair cover sash in blue" 
+                    className="w-32 h-32 object-contain rounded-lg bg-white shadow-sm"
+                  />
+                  <p className="font-body text-xs text-foreground/50 italic">Example sash shown</p>
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* Instagram-style Gallery Lightbox */}
+          <InstagramGallery
+            images={galleryImages}
+            isOpen={galleryOpen}
+            onClose={() => setGalleryOpen(false)}
+          />
 
           {/* FAQ Section */}
           <div className="bg-muted/50 border-2 border-border rounded-lg p-6 md:p-10 my-10">
