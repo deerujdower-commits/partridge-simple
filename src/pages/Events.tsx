@@ -229,7 +229,7 @@ const Events = () => {
 
             {/* Top Right - Gallery */}
             <div>
-              <div className="bg-muted/30 border border-border rounded-lg p-5 h-full">
+              <div className="bg-muted/30 border border-border rounded-lg p-5 h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40">
                 <h3 className="font-display text-lg font-medium text-foreground mb-4">Event Gallery</h3>
                 {/* Preview grid */}
                 <div className="grid grid-cols-3 gap-1">
