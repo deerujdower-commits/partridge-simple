@@ -254,20 +254,12 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
             </div>
           </div>
 
-          {/* Price & Add Button */}
-          <div className="flex items-center justify-between pt-4 border-t border-border">
+          {/* Total */}
+          <div className="pt-4 border-t border-border">
             <div>
               <p className="text-sm text-foreground/60 font-body">Total</p>
               <p className="text-lg font-display font-medium text-foreground">£{totalPrice.toFixed(2)}</p>
             </div>
-            <Button 
-              onClick={handleAddToEnquiry} 
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-              disabled={quantity === 0}
-            >
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Add to Enquiry
-            </Button>
           </div>
 
           {/* Add another prompt */}
@@ -278,7 +270,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
         {/* Right side (top on mobile) - Large Preview Image */}
         {selectedColor.image && (
-          <div className="flex-shrink-0 order-1 sm:order-2">
+          <div className="flex-shrink-0 order-1 sm:order-2 flex flex-col">
             <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">{title}</h3>
             <div className="rounded-lg overflow-hidden border border-border">
               <img 
@@ -290,6 +282,16 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
             <p className="text-sm text-center mt-2 font-body text-foreground/70">{selectedColor.name}</p>
             <div className="mt-3 flex justify-center">
               <SizeGuideDialog type={sizeGuideType} />
+            </div>
+            <div className="mt-auto pt-4">
+              <Button 
+                onClick={handleAddToEnquiry} 
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                disabled={quantity === 0}
+              >
+                <ShoppingBag className="w-4 h-4 mr-2" />
+                Add to Enquiry
+              </Button>
             </div>
           </div>
         )}
