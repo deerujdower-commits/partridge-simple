@@ -14,6 +14,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import EventProductSection from '@/components/events/EventProductSection';
+import ChairCoversSection from '@/components/events/ChairCoversSection';
 import eventsHero from '@/assets/events-hero-damask.jpg';
 
 // Damask swatch images
@@ -36,10 +37,6 @@ import damaskSwatchBabyPink from '@/assets/damask-swatch-baby-pink-final.jpeg';
 import plainSwatchBlack from '@/assets/consistent-black-tablecloth.jpg';
 import plainSwatchWhite from '@/assets/consistent-white-tablecloth.jpg';
 
-// Chair cover images
-import chairCoverWhite from '@/assets/chair-cover-white.png';
-import chairCoverBlack from '@/assets/chair-cover-black.png';
-import chairSashExample from '@/assets/chair-sash-example.png';
 import plainSwatchIvory from '@/assets/consistent-ivory-tablecloth.jpg';
 
 // Gallery images - SEO optimized with Partridge Linen branding
@@ -151,12 +148,6 @@ const damaskProductTypes = [
   },
 ];
 
-// Chair cover configuration
-const chairCoverColors = [
-  { name: 'White', hex: '#FFFFFF', image: chairCoverWhite },
-  { name: 'Black', hex: '#1a1a1a', image: chairCoverBlack },
-];
-
 // Gallery images array for lightbox - SEO optimized with Partridge Linen branding
 const galleryImages: { src: string; alt: string }[] = [
   { src: eventsHero, alt: 'Partridge Linen damask tablecloth with elegant fine dining place setting and crystal glassware' },
@@ -226,7 +217,7 @@ const Events = () => {
           {/* 2x2 Grid Layout */}
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {/* Top Left - Table Linen */}
-            <div>
+            <div className="min-h-[400px]">
               <EventProductSection
                 title="Table Linen"
                 colors={tableLinenColors}
@@ -235,20 +226,10 @@ const Events = () => {
               />
             </div>
 
-            {/* Top Right - Damask Patterns */}
-            <div>
-              <EventProductSection
-                title="Damask Patterns"
-                colors={damaskColors}
-                productTypes={damaskProductTypes}
-                sizeGuideType="both"
-              />
-            </div>
-
-            {/* Bottom Left - Gallery */}
-            <div>
+            {/* Top Right - Gallery */}
+            <div className="min-h-[400px]">
               <h3 className="font-display text-xl font-light text-foreground mb-4">Event Gallery</h3>
-              <div className="relative">
+              <div className="relative bg-muted/30 border border-border rounded-lg p-5 h-[calc(100%-2rem)]">
                 {/* Preview grid */}
                 <div className="grid grid-cols-3 gap-1">
                   {galleryImages.slice(0, 6).map((image, index) => (
@@ -276,56 +257,18 @@ const Events = () => {
               </div>
             </div>
 
-            {/* Bottom Right - Chair Covers */}
-            <div>
-              <h3 className="font-display text-xl font-light text-foreground mb-4">Chair Covers</h3>
-              
-              {/* Color Selection */}
-              <div className="mb-4">
-                <p className="font-body text-sm text-foreground/70 mb-3">Select a colour:</p>
-                <div className="flex gap-4">
-                  {chairCoverColors.map((color) => (
-                    <div key={color.name} className="text-center">
-                      <div 
-                        className={`w-16 h-16 rounded-full overflow-hidden border-2 ${color.name === 'White' ? 'border-border shadow-sm' : 'border-transparent'}`}
-                      >
-                        <img 
-                          src={color.image} 
-                          alt={`${color.name} chair cover`} 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <span className="text-xs font-body text-foreground/70 mt-1 block">{color.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Large Preview Image */}
-              <div className="mb-6">
-                <img 
-                  src={chairCoverWhite} 
-                  alt="White chair cover preview" 
-                  className="w-full max-w-xs rounded-lg shadow-md"
-                />
-              </div>
-
-              {/* Chair Sashes Section */}
-              <div className="bg-muted/30 rounded-lg p-4">
-                <h4 className="font-display text-base font-medium text-foreground mb-2">Chair Cover Sashes</h4>
-                <p className="font-body text-sm text-foreground/70 mb-4">
-                  We sell a wide variety of chair cover sashes. Stock needs to be checked for colour and quantity availability.
-                </p>
-                <div className="flex items-start gap-4">
-                  <img 
-                    src={chairSashExample} 
-                    alt="Example chair cover sash in blue" 
-                    className="w-32 h-32 object-contain rounded-lg bg-white shadow-sm"
-                  />
-                  <p className="font-body text-xs text-foreground/50 italic">Example sash shown</p>
-                </div>
-              </div>
+            {/* Bottom Left - Damask Patterns */}
+            <div className="min-h-[400px]">
+              <EventProductSection
+                title="Damask Patterns"
+                colors={damaskColors}
+                productTypes={damaskProductTypes}
+                sizeGuideType="both"
+              />
             </div>
+
+            {/* Bottom Right - Chair Covers */}
+            <ChairCoversSection />
           </div>
 
           {/* Instagram-style Gallery Lightbox */}
