@@ -274,7 +274,7 @@ const Events = () => {
                   onClick={() => setGalleryOpen(true)}
                   className="m-3 py-2 px-4 bg-muted/50 hover:bg-muted border border-border rounded-lg flex items-center justify-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
                 >
-                  <span className="font-body text-sm">View all {galleryImages.length} images</span>
+                  <span className="font-body text-sm">View all</span>
                 </button>
               </div>
             </div>
