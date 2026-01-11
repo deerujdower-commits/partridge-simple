@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
-import { openMailto } from '@/lib/openMailto';
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  onEnquireClick?: () => void;
+}
+
+const ContactSection = ({ onEnquireClick }: ContactSectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -20,7 +23,9 @@ const ContactSection = () => {
     }
     return () => observer.disconnect();
   }, []);
-  return <section ref={sectionRef} className="py-12 md:py-20 bg-black relative overflow-hidden">
+
+  return (
+    <section ref={sectionRef} className="py-12 md:py-20 bg-black relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-white/10" />
@@ -40,13 +45,15 @@ const ContactSection = () => {
             <span className="block text-white/90">for your business?</span>
           </h2>
           
-          <Link to="/contact">
-            <Button variant="outline" className="font-body text-sm px-6 py-3 uppercase tracking-wider group border-white/30 bg-white text-black hover:bg-white/90">
-              <Send className="w-4 h-4 mr-2" />
-              Enquire Now
-              <div className="w-4 h-px bg-current ml-3 group-hover:w-8 transition-all duration-300" />
-            </Button>
-          </Link>
+          <Button 
+            variant="outline" 
+            className="font-body text-sm px-6 py-3 uppercase tracking-wider group border-white/30 bg-white text-black hover:bg-white/90"
+            onClick={onEnquireClick}
+          >
+            <Send className="w-4 h-4 mr-2" />
+            Enquire Now
+            <div className="w-4 h-px bg-current ml-3 group-hover:w-8 transition-all duration-300" />
+          </Button>
         </div>
 
         <div className="max-w-3xl mx-auto">
@@ -73,17 +80,13 @@ const ContactSection = () => {
               </div>
               <div>
                 <div className="font-body text-sm font-light uppercase tracking-wider text-white/70 mb-1">Email Us</div>
-                <a 
-                  href="mailto:enquiry@partridgelinenhire.co.uk"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log('[contact] footer/section email click');
-                    openMailto({ to: 'enquiry@partridgelinenhire.co.uk', subject: 'Enquiry', body: 'Hi,\n\nI would like to make an enquiry.' });
-                  }}
+                <button 
+                  type="button"
+                  onClick={onEnquireClick}
                   className="text-white font-body leading-relaxed hover:text-white/80 transition-colors cursor-pointer text-left"
                 >
                   enquiry@partridgelinenhire.co.uk
-                </a>
+                </button>
               </div>
             </div>
             
@@ -109,6 +112,8 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ContactSection;

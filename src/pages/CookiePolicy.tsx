@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import EnquiryModal from '@/components/EnquiryModal';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const CookiePolicy = () => {
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -143,7 +146,8 @@ const CookiePolicy = () => {
         </div>
       </main>
 
-      <Footer />
+      <Footer onEmailClick={() => setIsEnquiryOpen(true)} />
+      <EnquiryModal isOpen={isEnquiryOpen} onClose={() => setIsEnquiryOpen(false)} />
     </div>
   );
 };
