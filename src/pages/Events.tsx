@@ -76,6 +76,7 @@ import galleryWhiteRoundSetup from '@/assets/partridge-linen-white-round-setup.p
 import galleryWhiteSetupMultiple from '@/assets/partridge-linen-white-setup-multiple.png';
 import galleryGreenGoldNapkins from '@/assets/partridge-linen-green-gold-napkins.jpeg';
 import galleryWhiteRoundDarkLighting from '@/assets/partridge-linen-white-round-dark-lighting.png';
+import galleryWhiteRoundFloralCenterpiece from '@/assets/partridge-linen-white-round-floral-centerpiece.jpeg';
 
 // Table Linen configuration
 
@@ -171,7 +172,7 @@ const galleryImages: { src: string; alt: string }[] = [
   { src: galleryIvoryDamaskGoldSetting, alt: 'Partridge Linen ivory damask tablecloth with gold cutlery and glass charger plates at elegant wedding' },
   { src: galleryBlueDamaskFeathers, alt: 'Partridge Linen royal blue damask tablecloth with gold centerpiece and feather decorations' },
   { src: galleryChampagneDamaskFloral, alt: 'Partridge Linen champagne damask tablecloth with pink roses and hydrangea floral arrangement' },
-  { src: galleryBlackRoundGala, alt: 'Partridge Linen black round tablecloths at corporate gala with tall floral arrangements and green uplighting' },
+  { src: galleryWhiteRoundFloralCenterpiece, alt: 'Partridge Linen white round tablecloths with elegant rose and eucalyptus centerpieces at conservatory wedding venue' },
   { src: galleryWhiteDamaskWeddingHall, alt: 'Partridge Linen white damask tablecloths at large wedding hall with tall purple and pink floral centerpieces' },
   { src: galleryIvoryDamaskNapkinCloseup, alt: 'Partridge Linen ivory damask napkin with floral pattern on gold charger plate with bokeh lights' },
   { src: galleryGoldDamaskLanterns, alt: 'Partridge Linen gold damask tablecloth with vintage brass lanterns and colorful floral centerpiece' },
