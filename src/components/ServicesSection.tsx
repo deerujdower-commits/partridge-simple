@@ -9,10 +9,10 @@ import kitchenClothHerringboneGreen from '@/assets/kitchen-cloth-herringbone-gre
 import apronModel from '@/assets/apron-model.jpg';
 import chefJacketWhiteModel from '@/assets/chef-jacket-white-model.jpg';
 import eventBurgundyDamask from '@/assets/partridge-linen-burgundy-damask-crystal.webp';
-import eventWhiteRoundDarkLighting from '@/assets/partridge-linen-white-round-dark-lighting.png';
+import eventWhiteRoundRoseCenterpiece from '@/assets/partridge-linen-white-round-rose-centerpiece.webp';
 import eventWhiteDamaskWeddingHall from '@/assets/partridge-linen-white-damask-wedding-hall.webp';
 import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
-import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
+import hotelBedFreshLinens from '@/assets/hotel-bed-fresh-linens.jpg';
 import towelsStackWhite from '@/assets/towels-stack-white.jpg';
 
 type Service = {
@@ -33,13 +33,13 @@ const services: Service[] = [{
 }, {
   title: 'Event Hire',
   description: 'Elegant damask for weddings and corporate events.',
-  images: [eventBurgundyDamask, eventWhiteRoundDarkLighting, eventWhiteDamaskWeddingHall],
+  images: [eventBurgundyDamask, eventWhiteRoundRoseCenterpiece, eventWhiteDamaskWeddingHall],
   icon: Sparkles,
   slug: 'events'
 }, {
   title: 'Hotel',
   description: 'Complete linen service with towels and bedding.',
-  images: [hotelBedClean, towelsStackWhite, hotelLinens1],
+  images: [hotelBedClean, towelsStackWhite, hotelBedFreshLinens],
   icon: Building2,
   slug: 'bed-linen'
 }, {
