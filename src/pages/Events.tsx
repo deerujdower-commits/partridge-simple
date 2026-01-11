@@ -225,7 +225,7 @@ const Events = () => {
           </div>
 
           {/* 2x2 Grid Layout */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Top Left - Classic Linen */}
             <div>
               <EventProductSection
