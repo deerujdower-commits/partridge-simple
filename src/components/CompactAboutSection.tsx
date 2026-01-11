@@ -43,14 +43,6 @@ const CompactAboutSection = () => {
               </h2>
               
               <p className="text-foreground/70 font-body leading-relaxed text-lg">We started as a small family business back in 1993. Today, three generations later, we're still doing what we do best—keeping London's businesses looking sharp with premium linen that just works.</p>
-              
-              
-
-              <Button variant="gradient" className="mt-8 font-body text-sm px-6 py-3 uppercase tracking-wider group" onClick={() => window.location.href = '/about'}>
-                <BookOpen className="w-4 h-4 mr-2" />
-                Our Story
-                <div className="w-4 h-px bg-current ml-3 group-hover:w-8 transition-all duration-300" />
-              </Button>
             </div>
           </div>
           
