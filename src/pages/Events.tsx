@@ -214,7 +214,7 @@ const Events = () => {
               From weddings to corporate events, we provide premium tablecloths and damask linens to make your occasion memorable.
             </p>
             <Button 
-              onClick={() => document.getElementById('event-gallery')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setGalleryOpen(true)}
               className="bg-accent text-accent-foreground hover:bg-accent/90 shrink-0"
             >
               <Images className="w-4 h-4 mr-2" />
