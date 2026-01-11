@@ -226,20 +226,20 @@ const Events = () => {
 
           {/* 2x2 Grid Layout */}
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            {/* Top Left - Table Linen */}
+            {/* Top Left - Classic Linen */}
             <div>
               <EventProductSection
-                title="Table Linen"
+                title="Classic Linen"
                 colors={tableLinenColors}
                 productTypes={tableLinenProductTypes}
                 sizeGuideType="both"
               />
             </div>
 
-            {/* Top Right - Damask Patterns */}
+            {/* Top Right - Damask Linen */}
             <div>
               <EventProductSection
-                title="Damask Patterns"
+                title="Damask Linen"
                 colors={damaskColors}
                 productTypes={damaskProductTypes}
                 sizeGuideType="both"
