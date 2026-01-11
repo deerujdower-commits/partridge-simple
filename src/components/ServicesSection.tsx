@@ -15,38 +15,27 @@ import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
 import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
 import towelsStackWhite from '@/assets/towels-stack-white.jpg';
 
-const services = [{
+type Service = {
+  title: string;
+  description: string;
+  images: string[];
+  icon: typeof Utensils;
+  slug: string;
+  colors?: { name: string; hex: string }[];
+};
+
+const services: Service[] = [{
   title: 'Restaurant',
   description: 'Premium tablecloths and napkins for fine dining.',
-  images: [restaurantWhiteRound, restaurantBlackSetting, restaurantWhiteMinimal],
+  images: [restaurantWhiteMinimal, restaurantBlackSetting, restaurantWhiteRound],
   icon: Utensils,
-  slug: 'restaurant',
-  colors: [{
-    name: 'White',
-    hex: '#FFFFFF'
-  }, {
-    name: 'Black',
-    hex: '#000000'
-  }, {
-    name: 'Ivory',
-    hex: '#F5F5DC'
-  }]
+  slug: 'restaurant'
 }, {
   title: 'Event Hire',
   description: 'Elegant damask for weddings and corporate events.',
   images: [eventGoldDamaskTables, eventSilverDamaskTables, eventWhiteRoundTablesClean],
   icon: Sparkles,
-  slug: 'events',
-  colors: [{
-    name: 'Gold',
-    hex: '#D4AF37'
-  }, {
-    name: 'Silver',
-    hex: '#C0C0C0'
-  }, {
-    name: 'White',
-    hex: '#FFFFFF'
-  }]
+  slug: 'events'
 }, {
   title: 'Hotel',
   description: 'Complete linen service with towels and bedding.',
