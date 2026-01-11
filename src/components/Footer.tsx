@@ -1,4 +1,4 @@
-import { Clock, Phone, Mail } from 'lucide-react';
+import { Clock, Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const serviceLinks = [
@@ -14,9 +14,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-6 gap-8">
           {/* Contact Us - formerly Brand section */}
           <div className="md:col-span-2">
-            <h3 className="font-display font-semibold text-foreground mb-4">Contact Us</h3>
-            <p className="font-body text-muted-foreground mb-4 max-w-md">
+            <a href="/contact" className="font-display font-semibold text-foreground mb-4 block hover:text-primary transition-colors">
+              Contact Us
+            </a>
+            <p className="font-body text-muted-foreground mb-2 max-w-md">
               Partridge Laundry & Linen Hire Ltd
+            </p>
+            <p className="font-body text-sm text-muted-foreground mb-4 flex items-start gap-2">
+              <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+              <span>1-5 The Drive<br />Thornton Heath<br />CR7 8LB</span>
             </p>
             <div className="flex flex-wrap items-center gap-4 text-sm">
               <a 
