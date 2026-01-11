@@ -57,19 +57,19 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-xl border-b border-white/10 shadow-[0_1px_10px_rgba(0,0,0,0.1)] ${isScrolled ? 'bg-black/50' : 'bg-black'}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-20 md:h-24 gap-2 md:gap-4 lg:gap-8">
+        <div className="flex items-center justify-between h-20 md:h-24 gap-2 md:gap-2 lg:gap-8">
           {/* Logo */}
-          <Link to="/" className={`font-display text-lg md:text-xl font-light flex items-center hover:opacity-80 transition-all duration-300 tracking-wide text-white flex-shrink-0 mr-2 md:mr-5 lg:mr-8`}>
+          <Link to="/" className={`font-display text-lg md:text-xl font-light flex items-center hover:opacity-80 transition-all duration-300 tracking-wide text-white flex-shrink-0 mr-2 md:mr-3 lg:mr-8`}>
             <img 
               src="/lovable-uploads/1fefad8d-4032-4bd1-8208-2b048542b86c.png" 
               alt="Partridge Logo" 
-              className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-4 transition-all duration-300 filter brightness-0 invert opacity-90"
+              className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-2 transition-all duration-300 filter brightness-0 invert opacity-90"
             />
-            Partridge<span className="font-body ml-1 md:ml-2 text-xs md:text-sm font-light uppercase tracking-[0.15em] text-white/60">Linen</span>
+            Partridge<span className="font-body ml-1 md:ml-1 text-xs md:text-sm font-light uppercase tracking-[0.15em] text-white/60">Linen</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-8 flex-grow justify-center">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-8 flex-grow justify-center">
             {/* Home */}
             <Link
               to="/"
