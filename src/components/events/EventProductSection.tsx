@@ -287,7 +287,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
           {/* Add to Enquiry */}
           <Button 
             onClick={handleAddToEnquiry} 
-            className="w-full bg-emerald-600 text-white hover:bg-emerald-700"
+            className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
             disabled={quantity === 0}
           >
             <ShoppingBag className="w-4 h-4 mr-2" />
