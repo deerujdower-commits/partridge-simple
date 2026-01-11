@@ -288,7 +288,7 @@ const Events = () => {
             
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger className="font-display text-left text-sm">
+                <AccordionTrigger className="font-display text-sm justify-center text-center">
                   What is the lead time for placing an order?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
@@ -297,7 +297,7 @@ const Events = () => {
               </AccordionItem>
 
               <AccordionItem value="item-2">
-                <AccordionTrigger className="font-display text-left text-sm">
+                <AccordionTrigger className="font-display text-sm justify-center text-center">
                   What are the collection and delivery options?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
@@ -306,7 +306,7 @@ const Events = () => {
               </AccordionItem>
 
               <AccordionItem value="item-3">
-                <AccordionTrigger className="font-display text-left text-sm">
+                <AccordionTrigger className="font-display text-sm justify-center text-center">
                   How does the refundable damage deposit work?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
@@ -315,7 +315,7 @@ const Events = () => {
               </AccordionItem>
 
               <AccordionItem value="item-4">
-                <AccordionTrigger className="font-display text-left text-sm">
+                <AccordionTrigger className="font-display text-sm justify-center text-center">
                   What is the standard hire period?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
@@ -324,7 +324,7 @@ const Events = () => {
               </AccordionItem>
 
               <AccordionItem value="item-5">
-                <AccordionTrigger className="font-display text-left text-sm">
+                <AccordionTrigger className="font-display text-sm justify-center text-center">
                   Do I need to wash the items before returning?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
