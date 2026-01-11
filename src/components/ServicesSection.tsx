@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { ChefHat, Utensils, Building2, ArrowRight, Sparkles, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-const restaurantIvory = '/lovable-uploads/15c0ea89-6db3-4d6d-8bd7-3af2b88ecf8a.png';
-const restaurantBlack = '/lovable-uploads/c2cb5139-3d0b-4989-8cbe-741597184fe2.png';
-const restaurantWhite = '/lovable-uploads/5ea99594-205d-4ac1-b8b7-f87d933b4c1a.png';
+import restaurantWhiteRound from '@/assets/restaurant-white-round-setting.jpg';
+import restaurantBlackSetting from '@/assets/restaurant-black-tablecloth-setting.jpg';
+import restaurantWhiteMinimal from '@/assets/restaurant-white-table-minimal.jpg';
 import kitchenClothHerringboneGreen from '@/assets/kitchen-cloth-herringbone-green.jpeg';
 import apronModel from '@/assets/apron-model.jpg';
 import chefJacketWhiteModel from '@/assets/chef-jacket-white-model.jpg';
@@ -18,18 +18,18 @@ import towelsStackWhite from '@/assets/towels-stack-white.jpg';
 const services = [{
   title: 'Restaurant',
   description: 'Premium tablecloths and napkins for fine dining.',
-  images: [restaurantWhite, restaurantIvory, restaurantBlack],
+  images: [restaurantWhiteRound, restaurantBlackSetting, restaurantWhiteMinimal],
   icon: Utensils,
   slug: 'restaurant',
   colors: [{
     name: 'White',
     hex: '#FFFFFF'
   }, {
-    name: 'Ivory',
-    hex: '#F5F5DC'
-  }, {
     name: 'Black',
     hex: '#000000'
+  }, {
+    name: 'Ivory',
+    hex: '#F5F5DC'
   }]
 }, {
   title: 'Event Hire',
