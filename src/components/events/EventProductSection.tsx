@@ -95,13 +95,13 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
       {/* Top section: Title + Colours + Image */}
       <div className="flex flex-col sm:flex-row gap-5 mb-4">
         {/* Left side - Title and Colours */}
-        <div className="flex-1 min-w-0 order-2 sm:order-1">
+        <div className="flex-1 min-w-0 order-2 sm:order-1 text-center sm:text-left">
           <h3 className="font-display text-lg font-medium text-foreground mb-4">{title}</h3>
 
           {/* Color Selection */}
           <div>
             <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
-            <div className="grid grid-cols-3 gap-2 min-h-[72px] content-start">
+            <div className="grid grid-cols-3 gap-2 min-h-[72px] content-start justify-items-center sm:justify-items-start">
               {colors.map((color) => (
                 <button
                   key={color.name}
@@ -152,7 +152,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
       </div>
 
       {/* Bottom section: Product/Size on left, Quantity/Add on right */}
-      <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-border">
+      <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-border text-center sm:text-left">
         {/* Left - Product, Size, Size Guide */}
         <div className="flex-1">
           {/* Product Type Selection */}

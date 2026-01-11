@@ -95,13 +95,13 @@ const ChairCoversSection = () => {
       <div className="bg-muted/30 border border-border rounded-lg p-5 h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40">
         <div className="flex flex-col sm:flex-row gap-5">
           {/* Left side - Form controls */}
-          <div className="flex-1 min-w-0 order-2 sm:order-1">
+          <div className="flex-1 min-w-0 order-2 sm:order-1 text-center sm:text-left">
             <h3 className="font-display text-lg font-medium text-foreground mb-4 hidden sm:block">Chair Covers</h3>
 
             {/* Color Selection */}
             <div className="mb-4">
               <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
-              <div className="flex gap-3">
+              <div className="flex gap-3 justify-center sm:justify-start">
                 {chairCoverColors.map((color) => (
                   <button
                     key={color.name}
@@ -140,7 +140,7 @@ const ChairCoversSection = () => {
             {/* Quantity */}
             <div className="mb-4">
               <label className="block text-sm font-body text-foreground/70 mb-2">Quantity</label>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center sm:justify-start">
                 <Button
                   variant="outline"
                   size="icon"
@@ -172,7 +172,7 @@ const ChairCoversSection = () => {
 
           {/* Right side (top on mobile) - Large Preview Image */}
           <div className="flex-shrink-0 order-1 sm:order-2 flex flex-col">
-            <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden">Chair Covers</h3>
+            <h3 className="font-display text-lg font-medium text-foreground mb-3 sm:hidden text-center">Chair Covers</h3>
             <div className="rounded-lg overflow-hidden border border-border bg-white">
               <img 
                 src={selectedChairColor.image} 
