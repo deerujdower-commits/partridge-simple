@@ -127,7 +127,7 @@ const Restaurant = () => {
     {
       title: 'Work Wear',
       description: 'Professional chef uniforms designed for comfort and durability.',
-      images: [chefSuitWhiteFull],
+      images: [chefJacketWhiteModel],
       modalSlug: 'work-wear'
     }
   ];
