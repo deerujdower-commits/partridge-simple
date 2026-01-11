@@ -251,13 +251,14 @@ const Events = () => {
             <div id="event-gallery">
               <div className="bg-muted/30 border border-border rounded-lg overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40 flex flex-col">
                 <h3 className="font-display text-lg font-medium text-foreground p-4 pb-3">Event Gallery</h3>
-                {/* Preview grid - 3x3, no gaps, Instagram-style flush layout */}
-                <div className="grid grid-cols-3 flex-1 overflow-hidden">
-                  {galleryImages.slice(0, 9).map((image, index) => (
+                {/* Preview grid - 4x4, no gaps, Instagram-style flush layout */}
+                <div className="grid grid-cols-4 gap-0 flex-1">
+                  {galleryImages.slice(0, 16).map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setGalleryOpen(true)}
-                      className="relative overflow-hidden bg-muted focus:outline-none aspect-square"
+                      className="relative overflow-hidden bg-muted focus:outline-none"
+                      style={{ paddingBottom: '100%' }}
                     >
                       <img 
                         src={image.src} 
@@ -272,7 +273,7 @@ const Events = () => {
                 {/* View all button */}
                 <button
                   onClick={() => setGalleryOpen(true)}
-                  className="m-3 py-2 px-4 bg-muted/50 hover:bg-muted border border-border rounded-lg flex items-center justify-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
+                  className="m-3 py-2 px-4 bg-primary hover:bg-primary/90 rounded-lg flex items-center justify-center gap-2 text-primary-foreground transition-colors"
                 >
                   <span className="font-body text-sm">View all</span>
                 </button>
