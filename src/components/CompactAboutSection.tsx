@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { BookOpen } from 'lucide-react';
-import laundryFacility from '@/assets/laundry-facility.png';
+import laundryFacility from '@/assets/laundry-facility-new.png';
 const CompactAboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
