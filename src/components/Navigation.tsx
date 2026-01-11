@@ -122,7 +122,7 @@ const Navigation = () => {
             {/* Event Hire - standalone gold link */}
             <Link
               to="/events"
-              className="font-body text-sm tracking-wide font-semibold text-[#DAA520] hover:text-[#B8860B] transition-colors duration-300 relative group"
+              className="font-body text-sm tracking-wide font-semibold text-[#DAA520] hover:text-[#B8860B] transition-colors duration-300 relative group whitespace-nowrap"
             >
               <span className="relative">
                 Event Hire
