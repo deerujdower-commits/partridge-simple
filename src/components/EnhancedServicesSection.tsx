@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import hotelDining from '@/assets/hotel-dining-damask.jpg';
 import hotelBedroom from '@/assets/hotel-bedroom-linens.jpg';
-import restaurantDining from '@/assets/restaurant-fine-dining.jpg';
-import restaurantLinens from '@/assets/restaurant-linen-service.jpg';
+import restaurantWhiteRound from '@/assets/restaurant-white-round-setting.jpg';
+import restaurantBlackSetting from '@/assets/restaurant-black-tablecloth-setting.jpg';
+import restaurantWhiteMinimal from '@/assets/restaurant-white-table-minimal.jpg';
 const weddingReception = '/lovable-uploads/c70f1b51-9221-4ffa-8db2-bcc1cabaf32e.png';
 const corporateEvent = '/lovable-uploads/ba3431f5-20fc-4ca2-b912-c91a1395793e.png';
 
@@ -16,7 +17,7 @@ const services = [
   {
     title: 'Restaurant & Food Service',
     description: 'Professional kitchen and dining textiles. Damask tablecloths, napkins, chef whites, and aprons cleaned to food service standards.',
-    images: [restaurantDining, restaurantLinens],
+    images: [restaurantWhiteRound, restaurantBlackSetting, restaurantWhiteMinimal],
     features: ['Food-safe cleaning', 'Stain removal expertise', 'Same-day turnaround', 'Uniform management']
   },
   {
@@ -55,9 +56,9 @@ const EnhancedServicesSection = () => {
     const interval = setInterval(() => {
       setActiveImageIndex(prev => {
         const newIndex = { ...prev };
-        services.forEach((_, index) => {
-          if (services[index].images.length > 1) {
-            newIndex[index] = (prev[index] || 0) === 0 ? 1 : 0;
+        services.forEach((service, index) => {
+          if (service.images.length > 1) {
+            newIndex[index] = ((prev[index] || 0) + 1) % service.images.length;
           }
         });
         return newIndex;
