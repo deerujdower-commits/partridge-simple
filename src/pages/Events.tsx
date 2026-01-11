@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, Images } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import InstagramGallery from '@/components/InstagramGallery';
 import { Button } from '@/components/ui/button';
@@ -208,11 +208,18 @@ const Events = () => {
 
       <main className="py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          {/* Intro text */}
-          <div className="mb-8">
+          {/* Intro text with Gallery button */}
+          <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <p className="text-foreground/70 font-body leading-relaxed text-base max-w-2xl">
               From weddings to corporate events, we provide premium tablecloths and damask linens to make your occasion memorable.
             </p>
+            <Button 
+              onClick={() => document.getElementById('event-gallery')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-accent text-accent-foreground hover:bg-accent/90 shrink-0"
+            >
+              <Images className="w-4 h-4 mr-2" />
+              View Gallery
+            </Button>
           </div>
 
           {/* 2x2 Grid Layout */}
@@ -241,7 +248,7 @@ const Events = () => {
             <ChairCoversSection />
 
             {/* Bottom Right - Gallery */}
-            <div>
+            <div id="event-gallery">
               <div className="bg-muted/30 border border-border rounded-lg overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40 flex flex-col">
                 <h3 className="font-display text-lg font-medium text-foreground p-4 pb-3">Event Gallery</h3>
                 {/* Preview grid - 3x3, no gaps, Instagram-style flush layout */}
