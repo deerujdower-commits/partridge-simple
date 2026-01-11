@@ -190,7 +190,7 @@ const Restaurant = () => {
             {restaurantProducts.map((product, index) => (
               <div 
                 key={index} 
-                className="bg-card rounded-lg overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-all duration-500 cursor-pointer"
+                className="bg-card rounded-lg overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-all duration-500 cursor-pointer flex flex-col h-full"
                 onClick={() => setSelectedModal(modalData[product.modalSlug as keyof typeof modalData])}
               >
                 <div className="aspect-[4/3] lg:aspect-square overflow-hidden">
@@ -200,14 +200,14 @@ const Restaurant = () => {
                     className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="font-display text-xl font-light text-foreground mb-3">
                     {product.title}
                   </h3>
-                  <p className="text-foreground/70 font-body leading-relaxed mb-4">
+                  <p className="text-foreground/70 font-body leading-relaxed mb-4 flex-grow">
                     {product.description}
                   </p>
-                  <div className="flex items-center text-foreground/60 hover:text-foreground transition-colors duration-300">
+                  <div className="flex items-center text-foreground/60 hover:text-foreground transition-colors duration-300 mt-auto">
                     <span className="text-sm font-light uppercase tracking-wide">View Collection</span>
                     <div className="w-4 h-px bg-current ml-3 transition-all duration-300" />
                   </div>
