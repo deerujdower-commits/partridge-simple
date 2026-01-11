@@ -101,7 +101,7 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
           {/* Color Selection */}
           <div>
             <label className="block text-sm font-body text-foreground/70 mb-2">Colour</label>
-            <div className="grid grid-cols-5 gap-2 min-h-[72px] content-start">
+            <div className="grid grid-cols-3 gap-2 min-h-[72px] content-start">
               {colors.map((color) => (
                 <button
                   key={color.name}
