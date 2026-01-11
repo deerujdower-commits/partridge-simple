@@ -20,9 +20,9 @@ const Footer = () => {
 
   return <footer className="bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-6 gap-8">
+        <div className="grid md:grid-cols-6 gap-8">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="md:col-span-2">
             <div className="font-display text-3xl font-bold text-foreground mb-4">
               Partridge<span className="text-primary"> Linen</span>
             </div>
@@ -47,7 +47,7 @@ const Footer = () => {
             </div>)}
 
           {/* Opening Times & Map */}
-          <div className="lg:col-span-2">
+          <div className="md:col-span-2">
             <h3 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
               <Clock className="w-4 h-4" />
               Opening Times
