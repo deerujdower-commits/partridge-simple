@@ -30,9 +30,10 @@ interface EventProductSectionProps {
   colors: ColorOption[];
   productTypes: ProductType[];
   sizeGuideType?: 'rectangular' | 'round' | 'both';
+  showColorNote?: boolean;
 }
 
-const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'both' }: EventProductSectionProps) => {
+const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'both', showColorNote = false }: EventProductSectionProps) => {
   const { toast } = useToast();
   const { addItem } = useEnquiry();
   const isMobile = useIsMobile();
@@ -134,6 +135,11 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
                 </button>
               ))}
             </div>
+            {showColorNote && (
+              <p className="text-xs text-foreground/60 font-body mt-3 italic">
+                We have a range of other colours available — please email or call so we can check stock or source for you.
+              </p>
+            )}
           </div>
         </div>
 
