@@ -10,7 +10,7 @@ import apronModel from '@/assets/apron-model.jpg';
 import chefJacketWhiteModel from '@/assets/chef-jacket-white-model.jpg';
 import eventBurgundyDamask from '@/assets/partridge-linen-burgundy-damask-crystal.webp';
 import eventWhiteRoundDarkLighting from '@/assets/partridge-linen-white-round-dark-lighting.png';
-import eventChairCoversPinkSash from '@/assets/partridge-linen-white-chair-covers-pink-sash.png';
+import eventWhiteDamaskWeddingHall from '@/assets/partridge-linen-white-damask-wedding-hall.webp';
 import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
 import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
 import towelsStackWhite from '@/assets/towels-stack-white.jpg';
@@ -33,7 +33,7 @@ const services: Service[] = [{
 }, {
   title: 'Event Hire',
   description: 'Elegant damask for weddings and corporate events.',
-  images: [eventBurgundyDamask, eventWhiteRoundDarkLighting, eventChairCoversPinkSash],
+  images: [eventBurgundyDamask, eventWhiteRoundDarkLighting, eventWhiteDamaskWeddingHall],
   icon: Sparkles,
   slug: 'events'
 }, {
