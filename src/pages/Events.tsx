@@ -281,7 +281,7 @@ const Events = () => {
           />
 
           {/* FAQ Section - Centered */}
-          <div className="max-w-3xl mx-auto my-12">
+          <div className="max-w-3xl mx-auto my-12 bg-muted/30 border border-border/50 rounded-xl p-6 md:p-10">
             <h2 className="font-display text-2xl font-light text-foreground mb-8 text-center">
               Frequently Asked Questions
             </h2>
