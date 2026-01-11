@@ -1,73 +1,85 @@
-import { Clock } from 'lucide-react';
+import { Clock, Phone, Mail } from 'lucide-react';
 
 const Footer = () => {
-  const footerSections = [{
-    title: 'Services',
-    links: [
-      { name: 'Restaurant', href: '/restaurant' },
-      { name: 'Event Hire', href: '/events' },
-      { name: 'Hotel', href: '/hotel-linens' },
-      { name: 'Kitchen', href: '/kitchen' }
-    ]
-  }, {
-    title: 'Company',
-    links: [
-      { name: 'Contact Us', href: '/contact' },
-      { name: '020 8653 6066', href: 'tel:02086536066' },
-      { name: 'info@partridgelinen.co.uk', href: 'mailto:info@partridgelinen.co.uk' }
-    ]
-  }];
+  const serviceLinks = [
+    { name: 'Restaurant', href: '/restaurant' },
+    { name: 'Event Hire', href: '/events' },
+    { name: 'Hotel', href: '/hotel-linens' },
+    { name: 'Kitchen', href: '/kitchen' }
+  ];
 
-  return <footer className="bg-background border-t border-border">
+  return (
+    <footer className="bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-6 gap-8">
-          {/* Brand */}
+          {/* Contact Us - formerly Brand section */}
           <div className="md:col-span-2">
-            <div className="font-display text-3xl font-bold text-foreground mb-4">
-              Partridge<span className="text-primary"> Linen</span>
-            </div>
-            <p className="font-body text-muted-foreground mb-4 max-w-md">Premium laundry services. Experience the perfect blend of traditional craftsmanship and modern convenience.</p>
-            <p className="font-body text-xs text-muted-foreground/70">
+            <h3 className="font-display font-semibold text-foreground mb-4">Contact Us</h3>
+            <p className="font-body text-muted-foreground mb-4 max-w-md">
               Partridge Laundry & Linen Hire Ltd
             </p>
+            <div className="flex flex-wrap items-center gap-4 text-sm">
+              <a 
+                href="tel:02086536066" 
+                className="font-body text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4" />
+                020 8653 6066
+              </a>
+              <a 
+                href="mailto:enquiry@partridgelinenhire.co.uk" 
+                className="font-body text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <Mail className="w-4 h-4" />
+                enquiry@partridgelinenhire.co.uk
+              </a>
+            </div>
           </div>
 
-          {/* Links */}
-          {footerSections.map((section, index) => <div key={index}>
-              <h3 className="font-display font-semibold text-foreground mb-4">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <a href={link.href} className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>)}
-
-          {/* Opening Times & Map */}
-          <div className="md:col-span-2">
-            <h3 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              Opening Times
-            </h3>
-            <ul className="space-y-1 mb-4">
-              <li className="font-body text-sm text-muted-foreground">Mon - Fri: 8:00am - 5:00pm</li>
-              <li className="font-body text-sm text-muted-foreground">Saturday: 9:00am - 1:00pm</li>
-              <li className="font-body text-sm text-muted-foreground">Sunday: Closed</li>
+          {/* Services */}
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-4">Services</h3>
+            <ul className="space-y-2">
+              {serviceLinks.map((link, index) => (
+                <li key={index}>
+                  <a href={link.href} className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
-            <div className="rounded-lg overflow-hidden border border-border">
-              <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=1-5+The+Drive,+CR7+8LB,+UK"
-                width="100%"
-                height="150"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Partridge Laundry Location"
-              />
+          </div>
+
+          {/* Opening Times & Map side by side */}
+          <div className="md:col-span-3 grid sm:grid-cols-2 gap-6">
+            {/* Opening Times */}
+            <div>
+              <h3 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                Opening Times
+              </h3>
+              <ul className="space-y-1">
+                <li className="font-body text-sm text-muted-foreground">Mon - Fri: 8:00am - 5:00pm</li>
+                <li className="font-body text-sm text-muted-foreground">Saturday: 9:00am - 1:00pm</li>
+                <li className="font-body text-sm text-muted-foreground">Sunday: Closed</li>
+              </ul>
+            </div>
+
+            {/* Map */}
+            <div>
+              <h3 className="font-display font-semibold text-foreground mb-4">Find Us</h3>
+              <div className="rounded-lg overflow-hidden border border-border">
+                <iframe
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=1-5+The+Drive,+CR7+8LB,+UK"
+                  width="100%"
+                  height="150"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Partridge Laundry Location"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -97,6 +109,8 @@ const Footer = () => {
           />
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
