@@ -233,6 +233,7 @@ const Events = () => {
                 colors={tableLinenColors}
                 productTypes={tableLinenProductTypes}
                 sizeGuideType="both"
+                showColorNote={true}
               />
             </div>
 
