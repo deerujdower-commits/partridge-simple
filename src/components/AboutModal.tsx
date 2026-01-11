@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { openMailto } from '@/lib/openMailto';
 
 interface AboutModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onEnquireClick?: () => void;
   section: {
     id: number;
     title: string;
@@ -15,7 +15,7 @@ interface AboutModalProps {
   };
 }
 
-const AboutModal = ({ isOpen, onClose, section }: AboutModalProps) => {
+const AboutModal = ({ isOpen, onClose, onEnquireClick, section }: AboutModalProps) => {
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -58,6 +58,13 @@ The next generation of the Partridge family brings fresh ideas and energy to the
     };
 
     return extendedDescriptions[sectionId as keyof typeof extendedDescriptions] || section.description;
+  };
+
+  const handleGetInTouch = () => {
+    onClose();
+    if (onEnquireClick) {
+      setTimeout(() => onEnquireClick(), 100);
+    }
   };
 
   return (
@@ -106,11 +113,7 @@ The next generation of the Partridge family brings fresh ideas and energy to the
                 </p>
                 <Button 
                   className="w-full"
-                  onClick={() => openMailto({
-                    to: 'enquiry@partridgelinenhire.co.uk',
-                    subject: 'Enquiry about Partridge Linen Services',
-                    body: 'Hi,\n\nI would like to learn more about your services.\n\n[Please describe your requirements here]\n\n---\nAlternatively, you can call us on 020 8653 6066',
-                  })}
+                  onClick={handleGetInTouch}
                 >
                   Get in Touch
                 </Button>

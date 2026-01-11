@@ -217,7 +217,7 @@ const Kitchen = () => {
         </div>
       </main>
 
-      <Footer />
+      <Footer onEmailClick={() => setIsEnquiryOpen(true)} />
       <EnquiryModal
         isOpen={isEnquiryOpen}
         onClose={() => {

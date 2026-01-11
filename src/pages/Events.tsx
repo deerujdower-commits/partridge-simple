@@ -5,7 +5,7 @@ import { Phone, Mail, Images } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import InstagramGallery from '@/components/InstagramGallery';
 import { Button } from '@/components/ui/button';
-import { openMailto } from '@/lib/openMailto';
+import EnquiryModal from '@/components/EnquiryModal';
 
 import {
   Accordion,
@@ -231,6 +231,7 @@ const galleryImages: { src: string; alt: string }[] = [
 const Events = () => {
   const navigate = useNavigate();
   const [galleryOpen, setGalleryOpen] = useState(false);
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -455,10 +456,7 @@ const Events = () => {
               </a>
               <button
                 type="button"
-                onClick={() => {
-                  console.log('[contact] events email click');
-                  openMailto({ to: 'enquiry@partridgelinenhire.co.uk', subject: 'Event hire enquiry', body: 'Hi,\n\nI would like to enquire about event hire.' });
-                }}
+                onClick={() => setIsEnquiryOpen(true)}
                 className="inline-flex items-center justify-center px-5 py-2.5 bg-white text-black rounded hover:bg-white/90 transition-colors font-body text-sm"
               >
                 <Mail className="w-4 h-4 mr-2" />
@@ -470,7 +468,12 @@ const Events = () => {
       </main>
 
       <EnquirySummary />
-      <Footer />
+      <Footer onEmailClick={() => setIsEnquiryOpen(true)} />
+      <EnquiryModal
+        isOpen={isEnquiryOpen}
+        onClose={() => setIsEnquiryOpen(false)}
+        productName="Event Hire"
+      />
     </div>
   );
 };

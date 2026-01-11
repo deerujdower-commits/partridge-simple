@@ -9,7 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import heroImage from '@/assets/event-white-round-tables-clean.jpg';
 import buildingExterior from '@/assets/building-exterior.webp';
-import { openMailto } from '@/lib/openMailto';
+import EnquiryModal from '@/components/EnquiryModal';
 
 const contactMethods = [
   {
@@ -86,6 +86,7 @@ const Contact = () => {
   const [visibleMethods, setVisibleMethods] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   
@@ -96,12 +97,12 @@ const Contact = () => {
     message: ''
   });
 
-  const handleMethodClick = (action: string, contact: string) => {
-    console.log('[contact] method click', action, contact);
+  const handleMethodClick = (action: string) => {
+    console.log('[contact] method click', action);
     if (action === 'call') {
-      window.location.href = `tel:${contact.replace(/\s/g, '')}`;
+      window.location.href = 'tel:02086536066';
     } else if (action === 'email') {
-      openMailto({ to: contact, subject: 'Enquiry', body: 'Hi,\n\nI would like to make an enquiry.' });
+      setIsEnquiryOpen(true);
     }
   };
   
@@ -288,7 +289,7 @@ const Contact = () => {
                       className={`bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 transition-all duration-300 ${
                         method.action !== 'none' ? 'cursor-pointer hover:bg-white/15' : ''
                       }`}
-                      onClick={() => handleMethodClick(method.action, method.contact)}
+                      onClick={() => handleMethodClick(method.action)}
                     >
                       <div className="flex items-start gap-4">
                         <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -395,7 +396,11 @@ const Contact = () => {
         </div>
       </main>
 
-      <Footer />
+      <Footer onEmailClick={() => setIsEnquiryOpen(true)} />
+      <EnquiryModal
+        isOpen={isEnquiryOpen}
+        onClose={() => setIsEnquiryOpen(false)}
+      />
     </div>
   );
 };

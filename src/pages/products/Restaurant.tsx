@@ -282,7 +282,7 @@ const Restaurant = () => {
         </div>
       </main>
 
-      <Footer />
+      <Footer onEmailClick={() => setIsEnquiryOpen(true)} />
       <EnquiryModal
         isOpen={isEnquiryOpen}
         onClose={() => setIsEnquiryOpen(false)}

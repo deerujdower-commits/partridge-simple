@@ -1,12 +1,23 @@
 import { Clock, Phone, Mail, MapPin } from 'lucide-react';
 
-const Footer = () => {
+interface FooterProps {
+  onEmailClick?: () => void;
+}
+
+const Footer = ({ onEmailClick }: FooterProps) => {
   const serviceLinks = [
     { name: 'Restaurant', href: '/restaurant' },
     { name: 'Event Hire', href: '/events' },
     { name: 'Hotel', href: '/hotel-linens' },
     { name: 'Kitchen', href: '/kitchen' }
   ];
+
+  const handleEmailClick = (e: React.MouseEvent) => {
+    if (onEmailClick) {
+      e.preventDefault();
+      onEmailClick();
+    }
+  };
 
   return (
     <footer className="bg-background border-t border-border">
@@ -28,13 +39,14 @@ const Footer = () => {
                 <Phone className="w-4 h-4" />
                 020 8653 6066
               </a>
-              <a 
-                href="mailto:enquiry@partridgelinenhire.co.uk" 
+              <button
+                type="button"
+                onClick={handleEmailClick}
                 className="font-body text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
               >
                 <Mail className="w-4 h-4" />
                 enquiry@partridgelinenhire.co.uk
-              </a>
+              </button>
             </div>
           </div>
 

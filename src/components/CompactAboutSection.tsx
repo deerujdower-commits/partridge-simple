@@ -1,10 +1,14 @@
 import { useEffect, useState, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { BookOpen } from 'lucide-react';
 import laundryFacility from '@/assets/laundry-facility-new.png';
-const CompactAboutSection = () => {
+
+interface CompactAboutSectionProps {
+  onEnquireClick?: () => void;
+}
+
+const CompactAboutSection = ({ onEnquireClick }: CompactAboutSectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -18,7 +22,9 @@ const CompactAboutSection = () => {
     }
     return () => observer.disconnect();
   }, []);
-  return <section ref={sectionRef} className="compact-about-section py-12 md:py-20 bg-background relative overflow-hidden">
+
+  return (
+    <section ref={sectionRef} className="compact-about-section py-12 md:py-20 bg-background relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-foreground/10" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-foreground/10" />
@@ -58,6 +64,8 @@ const CompactAboutSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default CompactAboutSection;
