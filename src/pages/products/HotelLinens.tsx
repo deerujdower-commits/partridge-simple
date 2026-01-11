@@ -8,8 +8,6 @@ import EnquiryModal from '@/components/EnquiryModal';
 import CollectionModal from '@/components/CollectionModal';
 import WhyUsSection from '@/components/WhyUsSection';
 import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
-import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
-import hotelLinens2 from '@/assets/hotel-linens-2.jpg';
 import towelsStackWhite from '@/assets/towels-stack-white.jpg';
 import bedSheetsClean from '@/assets/bed-sheets-clean.jpg';
 import bedsheetsLuxury from '@/assets/bedsheets-luxury.jpg';
@@ -22,8 +20,6 @@ import hotelWhyusPillows from '@/assets/hotel-whyus-pillows.png';
 import hotelClientTowels from '@/assets/hotel-client-towels.jpeg';
 import hotelClientBedding from '@/assets/hotel-client-bedding.jpeg';
 import hotelBedLinenMain from '@/assets/hotel-bed-linen-main.jpg';
-import hotelBedLinen1 from '@/assets/hotel-bed-linen-1.jpeg';
-import hotelBedLinen2 from '@/assets/hotel-bed-linen-2.jpeg';
 
 const HotelLinens = () => {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
@@ -34,7 +30,7 @@ const HotelLinens = () => {
       id: 7,
       title: 'Bed Linen',
       description: 'Luxury bed linens including duvet covers, bedsheets, and pillow cases for hospitality and residential use.',
-      images: [hotelBedLinen1, hotelBedLinenMain, hotelBedLinen2],
+      images: [hotelBedLinenMain, hotelBedFreshLinens, hotelBedClean],
       slug: 'bed-linen'
     },
     'towel': {
@@ -50,7 +46,7 @@ const HotelLinens = () => {
     {
       title: 'Bed Linens',
       description: 'Premium quality bed sheets, duvet covers, and pillowcases for ultimate guest comfort.',
-      images: [hotelBedLinen1, hotelBedLinenMain, hotelBedLinen2],
+      images: [hotelBedLinenMain, hotelBedFreshLinens, hotelBedClean],
       modalSlug: 'bed-linen'
     },
     {
