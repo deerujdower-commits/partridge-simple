@@ -92,11 +92,12 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
 
   return (
     <div className="bg-muted/30 border border-border rounded-lg p-5 h-full transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:bg-muted/40">
-      {/* Top section: Title + Colours + Image */}
+      <h3 className="font-display text-lg font-medium text-foreground mb-4 text-center sm:text-left">{title}</h3>
+
+      {/* Top section: Colours + Image */}
       <div className="flex flex-col sm:flex-row gap-5 mb-4">
-        {/* Left side - Title and Colours */}
+        {/* Left side - Colours */}
         <div className="flex-1 min-w-0 order-2 sm:order-1 text-center sm:text-left">
-          <h3 className="font-display text-lg font-medium text-foreground mb-4">{title}</h3>
 
           {/* Color Selection */}
           <div>
