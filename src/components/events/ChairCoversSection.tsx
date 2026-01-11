@@ -184,7 +184,7 @@ const ChairCoversSection = () => {
             <div className="mt-auto pt-4">
               <Button 
                 onClick={handleAddChairCover} 
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                className="w-full bg-emerald-600 text-white hover:bg-emerald-700"
                 disabled={chairQuantity === 0}
               >
                 <ShoppingBag className="w-4 h-4 mr-2" />
@@ -266,7 +266,7 @@ const ChairCoversSection = () => {
               <div className="mt-auto pt-4">
                 <Button 
                   onClick={handleAddSash} 
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full bg-emerald-600 text-white hover:bg-emerald-700"
                   disabled={sashQuantity === 0 || !sashColour.trim()}
                 >
                   <ShoppingBag className="w-4 h-4 mr-2" />
