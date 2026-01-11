@@ -207,16 +207,22 @@ const EventProductSection = ({ title, colors, productTypes, sizeGuideType = 'bot
                 variant="outline"
                 size="icon"
                 className="h-8 w-8"
-                onClick={() => setQuantity(Math.max(0, quantity - 10))}
+                onClick={() => setQuantity(Math.max(0, quantity - 1))}
               >
                 <Minus className="w-3 h-3" />
               </Button>
-              <span className="w-12 text-center font-body font-medium text-foreground text-sm">{quantity}</span>
+              <input
+                type="number"
+                min="0"
+                value={quantity}
+                onChange={(e) => setQuantity(Math.max(0, parseInt(e.target.value) || 0))}
+                className="w-16 text-center font-body font-medium text-foreground text-sm border border-border rounded-md h-8 bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
+              />
               <Button
                 variant="outline"
                 size="icon"
                 className="h-8 w-8"
-                onClick={() => setQuantity(quantity + 10)}
+                onClick={() => setQuantity(quantity + 1)}
               >
                 <Plus className="w-3 h-3" />
               </Button>
