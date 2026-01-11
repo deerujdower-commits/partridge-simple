@@ -280,10 +280,10 @@ const Events = () => {
             onClose={() => setGalleryOpen(false)}
           />
 
-          {/* FAQ Section */}
-          <div className="bg-muted/50 border-2 border-border rounded-lg p-6 md:p-10 my-10">
-            <h2 className="font-display text-2xl font-light text-foreground mb-6">
-              Event Linen Hire: FAQ
+          {/* FAQ Section - Centered */}
+          <div className="max-w-3xl mx-auto my-12">
+            <h2 className="font-display text-2xl font-light text-foreground mb-8 text-center">
+              Frequently Asked Questions
             </h2>
             
             <Accordion type="single" collapsible className="w-full">
