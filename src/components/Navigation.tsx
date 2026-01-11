@@ -69,7 +69,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-8 flex-grow justify-center">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8 flex-grow justify-center">
             {/* Home */}
             <Link
               to="/"
