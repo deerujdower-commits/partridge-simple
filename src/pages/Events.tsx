@@ -75,6 +75,7 @@ import galleryWhiteLinenMarquee from '@/assets/partridge-linen-white-linen-marqu
 import galleryWhiteRoundSetup from '@/assets/partridge-linen-white-round-setup.png';
 import galleryWhiteSetupMultiple from '@/assets/partridge-linen-white-setup-multiple.png';
 import galleryGreenGoldNapkins from '@/assets/partridge-linen-green-gold-napkins.jpeg';
+import galleryWhiteRoundDarkLighting from '@/assets/partridge-linen-white-round-dark-lighting.png';
 
 // Table Linen configuration
 
@@ -193,6 +194,7 @@ const galleryImages: { src: string; alt: string }[] = [
   { src: galleryWhiteRoundSetup, alt: 'Partridge Linen white round tablecloth with elegant floral centerpiece and chiavari chairs' },
   { src: galleryWhiteSetupMultiple, alt: 'Partridge Linen white round tablecloths at wedding venue with tall floral centerpieces and fairy light backdrop' },
   { src: galleryGreenGoldNapkins, alt: 'Partridge Linen emerald green tablecloths with gold napkins and pink floral arrangements at elegant reception' },
+  { src: galleryWhiteRoundDarkLighting, alt: 'Partridge Linen white round tablecloth with tall floral centerpiece and elegant glassware in dramatic dark lighting' },
 ];
 
 const Events = () => {
