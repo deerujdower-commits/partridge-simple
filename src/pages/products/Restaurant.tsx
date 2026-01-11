@@ -13,9 +13,9 @@ const studioFittedBlackTableclothV2 = '/lovable-uploads/e059eed4-9708-4d5a-8545-
 const studioFittedIvoryTableclothV2 = '/lovable-uploads/788eb1d4-c9b5-434b-8d56-65ffdcd67cb8.png';
 
 // Napkin images
-import studioFittedWhiteNapkins from '@/assets/studio-fitted-white-napkins.jpg';
-import studioFittedBlackNapkins from '@/assets/studio-fitted-black-napkins.jpg';
-import studioFittedIvoryNapkins from '@/assets/studio-fitted-ivory-napkins.jpg';
+import napkinWhiteFolded from '@/assets/napkin-white-folded.png';
+import napkinBlackFolded from '@/assets/napkin-black-folded.png';
+import napkinIvoryFolded from '@/assets/napkin-ivory-folded.png';
 
 // Kitchen images
 import kitchenClothWonderdryGreen from '@/assets/kitchen-cloth-wonderdry-green.jpeg';
@@ -67,7 +67,7 @@ const Restaurant = () => {
       id: 3,
       title: 'Napkins',
       description: 'Premium cloth napkins in white, black, and ivory to complement any table setting.',
-      images: [studioFittedWhiteNapkins, studioFittedIvoryNapkins, studioFittedBlackNapkins],
+      images: [napkinWhiteFolded, napkinIvoryFolded, napkinBlackFolded],
       slug: 'napkins'
     },
     'kitchen-linen': {
@@ -115,7 +115,7 @@ const Restaurant = () => {
     {
       title: 'Napkins',
       description: 'Premium cloth napkins to complement any table setting.',
-      images: [studioFittedWhiteNapkins],
+      images: [napkinWhiteFolded],
       modalSlug: 'napkins'
     },
     {
