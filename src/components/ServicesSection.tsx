@@ -8,9 +8,9 @@ import restaurantWhiteMinimal from '@/assets/restaurant-white-table-minimal.jpg'
 import kitchenClothHerringboneGreen from '@/assets/kitchen-cloth-herringbone-green.jpeg';
 import apronModel from '@/assets/apron-model.jpg';
 import chefJacketWhiteModel from '@/assets/chef-jacket-white-model.jpg';
-import eventGoldDamaskTables from '@/assets/event-gold-damask-tables.jpg';
-import eventSilverDamaskTables from '@/assets/event-silver-damask-tables.jpg';
-import eventWhiteRoundTablesClean from '@/assets/event-white-round-tables-clean.jpg';
+import eventBurgundyDamask from '@/assets/partridge-linen-burgundy-damask-crystal.webp';
+import eventWhiteRoundDarkLighting from '@/assets/partridge-linen-white-round-dark-lighting.png';
+import eventChairCoversPinkSash from '@/assets/partridge-linen-white-chair-covers-pink-sash.png';
 import hotelBedClean from '@/assets/hotel-bed-clean.jpg';
 import hotelLinens1 from '@/assets/hotel-linens-1.jpg';
 import towelsStackWhite from '@/assets/towels-stack-white.jpg';
@@ -33,7 +33,7 @@ const services: Service[] = [{
 }, {
   title: 'Event Hire',
   description: 'Elegant damask for weddings and corporate events.',
-  images: [eventGoldDamaskTables, eventSilverDamaskTables, eventWhiteRoundTablesClean],
+  images: [eventBurgundyDamask, eventWhiteRoundDarkLighting, eventChairCoversPinkSash],
   icon: Sparkles,
   slug: 'events'
 }, {
