@@ -193,7 +193,7 @@ const Restaurant = () => {
                 className="bg-card rounded-lg overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-all duration-500 cursor-pointer"
                 onClick={() => setSelectedModal(modalData[product.modalSlug as keyof typeof modalData])}
               >
-                <div className="aspect-[4/3] overflow-hidden bg-muted/30">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={product.images[0]}
                     alt={product.title}
