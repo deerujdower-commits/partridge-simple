@@ -281,53 +281,53 @@ const Events = () => {
           />
 
           {/* FAQ Section - Centered */}
-          <div className="max-w-3xl mx-auto my-12 bg-accent text-accent-foreground rounded-xl p-6 md:p-10">
-            <h2 className="font-display text-2xl font-light mb-8 text-center">
+          <div className="max-w-3xl mx-auto my-12 bg-muted-foreground/10 border border-border/50 rounded-xl p-6 md:p-10">
+            <h2 className="font-display text-2xl font-light text-foreground mb-8 text-center">
               Frequently Asked Questions
             </h2>
             
-            <Accordion type="single" collapsible className="w-full [&_.border-b]:border-accent-foreground/20">
-              <AccordionItem value="item-1" className="border-accent-foreground/20">
-                <AccordionTrigger className="font-display text-sm justify-center text-center">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="font-display text-sm text-left">
                   What is the lead time for placing an order?
                 </AccordionTrigger>
-                <AccordionContent className="text-accent-foreground/80 font-body leading-relaxed text-sm text-center">
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
                   We recommend submitting your order at least 5 working days prior to your event date. While same-week orders can often be accommodated, we must check stock availability before confirming.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-2" className="border-accent-foreground/20">
-                <AccordionTrigger className="font-display text-sm justify-center text-center">
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="font-display text-sm text-left">
                   What are the collection and delivery options?
                 </AccordionTrigger>
-                <AccordionContent className="text-accent-foreground/80 font-body leading-relaxed text-sm text-center">
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
                   Collection and return are free from our premises in Thornton Heath, Croydon. If you require delivery, you can request this option at checkout.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-3" className="border-accent-foreground/20">
-                <AccordionTrigger className="font-display text-sm justify-center text-center">
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="font-display text-sm text-left">
                   How does the refundable damage deposit work?
                 </AccordionTrigger>
-                <AccordionContent className="text-accent-foreground/80 font-body leading-relaxed text-sm text-center">
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
                   A deposit is required for all items. The deposit is fully refundable after the items are returned and checked at our premises.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4" className="border-accent-foreground/20">
-                <AccordionTrigger className="font-display text-sm justify-center text-center">
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="font-display text-sm text-left">
                   What is the standard hire period?
                 </AccordionTrigger>
-                <AccordionContent className="text-accent-foreground/80 font-body leading-relaxed text-sm text-center">
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
                   Our standard hire period is 3 days. If you need the items for longer, please let us know and we can arrange an extended hire.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-5" className="border-accent-foreground/20">
-                <AccordionTrigger className="font-display text-sm justify-center text-center">
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="font-display text-sm text-left">
                   Do I need to wash the items before returning?
                 </AccordionTrigger>
-                <AccordionContent className="text-accent-foreground/80 font-body leading-relaxed text-sm text-center">
+                <AccordionContent className="text-foreground/70 font-body leading-relaxed text-sm">
                   No, you don't need to wash the items. Simply return them in a bag or box. We handle all the cleaning professionally.
                 </AccordionContent>
               </AccordionItem>
