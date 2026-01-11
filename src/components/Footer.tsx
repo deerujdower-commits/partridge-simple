@@ -17,12 +17,8 @@ const Footer = () => {
             <a href="/contact" className="font-display font-semibold text-foreground mb-4 block hover:text-primary transition-colors">
               Contact Us
             </a>
-            <p className="font-body text-muted-foreground mb-2 max-w-md">
+            <p className="font-body text-muted-foreground mb-4 max-w-md">
               Partridge Laundry & Linen Hire Ltd
-            </p>
-            <p className="font-body text-sm text-muted-foreground mb-4 flex items-start gap-2">
-              <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-              <span>1-5 The Drive<br />Thornton Heath<br />CR7 8LB</span>
             </p>
             <div className="flex flex-wrap items-center gap-4 text-sm">
               <a 
@@ -58,17 +54,20 @@ const Footer = () => {
 
           {/* Opening Times & Map side by side */}
           <div className="md:col-span-3 grid sm:grid-cols-2 gap-6">
-            {/* Opening Times */}
             <div>
               <h3 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 Opening Times
               </h3>
-              <ul className="space-y-1">
+              <ul className="space-y-1 mb-4">
                 <li className="font-body text-sm text-muted-foreground">Mon - Fri: 8:00am - 5:00pm</li>
                 <li className="font-body text-sm text-muted-foreground">Saturday: 9:00am - 1:00pm</li>
                 <li className="font-body text-sm text-muted-foreground">Sunday: Closed</li>
               </ul>
+              <p className="font-body text-sm text-muted-foreground flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+                <span>1-5 The Drive<br />Thornton Heath<br />CR7 8LB</span>
+              </p>
             </div>
 
             {/* Map */}
